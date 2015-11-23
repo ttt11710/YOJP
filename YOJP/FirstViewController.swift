@@ -17,15 +17,21 @@ class FirstViewController: AMScrollingNavbarViewController,UICollectionViewDataS
 
     
     var showLeftViewBtn : TBAnimationButton!
+    var collectionView : UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         defaultFirstViewController = self
+        
+      //  self.automaticallyAdjustsScrollViewInsets = false
 
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         self.creatCollectionView()
         self.setupLeftMenuButton()
-        // Do any additional setup after loading the view.
+        
+        
     }
 
     class func shareFirstViewController() -> FirstViewController {
@@ -42,7 +48,7 @@ class FirstViewController: AMScrollingNavbarViewController,UICollectionViewDataS
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let collectionView = UICollectionView(frame: CGRectMake(0, 64, screenWidth, screenHeight), collectionViewLayout: flowLayout)
+        self.collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight), collectionViewLayout: flowLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = yojpTableViewColor
@@ -54,6 +60,7 @@ class FirstViewController: AMScrollingNavbarViewController,UICollectionViewDataS
         
         self.followScrollView(collectionView)
     }
+    
     
     func setupLeftMenuButton() {
         

@@ -7,17 +7,38 @@
 //
 
 import UIKit
+import TBIconTransitionKit
+import MMDrawerController
 
+var defaultSecondViewController : SecondViewController!
 class SecondViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
+    
+    var showLeftViewBtn : TBAnimationButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        defaultSecondViewController = self
+        
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+      //  self.automaticallyAdjustsScrollViewInsets = false
+        
         self.creatCollectionView()
+        self.setupLeftMenuButton()
+        
+        
         
         // Do any additional setup after loading the view.
     }
 
+    class func shareSecondViewController() -> SecondViewController {
+        
+        return defaultSecondViewController
+    }
+
+    
     func creatCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .Vertical
@@ -28,7 +49,7 @@ class SecondViewController: AMScrollingNavbarViewController,UICollectionViewData
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let collectionView = UICollectionView(frame: CGRectMake(0, 64, screenWidth, screenHeight), collectionViewLayout: flowLayout)
+        let collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight), collectionViewLayout: flowLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = yojpTableViewColor
@@ -41,6 +62,54 @@ class SecondViewController: AMScrollingNavbarViewController,UICollectionViewData
         self.followScrollView(collectionView)
     }
 
+    func setupLeftMenuButton() {
+        
+        
+        self.showLeftViewBtn = TBAnimationButton(type: .Custom)
+        self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60, 40, 40)
+        self.showLeftViewBtn.currentState = TBAnimationButtonState.Menu
+        self.showLeftViewBtn.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        self.showLeftViewBtn.layer.cornerRadius = 20
+        self.showLeftViewBtn.layer.masksToBounds = true
+        self.showLeftViewBtn.lineHeight = 3
+        self.showLeftViewBtn.lineWidth = 20
+        self.showLeftViewBtn.lineSpacing = 3
+        self.showLeftViewBtn.addTarget(self, action: Selector("leftDrawerButtonPress:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.showLeftViewBtn)
+        self.view.insertSubview(self.showLeftViewBtn, aboveSubview: self.view)
+        
+        // var leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(image: UIImage(named: "navigation_backView"), style: UIBarButtonItemStyle.Done, target: self, action: Selector("leftDrawerButtonPress"))
+        //        var leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress"))
+        //        self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
+        
+    }
+    
+    func leftDrawerButtonPress(sender : TBAnimationButton) {
+        self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true) { (finished : Bool) -> Void in
+            
+            self.changeShowLeftBtnType()
+        }
+    }
+    
+    func changeShowLeftBtnType() {
+        if self.showLeftViewBtn.currentState == TBAnimationButtonState.Menu {
+            self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Arrow)
+        }
+        else {
+            self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Menu)
+        }
+    }
+    
+    func changeShowLeftBtnTypeWithInt( num : Int) {
+        if num == 0 {
+            self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Menu)
+        }
+        else {
+            self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Arrow)
+        }
+    }
+
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
@@ -85,7 +154,9 @@ class SecondViewController: AMScrollingNavbarViewController,UICollectionViewData
         return sectionHeader
     }
 
-    
+    func showORhideShowLeftViewBtn(flag : Bool) {
+        self.showLeftViewBtn.hidden = flag
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

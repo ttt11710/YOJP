@@ -102,19 +102,19 @@
 		
 		// Keeps the view's scroll position steady until the navbar is gone
 		if ([self.scrollableView isKindOfClass:[UIScrollView class]]) {
-            [(UIScrollView*)self.scrollableView setContentOffset:CGPointMake(((UIScrollView*)self.scrollableView).contentOffset.x, ((UIScrollView*)self.scrollableView).contentOffset.y - delta)];
-        }
+			[(UIScrollView*)self.scrollableView setContentOffset:CGPointMake(((UIScrollView*)self.scrollableView).contentOffset.x, ((UIScrollView*)self.scrollableView).contentOffset.y - delta)];
+		}
         
         [[MainViewController shareMainViewController] showORhideShowLeftViewBtn:true];
-        [[FirstViewController shareFirstViewController] showORhideShowLeftViewBtn:true];
-    }
-    
-    if (delta < 0) {
-        if (self.isExpanded) {
-            return;
-        }
         
-        frame = self.navigationController.navigationBar.frame;
+	}
+	
+	if (delta < 0) {
+		if (self.isExpanded) {
+			return;
+		}
+		
+		frame = self.navigationController.navigationBar.frame;
 		
 		if (frame.origin.y - delta > 20) {
 			delta = frame.origin.y - 20;
@@ -130,7 +130,7 @@
 		[self updateSizingWithDelta:delta];
         
         [[MainViewController shareMainViewController] showORhideShowLeftViewBtn:false];
-        [[FirstViewController shareFirstViewController] showORhideShowLeftViewBtn:false];
+        
 	}
 }
 
@@ -181,7 +181,7 @@
 	self.navigationController.navigationBar.tintColor = [self.navigationController.navigationBar.tintColor colorWithAlphaComponent:alpha];
 	
 	frame = self.scrollableView.superview.frame;
-	frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height-64;
+	frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;
 	frame.size.height = frame.size.height + delta;
 	self.scrollableView.superview.frame = frame;
 	
@@ -189,7 +189,6 @@
 	frame = self.scrollableView.layer.frame;
 	frame.size.height += delta;
 	self.scrollableView.layer.frame = frame;
-    
 }
 
 @end

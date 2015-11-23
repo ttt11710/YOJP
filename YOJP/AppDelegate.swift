@@ -48,14 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if drawerController.openSide == MMDrawerSide.Left {
                 MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(1)
-                FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(1)
+             //   FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(1)
+             //   SecondViewController.shareSecondViewController().changeShowLeftBtnTypeWithInt(1)
             }
             else {
                 MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(0)
-                FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(0)
+             //   FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(0)
+             //   SecondViewController.shareSecondViewController().changeShowLeftBtnTypeWithInt(0)
             }
             MainViewController.shareMainViewController().showORhideShowLeftViewBtn(false)
-            FirstViewController.shareFirstViewController().showORhideShowLeftViewBtn(false)
+           // FirstViewController.shareFirstViewController().showORhideShowLeftViewBtn(false)
+           // SecondViewController.shareSecondViewController().showORhideShowLeftViewBtn(false)
         }
         
         self.window?.tintColor = yojpBlue

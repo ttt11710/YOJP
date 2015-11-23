@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		46A02557317A50540000DFA8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DF2E18E11BF5902300AC151A /* AMScrollingNavbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2E18E01BF5902300AC151A /* AMScrollingNavbarViewController.m */; };
 		DF3A2E511BFD954D00A995E1 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DF3A2E501BFD954D00A995E1 /* tessdata */; };
 		DF3A2E531BFD956800A995E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */; };
 		DF3A2E551BFD958300A995E1 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */; };
@@ -37,6 +36,7 @@
 		DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */; };
 		DFCB3E541C02DEEB006222C7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E531C02DEEB006222C7 /* FirstViewController.swift */; };
 		DFCB3E561C02E386006222C7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E551C02E386006222C7 /* SecondViewController.swift */; };
+		DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */; };
 		DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */; };
 		DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726161BF320160089645A /* LLFlowCurveView.swift */; };
 		DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726171BF320160089645A /* LLFlowLayer.swift */; };
@@ -71,8 +71,6 @@
 		4A64039892631F01E6A2DDA8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F894140ABF980A4ADACE8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		DF2E18DF1BF5902300AC151A /* AMScrollingNavbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMScrollingNavbarViewController.h; sourceTree = "<group>"; };
-		DF2E18E01BF5902300AC151A /* AMScrollingNavbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMScrollingNavbarViewController.m; sourceTree = "<group>"; };
 		DF3A2E501BFD954D00A995E1 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -109,6 +107,8 @@
 		DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		DFCB3E531C02DEEB006222C7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DFCB3E551C02E386006222C7 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DFCB3E571C030A20006222C7 /* AMScrollingNavbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMScrollingNavbarViewController.h; sourceTree = "<group>"; };
+		DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMScrollingNavbarViewController.m; sourceTree = "<group>"; };
 		DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowCurveProtocol.swift; sourceTree = "<group>"; };
 		DFD726161BF320160089645A /* LLFlowCurveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowCurveView.swift; sourceTree = "<group>"; };
 		DFD726171BF320160089645A /* LLFlowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowLayer.swift; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 		DF2E18DE1BF5902300AC151A /* AMScrollingNavbar */ = {
 			isa = PBXGroup;
 			children = (
-				DF2E18DF1BF5902300AC151A /* AMScrollingNavbarViewController.h */,
-				DF2E18E01BF5902300AC151A /* AMScrollingNavbarViewController.m */,
+				DFCB3E571C030A20006222C7 /* AMScrollingNavbarViewController.h */,
+				DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */,
 			);
 			path = AMScrollingNavbar;
 			sourceTree = "<group>";
@@ -219,14 +219,14 @@
 			isa = PBXGroup;
 			children = (
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
+				DFCB3E531C02DEEB006222C7 /* FirstViewController.swift */,
+				DFCB3E551C02E386006222C7 /* SecondViewController.swift */,
 				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
 				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
 				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */,
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
-				DFCB3E531C02DEEB006222C7 /* FirstViewController.swift */,
-				DFCB3E551C02E386006222C7 /* SecondViewController.swift */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -526,8 +526,8 @@
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
 				DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */,
-				DF2E18E11BF5902300AC151A /* AMScrollingNavbarViewController.m in Sources */,
 				DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */,
+				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
