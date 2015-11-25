@@ -23,8 +23,18 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        self.view.backgroundColor = UIColor(white: 0, alpha: 0.9)
         self.navigationController?.navigationBarHidden = true
+        
+        
+        let backImageView : UIImageView = UIImageView(image: UIImage(named: "LeftViewbackView"))
+        backImageView.frame = CGRectMake(0, 0, screenWidth-80, screenHeight)
+        self.view.addSubview(backImageView)
+        
+        let backView : UIView = UIView(frame: CGRectMake(0,0,screenWidth-80,screenHeight))
+        backView.backgroundColor = UIColor(white: 0, alpha: 0.85)
+        self.view.addSubview(backView)
+        
         self.creatTableView()
         self.requestData()
         self.creatBtn()

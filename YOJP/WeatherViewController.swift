@@ -113,7 +113,7 @@ class WeatherViewController: UIViewController {
                         lineImageView.alpha = 0.5
                         self.view.addSubview(lineImageView)
                     }
-
+                    
                 }
                 else {
                     

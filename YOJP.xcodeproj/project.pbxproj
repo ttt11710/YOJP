@@ -20,6 +20,8 @@
 		DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */; };
 		DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */; };
 		DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69051BF09D29009ED5A9 /* WeatherView.swift */; };
+		DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */; };
+		DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */; };
 		DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F081BEB1E78000CB3EE /* AppDelegate.swift */; };
 		DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */; };
 		DF9A7F0E1BEB1E78000CB3EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF9A7F0C1BEB1E78000CB3EE /* Main.storyboard */; };
@@ -42,6 +44,7 @@
 		DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726191BF320160089645A /* LLFlowSlideMenuEnum.swift */; };
 		DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */; };
 		DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726211BF3204A0089645A /* LeftViewController.swift */; };
+		DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE06CC41C05992300899AE8 /* LabelView.swift */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
 		DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFBC1C03FFED009AA953 /* KOMovingBarViewController.m */; };
 		DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */; };
@@ -90,6 +93,8 @@
 		DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		DF4C69051BF09D29009ED5A9 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		DF9A7F051BEB1E78000CB3EE /* YOJP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YOJP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF9A7F081BEB1E78000CB3EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		DFD726191BF320160089645A /* LLFlowSlideMenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowSlideMenuEnum.swift; sourceTree = "<group>"; };
 		DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowSlideMenuVC.swift; sourceTree = "<group>"; };
 		DFD726211BF3204A0089645A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		DFE06CC41C05992300899AE8 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		DFE7EFB71C03F74D009AA953 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		DFE7EFB81C03F74D009AA953 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		DFE7EFBB1C03FFED009AA953 /* KOMovingBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMovingBarViewController.h; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				DF4C69051BF09D29009ED5A9 /* WeatherView.swift */,
+				DFE06CC41C05992300899AE8 /* LabelView.swift */,
 				DFF7488F1BF48ECA00244E1A /* myCollectionReusableView.swift */,
 				DFF748901BF48ECA00244E1A /* myCollectionReusableView.xib */,
 				DFF748911BF48ECA00244E1A /* myCollectionViewCell.swift */,
@@ -264,6 +271,8 @@
 				DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */,
 				DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */,
 				DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */,
+				DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */,
+				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -471,6 +480,7 @@
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
+				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
@@ -558,6 +568,8 @@
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
 				DF4C68FF1BF0754A009ED5A9 /* TranslateModel.swift in Sources */,
 				DFF748931BF48ECA00244E1A /* myCollectionReusableView.swift in Sources */,
+				DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */,
+				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
 				DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */,
 				DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,

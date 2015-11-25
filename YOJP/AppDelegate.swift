@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
         }
         
+        
+        
         self.window?.tintColor = yojpBlue
                
         drawerController.view.backgroundColor = UIColor.whiteColor()
@@ -73,6 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor(),NSFontAttributeName:font20]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: 0, vertical: -60), forBarMetrics:UIBarMetrics.Default)
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+    
         
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()

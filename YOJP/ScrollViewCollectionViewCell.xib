@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScrollViewCollectionViewCellId" id="gTV-IL-0wX" customClass="ScrollViewCollectionViewCell" customModule="YOJP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="278"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="278"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ft-yc-E2O">
+                        <rect key="frame" x="0.0" y="0.0" width="410" height="278"/>
+                    </scrollView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L4D-x7-3Pp">
+                        <rect key="frame" x="185" y="241" width="39" height="37"/>
+                    </pageControl>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="L4D-x7-3Pp" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0ao-Ds-XeY"/>
+                <constraint firstItem="6ft-yc-E2O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="843-Bt-uMC"/>
+                <constraint firstItem="6ft-yc-E2O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LYx-xm-Cmk"/>
+                <constraint firstAttribute="bottom" secondItem="6ft-yc-E2O" secondAttribute="bottom" id="Y58-M9-Orn"/>
+                <constraint firstAttribute="trailing" secondItem="6ft-yc-E2O" secondAttribute="trailing" id="YeE-0n-xNR"/>
+                <constraint firstAttribute="bottom" secondItem="L4D-x7-3Pp" secondAttribute="bottom" id="sGm-EV-fY5"/>
+            </constraints>
+            <size key="customSize" width="410" height="278"/>
+            <connections>
+                <outlet property="pageControl" destination="L4D-x7-3Pp" id="V1L-xJ-H2k"/>
+                <outlet property="scrollView" destination="6ft-yc-E2O" id="WyY-5T-Reo"/>
+            </connections>
+            <point key="canvasLocation" x="281" y="404"/>
+        </collectionViewCell>
+    </objects>
+</document>

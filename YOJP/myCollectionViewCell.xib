@@ -14,12 +14,6 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="321" height="340"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ltm-jl-OYI">
-                        <rect key="frame" x="0.0" y="0.0" width="321" height="241"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="Ltm-jl-OYI" secondAttribute="height" multiplier="4:3" id="oZk-IA-BWS"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aP6-HM-QRm">
                         <rect key="frame" x="8" y="255" width="305" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -32,32 +26,129 @@
                         <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ltm-jl-OYI">
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="241"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Ltm-jl-OYI" secondAttribute="height" multiplier="4:3" id="oZk-IA-BWS"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtj-DL-UCi">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="免费券金" translatesAutoresizingMaskIntoConstraints="NO" id="26J-1x-hrh">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="eeO-Nf-gpG"/>
+                                    <constraint firstAttribute="width" constant="18" id="k7b-Dq-lrE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eeO-Nf-gpG"/>
+                                        <exclude reference="k7b-Dq-lrE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eeO-Nf-gpG"/>
+                                        <include reference="k7b-Dq-lrE"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.63" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="26J-1x-hrh" firstAttribute="leading" secondItem="dtj-DL-UCi" secondAttribute="leading" constant="4" id="5l4-Cl-yM4"/>
+                            <constraint firstAttribute="height" constant="25" id="BMC-tg-Fz0"/>
+                            <constraint firstAttribute="width" constant="26" id="DnJ-4Q-6TV"/>
+                            <constraint firstItem="26J-1x-hrh" firstAttribute="centerY" secondItem="dtj-DL-UCi" secondAttribute="centerY" id="cb4-6M-bur"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="26J-1x-hrh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BMC-tg-Fz0"/>
+                                <exclude reference="DnJ-4Q-6TV"/>
+                                <exclude reference="5l4-Cl-yM4"/>
+                                <exclude reference="cb4-6M-bur"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="26J-1x-hrh"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="BMC-tg-Fz0"/>
+                                <include reference="DnJ-4Q-6TV"/>
+                                <include reference="5l4-Cl-yM4"/>
+                                <include reference="cb4-6M-bur"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="免费券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ija-Fe-A1j">
+                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.63" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
+                <constraint firstItem="dtj-DL-UCi" firstAttribute="bottom" secondItem="Ltm-jl-OYI" secondAttribute="bottom" constant="-10" id="4lL-cP-FHE"/>
                 <constraint firstItem="aP6-HM-QRm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="6QA-fF-3Fu"/>
                 <constraint firstItem="aP6-HM-QRm" firstAttribute="top" secondItem="Ltm-jl-OYI" secondAttribute="bottom" constant="14" id="AEu-h5-xfh"/>
+                <constraint firstItem="ija-Fe-A1j" firstAttribute="height" secondItem="dtj-DL-UCi" secondAttribute="height" id="FdM-wJ-Otj"/>
+                <constraint firstItem="ija-Fe-A1j" firstAttribute="top" secondItem="dtj-DL-UCi" secondAttribute="top" id="Fn7-fV-B7M"/>
                 <constraint firstItem="QMJ-xo-QGY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="HsA-fE-Xea"/>
-                <constraint firstAttribute="bottom" secondItem="Ltm-jl-OYI" secondAttribute="bottom" id="Jse-zO-9ub"/>
+                <constraint firstItem="dtj-DL-UCi" firstAttribute="leading" secondItem="Ltm-jl-OYI" secondAttribute="leading" constant="8" id="QTn-BF-XnR"/>
                 <constraint firstAttribute="trailing" secondItem="Ltm-jl-OYI" secondAttribute="trailing" id="Zgu-vN-6A1"/>
                 <constraint firstItem="Ltm-jl-OYI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dLQ-Ai-MFa"/>
                 <constraint firstAttribute="bottom" secondItem="QMJ-xo-QGY" secondAttribute="bottom" constant="2" id="fYr-yH-rjl"/>
                 <constraint firstItem="Ltm-jl-OYI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mit-Nk-VM3"/>
+                <constraint firstItem="ija-Fe-A1j" firstAttribute="leading" secondItem="dtj-DL-UCi" secondAttribute="trailing" id="oWw-H2-MCE"/>
                 <constraint firstAttribute="trailing" secondItem="aP6-HM-QRm" secondAttribute="trailing" constant="8" id="wHs-CA-5by"/>
             </constraints>
             <size key="customSize" width="321" height="340"/>
             <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="dtj-DL-UCi"/>
+                    <exclude reference="ija-Fe-A1j"/>
+                </mask>
                 <mask key="constraints">
-                    <exclude reference="Jse-zO-9ub"/>
+                    <exclude reference="4lL-cP-FHE"/>
+                    <exclude reference="QTn-BF-XnR"/>
+                    <exclude reference="FdM-wJ-Otj"/>
+                    <exclude reference="Fn7-fV-B7M"/>
+                    <exclude reference="oWw-H2-MCE"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="dtj-DL-UCi"/>
+                    <include reference="ija-Fe-A1j"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4lL-cP-FHE"/>
+                    <include reference="QTn-BF-XnR"/>
+                    <include reference="FdM-wJ-Otj"/>
+                    <include reference="Fn7-fV-B7M"/>
+                    <include reference="oWw-H2-MCE"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="backImageView" destination="Ltm-jl-OYI" id="tdA-q8-I5x"/>
                 <outlet property="dateLabel" destination="QMJ-xo-QGY" id="e0q-eb-TNl"/>
                 <outlet property="desLabel" destination="aP6-HM-QRm" id="wqQ-ED-eyE"/>
+                <outlet property="labelBackView" destination="dtj-DL-UCi" id="QGO-Y5-qbe"/>
+                <outlet property="labelImageView" destination="26J-1x-hrh" id="z5C-HM-1ZD"/>
+                <outlet property="labelLabel" destination="ija-Fe-A1j" id="UZr-ke-Vly"/>
             </connections>
             <point key="canvasLocation" x="462.5" y="554"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="免费券金" width="18" height="19"/>
+    </resources>
 </document>

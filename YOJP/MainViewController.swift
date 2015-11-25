@@ -9,6 +9,7 @@
 import UIKit
 import TBIconTransitionKit
 import MMDrawerController
+import SDWebImage
 
 
 var defaultMainViewController : MainViewController!
@@ -25,6 +26,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     var tableView : UITableView!
     var collectionView : UICollectionView!
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,8 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.navigationController?.navigationBar.barTintColor = yojpBlue
         
+        
+        
     }
     
     
@@ -51,6 +55,12 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         super.viewWillAppear(animated)
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        
+            }
 
     
     func creatNavTitleView() {
@@ -60,7 +70,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.tabBarView.userInteractionEnabled = true
         self.navigationItem.titleView = self.tabBarView
         
-        self.scorllView = UIView(frame: CGRectMake(0,self.tabBarView.frame.size.height-2,self.tabBarView.frame.size.width/2,2))
+        self.scorllView = UIView(frame: CGRectMake(50,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2-100,4))
         self.scorllView.backgroundColor = UIColor.whiteColor()
         self.tabBarView.addSubview(self.scorllView)
         
@@ -88,9 +98,6 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.backgroundColor = yojpTableViewColor
-        
-        self.collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
-        self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
         
         self.view.addSubview(self.collectionView)
         
@@ -207,31 +214,47 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cellIdentifier : String = "myCollectionViewCellId"
-        let cell : myCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! myCollectionViewCell
         
-        cell.backgroundColor = UIColor.whiteColor()
-        cell.backImageView.image = UIImage(named: String(format: "image%d", indexPath.row))
-        cell.desLabel.text = "在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆"
-        cell.desLabel.textColor = yojpText
-        cell.desLabel.font = font15
-        
-        if indexPath.row != 0 {
-            cell.dateLabel.hidden = false
+        if indexPath.row == 0 {
+            
+            self.collectionView.registerNib(UINib(nibName: "ScrollViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ScrollViewCollectionViewCellId")
+            self.collectionView.registerClass(ScrollViewCollectionViewCell.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ScrollViewCollectionViewCellId")
+            
+            let cellIdentifier : String = "ScrollViewCollectionViewCellId"
+            let cell : ScrollViewCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ScrollViewCollectionViewCell
+            
+            cell.layoutIfNeeded()
+            
+            return cell
+        }
+        else {
+            
+            self.collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
+            
+            self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
+            
+            let cellIdentifier : String = "myCollectionViewCellId"
+            let cell : myCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! myCollectionViewCell
+            
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.backImageView.image = UIImage(named: String(format: "image%d", indexPath.row))
+            cell.desLabel.text = "在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆"
+            cell.desLabel.textColor = yojpText
+            cell.desLabel.font = font15
             cell.dateLabel.text = "1小时前"
             cell.dateLabel.textColor = yojpLightText
             cell.dateLabel.font = font14
- 
+            
+            cell.layoutIfNeeded()
+            
+            return cell
+            
         }
-        else {
-            cell.dateLabel.hidden = true
-        }
-                return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSizeMake(screenWidth, 150)
+            return CGSizeMake(screenWidth, 200)
         }
         return CGSizeMake(screenWidth/2-2, (screenWidth-10)/8*3+100)
         
@@ -241,23 +264,26 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         return CGSizeMake(screenWidth, 0)
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        var sectionHeader : myCollectionReusableView! = myCollectionReusableView()
-        if kind == UICollectionElementKindSectionHeader {
-            sectionHeader = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId", forIndexPath: indexPath) as! myCollectionReusableView
-            
-           sectionHeader.backgroundColor = UIColor.redColor()
-            
-        }
-        return sectionHeader
-    }
+//    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+//        
+//        var sectionHeader : myCollectionReusableView! = myCollectionReusableView()
+//        if kind == UICollectionElementKindSectionHeader {
+//            sectionHeader = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId", forIndexPath: indexPath) as! myCollectionReusableView
+//            
+//           sectionHeader.backgroundColor = UIColor.redColor()
+//            
+//        }
+//        return sectionHeader
+//    }
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.showNavbar()
         self.navigationController?.pushViewController(TranslateViewController(), animated: true)
     }
+    
+    
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
