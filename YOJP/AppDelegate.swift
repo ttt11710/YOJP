@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let centerViewController = MainViewController()
         
         let navigationController : MyNavigationController = MyNavigationController(rootViewController: centerViewController)
+        navigationController.navigationBar.translucent = false
         navigationController.restorationIdentifier = "MMExampleCenterNavigationControllerRestorationKey"
         
         let leftSideNavController : MyNavigationController = MyNavigationController(rootViewController: leftSideDrawerViewController)
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let drawerController : MMDrawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController)
         drawerController.showsShadow = true
         drawerController.restorationIdentifier = "MMDrawer"
-        drawerController.maximumLeftDrawerWidth = 200
+        drawerController.maximumLeftDrawerWidth = screenWidth-80
         drawerController.openDrawerGestureModeMask = .All
         drawerController.closeDrawerGestureModeMask = .All
         drawerController.setGestureShouldRecognizeTouchBlock { (drawerController : MMDrawerController!, gesture : UIGestureRecognizer!, touch : UITouch!) -> Bool in
@@ -48,24 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if drawerController.openSide == MMDrawerSide.Left {
                 MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(1)
-             //   FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(1)
-             //   SecondViewController.shareSecondViewController().changeShowLeftBtnTypeWithInt(1)
+             
             }
             else {
                 MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(0)
-             //   FirstViewController.shareFirstViewController().changeShowLeftBtnTypeWithInt(0)
-             //   SecondViewController.shareSecondViewController().changeShowLeftBtnTypeWithInt(0)
+             
             }
             MainViewController.shareMainViewController().showORhideShowLeftViewBtn(false)
-           // FirstViewController.shareFirstViewController().showORhideShowLeftViewBtn(false)
-           // SecondViewController.shareSecondViewController().showORhideShowLeftViewBtn(false)
+           
         }
         
         self.window?.tintColor = yojpBlue
-        let mybuttonViewController = buttonViewController()
-        let nav = UINavigationController(rootViewController: mybuttonViewController)
-        
-        
+               
+        drawerController.view.backgroundColor = UIColor.whiteColor()
         self.window?.rootViewController = drawerController
         
         return true
@@ -93,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, viewControllerWithRestorationIdentifierPath identifierComponents: [AnyObject], coder: NSCoder) -> UIViewController? {
-        let key : String = (identifierComponents.last?.string)!
+        let key : String = (identifierComponents.last?.string) ?? ""
         
         if key == "MMDrawer" {
             return self.window?.rootViewController

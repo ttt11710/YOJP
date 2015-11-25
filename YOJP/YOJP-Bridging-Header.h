@@ -5,3 +5,5 @@
 #import "SVProgressShow.h"
 #import "AMScrollingNavbarViewController.h"
 #import <TesseractOCR/TesseractOCR.h>
+#import "NTButton.h"
+#import "KOMovingBarViewController.h"

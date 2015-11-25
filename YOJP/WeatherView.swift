@@ -16,12 +16,14 @@ class WeatherView: UIView {
     var maxTemperatureLabel : UILabel!
     var minTemperatureLabel : UILabel!
     var weatherLabel : UILabel!
+    var addressLabel : UILabel!
 
     override init(frame: CGRect) {
         
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        self.backgroundColor = UIColor.clearColor()
+        self.alpha = 0.8
         self.initView()
         
     }
@@ -32,7 +34,7 @@ class WeatherView: UIView {
     
     func initView() {
         
-      dataLabel = UILabel(frame: CGRectMake(self.frame.size.width/2-50,5,50,20))
+      dataLabel = UILabel(frame: CGRectMake(self.frame.size.width/2-50,10,50,20))
         dataLabel.text = "今天"
         dataLabel.textColor = UIColor.whiteColor()
         dataLabel.font = font16
@@ -40,7 +42,7 @@ class WeatherView: UIView {
         self.addSubview(dataLabel)
        
         
-        pm25 = UILabel(frame: CGRectMake(self.frame.size.width/2,5,40,20))
+        pm25 = UILabel(frame: CGRectMake(self.frame.size.width/2,10,40,20))
         pm25.text = "轻度"
         pm25.textColor = UIColor(red: 76.0/255.0, green: 55.0/255.0, blue: 58.0/255.0, alpha: 1)
         pm25.backgroundColor = UIColor(red: 252.0/255.0, green: 124.0/255.0, blue: 76.0/255.0, alpha: 1)
@@ -50,17 +52,17 @@ class WeatherView: UIView {
         pm25.layer.masksToBounds = true
         self.addSubview(pm25)
 
-        dayPictureUrlImageView = UIImageView(frame: CGRectMake(10, self.frame.size.height/2-30, 60, 60))
+        dayPictureUrlImageView = UIImageView(frame: CGRectMake(10, dataLabel.frame.origin.y + dataLabel.frame.size.height + 10, 60, 60))
         dayPictureUrlImageView.image = UIImage(named: "大雪")
         self.addSubview(dayPictureUrlImageView)
         
-        maxTemperatureLabel = UILabel(frame: CGRectMake(self.frame.size.width-20-20,self.frame.size.height/2-23, 50,20))
-        maxTemperatureLabel.text = "13°"
+        maxTemperatureLabel = UILabel(frame: CGRectMake(self.frame.size.width-20-20,dayPictureUrlImageView.frame.origin.y + 10, 50,20))
+        maxTemperatureLabel.text = "13℃"
         maxTemperatureLabel.textColor = UIColor.whiteColor()
         self.addSubview(maxTemperatureLabel)
         
         
-        minTemperatureLabel = UILabel(frame:CGRectMake(self.frame.size.width-20-20,self.frame.size.height/2+3, 50,20))
+        minTemperatureLabel = UILabel(frame:CGRectMake(self.frame.size.width-20-20,maxTemperatureLabel.frame.origin.y + maxTemperatureLabel.frame.size.height + 10, 50,20))
         minTemperatureLabel.text = "10°"
         minTemperatureLabel.textColor = UIColor.whiteColor()
         self.addSubview(minTemperatureLabel)
@@ -71,8 +73,13 @@ class WeatherView: UIView {
         weatherLabel.text = "多云转阴"
         weatherLabel.sizeToFit()
         weatherLabel.textColor = UIColor.whiteColor()
-        weatherLabel.center = CGPointMake(self.frame.size.width/2, self.frame.size.height-20)
+        weatherLabel.center = CGPointMake(self.frame.size.width/2, minTemperatureLabel.frame.origin.y + minTemperatureLabel.frame.size.height + 20)
         self.addSubview(weatherLabel)
+        
+        addressLabel = UILabel(frame: CGRectMake(10,weatherLabel.frame.origin.y + weatherLabel.frame.size.height,200,30))
+        addressLabel.text = "当前位置:上海"
+        addressLabel.textColor = UIColor.whiteColor()
+        self.addSubview(addressLabel)
         
     }
 

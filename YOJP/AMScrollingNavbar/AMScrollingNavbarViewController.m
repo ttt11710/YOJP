@@ -178,7 +178,9 @@
 	
 	float alpha = (frame.origin.y + 24) / frame.size.height;
 	[self.overlay setAlpha:1 - alpha];
+    
 	self.navigationController.navigationBar.tintColor = [self.navigationController.navigationBar.tintColor colorWithAlphaComponent:alpha];
+    [[MainViewController shareMainViewController] setTabBarViewAlpha:alpha];
 	
 	frame = self.scrollableView.superview.frame;
 	frame.origin.y = self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height;

@@ -13,43 +13,18 @@ import MMDrawerController
 
 var defaultMainViewController : MainViewController!
 
-
-extension UIColor {
-    
-    convenience init(red: Int, green: Int, blue: Int, al: CGFloat) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: al)
-    }
-
-    convenience init(netHex:Int, alpha:CGFloat) {
-        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, al: alpha)
-    }
-}
-
-class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
 
     var showLeftViewBtn : TBAnimationButton!
     
-    // 按钮选中时的颜色
-    let selectedColor = UIColor.whiteColor()
     
-    // 按钮未选中时的颜色
-    let unSelectedColor = UIColor.grayColor()
+    var tabBarView : UIImageView!
+    var previousBtn : NTButton!
+    var scorllView : UIView!
     
-    // 按钮之间的距离
-    let distanceBetweenButton:CGFloat = 6.0
-    
-    // 当前选中的UIButton
-    var currentTag:Int!
-    // 当前选中的ViewController
-    var currentVC:UIViewController!
-    
-    let firstVC : FirstViewController = FirstViewController()
-    let secondVC : SecondViewController = SecondViewController()
-    
+    var tableView : UITableView!
+    var collectionView : UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,17 +33,46 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         defaultMainViewController = self
         
-        self.title = "YO! Japan"
         self.view.backgroundColor = UIColor.whiteColor()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         self.creatCollectionView()
+        self.creatTableView()
         self.setupLeftMenuButton()
+        self.creatNavTitleView()
         
         self.navigationController?.navigationBar.barTintColor = yojpBlue
-        self.navigationController?.navigationBar.translucent = false
         
     }
     
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+    }
+
+    
+    func creatNavTitleView() {
+        
+        self.tabBarView = UIImageView(frame: CGRectMake(0, 0, screenWidth-16, 44))
+        self.tabBarView.backgroundColor = yojpBlue
+        self.tabBarView.userInteractionEnabled = true
+        self.navigationItem.titleView = self.tabBarView
+        
+        self.scorllView = UIView(frame: CGRectMake(0,self.tabBarView.frame.size.height-2,self.tabBarView.frame.size.width/2,2))
+        self.scorllView.backgroundColor = UIColor.whiteColor()
+        self.tabBarView.addSubview(self.scorllView)
+        
+        self.navigationController?.navigationBar.translucent = false
+        
+        self.creatButtonWithNormalName("店铺", SelectName: "未评价高亮", Index: 0)
+        self.creatButtonWithNormalName("品牌", SelectName: "已评价高亮", Index: 1)
+
+        self.previousBtn = NTButton()
+        let button : NTButton = self.tabBarView.subviews[1] as! NTButton
+        self.changeViewController(button)
+    }
     
     func creatCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -80,17 +84,26 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight-64), collectionViewLayout: flowLayout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = yojpTableViewColor
+        self.collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight-20), collectionViewLayout: flowLayout)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.backgroundColor = yojpTableViewColor
         
-        collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
-        collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
+        self.collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
+        self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
         
-        self.view.addSubview(collectionView)
+        self.view.addSubview(self.collectionView)
         
-        self.followScrollView(collectionView)
+        self.followScrollView(self.collectionView)
+        
+    }
+    
+    func creatTableView() {
+        self.tableView = UITableView(frame: CGRectMake(screenWidth, 0, screenWidth, screenHeight-64), style: .Plain)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        self.followScrollView(self.tableView)
     }
     
     func creatBtn() {
@@ -132,7 +145,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showLeftViewBtn = TBAnimationButton(type: .Custom)
         self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60-64, 40, 40)
         self.showLeftViewBtn.currentState = TBAnimationButtonState.Menu
-        self.showLeftViewBtn.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        self.showLeftViewBtn.backgroundColor = UIColor(white: 0, alpha: 0.8)
         self.showLeftViewBtn.layer.cornerRadius = 20
         self.showLeftViewBtn.layer.masksToBounds = true
         self.showLeftViewBtn.lineHeight = 3
@@ -141,11 +154,6 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showLeftViewBtn.addTarget(self, action: Selector("leftDrawerButtonPress:"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.showLeftViewBtn)
         self.view.insertSubview(self.showLeftViewBtn, aboveSubview: self.view)
-        
-        // var leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(image: UIImage(named: "navigation_backView"), style: UIBarButtonItemStyle.Done, target: self, action: Selector("leftDrawerButtonPress"))
-        //        var leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress"))
-        //        self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
-        
     }
     
     func leftDrawerButtonPress(sender : TBAnimationButton) {
@@ -245,8 +253,103 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         return sectionHeader
     }
     
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.showNavbar()
+        self.navigationController?.pushViewController(TranslateViewController(), animated: true)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 300
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        tableView.registerNib(UINib(nibName: "myTableViewCell", bundle: nil), forCellReuseIdentifier: "myTableViewCellId")
+        let cell = tableView.dequeueReusableCellWithIdentifier("myTableViewCellId", forIndexPath: indexPath) as! myTableViewCell
+        cell.myImageView.image = UIImage(named: String(format: "image%d", indexPath.row))
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.showNavbar()
+        
+        self.navigationController?.pushViewController(WeatherViewController(), animated: true)
+    }
+    
     func showORhideShowLeftViewBtn(flag : Bool) {
         self.showLeftViewBtn.hidden = flag
+    }
+    
+    
+    func creatButtonWithNormalName(normal : String, SelectName : String, Index : Int) {
+        
+        let customButton = NTButton(type: .Custom)
+        customButton.tag = Index
+        let buttonW = self.tabBarView.frame.size.width/2
+        let buttonH = self.tabBarView.frame.size.height
+        
+        customButton.frame = CGRectMake(buttonW * CGFloat(Index), 0, buttonW, buttonH)
+        
+        customButton.setBackgroundImage(UIImage(named: "未评价选中选中高亮"), forState: UIControlState.Disabled)
+        customButton.setTitle(normal, forState: UIControlState.Normal)
+        customButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
+        customButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        customButton.titleLabel?.font = font18
+        customButton.addTarget(self, action: Selector("changeViewController:"), forControlEvents: UIControlEvents.TouchDown)
+        customButton.imageView?.contentMode = .Center
+        self.tabBarView.addSubview(customButton)
+        
+        let imageView : UIImageView = UIImageView(frame: CGRectMake(self.tabBarView.frame.size.width/2-3, 0, 6, self.tabBarView.frame.size.height-2.5))
+        imageView.backgroundColor = UIColor.whiteColor()
+        
+    }
+    
+    func changeViewController(sender : NTButton) {
+        
+        if self.previousBtn != sender {
+            self.previousBtn.enabled = true
+            
+            self.tableView.setContentOffset(CGPointMake(0, 0), animated: false)
+            
+            UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                
+                if sender.tag == 1 {
+                    self.scorllView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
+                    self.collectionView.layer.transform = CATransform3DMakeTranslation(-screenWidth, 0, 0)
+                    self.tableView.layer.transform = CATransform3DMakeTranslation(-screenWidth, 0, 0)
+                }
+                else {
+                    self.scorllView.layer.transform = CATransform3DIdentity
+                    self.tableView.layer.transform = CATransform3DIdentity
+                    self.collectionView.layer.transform = CATransform3DIdentity
+
+                }
+                
+                }, completion: { (finished : Bool) -> Void in
+                
+                    sender.enabled = false
+
+                    self.previousBtn = sender
+                    
+            })
+        }
+        else {
+            sender.enabled = false
+        }
+    }
+    
+    func setTabBarViewAlpha(alpha : CGFloat) {
+        self.tabBarView.alpha = alpha
     }
     
     override func didReceiveMemoryWarning() {
