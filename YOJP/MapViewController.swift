@@ -20,10 +20,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigation_bar_backgroundClear"), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationController?.navigationBar.barStyle = UIBarStyle.Default
-//
-//        self.navigationController?.navigationBar.alpha = 0.0
+
         
         self.mapView = MKMapView(frame: self.view.bounds)
         self.mapView?.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth]
