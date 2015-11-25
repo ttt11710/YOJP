@@ -37,9 +37,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigation_bar_backgroundBlue"), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
-//        self.navigationController?.navigationBar.alpha = 1.0
     }
     
     override func viewWillAppear(animated: Bool) {
