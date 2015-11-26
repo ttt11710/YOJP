@@ -45,6 +45,8 @@
 		DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */; };
 		DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726211BF3204A0089645A /* LeftViewController.swift */; };
 		DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE06CC41C05992300899AE8 /* LabelView.swift */; };
+		DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */; };
+		DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
 		DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFBC1C03FFED009AA953 /* KOMovingBarViewController.m */; };
 		DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */; };
@@ -125,6 +127,8 @@
 		DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowSlideMenuVC.swift; sourceTree = "<group>"; };
 		DFD726211BF3204A0089645A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		DFE06CC41C05992300899AE8 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewCell.swift; sourceTree = "<group>"; };
+		DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandTableViewCell.xib; sourceTree = "<group>"; };
 		DFE7EFB71C03F74D009AA953 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		DFE7EFB81C03F74D009AA953 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		DFE7EFBB1C03FFED009AA953 /* KOMovingBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMovingBarViewController.h; sourceTree = "<group>"; };
@@ -238,13 +242,13 @@
 		DF4C68FC1BF074FF009ED5A9 /* control */ = {
 			isa = PBXGroup;
 			children = (
+				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
 				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
 				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
 				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */,
-				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -273,6 +277,8 @@
 				DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */,
 				DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */,
 				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
+				DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */,
+				DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -481,6 +487,7 @@
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
+				DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
@@ -582,6 +589,7 @@
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */,
+				DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,

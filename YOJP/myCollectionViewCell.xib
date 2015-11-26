@@ -117,11 +117,11 @@
                     <exclude reference="ija-Fe-A1j"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="4lL-cP-FHE"/>
-                    <exclude reference="QTn-BF-XnR"/>
                     <exclude reference="FdM-wJ-Otj"/>
                     <exclude reference="Fn7-fV-B7M"/>
                     <exclude reference="oWw-H2-MCE"/>
+                    <exclude reference="4lL-cP-FHE"/>
+                    <exclude reference="QTn-BF-XnR"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -130,11 +130,11 @@
                     <include reference="ija-Fe-A1j"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="4lL-cP-FHE"/>
-                    <include reference="QTn-BF-XnR"/>
                     <include reference="FdM-wJ-Otj"/>
                     <include reference="Fn7-fV-B7M"/>
                     <include reference="oWw-H2-MCE"/>
+                    <include reference="4lL-cP-FHE"/>
+                    <include reference="QTn-BF-XnR"/>
                 </mask>
             </variation>
             <connections>
