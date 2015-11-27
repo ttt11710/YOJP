@@ -14,7 +14,7 @@ import SDWebImage
 
 var defaultMainViewController : MainViewController!
 
-class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
+class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate {
 
     var showLeftViewBtn : TBAnimationButton!
     
@@ -30,6 +30,13 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     var tableView : UITableView!
     var tableViewDataArray : NSMutableArray = ["    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆","    曾经再美，不过一回空谈。脚下艰难，却是直指明天。","    学会了适应，就会让你的环境变得明亮；学会了宽容，就会让你的生活没有烦恼。","    当你能飞的时候，就不要放弃飞;当你能梦的时候，就不要放弃梦。世界没有尽头，只要心中还有追求。人生真正的终点是希望的终结。苍鹰的骄傲是飞翔的双翼，人生的意义是不断的追求。","    最闹心的烦躁是你根本不知道自己究竟在烦什么，无缘无故就全身负能量爆棚 。巴拉拉巴拉拉巴拉拉巴","    所谓的贵人：就是开拓你的眼界，带你进入新的世界。 明天是否辉煌，取决于你今天的选择和行动！","    男人穷不要紧，就怕又穷又有脾气。女人丑也不要紧，就怕又丑又懒惰。","    无论你此刻是否迷茫，在阳光升起的时候，请相信，努力的人最终都有回报 。"]
     
+    
+    
+    
+    var awesometransition : HYAwesomeTransition!
+    var transitionCell : UIView!
+    
+    var scrollViewHeight : CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,21 +57,33 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.navigationController?.navigationBar.barTintColor = yojpBlue
         
         
+        self.awesometransition = HYAwesomeTransition()
+        self.awesometransition.duration = 1.5
         
+        let backView = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.awesometransition.containerBackgroundView = backView
     }
     
     
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        let leftViewController : LeftViewController = LeftViewController()
+        let navC : MyNavigationController = MyNavigationController(rootViewController: leftViewController)
+        self.mm_drawerController.leftDrawerViewController = navC
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         
-            }
-
+        self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+            self.mm_drawerController.leftDrawerViewController = nil
+        })
+    }
+    
     
     func creatNavTitleView() {
         
@@ -283,11 +302,62 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.showNavbar()
-        self.navigationController?.pushViewController(TranslateViewController(), animated: true)
+        //self.navigationController?.pushViewController(TranslateViewController(), animated: true)
+        
+        let cell : myCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! myCollectionViewCell
+        
+        let vc : StoreDetailViewController = StoreDetailViewController()
+        vc.transitioningDelegate = self
+        vc.initView()
+        vc.delegate = self
+        vc.imageView.hidden = true
+        
+        
+        var bounds : CGRect = cell.backImageView.bounds
+        bounds.origin.y = bounds.origin.y+64
+        let startFrame : CGRect = cell.backImageView.convertRect(bounds, toView: self.view)
+        let finalFrame : CGRect = vc.imageView.frame
+        
+        self.awesometransition.registerStartFrame(startFrame, finalFrame: finalFrame, transitionView: cell.backImageView)
+        cell.backImageView.hidden = true
+        
+        self.transitionCell = cell.backImageView
+        let weakVC : StoreDetailViewController = vc
+        
+
+        self.presentViewController(vc, animated: true) { () -> Void in
+           
+            
+            weakVC.imageView.image = UIImage(named: String(format: "image%d", indexPath.row))
+            weakVC.imageView.hidden = false
+            
+        }
+    
     }
     
+    func modalViewControllerDidClickedDismissButton(viewController: StoreDetailViewController , height : CGFloat) {
+        
+        self.scrollViewHeight = height
+        
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+            self.transitionCell.hidden = false
+            
+        }
+    }
     
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.awesometransition.present = true
+        return self.awesometransition
+    }
     
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.awesometransition.present = false
+        
+        self.awesometransition.finalFrame = CGRectMake(self.awesometransition.finalFrame.origin.x, self.awesometransition.finalFrame.origin.y-self.scrollViewHeight, self.awesometransition.finalFrame.size.width, self.awesometransition.finalFrame.size.height)
+        
+        return self.awesometransition
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -326,6 +396,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.showNavbar()
         
+       // self.tableView.removeFromSuperview()
         self.navigationController?.pushViewController(WeatherViewController(), animated: true)
     }
     
@@ -359,12 +430,20 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func changeViewController(sender : NTButton) {
         
+        
+        
+        
         if self.previousBtn != sender {
+            
+            self.navigationItem.titleView?.userInteractionEnabled = false
+            
             self.previousBtn.enabled = true
             
             self.tableView.setContentOffset(CGPointMake(0, 0), animated: false)
             
-            UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            sender.enabled = false
+            
+            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 
                 if sender.tag == 1 {
                     self.scorllView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
@@ -375,14 +454,16 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
                     self.scorllView.layer.transform = CATransform3DIdentity
                     self.tableView.layer.transform = CATransform3DIdentity
                     self.collectionView.layer.transform = CATransform3DIdentity
-
+                    
                 }
                 
                 }, completion: { (finished : Bool) -> Void in
-                
-                    sender.enabled = false
-
+                    
+                    
+                    
                     self.previousBtn = sender
+                    
+                    self.navigationItem.titleView?.userInteractionEnabled = true
                     
             })
         }

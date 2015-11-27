@@ -34,6 +34,7 @@
 		DF9A7F3B1BEB36DF000CB3EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9A7F3A1BEB36DF000CB3EE /* Foundation.framework */; };
 		DF9A7F3D1BEB4450000CB3EE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9A7F3C1BEB4450000CB3EE /* MapKit.framework */; };
 		DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F3E1BEB47EA000CB3EE /* Config.swift */; };
+		DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */; };
 		DFAF98D91BEC437D0098E644 /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAF98D81BEC437D0098E644 /* myView.xib */; };
 		DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */; };
 		DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */; };
@@ -47,6 +48,9 @@
 		DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE06CC41C05992300899AE8 /* LabelView.swift */; };
 		DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */; };
 		DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */; };
+		DFE37DF91C06EB9B005C3D5F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */; };
+		DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */; };
+		DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
 		DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFBC1C03FFED009AA953 /* KOMovingBarViewController.m */; };
 		DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */; };
@@ -115,6 +119,8 @@
 		DF9A7F3A1BEB36DF000CB3EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DF9A7F3C1BEB4450000CB3EE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DF9A7F3E1BEB47EA000CB3EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		DFA9D44C1C083FDD003F9609 /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
+		DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		DFAF98D81BEC437D0098E644 /* myView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
 		DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		DFCB3E571C030A20006222C7 /* AMScrollingNavbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMScrollingNavbarViewController.h; sourceTree = "<group>"; };
@@ -129,6 +135,10 @@
 		DFE06CC41C05992300899AE8 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewCell.swift; sourceTree = "<group>"; };
 		DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandTableViewCell.xib; sourceTree = "<group>"; };
+		DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		DFE37DFB1C070784005C3D5F /* HYAwesomeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAwesomeTransition.h; sourceTree = "<group>"; };
+		DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAwesomeTransition.m; sourceTree = "<group>"; };
+		DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		DFE7EFB71C03F74D009AA953 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		DFE7EFB81C03F74D009AA953 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		DFE7EFBB1C03FFED009AA953 /* KOMovingBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMovingBarViewController.h; sourceTree = "<group>"; };
@@ -229,6 +239,8 @@
 		DF4C68F91BF04AF5009ED5A9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				DFA9D44B1C083FDD003F9609 /* DOPScrollableActionSheet */,
+				DFE37DFA1C070784005C3D5F /* HYAwesomeTransiton */,
 				DFE7EFBA1C03FFED009AA953 /* KOMovingNavigationBar */,
 				DFE7EFB61C03F74D009AA953 /* NTButton */,
 				DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */,
@@ -244,11 +256,13 @@
 			children = (
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
+				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
 				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
 				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
 				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */,
+				DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -343,6 +357,15 @@
 			path = YOJPUITests;
 			sourceTree = "<group>";
 		};
+		DFA9D44B1C083FDD003F9609 /* DOPScrollableActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				DFA9D44C1C083FDD003F9609 /* DOPScrollableActionSheet.h */,
+				DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */,
+			);
+			path = DOPScrollableActionSheet;
+			sourceTree = "<group>";
+		};
 		DFD726141BF320160089645A /* FlowSlideMenuCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +377,15 @@
 				DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */,
 			);
 			path = FlowSlideMenuCore;
+			sourceTree = "<group>";
+		};
+		DFE37DFA1C070784005C3D5F /* HYAwesomeTransiton */ = {
+			isa = PBXGroup;
+			children = (
+				DFE37DFB1C070784005C3D5F /* HYAwesomeTransition.h */,
+				DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */,
+			);
+			path = HYAwesomeTransiton;
 			sourceTree = "<group>";
 		};
 		DFE7EFB61C03F74D009AA953 /* NTButton */ = {
@@ -574,6 +606,7 @@
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
 				DF4C68FF1BF0754A009ED5A9 /* TranslateModel.swift in Sources */,
+				DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */,
 				DFF748931BF48ECA00244E1A /* myCollectionReusableView.swift in Sources */,
 				DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */,
 				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
@@ -588,6 +621,8 @@
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
+				DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */,
+				DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */,
 				DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */,
 				DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
@@ -595,6 +630,7 @@
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,
 				DF4C68FB1BF06847009ED5A9 /* TranslateViewController.swift in Sources */,
 				DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */,
+				DFE37DF91C06EB9B005C3D5F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

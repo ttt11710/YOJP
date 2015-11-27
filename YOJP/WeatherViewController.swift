@@ -13,6 +13,8 @@ import SwiftyJSON
 class WeatherViewController: UIViewController {
 
     
+    var customNavigationBar : UIView!
+    
     var weatherModel : WeatherModel!
     
     override func viewDidLoad() {
@@ -23,20 +25,33 @@ class WeatherViewController: UIViewController {
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigation_bar_backgroundClear"), forBarMetrics: UIBarMetrics.Default)
 //        
 //        self.navigationController?.navigationBar.alpha = 0.0
-        
+    
 
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let backImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
+        let backImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, screenHeight-44))
         backImageView.image = UIImage(named: "shanghai")
         self.view.addSubview(backImageView)
         
-        let backBtn = UIButton(type: .Custom)
-        backBtn.frame = CGRectMake(20, 30, 30, 30)
-        backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(backBtn)
+        self.requestData()
+        self.creatCustomNavigationBar()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.alpha = 0.0
+    }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+     
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigation_bar_backgroundBlue"), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.alpha = 1.0
+    }
+    
+    func requestData() {
         
         Alamofire.request(.GET, baiduWeatherAkBaseUrl, parameters: ["location":"上海","ak":baiduWeatherAk,"output":"json"])
             
@@ -89,7 +104,7 @@ class WeatherViewController: UIViewController {
                             weatherView.pm25.text = "重度"
                         }
                         else {
-                           weatherView.pm25.text = "严重"
+                            weatherView.pm25.text = "严重"
                         }
                         
                         
@@ -121,12 +136,19 @@ class WeatherViewController: UIViewController {
         }
 
     }
-
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+    
+    func creatCustomNavigationBar() {
+        self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
+        self.customNavigationBar.backgroundColor = yojpBlue
+        self.view.addSubview(self.customNavigationBar)
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navigation_bar_backgroundBlue"), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationController?.navigationBar.alpha = 1.0
+        let backBtn = UIButton(type: .Custom)
+        backBtn.frame = CGRectMake(20, 7, 30, 30)
+        backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
+        backBtn.addTarget(self, action: Selector("backBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.customNavigationBar.addSubview(backBtn)
+        
+
     }
     
     func backBtnPressed() {

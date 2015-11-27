@@ -38,7 +38,7 @@ class TranslateViewController: UIViewController,UITextViewDelegate,UINavigationC
         
         self.view.backgroundColor = UIColor.whiteColor()
         self.title = "翻译"
-        
+    
         self.initView()
         
        // http://openapi.baidu.com/public/2.0/bmt/translate?client_id=LNFofptUs1gwelXocMMdl0OE&q=today&from=auto&to=auto

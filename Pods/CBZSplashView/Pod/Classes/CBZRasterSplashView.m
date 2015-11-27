@@ -12,8 +12,8 @@
 
 @property (nonatomic, strong) UIImage *iconImage;
 @property (nonatomic, strong) UIImageView *iconImageView;
-
 @end
+
 
 @implementation CBZRasterSplashView
 
@@ -28,7 +28,7 @@
         iconImageView.tintColor = self.iconColor;
         iconImageView.frame = CGRectMake(0, 0, self.iconStartSize.width, self.iconStartSize.height);
         iconImageView.contentMode = UIViewContentModeScaleAspectFit;
-        iconImageView.center = self.center;
+        iconImageView.center = self.myCenter;
         
         [self addSubview:iconImageView];
         

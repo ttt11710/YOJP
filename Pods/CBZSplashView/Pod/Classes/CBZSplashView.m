@@ -90,4 +90,12 @@
   return _iconColor;
 }
 
+- (CGPoint)myCenter
+{
+    if (!_myCenter.x) {
+        _myCenter = CGPointMake(0, 0);
+    }
+    return _myCenter;
+}
+
 @end

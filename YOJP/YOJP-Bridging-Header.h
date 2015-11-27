@@ -7,3 +7,5 @@
 #import <TesseractOCR/TesseractOCR.h>
 #import "NTButton.h"
 #import "KOMovingBarViewController.h"
+#import "HYAwesomeTransition.h"
+#import "DOPScrollableActionSheet.h"

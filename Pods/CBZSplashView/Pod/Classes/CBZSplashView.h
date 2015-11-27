@@ -60,4 +60,8 @@
  */
 @property (nonatomic, strong) UIColor *iconColor;
 
+
+@property (nonatomic, assign) CGPoint myCenter;
+
+
 @end
