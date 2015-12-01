@@ -64,8 +64,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.tintColor = yojpBlue
                
         drawerController.view.backgroundColor = UIColor.whiteColor()
-        self.window?.rootViewController = drawerController
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
+            //第一次启动
+            self.window?.rootViewController = GuideViewController()
+            
+        }
+        else {
+           // NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstLaunch")
+            self.window?.rootViewController = drawerController
+        }
         return true
     }
 

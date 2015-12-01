@@ -76,10 +76,10 @@ class WeatherView: UIView {
         weatherLabel.center = CGPointMake(self.frame.size.width/2, minTemperatureLabel.frame.origin.y + minTemperatureLabel.frame.size.height + 20)
         self.addSubview(weatherLabel)
         
-        addressLabel = UILabel(frame: CGRectMake(10,weatherLabel.frame.origin.y + weatherLabel.frame.size.height,200,30))
-        addressLabel.text = "当前位置:上海"
-        addressLabel.textColor = UIColor.whiteColor()
-        self.addSubview(addressLabel)
+//        addressLabel = UILabel(frame: CGRectMake(10,weatherLabel.frame.origin.y + weatherLabel.frame.size.height,200,30))
+//        addressLabel.text = "当前位置:上海"
+//        addressLabel.textColor = UIColor.whiteColor()
+//        self.addSubview(addressLabel)
         
     }
 

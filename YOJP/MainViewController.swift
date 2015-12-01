@@ -17,11 +17,13 @@ var defaultMainViewController : MainViewController!
 class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate {
 
     var showLeftViewBtn : TBAnimationButton!
-    
+    var escapeBtn : UIButton!
     
     var tabBarView : UIImageView!
     var previousBtn : NTButton!
     var scorllView : UIView!
+    
+    var tabBarViewWithOneTitle : UILabel!
     
     
     var collectionView : UICollectionView!
@@ -38,9 +40,16 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     var scrollViewHeight : CGFloat!
     
+    
+    
+    var titleArray : NSMutableArray = ["全部","免费券","打折券","抵扣券","福袋"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        NSThread.sleepForTimeInterval(0.0)
+        
         self.restorationIdentifier = "MMExampleCenterControllerRestorationKey"
         
         defaultMainViewController = self
@@ -52,6 +61,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.creatCollectionView()
         self.creatTableView()
         self.setupLeftMenuButton()
+        self.creatEscapeBtn()
         self.creatNavTitleView()
         
         self.navigationController?.navigationBar.barTintColor = yojpBlue
@@ -68,6 +78,10 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         
         let leftViewController : LeftViewController = LeftViewController()
         let navC : MyNavigationController = MyNavigationController(rootViewController: leftViewController)
@@ -91,6 +105,13 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.tabBarView.backgroundColor = yojpBlue
         self.tabBarView.userInteractionEnabled = true
         self.navigationItem.titleView = self.tabBarView
+        
+        
+        
+        self.tabBarViewWithOneTitle = UILabel(frame: CGRectMake(0,0,screenWidth-16,44))
+        self.tabBarViewWithOneTitle.textColor = UIColor.whiteColor()
+        self.tabBarViewWithOneTitle.textAlignment = .Center
+        
         
         self.scorllView = UIView(frame: CGRectMake(50,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2-100,4))
         self.scorllView.backgroundColor = UIColor.whiteColor()
@@ -116,7 +137,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        self.collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight-20), collectionViewLayout: flowLayout)
+        self.collectionView = UICollectionView(frame: CGRectMake(0, -2, screenWidth, screenHeight-20), collectionViewLayout: flowLayout)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.backgroundColor = yojpTableViewColor
@@ -182,8 +203,18 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showLeftViewBtn.lineWidth = 20
         self.showLeftViewBtn.lineSpacing = 3
         self.showLeftViewBtn.addTarget(self, action: Selector("leftDrawerButtonPress:"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(self.showLeftViewBtn)
         self.view.insertSubview(self.showLeftViewBtn, aboveSubview: self.view)
+    }
+    
+    func creatEscapeBtn() {
+        
+        self.escapeBtn = UIButton(type: .Custom)
+        self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118, 120, 108)
+        self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Normal)
+        self.escapeBtn.addTarget(self, action: Selector("showEscapeView"), forControlEvents: .TouchUpInside)
+        self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Highlighted)
+        
+        self.view.insertSubview(self.escapeBtn, aboveSubview: self.view)
     }
     
     func leftDrawerButtonPress(sender : TBAnimationButton) {
@@ -211,7 +242,10 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         }
     }
 
-    
+    func showEscapeView() {
+        
+        SVProgressShow.showInfoWithStatus("此操作会进入逃生页面!")
+    }
     func gotoMapView() {
         
         self.navigationController?.pushViewController(MapViewController(), animated: true)
@@ -225,6 +259,8 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     func gotoWeatherView() {
         self.navigationController?.pushViewController(WeatherViewController(), animated: true)
     }
+    
+    
     
     
     
@@ -304,34 +340,35 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showNavbar()
         //self.navigationController?.pushViewController(TranslateViewController(), animated: true)
         
-        let cell : myCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! myCollectionViewCell
+//        let cell : myCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! myCollectionViewCell
+//        
+//        let vc : StoreDetailViewController = StoreDetailViewController()
+//        vc.transitioningDelegate = self
+//        vc.initView()
+//        vc.delegate = self
+//        vc.imageView.hidden = true
+//        
+//        
+//        var bounds : CGRect = cell.backImageView.bounds
+//        bounds.origin.y = bounds.origin.y+64
+//        let startFrame : CGRect = cell.backImageView.convertRect(bounds, toView: self.view)
+//        let finalFrame : CGRect = vc.imageView.frame
+//        
+//        self.awesometransition.registerStartFrame(startFrame, finalFrame: finalFrame, transitionView: cell.backImageView)
+//        cell.backImageView.hidden = true
+//        
+//        self.transitionCell = cell.backImageView
+//        let weakVC : StoreDetailViewController = vc
         
-        let vc : StoreDetailViewController = StoreDetailViewController()
-        vc.transitioningDelegate = self
-        vc.initView()
-        vc.delegate = self
-        vc.imageView.hidden = true
+//        self.presentViewController(vc, animated: true) { () -> Void in
+//           
+//            
+//            weakVC.imageView.image = UIImage(named: String(format: "image%d", indexPath.row))
+//            weakVC.imageView.hidden = false
+//            
+//        }
         
-        
-        var bounds : CGRect = cell.backImageView.bounds
-        bounds.origin.y = bounds.origin.y+64
-        let startFrame : CGRect = cell.backImageView.convertRect(bounds, toView: self.view)
-        let finalFrame : CGRect = vc.imageView.frame
-        
-        self.awesometransition.registerStartFrame(startFrame, finalFrame: finalFrame, transitionView: cell.backImageView)
-        cell.backImageView.hidden = true
-        
-        self.transitionCell = cell.backImageView
-        let weakVC : StoreDetailViewController = vc
-        
-
-        self.presentViewController(vc, animated: true) { () -> Void in
-           
-            
-            weakVC.imageView.image = UIImage(named: String(format: "image%d", indexPath.row))
-            weakVC.imageView.hidden = false
-            
-        }
+        self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
     
     }
     
@@ -345,7 +382,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
             
         }
     }
-    
+       
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.awesometransition.present = true
         return self.awesometransition
@@ -373,7 +410,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         label.font = font15
         label.textColor = yojpText
         label.text = self.tableViewDataArray[indexPath.row] as? String
-        label.numberOfLines = 3
+        label.numberOfLines = 0
         label.sizeToFit()
         return screenWidth/5*3+8+label.frame.size.height+8
     }
@@ -430,14 +467,12 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func changeViewController(sender : NTButton) {
         
-        
-        
-        
         if self.previousBtn != sender {
             
-            self.navigationItem.titleView?.userInteractionEnabled = false
+           // self.navigationItem.titleView?.userInteractionEnabled = false
             
             self.previousBtn.enabled = true
+            self.previousBtn = sender
             
             self.tableView.setContentOffset(CGPointMake(0, 0), animated: false)
             
@@ -459,10 +494,6 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
                 
                 }, completion: { (finished : Bool) -> Void in
                     
-                    
-                    
-                    self.previousBtn = sender
-                    
                     self.navigationItem.titleView?.userInteractionEnabled = true
                     
             })
@@ -474,7 +505,34 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func setTabBarViewAlpha(alpha : CGFloat) {
         self.tabBarView.alpha = alpha
+        self.tabBarViewWithOneTitle.alpha = alpha
     }
+    
+    func presentSearchView() {
+        
+        self.navigationController?.presentViewController(SearchViewController(), animated: true, completion: { () -> Void in
+            
+        })
+        
+    }
+    
+    
+    func changeNavigationItemTitleView(row : Int) {
+        
+        switch row {
+        case 1:
+            self.navigationItem.titleView = self.tabBarView
+        case 2,3,4,5:
+            self.tabBarViewWithOneTitle.text = titleArray.objectAtIndex(row-1) as? String
+            self.navigationItem.titleView = self.tabBarViewWithOneTitle
+        default :
+            break
+        }
+        let button : NTButton = self.tabBarView.subviews[1] as! NTButton
+        self.changeViewController(button)
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

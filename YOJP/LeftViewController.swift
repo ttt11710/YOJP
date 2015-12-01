@@ -20,6 +20,10 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var dataArray1 : NSMutableArray = ["全部","免费券","打折券","抵扣券","福袋"]
     var dataArray2 : NSMutableArray = ["卡券","行程","消息"]
     
+    
+    var allWeatherViewBackView : UIView!
+    var allWeatherView : UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,6 +80,103 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         verLineImageView.alpha = 0.2
         self.view.addSubview(verLineImageView)
     }
+
+    func creatWeatherView() {
+        
+        
+        self.allWeatherViewBackView = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.allWeatherViewBackView.backgroundColor = UIColor.clearColor()
+        self.allWeatherViewBackView.userInteractionEnabled = true
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("removeAllWeatherViewBackView"))
+        self.allWeatherViewBackView.addGestureRecognizer(tap)
+        UIApplication.sharedApplication().keyWindow?.addSubview(self.allWeatherViewBackView)
+        self.allWeatherView = UIView(frame: CGRectMake(0,150,screenWidth,screenWidth/3-5))
+        
+        
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.allWeatherViewBackView.backgroundColor = UIColor(white: 0, alpha: 0.8)
+            }) { (finished : Bool) -> Void in
+             self.allWeatherViewBackView.addSubview(self.allWeatherView)
+        }
+        
+        
+        let label = UILabel(frame:  CGRectMake(12,0,120,30))
+        label.text = "天气情况"
+        label.textColor = UIColor.whiteColor()
+        self.allWeatherView.addSubview(label)
+        
+        
+        let addressLabel = UILabel(frame: CGRectMake(screenWidth-250,0,240,30))
+        addressLabel.textAlignment = .Right
+        addressLabel.textColor = UIColor.whiteColor()
+        addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
+        self.allWeatherView.addSubview(addressLabel)
+        
+        for i in 0..<3 {
+            let weatherView = WeatherView(frame: CGRectMake(screenWidth/3*CGFloat(i),30,screenWidth/3,screenWidth/3-5))
+            weatherView.weatherLabel.text = self.weatherModel.results.weather_data[i].weather
+            weatherView.weatherLabel.sizeToFit()
+            
+            switch i {
+            case 0:
+                weatherView.dataLabel.text = "今天"
+            case 1:
+                weatherView.dataLabel.text = "明天"
+            default:
+                weatherView.dataLabel.text = "后天"
+            }
+            
+            
+            let pm25 = Int(self.weatherModel.results.pm25!)
+            
+            if pm25 < 50 {
+                weatherView.pm25.text = "优"
+            }
+            else if pm25 < 100 {
+                weatherView.pm25.text = "良"
+            }
+            else if pm25 < 150 {
+                weatherView.pm25.text = "轻度"
+            }
+            else if pm25 < 200 {
+                weatherView.pm25.text = "中度"
+            }
+            else if pm25 < 300 {
+                weatherView.pm25.text = "重度"
+            }
+            else {
+                weatherView.pm25.text = "严重"
+            }
+            
+            
+            let temperatureString = self.weatherModel.results.weather_data[i].temperature
+            var array = temperatureString?.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString:" ℃~"))
+            print(array)
+            weatherView.maxTemperatureLabel.text = String(format: "%@°", array![0])
+            weatherView.minTemperatureLabel.text = String(format: "%@°", array![3])
+            
+            weatherView.dayPictureUrlImageView.image = UIImage(named: "阴")
+            weatherView.dayPictureUrlImageView.image = UIImage(named: self.weatherModel.results.weather_data[i].weather!)
+            
+            self.allWeatherView.addSubview(weatherView)
+        }
+        
+        
+        
+        for i in 0..<2 {
+            let lineImageView = UIImageView(frame: CGRectMake(screenWidth/3*CGFloat(i+1), (screenWidth/3-35)/2+30, 1, 35))
+            lineImageView.backgroundColor = UIColor.whiteColor()
+            lineImageView.alpha = 0.5
+            self.allWeatherView.addSubview(lineImageView)
+        }
+
+    }
+    
+    func removeAllWeatherViewBackView() {
+        self.allWeatherViewBackView.removeFromSuperview()
+    }
     
     func requestData() {
         Alamofire.request(.GET, baiduWeatherAkBaseUrl, parameters: ["location":"上海","ak":baiduWeatherAk,"output":"json"])
@@ -109,10 +210,11 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 cell.selectionStyle = .None
                 
                 if self.weatherModel != nil {
-                    let weatherView = WeatherView(frame: CGRectMake(16,10,screenWidth/3,screenWidth/3+40))
+                    let weatherView = WeatherView(frame: CGRectMake(16,10,screenWidth/3,128))
                     weatherView.weatherLabel.text = self.weatherModel.results.weather_data[0].weather
+                    weatherView.weatherLabel.sizeToFit()
                     weatherView.dataLabel.text = "今天"
-                    var pm25 = Int(self.weatherModel.results.pm25!)
+                    let pm25 = Int(self.weatherModel.results.pm25!)
                     
                     if pm25 < 50 {
                         weatherView.pm25.text = "优"
@@ -141,16 +243,25 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     weatherView.dayPictureUrlImageView.image = UIImage(named: "阴")
                     weatherView.dayPictureUrlImageView.image = UIImage(named: self.weatherModel.results.weather_data[0].weather!)
                     
-                    weatherView.addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
+                  //  weatherView.addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
                     
                     cell.backgroundColor = UIColor.clearColor()
                     
-                    let lineImageView : UIImageView = UIImageView(frame: CGRectMake(16, cell.frame.size.height-1, screenWidth-80-32, 1))
+                    let lineImageView : UIImageView = UIImageView(frame: CGRectMake(16, weatherView.frame.origin.y + weatherView.frame.size.height+8, screenWidth-80-32, 1))
                     lineImageView.alpha = 0.2
                     lineImageView.backgroundColor = yojpLightCell
                     
+                    
+                    
+                    let searchBtn = UIButton(type: .Custom)
+                    searchBtn.center = CGPointMake((screenWidth-80)/2, lineImageView.frame.origin.y + lineImageView.frame.size.height + 15 + 8)
+                    searchBtn.bounds = CGRectMake(0, 0, 255, 30)
+                    searchBtn.setImage(UIImage(named: "search"), forState: .Normal)
+                    searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
+                    
                     cell.contentView.addSubview(weatherView)
                     cell.contentView.addSubview(lineImageView)
+                    cell.contentView.addSubview(searchBtn)
                 }
                 return cell
                 
@@ -189,18 +300,51 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row == 0 && indexPath.section == 0 ? screenWidth/3+50 : 44
+        return indexPath.row == 0 && indexPath.section == 0 ? 184 : 44
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 60 : 0
+        return section == 0 ? 40 : 0
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth-80,60))
+        let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth-80,40))
         view.backgroundColor = UIColor.clearColor()
         
         return view
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                self.creatWeatherView()
+            }
+            else {
+                self.mm_drawerController.closeDrawerAnimated(true) { (finished : Bool) -> Void in
+                    MainViewController.shareMainViewController().changeNavigationItemTitleView(indexPath.row)
+                }
+ 
+            }
+        }
+        else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                    
+                    MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
+                })
+            }
+        }
+    }
+    
+    
+    func showSearchView() {
+        
+        self.mm_drawerController.closeDrawerAnimated(true) { (finished : Bool) -> Void in
+            
+            MainViewController.shareMainViewController().presentSearchView()
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {

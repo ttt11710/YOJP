@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8271D24938126DC27A5227B0"
+               BlueprintIdentifier = "DA720264CC15717B8B963C0F"
                BuildableName = "BFPaperTabBarController.framework"
                BlueprintName = "BFPaperTabBarController"
                ReferencedContainer = "container:Pods.xcodeproj">

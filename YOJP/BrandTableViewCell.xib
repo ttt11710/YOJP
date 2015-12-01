@@ -22,7 +22,7 @@
                             <constraint firstAttribute="width" secondItem="fqR-tC-ios" secondAttribute="height" multiplier="5:3" id="5fg-s3-iLt"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-Fx-0ZM">
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AV1-Fx-0ZM">
                         <rect key="frame" x="8" y="158" width="26" height="25"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="免费券金" translatesAutoresizingMaskIntoConstraints="NO" id="cYd-A6-vSD">
@@ -57,8 +57,8 @@
                                 <exclude reference="cYd-A6-vSD"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Vr7-JI-Pek"/>
                                 <exclude reference="J7i-lC-Foo"/>
+                                <exclude reference="Vr7-JI-Pek"/>
                                 <exclude reference="ZdM-e6-FA2"/>
                                 <exclude reference="pBS-Mn-BtN"/>
                             </mask>
@@ -68,22 +68,22 @@
                                 <include reference="cYd-A6-vSD"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Vr7-JI-Pek"/>
                                 <include reference="J7i-lC-Foo"/>
+                                <include reference="Vr7-JI-Pek"/>
                                 <include reference="ZdM-e6-FA2"/>
                                 <include reference="pBS-Mn-BtN"/>
                             </mask>
                         </variation>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="免费券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-gi-Ql6">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="免费券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wS-gi-Ql6">
                         <rect key="frame" x="34" y="158" width="51" height="25"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.63" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4d5-F6-h0d">
-                        <rect key="frame" x="8" y="207" width="305" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4d5-F6-h0d">
+                        <rect key="frame" x="8" y="201" width="305" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.30588235289999999" green="0.30588235289999999" blue="0.30588235289999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>

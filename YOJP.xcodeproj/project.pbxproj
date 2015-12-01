@@ -22,6 +22,12 @@
 		DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69051BF09D29009ED5A9 /* WeatherView.swift */; };
 		DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */; };
 		DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */; };
+		DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */; };
+		DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */; };
+		DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637371C0C1C9800FC2CFE /* MCFireworksView.m */; };
+		DF96373C1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */; };
+		DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */; };
+		DF96373F1C0C310E00FC2CFE /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */; };
 		DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F081BEB1E78000CB3EE /* AppDelegate.swift */; };
 		DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */; };
 		DF9A7F0E1BEB1E78000CB3EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF9A7F0C1BEB1E78000CB3EE /* Main.storyboard */; };
@@ -62,6 +68,11 @@
 		DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF748901BF48ECA00244E1A /* myCollectionReusableView.xib */; };
 		DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF748911BF48ECA00244E1A /* myCollectionViewCell.swift */; };
 		DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF748921BF48ECA00244E1A /* myCollectionViewCell.xib */; };
+		DFFF9F581C0D4AD000FD4A57 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */; };
+		DFFF9F5A1C0D7D5400FD4A57 /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */; };
+		DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */; };
+		DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */; };
+		DFFF9F601C0D907300FD4A57 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +112,14 @@
 		DF4C69051BF09D29009ED5A9 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		DF9637341C0C1C9800FC2CFE /* MCFireworksButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksButton.h; sourceTree = "<group>"; };
+		DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksButton.m; sourceTree = "<group>"; };
+		DF9637361C0C1C9800FC2CFE /* MCFireworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksView.h; sourceTree = "<group>"; };
+		DF9637371C0C1C9800FC2CFE /* MCFireworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksView.m; sourceTree = "<group>"; };
+		DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		DF9A7F051BEB1E78000CB3EE /* YOJP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YOJP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF9A7F081BEB1E78000CB3EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +171,11 @@
 		DFF748901BF48ECA00244E1A /* myCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCollectionReusableView.xib; sourceTree = "<group>"; };
 		DFF748911BF48ECA00244E1A /* myCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFF748921BF48ECA00244E1A /* myCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCollectionViewCell.xib; sourceTree = "<group>"; };
+		DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewCell.swift; sourceTree = "<group>"; };
+		DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardListTableViewCell.xib; sourceTree = "<group>"; };
+		DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +263,7 @@
 		DF4C68F91BF04AF5009ED5A9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				DF9637331C0C1C9800FC2CFE /* MCFireworksButton */,
 				DFA9D44B1C083FDD003F9609 /* DOPScrollableActionSheet */,
 				DFE37DFA1C070784005C3D5F /* HYAwesomeTransiton */,
 				DFE7EFBA1C03FFED009AA953 /* KOMovingNavigationBar */,
@@ -254,15 +279,20 @@
 		DF4C68FC1BF074FF009ED5A9 /* control */ = {
 			isa = PBXGroup;
 			children = (
+				DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */,
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
 				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
+				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
 				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
 				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
 				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */,
 				DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */,
+				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
+				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
+				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -293,8 +323,23 @@
 				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
 				DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */,
 				DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */,
+				DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */,
+				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
+				DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */,
+				DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		DF9637331C0C1C9800FC2CFE /* MCFireworksButton */ = {
+			isa = PBXGroup;
+			children = (
+				DF9637341C0C1C9800FC2CFE /* MCFireworksButton.h */,
+				DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */,
+				DF9637361C0C1C9800FC2CFE /* MCFireworksView.h */,
+				DF9637371C0C1C9800FC2CFE /* MCFireworksView.m */,
+			);
+			path = MCFireworksButton;
 			sourceTree = "<group>";
 		};
 		DF9A7EFC1BEB1E78000CB3EE = {
@@ -515,7 +560,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAF98D91BEC437D0098E644 /* myView.xib in Resources */,
+				DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */,
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
+				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
@@ -598,12 +645,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF96373C1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift in Sources */,
 				DF3A2E5C1BFDC88500A995E1 /* buttonViewController.swift in Sources */,
 				DFD7261E1BF320160089645A /* LLFlowSlideMenuConfig.swift in Sources */,
 				DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */,
+				DFFF9F5A1C0D7D5400FD4A57 /* CardListViewController.swift in Sources */,
+				DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */,
 				DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */,
+				DFFF9F601C0D907300FD4A57 /* CardDetailsViewController.swift in Sources */,
 				DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */,
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
+				DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */,
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
 				DF4C68FF1BF0754A009ED5A9 /* TranslateModel.swift in Sources */,
 				DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */,
@@ -616,15 +668,19 @@
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
+				DFFF9F581C0D4AD000FD4A57 /* SearchViewController.swift in Sources */,
 				DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */,
 				DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */,
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
+				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */,
 				DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */,
 				DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */,
 				DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */,
+				DF96373F1C0C310E00FC2CFE /* ProductListViewController.swift in Sources */,
+				DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,
@@ -791,7 +847,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "YOJP/YOJP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -813,7 +869,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.paybay.YOJP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "YOJP/YOJP-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

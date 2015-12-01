@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+
 class TranslateViewController: UIViewController,UITextViewDelegate,UINavigationControllerDelegate {
 
     
@@ -133,6 +135,7 @@ class TranslateViewController: UIViewController,UITextViewDelegate,UINavigationC
     func toChinaBtnPressed() {
         
         self.translateFrom("auto", to: "zh")
+        
     }
     
     
