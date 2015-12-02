@@ -50,7 +50,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.separatorStyle = .None
+        self.tableView.tableFooterView = UIView()
         self.view.addSubview(self.tableView)
         
     }
@@ -79,7 +79,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             storeNameLabel.text = "某某品牌"
             storeNameLabel.textColor = yojpText
             
-            let cardBackView : UIView = UIView(frame: CGRectMake(8,storeNameLabel.frame.origin.y+storeNameLabel.frame.size.height + 8,screenWidth-16,380))
+            let cardBackView : UIView = UIView(frame: CGRectMake(16,storeNameLabel.frame.origin.y+storeNameLabel.frame.size.height + 8,screenWidth-32,380))
             cardBackView.backgroundColor = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1)
             
             
@@ -91,22 +91,38 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             
             
             
-            let validityLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-200,30,200,30))
+            let validityLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-16-200,30,200,30))
             validityLabel.text = "有效期:2015.11.11-2015.12.11"
             validityLabel.font = font14
             validityLabel.textColor = yojpText
             cardBackView.addSubview(validityLabel)
             
             
-            let barcodeBackView : UIView = UIView(frame: CGRectMake(0,60,cardBackView.frame.size.width,320))
+            let barcodeBackView : UIView = UIView(frame: CGRectMake(0,70,cardBackView.frame.size.width,310))
             barcodeBackView.backgroundColor = UIColor.whiteColor()
             cardBackView.addSubview(barcodeBackView)
             
             let barcodeBackImageView : UIImageView = UIImageView(image: UIImage(named: "2DBarcode"))
-            barcodeBackImageView.center = CGPointMake(screenWidth/2, barcodeBackView.center.y)
-            barcodeBackImageView.bounds = CGRectMake(0, 0, 100, 100)
+            barcodeBackImageView.center = CGPointMake(barcodeBackView.frame.size.width/2, barcodeBackView.center.y)
+            barcodeBackImageView.bounds = CGRectMake(0, 0, 150, 150)
             cardBackView.addSubview(barcodeBackImageView)
             
+            
+            let barcodeLabel : UILabel = UILabel()
+            barcodeLabel.text = "JP1C2015N11Y26R17"
+            barcodeLabel.textAlignment = .Center
+            barcodeLabel.textColor = yojpText
+            barcodeLabel.center = CGPointMake(barcodeBackImageView.center.x, barcodeBackImageView.center.y + barcodeBackImageView.frame.size.height/2+15)
+            barcodeLabel.bounds = CGRectMake(0, 0, 200, 30)
+            cardBackView.addSubview(barcodeLabel)
+            
+            let warmPrompt : UILabel = UILabel()
+            warmPrompt.text = "请在店铺收银员的指导下使用"
+            warmPrompt.textAlignment = .Center
+            warmPrompt.textColor = yojpText
+            warmPrompt.center = CGPointMake(barcodeLabel.center.x, barcodeLabel.center.y + barcodeLabel.frame.size.height/2+10)
+            warmPrompt.bounds = CGRectMake(0, 0, screenWidth, 30)
+            cardBackView.addSubview(warmPrompt)
             
             
             cell.backgroundColor = yojpTableViewColor
@@ -120,9 +136,15 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.accessoryType = .DisclosureIndicator
+            
             cell.backgroundColor = yojpTableViewColor
             
+            cell.textLabel?.text = indexPath.row == 1 ? "打折券详情" : "立即使用"
+            
             cell.textLabel?.text = "打折券详情"
+            cell.textLabel?.textColor = yojpText
+            cell.textLabel?.font = font16
             return cell
         }
     }

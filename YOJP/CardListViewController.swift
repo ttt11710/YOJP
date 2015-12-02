@@ -61,7 +61,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        self.tableView.separatorStyle = .None
         self.view.addSubview(self.tableView)
         
     }

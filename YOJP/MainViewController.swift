@@ -14,7 +14,7 @@ import SDWebImage
 
 var defaultMainViewController : MainViewController!
 
-class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate {
+class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
 
     var showLeftViewBtn : TBAnimationButton!
     var escapeBtn : UIButton!
@@ -25,6 +25,9 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     var tabBarViewWithOneTitle : UILabel!
     
+    
+    
+    var scrollView : UIScrollView!
     
     var collectionView : UICollectionView!
 
@@ -57,6 +60,16 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.scrollView = UIScrollView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.scrollView.contentSize = CGSizeMake(screenWidth*2, 0)
+        self.scrollView.contentOffset = CGPointMake(screenWidth, 0)
+        self.scrollView.pagingEnabled = true
+        self.scrollView.showsHorizontalScrollIndicator = false
+        self.scrollView.showsVerticalScrollIndicator = false
+        self.scrollView.delegate = self
+        self.view.addSubview(self.scrollView)
+        
         
         self.creatCollectionView()
         self.creatTableView()
