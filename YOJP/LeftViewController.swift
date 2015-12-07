@@ -61,11 +61,13 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         userCenterBtn.setTitle("个人中心", forState: UIControlState.Normal)
         userCenterBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         userCenterBtn.alpha = 0.8
+        userCenterBtn.addTarget(self, action: Selector("userCenterBtnPressed"), forControlEvents: .TouchUpInside)
         self.view.addSubview(userCenterBtn)
         
         let collectBtn : UIButton = UIButton(frame: CGRectMake((screenWidth-80)/2+1,screenHeight-44,(screenWidth-80)/2,44))
         collectBtn.setTitle("我的收藏", forState: UIControlState.Normal)
         collectBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        collectBtn.addTarget(self, action: Selector("collectBtnPressed"), forControlEvents: .TouchUpInside)
         collectBtn.alpha = 0.8
         self.view.addSubview(collectBtn)
         
@@ -332,16 +334,42 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                     
                     MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
+                    MainViewController.shareMainViewController().changeShowLeftBtnType()
                 })
+            }
+            else if indexPath.row == 2 {
+                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                    
+                    MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
+                    MainViewController.shareMainViewController().changeShowLeftBtnType()
+                })
+
             }
         }
     }
     
     
+    func userCenterBtnPressed() {
+        self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+            
+            MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)
+            MainViewController.shareMainViewController().changeShowLeftBtnType()
+        })
+    }
+    
+    func collectBtnPressed() {
+        self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+            
+            MainViewController.shareMainViewController().navigationController?.pushViewController(CollectViewController(), animated: true)
+            MainViewController.shareMainViewController().changeShowLeftBtnType()
+        })
+    }
+    
     func showSearchView() {
         
         self.mm_drawerController.closeDrawerAnimated(true) { (finished : Bool) -> Void in
             
+            MainViewController.shareMainViewController().changeShowLeftBtnType()
             MainViewController.shareMainViewController().presentSearchView()
             
         }

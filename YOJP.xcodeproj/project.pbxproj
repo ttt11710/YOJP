@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		46A02557317A50540000DFA8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DF1990B51C11749F006AACF3 /* CardUseRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */; };
+		DF1990B71C1187F0006AACF3 /* CardUserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */; };
 		DF3A2E511BFD954D00A995E1 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DF3A2E501BFD954D00A995E1 /* tessdata */; };
 		DF3A2E531BFD956800A995E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */; };
 		DF3A2E551BFD958300A995E1 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */; };
 		DF3A2E571BFD959700A995E1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E561BFD959700A995E1 /* CoreImage.framework */; };
-		DF3A2E5C1BFDC88500A995E1 /* buttonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */; };
 		DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */; };
 		DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4C68F61BF04660009ED5A9 /* SVProgressShow.m */; };
 		DF4C68FB1BF06847009ED5A9 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */; };
@@ -22,6 +23,27 @@
 		DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69051BF09D29009ED5A9 /* WeatherView.swift */; };
 		DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */; };
 		DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */; };
+		DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690DC1C151F2200305D2E /* MessageViewController.swift */; };
+		DF8690DF1C152C8900305D2E /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690DE1C152C8900305D2E /* MessageDetailViewController.swift */; };
+		DF8690E21C1532DB00305D2E /* UserCentreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */; };
+		DF8690E41C15645100305D2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690E31C15645100305D2E /* LoginViewController.swift */; };
+		DF8690E61C1578E200305D2E /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */; };
+		DF8690E81C157AE500305D2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690E71C157AE500305D2E /* RegisterViewController.swift */; };
+		DF8690FE1C157B3000305D2E /* TNCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690EB1C157B3000305D2E /* TNCheckBox.m */; };
+		DF8690FF1C157B3000305D2E /* TNCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690ED1C157B3000305D2E /* TNCheckBoxData.m */; };
+		DF8691001C157B3000305D2E /* TNCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690F01C157B3000305D2E /* TNCheckBoxGroup.m */; };
+		DF8691011C157B3000305D2E /* TNCircularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690F31C157B3000305D2E /* TNCircularCheckBox.m */; };
+		DF8691021C157B3000305D2E /* TNCircularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690F51C157B3000305D2E /* TNCircularCheckBoxData.m */; };
+		DF8691031C157B3000305D2E /* TNImageCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690F71C157B3000305D2E /* TNImageCheckbox.m */; };
+		DF8691041C157B3000305D2E /* TNImageCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690F91C157B3000305D2E /* TNImageCheckBoxData.m */; };
+		DF8691051C157B3000305D2E /* TNRectangularCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690FB1C157B3000305D2E /* TNRectangularCheckBox.m */; };
+		DF8691061C157B3000305D2E /* TNRectangularCheckBoxData.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8690FD1C157B3000305D2E /* TNRectangularCheckBoxData.m */; };
+		DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8691071C157FC900305D2E /* CollectViewController.swift */; };
+		DF86910A1C15866100305D2E /* HelpCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8691091C15866100305D2E /* HelpCenterViewController.swift */; };
+		DF86910C1C158AEC00305D2E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86910B1C158AEC00305D2E /* SettingViewController.swift */; };
+		DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */; };
+		DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */; };
+		DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */; };
 		DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */; };
 		DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */; };
 		DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637371C0C1C9800FC2CFE /* MCFireworksView.m */; };
@@ -51,10 +73,11 @@
 		DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726191BF320160089645A /* LLFlowSlideMenuEnum.swift */; };
 		DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */; };
 		DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726211BF3204A0089645A /* LeftViewController.swift */; };
+		DFDBB1891C119563000252CF /* CardListTableViewWithTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */; };
+		DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */; };
 		DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE06CC41C05992300899AE8 /* LabelView.swift */; };
 		DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */; };
 		DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */; };
-		DFE37DF91C06EB9B005C3D5F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */; };
 		DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */; };
 		DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
@@ -96,11 +119,12 @@
 		4A64039892631F01E6A2DDA8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F894140ABF980A4ADACE8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUseRuleViewController.swift; sourceTree = "<group>"; };
+		DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUserHistoryViewController.swift; sourceTree = "<group>"; };
 		DF3A2E501BFD954D00A995E1 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		DF3A2E561BFD959700A995E1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = buttonViewController.swift; sourceTree = "<group>"; };
 		DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DF4C68F41BF0465F009ED5A9 /* YOJP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YOJP-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF4C68F51BF04660009ED5A9 /* SVProgressShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressShow.h; sourceTree = "<group>"; };
@@ -112,6 +136,38 @@
 		DF4C69051BF09D29009ED5A9 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		DF8690DC1C151F2200305D2E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		DF8690DE1C152C8900305D2E /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
+		DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCentreViewController.swift; sourceTree = "<group>"; };
+		DF8690E31C15645100305D2E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		DF8690E71C157AE500305D2E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DF8690EA1C157B3000305D2E /* TNCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBox.h; sourceTree = "<group>"; };
+		DF8690EB1C157B3000305D2E /* TNCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBox.m; sourceTree = "<group>"; };
+		DF8690EC1C157B3000305D2E /* TNCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxData.h; sourceTree = "<group>"; };
+		DF8690ED1C157B3000305D2E /* TNCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxData.m; sourceTree = "<group>"; };
+		DF8690EE1C157B3000305D2E /* TNCheckBoxDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxDelegate.h; sourceTree = "<group>"; };
+		DF8690EF1C157B3000305D2E /* TNCheckBoxGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxGroup.h; sourceTree = "<group>"; };
+		DF8690F01C157B3000305D2E /* TNCheckBoxGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCheckBoxGroup.m; sourceTree = "<group>"; };
+		DF8690F11C157B3000305D2E /* TNCheckBoxProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCheckBoxProtocol.h; sourceTree = "<group>"; };
+		DF8690F21C157B3000305D2E /* TNCircularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBox.h; sourceTree = "<group>"; };
+		DF8690F31C157B3000305D2E /* TNCircularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBox.m; sourceTree = "<group>"; };
+		DF8690F41C157B3000305D2E /* TNCircularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularCheckBoxData.h; sourceTree = "<group>"; };
+		DF8690F51C157B3000305D2E /* TNCircularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularCheckBoxData.m; sourceTree = "<group>"; };
+		DF8690F61C157B3000305D2E /* TNImageCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckbox.h; sourceTree = "<group>"; };
+		DF8690F71C157B3000305D2E /* TNImageCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckbox.m; sourceTree = "<group>"; };
+		DF8690F81C157B3000305D2E /* TNImageCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageCheckBoxData.h; sourceTree = "<group>"; };
+		DF8690F91C157B3000305D2E /* TNImageCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageCheckBoxData.m; sourceTree = "<group>"; };
+		DF8690FA1C157B3000305D2E /* TNRectangularCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBox.h; sourceTree = "<group>"; };
+		DF8690FB1C157B3000305D2E /* TNRectangularCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBox.m; sourceTree = "<group>"; };
+		DF8690FC1C157B3000305D2E /* TNRectangularCheckBoxData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularCheckBoxData.h; sourceTree = "<group>"; };
+		DF8690FD1C157B3000305D2E /* TNRectangularCheckBoxData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularCheckBoxData.m; sourceTree = "<group>"; };
+		DF8691071C157FC900305D2E /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
+		DF8691091C15866100305D2E /* HelpCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCenterViewController.swift; sourceTree = "<group>"; };
+		DF86910B1C158AEC00305D2E /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePassViewController.swift; sourceTree = "<group>"; };
 		DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		DF9637341C0C1C9800FC2CFE /* MCFireworksButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksButton.h; sourceTree = "<group>"; };
 		DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksButton.m; sourceTree = "<group>"; };
@@ -151,10 +207,11 @@
 		DFD726191BF320160089645A /* LLFlowSlideMenuEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowSlideMenuEnum.swift; sourceTree = "<group>"; };
 		DFD7261A1BF320160089645A /* LLFlowSlideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowSlideMenuVC.swift; sourceTree = "<group>"; };
 		DFD726211BF3204A0089645A /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewWithTimeCell.swift; sourceTree = "<group>"; };
+		DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardListTableViewWithTimeCell.xib; sourceTree = "<group>"; };
 		DFE06CC41C05992300899AE8 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewCell.swift; sourceTree = "<group>"; };
 		DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandTableViewCell.xib; sourceTree = "<group>"; };
-		DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		DFE37DFB1C070784005C3D5F /* HYAwesomeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAwesomeTransition.h; sourceTree = "<group>"; };
 		DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAwesomeTransition.m; sourceTree = "<group>"; };
 		DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +291,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF1990B31C117357006AACF3 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
+				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
+				DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */,
+				DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
 		DF2E18DE1BF5902300AC151A /* AMScrollingNavbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +331,7 @@
 		DF4C68F91BF04AF5009ED5A9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				DF8690E91C157B3000305D2E /* TNCheckBoxGroup */,
 				DF9637331C0C1C9800FC2CFE /* MCFireworksButton */,
 				DFA9D44B1C083FDD003F9609 /* DOPScrollableActionSheet */,
 				DFE37DFA1C070784005C3D5F /* HYAwesomeTransiton */,
@@ -282,17 +351,14 @@
 				DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */,
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
+				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
 				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
-				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
-				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
-				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
-				DFD726211BF3204A0089645A /* LeftViewController.swift */,
-				DF3A2E5B1BFDC88500A995E1 /* buttonViewController.swift */,
-				DFE37DF81C06EB9B005C3D5F /* DetailsViewController.swift */,
 				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
-				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
-				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
+				DF1990B31C117357006AACF3 /* Card */,
+				DF8690DC1C151F2200305D2E /* MessageViewController.swift */,
+				DF8690DE1C152C8900305D2E /* MessageDetailViewController.swift */,
+				DF8690E01C15328F00305D2E /* User */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -327,8 +393,54 @@
 				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
 				DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */,
 				DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */,
+				DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */,
+				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
+				DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */,
+				DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		DF8690E01C15328F00305D2E /* User */ = {
+			isa = PBXGroup;
+			children = (
+				DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */,
+				DF8690E31C15645100305D2E /* LoginViewController.swift */,
+				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
+				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
+				DF8691071C157FC900305D2E /* CollectViewController.swift */,
+				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
+				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
+				DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		DF8690E91C157B3000305D2E /* TNCheckBoxGroup */ = {
+			isa = PBXGroup;
+			children = (
+				DF8690EA1C157B3000305D2E /* TNCheckBox.h */,
+				DF8690EB1C157B3000305D2E /* TNCheckBox.m */,
+				DF8690EC1C157B3000305D2E /* TNCheckBoxData.h */,
+				DF8690ED1C157B3000305D2E /* TNCheckBoxData.m */,
+				DF8690EE1C157B3000305D2E /* TNCheckBoxDelegate.h */,
+				DF8690EF1C157B3000305D2E /* TNCheckBoxGroup.h */,
+				DF8690F01C157B3000305D2E /* TNCheckBoxGroup.m */,
+				DF8690F11C157B3000305D2E /* TNCheckBoxProtocol.h */,
+				DF8690F21C157B3000305D2E /* TNCircularCheckBox.h */,
+				DF8690F31C157B3000305D2E /* TNCircularCheckBox.m */,
+				DF8690F41C157B3000305D2E /* TNCircularCheckBoxData.h */,
+				DF8690F51C157B3000305D2E /* TNCircularCheckBoxData.m */,
+				DF8690F61C157B3000305D2E /* TNImageCheckbox.h */,
+				DF8690F71C157B3000305D2E /* TNImageCheckbox.m */,
+				DF8690F81C157B3000305D2E /* TNImageCheckBoxData.h */,
+				DF8690F91C157B3000305D2E /* TNImageCheckBoxData.m */,
+				DF8690FA1C157B3000305D2E /* TNRectangularCheckBox.h */,
+				DF8690FB1C157B3000305D2E /* TNRectangularCheckBox.m */,
+				DF8690FC1C157B3000305D2E /* TNRectangularCheckBoxData.h */,
+				DF8690FD1C157B3000305D2E /* TNRectangularCheckBoxData.m */,
+			);
+			path = TNCheckBoxGroup;
 			sourceTree = "<group>";
 		};
 		DF9637331C0C1C9800FC2CFE /* MCFireworksButton */ = {
@@ -375,6 +487,9 @@
 				DF4C68F91BF04AF5009ED5A9 /* Lib */,
 				DF4C68F81BF0468B009ED5A9 /* Common */,
 				DF4C68FC1BF074FF009ED5A9 /* control */,
+				DF9A7F0A1BEB1E78000CB3EE /* MapViewController.swift */,
+				DF4C68FA1BF06847009ED5A9 /* TranslateViewController.swift */,
+				DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */,
 				DF4C69041BF09D0A009ED5A9 /* view */,
 				DF4C68FD1BF0750C009ED5A9 /* model */,
 				DF9A7F141BEB1E78000CB3EE /* Info.plist */,
@@ -564,10 +679,12 @@
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
+				DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
 				DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
+				DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
 				DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */,
@@ -645,23 +762,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF8690FE1C157B3000305D2E /* TNCheckBox.m in Sources */,
+				DF86910C1C158AEC00305D2E /* SettingViewController.swift in Sources */,
 				DF96373C1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift in Sources */,
-				DF3A2E5C1BFDC88500A995E1 /* buttonViewController.swift in Sources */,
 				DFD7261E1BF320160089645A /* LLFlowSlideMenuConfig.swift in Sources */,
+				DF8690E81C157AE500305D2E /* RegisterViewController.swift in Sources */,
+				DF8690FF1C157B3000305D2E /* TNCheckBoxData.m in Sources */,
+				DF8690DF1C152C8900305D2E /* MessageDetailViewController.swift in Sources */,
+				DF86910A1C15866100305D2E /* HelpCenterViewController.swift in Sources */,
 				DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */,
+				DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */,
 				DFFF9F5A1C0D7D5400FD4A57 /* CardListViewController.swift in Sources */,
 				DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */,
 				DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */,
 				DFFF9F601C0D907300FD4A57 /* CardDetailsViewController.swift in Sources */,
+				DFDBB1891C119563000252CF /* CardListTableViewWithTimeCell.swift in Sources */,
 				DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */,
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
 				DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */,
+				DF8691061C157B3000305D2E /* TNRectangularCheckBoxData.m in Sources */,
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
 				DF4C68FF1BF0754A009ED5A9 /* TranslateModel.swift in Sources */,
 				DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */,
 				DFF748931BF48ECA00244E1A /* myCollectionReusableView.swift in Sources */,
+				DF1990B71C1187F0006AACF3 /* CardUserHistoryViewController.swift in Sources */,
 				DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */,
+				DF8691051C157B3000305D2E /* TNRectangularCheckBox.m in Sources */,
 				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
+				DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */,
 				DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */,
 				DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,
@@ -669,24 +797,34 @@
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
 				DFFF9F581C0D4AD000FD4A57 /* SearchViewController.swift in Sources */,
+				DF8691001C157B3000305D2E /* TNCheckBoxGroup.m in Sources */,
 				DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */,
 				DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */,
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
+				DF8691021C157B3000305D2E /* TNCircularCheckBoxData.m in Sources */,
+				DF8691031C157B3000305D2E /* TNImageCheckbox.m in Sources */,
 				DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */,
+				DF8691011C157B3000305D2E /* TNCircularCheckBox.m in Sources */,
+				DF1990B51C11749F006AACF3 /* CardUseRuleViewController.swift in Sources */,
 				DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */,
 				DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */,
 				DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */,
+				DF8690E21C1532DB00305D2E /* UserCentreViewController.swift in Sources */,
 				DF96373F1C0C310E00FC2CFE /* ProductListViewController.swift in Sources */,
+				DF8690E41C15645100305D2E /* LoginViewController.swift in Sources */,
 				DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */,
+				DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
+				DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,
 				DF4C68FB1BF06847009ED5A9 /* TranslateViewController.swift in Sources */,
+				DF8690E61C1578E200305D2E /* ForgetPasswordViewController.swift in Sources */,
+				DF8691041C157B3000305D2E /* TNImageCheckBoxData.m in Sources */,
 				DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */,
-				DFE37DF91C06EB9B005C3D5F /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
 
     var tableView : UITableView!
     var customNavigationBar : UIView!
@@ -91,10 +91,13 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             
             
             
-            let validityLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-16-200,30,200,30))
-            validityLabel.text = "有效期:2015.11.11-2015.12.11"
+            let validityLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-16-200,20,200,50))
+            validityLabel.text = "有效期:\n2015.11.11-2015.12.11"
             validityLabel.font = font14
             validityLabel.textColor = yojpText
+            validityLabel.numberOfLines = 2
+            validityLabel.sizeToFit()
+            validityLabel.frame = CGRectMake(cardBackView.frame.size.width-16-validityLabel.frame.size.width, 70-validityLabel.frame.size.height-8, validityLabel.frame.size.width, validityLabel.frame.size.height)
             cardBackView.addSubview(validityLabel)
             
             
@@ -112,6 +115,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             barcodeLabel.text = "JP1C2015N11Y26R17"
             barcodeLabel.textAlignment = .Center
             barcodeLabel.textColor = yojpText
+            barcodeLabel.font = font15
             barcodeLabel.center = CGPointMake(barcodeBackImageView.center.x, barcodeBackImageView.center.y + barcodeBackImageView.frame.size.height/2+15)
             barcodeLabel.bounds = CGRectMake(0, 0, 200, 30)
             cardBackView.addSubview(barcodeLabel)
@@ -120,6 +124,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             warmPrompt.text = "请在店铺收银员的指导下使用"
             warmPrompt.textAlignment = .Center
             warmPrompt.textColor = yojpText
+            warmPrompt.font = font15
             warmPrompt.center = CGPointMake(barcodeLabel.center.x, barcodeLabel.center.y + barcodeLabel.frame.size.height/2+10)
             warmPrompt.bounds = CGRectMake(0, 0, screenWidth, 30)
             cardBackView.addSubview(warmPrompt)
@@ -142,12 +147,36 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             
             cell.textLabel?.text = indexPath.row == 1 ? "打折券详情" : "立即使用"
             
-            cell.textLabel?.text = "打折券详情"
             cell.textLabel?.textColor = yojpText
             cell.textLabel?.font = font16
             return cell
         }
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == 1 {
+            self.navigationController?.pushViewController(CardUseRuleViewController(), animated: true)
+        }
+        else if indexPath.row == 2 {
+            let alertView : UIAlertView = UIAlertView(title: "警告", message: "注意!确认使用后,本券将失效", delegate: self, cancelButtonTitle: "取消操作", otherButtonTitles: "确认使用")
+            alertView.show()
+        }
+    }
+    
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 0:
+            print("取消操作")
+        case 1:
+            SVProgressShow.showSuccessWithStatus("兑换成功!")
+            self.navigationController?.pushViewController(CardUserHistoryViewController(), animated: true)
+        default:
+            break
+        }
+    }
+
     
     func backClicked() {
         

@@ -21,18 +21,19 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     var tabBarView : UIImageView!
     var previousBtn : NTButton!
-    var scorllView : UIView!
+    var tabBarScrollView : UIView!
     
     var tabBarViewWithOneTitle : UILabel!
     
     
     
     var scrollView : UIScrollView!
-    
+    var collectionBackView : UIView!
     var collectionView : UICollectionView!
-
     
+    var tableViewBackView : UIView!
     var tableView : UITableView!
+    
     var tableViewDataArray : NSMutableArray = ["    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆","    曾经再美，不过一回空谈。脚下艰难，却是直指明天。","    学会了适应，就会让你的环境变得明亮；学会了宽容，就会让你的生活没有烦恼。","    当你能飞的时候，就不要放弃飞;当你能梦的时候，就不要放弃梦。世界没有尽头，只要心中还有追求。人生真正的终点是希望的终结。苍鹰的骄傲是飞翔的双翼，人生的意义是不断的追求。","    最闹心的烦躁是你根本不知道自己究竟在烦什么，无缘无故就全身负能量爆棚 。巴拉拉巴拉拉巴拉拉巴","    所谓的贵人：就是开拓你的眼界，带你进入新的世界。 明天是否辉煌，取决于你今天的选择和行动！","    男人穷不要紧，就怕又穷又有脾气。女人丑也不要紧，就怕又丑又懒惰。","    无论你此刻是否迷茫，在阳光升起的时候，请相信，努力的人最终都有回报 。"]
     
     
@@ -43,13 +44,22 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     var scrollViewHeight : CGFloat!
     
-    
+    var scrollViewChangeHeight : CGFloat = -64
     
     var titleArray : NSMutableArray = ["全部","免费券","打折券","抵扣券","福袋"]
+    
+    
+    var startContentOffsetX : CGFloat = 0
+    
+    
+    var canRecognizer : Bool = false
+    var recognizer : UISwipeGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         
         NSThread.sleepForTimeInterval(0.0)
         
@@ -61,21 +71,33 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        self.scrollView = UIScrollView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.scrollView = UIScrollView(frame: CGRectMake(0,-64,screenWidth,screenHeight))
         self.scrollView.contentSize = CGSizeMake(screenWidth*2, 0)
-        self.scrollView.contentOffset = CGPointMake(screenWidth, 0)
+        self.scrollView.contentOffset = CGPointMake(0, 0)
         self.scrollView.pagingEnabled = true
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.delegate = self
+        self.scrollView.bounces = false
+        self.scrollView.canCancelContentTouches = false
         self.view.addSubview(self.scrollView)
         
+        self.followScrollView(self.view)
+        
+        self.collectionBackView = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.scrollView.addSubview(self.collectionBackView)
+        
+        
+        self.tableViewBackView = UIView(frame: CGRectMake(screenWidth,0,screenWidth,screenHeight))
+        self.scrollView.addSubview(self.tableViewBackView)
         
         self.creatCollectionView()
         self.creatTableView()
         self.setupLeftMenuButton()
         self.creatEscapeBtn()
         self.creatNavTitleView()
+        self.creatRecognizer()
+        
         
         self.navigationController?.navigationBar.barTintColor = yojpBlue
         
@@ -100,6 +122,13 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         let navC : MyNavigationController = MyNavigationController(rootViewController: leftViewController)
         self.mm_drawerController.leftDrawerViewController = navC
         
+        
+        self.scrollViewChangeHeight = -64
+        self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, self.scrollViewChangeHeight)
+        
+        self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60-64, 40, 40)
+        self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118, 120, 108)
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -126,9 +155,9 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.tabBarViewWithOneTitle.textAlignment = .Center
         
         
-        self.scorllView = UIView(frame: CGRectMake(50,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2-100,4))
-        self.scorllView.backgroundColor = UIColor.whiteColor()
-        self.tabBarView.addSubview(self.scorllView)
+        self.tabBarScrollView = UIView(frame: CGRectMake(50,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2-100,4))
+        self.tabBarScrollView.backgroundColor = UIColor.whiteColor()
+        self.tabBarView.addSubview(self.tabBarScrollView)
         
         self.navigationController?.navigationBar.translucent = false
         
@@ -140,6 +169,18 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.changeViewController(button)
     }
     
+    func creatRecognizer() {
+        self.recognizer = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipeFrom:"))
+        self.recognizer.direction = .Left
+        self.collectionBackView.addGestureRecognizer(self.recognizer)
+    }
+    
+    func handleSwipeFrom(recognizer : UISwipeGestureRecognizer) {
+        print("1111111111111")
+    }
+    
+
+    
     func creatCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .Vertical
@@ -150,24 +191,21 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        self.collectionView = UICollectionView(frame: CGRectMake(0, -2, screenWidth, screenHeight-20), collectionViewLayout: flowLayout)
+        self.collectionView = UICollectionView(frame: CGRectMake(0, 0, screenWidth, screenHeight-20), collectionViewLayout: flowLayout)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.backgroundColor = yojpTableViewColor
         
-        self.view.addSubview(self.collectionView)
-        
-        self.followScrollView(self.collectionView)
+        self.collectionBackView.addSubview(self.collectionView)
         
     }
     
     func creatTableView() {
-        self.tableView = UITableView(frame: CGRectMake(screenWidth, 0, screenWidth, screenHeight-64), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-20), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .None
-        self.view.addSubview(self.tableView)
-        self.followScrollView(self.tableView)
+        self.tableViewBackView.addSubview(self.tableView)
     }
     
     func creatBtn() {
@@ -452,6 +490,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func showORhideShowLeftViewBtn(flag : Bool) {
         self.showLeftViewBtn.hidden = flag
+        self.escapeBtn.hidden = flag
     }
     
     
@@ -487,22 +526,26 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
             self.previousBtn.enabled = true
             self.previousBtn = sender
             
-            self.tableView.setContentOffset(CGPointMake(0, 0), animated: false)
             
             sender.enabled = false
             
             UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
                 
                 if sender.tag == 1 {
-                    self.scorllView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
-                    self.collectionView.layer.transform = CATransform3DMakeTranslation(-screenWidth, 0, 0)
-                    self.tableView.layer.transform = CATransform3DMakeTranslation(-screenWidth, 0, 0)
+                    
+                    self.startContentOffsetX = screenWidth
+                    
+                    self.scrollView.contentOffset = CGPointMake(screenWidth, self.scrollViewChangeHeight)
+                    
+                    self.tabBarScrollView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
+                    
                 }
                 else {
-                    self.scorllView.layer.transform = CATransform3DIdentity
-                    self.tableView.layer.transform = CATransform3DIdentity
-                    self.collectionView.layer.transform = CATransform3DIdentity
+
+                    self.startContentOffsetX = 0
                     
+                    self.scrollView.contentOffset = CGPointMake(0, self.scrollViewChangeHeight)
+                    self.tabBarScrollView.layer.transform = CATransform3DIdentity
                 }
                 
                 }, completion: { (finished : Bool) -> Void in
@@ -519,6 +562,17 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     func setTabBarViewAlpha(alpha : CGFloat) {
         self.tabBarView.alpha = alpha
         self.tabBarViewWithOneTitle.alpha = alpha
+        self.scrollViewChangeHeight = 0
+        
+        self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60-64-alpha*44-20, 40, 40)
+        self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118-alpha*44-20, 120, 108)
+        
+        if alpha == 1 {
+            self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60-64-64, 40, 40)
+            self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118-64, 120, 108)
+        }
+
+        print(alpha,alpha*64,self.escapeBtn.frame)
     }
     
     func presentSearchView() {
@@ -535,16 +589,85 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         switch row {
         case 1:
             self.navigationItem.titleView = self.tabBarView
+            self.scrollView.contentSize = CGSizeMake(screenWidth*2, 0)
         case 2,3,4,5:
             self.tabBarViewWithOneTitle.text = titleArray.objectAtIndex(row-1) as? String
             self.navigationItem.titleView = self.tabBarViewWithOneTitle
+            self.scrollView.contentSize = CGSizeMake(screenWidth, 0)
         default :
             break
         }
         let button : NTButton = self.tabBarView.subviews[1] as! NTButton
         self.changeViewController(button)
+        self.changeShowLeftBtnType()
         
     }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        print( "scrollViewDidEndDecelerating scrollView.contentOffset.x " , scrollView.contentOffset.x)
+        
+        if scrollView == self.scrollView {
+           // print( "scrollViewDidEndDecelerating scrollView.contentOffset.x " , scrollView.contentOffset.x)
+            let page = Int(scrollView.contentOffset.x / screenWidth)
+            let button : NTButton = self.tabBarView.subviews[page+1] as! NTButton
+            self.changeViewController(button)
+            self.startContentOffsetX = scrollView.contentOffset.x
+            
+        }
+    }
+    
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        print("scrollViewWillBeginDecelerating")
+    }
+    
+    
+    func scrollViewWillBeginZooming(scrollView: UIScrollView, withView view: UIView?) {
+        print("scrollViewWillBeginZooming")
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        print("scrollViewWillBeginDragging",scrollView)
+        if scrollView == self.scrollView {
+            if scrollView.contentOffset.x == 0 {
+                self.canRecognizer = true
+            }
+            else {
+                self.canRecognizer = false
+            }
+        }
+        
+    }
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        print("scrollViewWillEndDragging",velocity,scrollView)
+        if scrollView == self.scrollView {
+            if velocity.x <= 0 && self.canRecognizer {
+                
+                self.showORhideShowLeftViewBtn(false)
+                self.mm_drawerController.toggleDrawerSide(MMDrawerSide.Left, animated: true) { (finished : Bool) -> Void in
+                    
+                    self.changeShowLeftBtnType()
+                    self.canRecognizer = false
+                    
+                }
+            }
+            
+        }
+    }
+    
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        let mytouch : UITouch = (touches as NSSet).anyObject() as! UITouch
+//        let touchLocation : CGPoint  = mytouch.locationInView(self.scrollView)
+//        print("touchesBegan",touchLocation)
+//        
+//    }
+//    
+//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        let mytouch : UITouch = (touches as NSSet).anyObject() as! UITouch
+//        let touchLocation : CGPoint  = mytouch.locationInView(self.scrollView)
+//        print("touchesMoved",touchLocation)
+//    }
     
     
     override func didReceiveMemoryWarning() {

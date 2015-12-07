@@ -23,14 +23,15 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.whiteColor()
-        
+       
         
         let searchBackView = UIView(frame: CGRectMake(0,0,screenWidth,20+44))
-        searchBackView.backgroundColor = UIColor.blackColor()
+        searchBackView.backgroundColor = yojpBlue
         self.view.addSubview(searchBackView)
         
         self.search = UISearchBar(frame: CGRectMake(16,20+7,screenWidth-32-50,30))
-        self.search.barTintColor = UIColor.clearColor()
+        self.search.barTintColor = yojpBlue
+        self.search.backgroundImage = UIImage()//去除上下黑线
         self.search.delegate = self
         self.search.placeholder = "搜索"
         
