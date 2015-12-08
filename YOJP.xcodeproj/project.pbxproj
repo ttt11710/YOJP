@@ -65,6 +65,9 @@
 		DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */; };
 		DFAF98D91BEC437D0098E644 /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAF98D81BEC437D0098E644 /* myView.xib */; };
 		DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */; };
+		DFC09F6D1C16788D005FBC9E /* IntegralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */; };
+		DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */; };
+		DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */; };
 		DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */; };
 		DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */; };
 		DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726161BF320160089645A /* LLFlowCurveView.swift */; };
@@ -198,6 +201,9 @@
 		DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		DFAF98D81BEC437D0098E644 /* myView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
 		DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegralViewController.swift; sourceTree = "<group>"; };
+		DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegralTableViewCell.swift; sourceTree = "<group>"; };
+		DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntegralTableViewCell.xib; sourceTree = "<group>"; };
 		DFCB3E571C030A20006222C7 /* AMScrollingNavbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMScrollingNavbarViewController.h; sourceTree = "<group>"; };
 		DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMScrollingNavbarViewController.m; sourceTree = "<group>"; };
 		DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowCurveProtocol.swift; sourceTree = "<group>"; };
@@ -397,6 +403,8 @@
 				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
 				DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */,
 				DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */,
+				DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */,
+				DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 				DF8690E31C15645100305D2E /* LoginViewController.swift */,
 				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
 				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
+				DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */,
 				DF8691071C157FC900305D2E /* CollectViewController.swift */,
 				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
 				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
@@ -678,6 +687,7 @@
 				DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */,
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
+				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
 				DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
@@ -792,6 +802,7 @@
 				DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */,
 				DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */,
 				DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */,
+				DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
@@ -806,6 +817,7 @@
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DF8691021C157B3000305D2E /* TNCircularCheckBoxData.m in Sources */,
 				DF8691031C157B3000305D2E /* TNImageCheckbox.m in Sources */,
+				DFC09F6D1C16788D005FBC9E /* IntegralViewController.swift in Sources */,
 				DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */,
 				DF8691011C157B3000305D2E /* TNCircularCheckBox.m in Sources */,
 				DF1990B51C11749F006AACF3 /* CardUseRuleViewController.swift in Sources */,

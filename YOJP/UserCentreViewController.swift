@@ -13,7 +13,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
-    var tableViewDataArray1 : NSMutableArray = ["使用历史","我的收藏","帮助中心","常用设置"]
+    var tableViewDataArray1 : NSMutableArray = ["积分","使用历史","我的收藏","帮助中心","常用设置"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func creatTableView() {
-        self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-44), style: .Plain)
         self.tableView.tableFooterView = UIView()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -70,11 +70,11 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return indexPath.section == 0 ? 140 : 44
+        return indexPath.section == 0 ? 200 : 44
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 4 ? 0 : section == 0 || section == 3 ? 8 : 2
+        return section == 5 || section == 0 ? 0 : section == 2 || section == 3 ? 2 : 8
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -83,9 +83,13 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
+            let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, 200))
+            imageView.image = UIImage(named: "userCenterBack")
+            cell.contentView.addSubview(imageView)
+            
             let label : UILabel = UILabel()
             label.bounds = CGRectMake(0, 0, 200, 25)
-            label.center = CGPointMake(screenWidth/2, 60)
+            label.center = CGPointMake(screenWidth/2, 90)
             label.textAlignment = .Center
             label.text = "还没有登录哦"
             label.textColor = yojpText
@@ -93,7 +97,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             cell.contentView.addSubview(label)
             
             let loginBtn : UIButton = UIButton()
-            loginBtn.center = CGPointMake(screenWidth/3, 100)
+            loginBtn.center = CGPointMake(screenWidth/3, 170)
             loginBtn.bounds = CGRectMake(0, 0, 100, 30)
             loginBtn.setTitle("登录", forState: .Normal)
             loginBtn.setTitleColor(yojpText, forState: .Normal)
@@ -102,7 +106,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             cell.contentView.addSubview(loginBtn)
             
             let registerBtn : UIButton = UIButton()
-            registerBtn.center = CGPointMake(screenWidth/3*2, 100)
+            registerBtn.center = CGPointMake(screenWidth/3*2, 170)
             registerBtn.bounds = CGRectMake(0, 0, 100, 30)
             registerBtn.setTitle("注册", forState: .Normal)
             registerBtn.setTitleColor(yojpText, forState: .Normal)
@@ -127,15 +131,18 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 {
-            self.navigationController?.pushViewController(CardUserHistoryViewController(), animated: true)
+            self.navigationController?.pushViewController(IntegralViewController(), animated: true)
         }
         else if indexPath.section == 2 {
-            self.navigationController?.pushViewController(CollectViewController(), animated: true)
+            self.navigationController?.pushViewController(CardUserHistoryViewController(), animated: true)
         }
         else if indexPath.section == 3 {
-            self.navigationController?.pushViewController(HelpCenterViewController(), animated: true)
+            self.navigationController?.pushViewController(CollectViewController(), animated: true)
         }
         else if indexPath.section == 4 {
+            self.navigationController?.pushViewController(HelpCenterViewController(), animated: true)
+        }
+        else if indexPath.section == 5 {
             self.navigationController?.pushViewController(SettingViewController(), animated: true)
         }
     }

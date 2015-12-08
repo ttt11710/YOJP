@@ -1,27 +1,31 @@
 //
-//  SettingViewController.swift
+//  IntegralViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 15/12/7.
+//  Created by PayBay on 15/12/8.
 //  Copyright © 2015年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    
     var customNavigationBar : UIView!
     var tableView : UITableView!
     
-    let dataArray2 : NSMutableArray = ["接收消息推送","优惠活动促销","系统通知"]
+    let dataArray1 : NSMutableArray = ["分享有礼获得积分","订单消费:5236987452"]
+    let dataArray2 : NSMutableArray = ["2015.11.27 09:38","2015.12.08 13:30"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         self.view.backgroundColor = UIColor.whiteColor()
         self.creatCustomNavigationBar()
         self.creatTableView()
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -50,21 +54,35 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.addSubview(self.customNavigationBar)
         
     }
-
+    
     
     func creatTableView() {
         self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-44-20))
         self.tableView.backgroundColor = yojpTableViewColor
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView()
+        self.tableView.separatorStyle = .None
         self.view.addSubview(self.tableView)
         
     }
 
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 8
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : 30
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view : UIView = UIView(frame: CGRectMake(0, 0, screenWidth, 30))
+        view.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1)
+        
+        let titleLabel : UILabel = UILabel(frame: CGRectMake(16,4,200,22))
+        titleLabel.text = "积分变动明细:"
+        titleLabel.textColor = yojpText
+        titleLabel.font = font15
+        view.addSubview(titleLabel)
+    
+        return view
+    }
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view : UIView = UIView(frame: CGRectMake(0, 0, screenWidth, 8))
         view.backgroundColor = yojpTableViewColor
@@ -73,11 +91,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 1 ? 3:1
+        return section == 0 ? 1:self.dataArray1.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,31 +107,31 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.accessoryType = .DisclosureIndicator
+            cell.backgroundColor = yojpTableViewColor
             
-            cell.textLabel?.text = "重置登录密码"
-            cell.textLabel?.textColor = yojpText
+            let countLabel : UILabel = UILabel(frame: CGRectMake(20,8,100,25))
+            countLabel.text = "我的积分"
+            countLabel.textColor = yojpText
+            countLabel.font = font15
+            cell.contentView.addSubview(countLabel)
             
-            return cell
-        case 1:
-            tableView.registerNib(UINib(nibName: "SettingTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingTableViewCellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("SettingTableViewCellId", forIndexPath: indexPath) as! SettingTableViewCell
-            
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
-            cell.label.text = dataArray2[indexPath.row] as? String
-            cell.label.textColor = yojpText
-            
+            let integralLabel : UILabel = UILabel(frame: CGRectMake(20,70,100,30))
+            integralLabel.text = "36"
+            integralLabel.textColor = yojpText
+            integralLabel.font = UIFont.systemFontOfSize(30)
+            cell.contentView.addSubview(integralLabel)
             
             return cell
         default :
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerNib(UINib(nibName: "IntegralTableViewCell", bundle: nil), forCellReuseIdentifier: "IntegralTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("IntegralTableViewCellId", forIndexPath: indexPath) as! IntegralTableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
-            cell.textLabel?.text = "注销"
-            cell.textLabel?.textColor = yojpText
+            cell.leftLabel.text = self.dataArray1[indexPath.row] as? String
+            cell.leftSubLabel.text = self.dataArray2[indexPath.row] as? String
+            
+            cell.rightLabel.text = "+10积分"
             
             return cell
             
@@ -123,17 +141,10 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 44
+        return indexPath.section == 0 ? 120 : 68
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
-        if indexPath.section == 0 {
-            self.navigationController?.pushViewController(UpdatePassViewController(), animated: true)
-        }
-        else if indexPath.section == 2 {
-            self.backClicked()
-        }
         
     }
     

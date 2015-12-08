@@ -62,7 +62,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
 
     func creatRegisterView() {
         
-        self.updatePayPassView = UIView(frame: CGRectMake(0, 20 + 44 + 10, screenWidth, 110))
+        self.updatePayPassView = UIView(frame: CGRectMake(0, 20 , screenWidth, 110))
         self.updatePayPassView.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(self.updatePayPassView)
         
@@ -114,6 +114,8 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
             SVProgressShow.showInfoWithStatus("信息不完整")
             return
         }
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
