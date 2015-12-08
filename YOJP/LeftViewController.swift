@@ -337,6 +337,15 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     MainViewController.shareMainViewController().changeShowLeftBtnType()
                 })
             }
+            else if indexPath.row == 1 {
+                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                    
+                    MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
+                    MainViewController.shareMainViewController().changeShowLeftBtnType()
+                })
+                
+            }
+                
             else if indexPath.row == 2 {
                 self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                     

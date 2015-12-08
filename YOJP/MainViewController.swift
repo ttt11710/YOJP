@@ -485,7 +485,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showNavbar()
         
        // self.tableView.removeFromSuperview()
-        self.navigationController?.pushViewController(WeatherViewController(), animated: true)
+        self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
     }
     
     func showORhideShowLeftViewBtn(flag : Bool) {
