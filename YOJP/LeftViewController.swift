@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,IQActionSheetPickerViewDelegate {
 
     
     var tableView : UITableView!
@@ -21,8 +21,16 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var dataArray2 : NSMutableArray = ["卡券","行程","消息"]
     
     
+    var cityArray : NSMutableArray = ["山中湖村","前桥","美瑛","冰库","富士山","大分","川本","枥木","德岛","鸟取","青森","千叶","广岛","鹿儿岛","金泽","北九州","神户","熊本","京都","松山","长崎","名古屋","那霸","奈良","新潟","冲绳","埼玉","大阪","札幌","长野","静冈","福冈","仙台"]
+    
     var allWeatherViewBackView : UIView!
     var allWeatherView : UIView!
+    
+    var weatherView : WeatherView!
+    
+    var addressLabel : UILabel!
+    var picker : IQActionSheetPickerView!
+    var showPickerViewFlag : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +48,7 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.view.addSubview(backView)
         
         self.creatTableView()
-        self.requestData()
+        self.requestData("上海")
         self.creatBtn()
         
     }
@@ -110,15 +118,20 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.allWeatherView.addSubview(label)
         
         
-        let addressLabel = UILabel(frame: CGRectMake(screenWidth-250,0,240,30))
-        addressLabel.textAlignment = .Right
-        addressLabel.textColor = UIColor.whiteColor()
-        addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
+        self.addressLabel = UILabel(frame: CGRectMake(screenWidth-250,0,240,30))
+        self.addressLabel.textAlignment = .Right
+        self.addressLabel.textColor = UIColor.whiteColor()
+        self.addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
+        
+        let selectWeatherTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("selectWeatherCity"))
+            addressLabel.addGestureRecognizer(selectWeatherTap)
+            addressLabel.userInteractionEnabled = true
         self.allWeatherView.addSubview(addressLabel)
         
         for i in 0..<3 {
-            let weatherView = WeatherView(frame: CGRectMake(screenWidth/3*CGFloat(i),30,screenWidth/3,screenWidth/3-5))
+            self.weatherView = WeatherView(frame: CGRectMake(screenWidth/3*CGFloat(i),30,screenWidth/3,screenWidth/3-5))
             weatherView.weatherLabel.text = self.weatherModel.results.weather_data[i].weather
+            weatherView.myTag = i
             weatherView.weatherLabel.sizeToFit()
             
             switch i {
@@ -177,11 +190,20 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func removeAllWeatherViewBackView() {
-        self.allWeatherViewBackView.removeFromSuperview()
+        if self.showPickerViewFlag {
+           self.picker.dismiss()
+           self.showPickerViewFlag = false
+        }
+        else {
+           self.allWeatherViewBackView.removeFromSuperview()
+        }
+        
+        
+        
     }
     
-    func requestData() {
-        Alamofire.request(.GET, baiduWeatherAkBaseUrl, parameters: ["location":"上海","ak":baiduWeatherAk,"output":"json"])
+    func requestData(location : String) {
+        Alamofire.request(.GET, baiduWeatherAkBaseUrl, parameters: ["location":location,"ak":baiduWeatherAk,"output":"json"])
         
             .response { request, response, data, error in
                 
@@ -190,7 +212,55 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
                     self.weatherModel = WeatherModel(json: json)
                     self.tableView.reloadData()
+                 //   self.updataWeatherView()
                 }
+        }
+    }
+    
+    func updataWeatherView() {
+        
+        if self.allWeatherViewBackView != nil {
+            self.addressLabel.text = String(format: "当前位置:%@", self.weatherModel.results.currentCity!)
+            
+            
+            for view in self.allWeatherView.subviews {
+                if view.isKindOfClass(WeatherView) {
+                    
+                    let view  = view as! WeatherView
+                    
+                    let pm25 = Int(self.weatherModel.results.pm25!)
+                    
+                    if pm25 < 50 {
+                        weatherView.pm25.text = "优"
+                    }
+                    else if pm25 < 100 {
+                        weatherView.pm25.text = "良"
+                    }
+                    else if pm25 < 150 {
+                        weatherView.pm25.text = "轻度"
+                    }
+                    else if pm25 < 200 {
+                        weatherView.pm25.text = "中度"
+                    }
+                    else if pm25 < 300 {
+                        weatherView.pm25.text = "重度"
+                    }
+                    else {
+                        weatherView.pm25.text = "严重"
+                    }
+                    
+                    let temperatureString = self.weatherModel.results.weather_data[view.myTag].temperature
+                    var array = temperatureString?.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString:" ℃~"))
+                    print(array)
+                    weatherView.maxTemperatureLabel.text = String(format: "%@°", array![0])
+                    weatherView.minTemperatureLabel.text = String(format: "%@°", array![3])
+                    
+                    weatherView.dayPictureUrlImageView.image = UIImage(named: "阴")
+                    weatherView.dayPictureUrlImageView.image = UIImage(named: self.weatherModel.results.weather_data[view.myTag].weather!)
+                }
+                
+            }
+
         }
     }
     
@@ -383,6 +453,37 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
     }
+    
+    func selectWeatherCity() {
+       
+        if self.picker == nil {
+            self.picker = IQActionSheetPickerView(title: "Single Picker", delegate: self)
+            self.picker.titlesForComponenets = [self.cityArray]
+            self.picker.selectRow(0, inComponent: 0, animated: true)
+            self.picker.show()
+            self.showPickerViewFlag = true
+        }
+        else if !self.showPickerViewFlag {
+            self.picker.selectRow(0, inComponent: 0, animated: true)
+            self.picker.show()
+            self.showPickerViewFlag = true
+        }
+    }
+    
+    func actionSheetPickerView(pickerView: IQActionSheetPickerView!, didSelectTitles titles: [AnyObject]!) {
+        
+        let array : NSArray = titles as NSArray
+        self.addressLabel.text = String(format: "当前位置:%@", array[0] as! String )
+        self.showPickerViewFlag = false
+       // self.requestData(array[0] as! String)
+    }
+    
+    func pickerCancelClicked(barButton: UIBarButtonItem!) {
+        print("pickerCancelClicked")
+        self.showPickerViewFlag = false
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

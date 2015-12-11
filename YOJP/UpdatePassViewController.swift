@@ -13,14 +13,10 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
     
     var customNavigationBar : UIView!
     
-    var updatePayPassView : UIView!
-    var oldPasswordLabel : UILabel!
-    var oldPasswordTextField : UITextField!
-    var betweenLine : UIImageView!
-    var newPasswordLabel : UILabel!
-    var newPasswordTextField : UITextField!
-    
-    var updatePayPasswordBtn : UIButton!
+    var customLabel : UILabel!
+    var captchaTextField : UITextField!
+    var getCaptchaBtn : UIButton!
+    var nextBtn : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +25,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         
         self.creatCustomNavigationBar()
         self.creatRegisterView()
-        self.creatUpdatePasswordBtn()
+        self.creatNextBtn()
         
         // Do any additional setup after loading the view.
     }
@@ -62,75 +58,70 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
 
     func creatRegisterView() {
         
-        self.updatePayPassView = UIView(frame: CGRectMake(0, 20 , screenWidth, 110))
-        self.updatePayPassView.backgroundColor = UIColor.whiteColor()
-        self.view.addSubview(self.updatePayPassView)
+        self.customLabel = UILabel(frame: CGRectMake(16,20+20,screenWidth,25))
+        self.customLabel.text = "请输入138***1234收到的短信验证码"
+        self.customLabel.font = font14
+        self.customLabel.textColor = yojpText
+        self.view.addSubview(self.customLabel)
         
-        self.oldPasswordLabel = UILabel(frame: CGRectMake(16, 17, 0, 21))
-        self.oldPasswordLabel.text = "旧密码"
-        self.oldPasswordLabel.textColor = yojpBlue
-        self.oldPasswordLabel.sizeToFit()
-        self.updatePayPassView.addSubview(self.oldPasswordLabel)
+        self.captchaTextField = UITextField(frame: CGRectMake(16, self.customLabel.frame.origin.y + self.customLabel.frame.size.height+16, (screenWidth-48)/3*2, 45))
+        self.captchaTextField.placeholder = "请输入短信验证码"
+        self.captchaTextField.secureTextEntry = true
+        self.captchaTextField.delegate = self
+        self.captchaTextField.keyboardType = .NumberPad
+        self.captchaTextField.layer.borderColor = yojpBlue.CGColor
+        self.captchaTextField.layer.borderWidth = 1
+        self.view.addSubview(self.captchaTextField)
         
-        self.oldPasswordTextField = UITextField(frame: CGRectMake(self.oldPasswordLabel.frame.origin.x + self.oldPasswordLabel.frame.size.width + 16, 0, screenWidth - 16 - self.oldPasswordLabel.frame.size.width - 16, 55))
-        self.oldPasswordTextField.placeholder = "请输入原始密码"
-        self.oldPasswordTextField.delegate = self
-        self.oldPasswordTextField.secureTextEntry = true
-        self.updatePayPassView.addSubview(self.oldPasswordTextField)
-        
-        self.betweenLine = UIImageView(frame: CGRectMake(self.oldPasswordLabel.frame.origin.x, 55, self.oldPasswordTextField.frame.size.width, 1))
-        self.betweenLine.backgroundColor = yojpLightCell
-        self.updatePayPassView.addSubview(self.betweenLine)
-        
-        self.newPasswordLabel = UILabel(frame: CGRectMake(16,  55 + 17, 0, 21))
-        self.newPasswordLabel.text = "新密码"
-        self.newPasswordLabel.textColor = yojpBlue
-        self.newPasswordLabel.sizeToFit()
-        self.updatePayPassView.addSubview(self.newPasswordLabel)
-        
-        self.newPasswordTextField = UITextField(frame: CGRectMake(self.oldPasswordTextField.frame.origin.x, self.oldPasswordTextField.frame.size.height, self.oldPasswordTextField.frame.size.width, self.oldPasswordTextField.frame.size.height))
-        self.newPasswordTextField.placeholder = "请输入新密码"
-        self.newPasswordTextField.secureTextEntry = true
-        self.newPasswordTextField.delegate = self
-        self.updatePayPassView.addSubview(self.newPasswordTextField)
+        self.getCaptchaBtn = UIButton(type: .Custom)
+        self.getCaptchaBtn.setTitle("获取验证码", forState: .Normal)
+        self.getCaptchaBtn.setTitleColor(yojpBlue, forState: .Normal)
+        self.getCaptchaBtn.titleLabel?.font = font15
+        self.getCaptchaBtn.layer.cornerRadius = 4
+        self.getCaptchaBtn.layer.borderColor = yojpBlue.CGColor
+        self.getCaptchaBtn.layer.borderWidth = 1
+        self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x+self.captchaTextField.frame.size.width+16, self.captchaTextField.frame.origin.y , (screenWidth-48)/3, 45)
+        self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.getCaptchaBtn)
         
     }
     
-    func creatUpdatePasswordBtn() {
-        self.updatePayPasswordBtn = UIButton(frame: CGRectMake(16, screenHeight - 100, screenWidth - 32, 44))
-        self.updatePayPasswordBtn.backgroundColor = yojpBlue
-        self.updatePayPasswordBtn.setTitle("重置密码", forState: .Normal)
-        self.updatePayPasswordBtn.layer.cornerRadius = 4
-        self.updatePayPasswordBtn.layer.masksToBounds = true
-        self.updatePayPasswordBtn.addTarget(self, action: Selector("updatePassBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(self.updatePayPasswordBtn)
+    func creatNextBtn() {
+        self.nextBtn = UIButton(frame: CGRectMake(16, self.captchaTextField.frame.origin.y + self.captchaTextField.frame.size.height + 16, screenWidth - 32, 44))
+        self.nextBtn.backgroundColor = yojpBlue
+        self.nextBtn.setTitle("下一步", forState: .Normal)
+        self.nextBtn.layer.cornerRadius = 4
+        self.nextBtn.layer.masksToBounds = true
+        self.nextBtn.addTarget(self, action: Selector("nextBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(self.nextBtn)
         
     }
     
-    
-    func updatePassBtnPressed() {
+    func getCodeBtnPressed() {
         
-        if self.oldPasswordTextField.text?.characters.count == 0 || self.newPasswordTextField.text?.characters.count == 0 {
+    }
+
+    func nextBtnPressed() {
+        
+        if self.captchaTextField.text?.characters.count == 0 {
             SVProgressShow.showInfoWithStatus("信息不完整")
             return
         }
         
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.pushViewController(UpdatePassViewController2(), animated: true)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        if (touches as NSSet).anyObject()?.view != self.oldPasswordTextField && (touches as NSSet).anyObject()?.view != self.newPasswordTextField
-        {
-            self.oldPasswordTextField.resignFirstResponder()
-            self.newPasswordTextField.resignFirstResponder()
+        if (touches as NSSet).anyObject()?.view != self.captchaTextField         {
+            self.captchaTextField.resignFirstResponder()
         }
         
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.oldPasswordTextField.resignFirstResponder()
-        self.newPasswordTextField.resignFirstResponder()
+        self.captchaTextField.resignFirstResponder()
         return true
     }
 

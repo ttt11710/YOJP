@@ -70,6 +70,10 @@
 		DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */; };
 		DFC09F731C169D23005FBC9E /* SchedulingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC09F721C169D23005FBC9E /* SchedulingViewController.swift */; };
 		DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */; };
+		DFD2A4E81C17BF5D004A6DCF /* UpdatePassViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD2A4E71C17BF5D004A6DCF /* UpdatePassViewController2.swift */; };
+		DFD2A4EA1C17CCBF004A6DCF /* ForgetPasswordViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */; };
+		DFD2A4F01C180A14004A6DCF /* IQActionSheetPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD2A4ED1C180A14004A6DCF /* IQActionSheetPickerView.m */; };
+		DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFD2A4EF1C180A14004A6DCF /* IQActionSheetViewController.m */; };
 		DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */; };
 		DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726161BF320160089645A /* LLFlowCurveView.swift */; };
 		DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD726171BF320160089645A /* LLFlowLayer.swift */; };
@@ -208,6 +212,12 @@
 		DFC09F721C169D23005FBC9E /* SchedulingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingViewController.swift; sourceTree = "<group>"; };
 		DFCB3E571C030A20006222C7 /* AMScrollingNavbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMScrollingNavbarViewController.h; sourceTree = "<group>"; };
 		DFCB3E581C030A20006222C7 /* AMScrollingNavbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMScrollingNavbarViewController.m; sourceTree = "<group>"; };
+		DFD2A4E71C17BF5D004A6DCF /* UpdatePassViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePassViewController2.swift; sourceTree = "<group>"; };
+		DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController2.swift; sourceTree = "<group>"; };
+		DFD2A4EC1C180A14004A6DCF /* IQActionSheetPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetPickerView.h; sourceTree = "<group>"; };
+		DFD2A4ED1C180A14004A6DCF /* IQActionSheetPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetPickerView.m; sourceTree = "<group>"; };
+		DFD2A4EE1C180A14004A6DCF /* IQActionSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQActionSheetViewController.h; sourceTree = "<group>"; };
+		DFD2A4EF1C180A14004A6DCF /* IQActionSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQActionSheetViewController.m; sourceTree = "<group>"; };
 		DFD726151BF320160089645A /* LLFlowCurveProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowCurveProtocol.swift; sourceTree = "<group>"; };
 		DFD726161BF320160089645A /* LLFlowCurveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowCurveView.swift; sourceTree = "<group>"; };
 		DFD726171BF320160089645A /* LLFlowLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFlowLayer.swift; sourceTree = "<group>"; };
@@ -339,6 +349,7 @@
 		DF4C68F91BF04AF5009ED5A9 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				DFD2A4EB1C180A14004A6DCF /* IQActionSheetPickerView */,
 				DF8690E91C157B3000305D2E /* TNCheckBoxGroup */,
 				DF9637331C0C1C9800FC2CFE /* MCFireworksButton */,
 				DFA9D44B1C083FDD003F9609 /* DOPScrollableActionSheet */,
@@ -418,12 +429,14 @@
 				DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */,
 				DF8690E31C15645100305D2E /* LoginViewController.swift */,
 				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
+				DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */,
 				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
 				DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */,
 				DF8691071C157FC900305D2E /* CollectViewController.swift */,
 				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
 				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
 				DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */,
+				DFD2A4E71C17BF5D004A6DCF /* UpdatePassViewController2.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -536,6 +549,17 @@
 				DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */,
 			);
 			path = DOPScrollableActionSheet;
+			sourceTree = "<group>";
+		};
+		DFD2A4EB1C180A14004A6DCF /* IQActionSheetPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				DFD2A4EC1C180A14004A6DCF /* IQActionSheetPickerView.h */,
+				DFD2A4ED1C180A14004A6DCF /* IQActionSheetPickerView.m */,
+				DFD2A4EE1C180A14004A6DCF /* IQActionSheetViewController.h */,
+				DFD2A4EF1C180A14004A6DCF /* IQActionSheetViewController.m */,
+			);
+			path = IQActionSheetPickerView;
 			sourceTree = "<group>";
 		};
 		DFD726141BF320160089645A /* FlowSlideMenuCore */ = {
@@ -799,14 +823,17 @@
 				DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */,
 				DFF748931BF48ECA00244E1A /* myCollectionReusableView.swift in Sources */,
 				DF1990B71C1187F0006AACF3 /* CardUserHistoryViewController.swift in Sources */,
+				DFD2A4E81C17BF5D004A6DCF /* UpdatePassViewController2.swift in Sources */,
 				DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */,
 				DF8691051C157B3000305D2E /* TNRectangularCheckBox.m in Sources */,
 				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
 				DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */,
+				DFD2A4F01C180A14004A6DCF /* IQActionSheetPickerView.m in Sources */,
 				DFC09F731C169D23005FBC9E /* SchedulingViewController.swift in Sources */,
 				DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */,
 				DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */,
 				DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */,
+				DFD2A4EA1C17CCBF004A6DCF /* ForgetPasswordViewController2.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
@@ -834,6 +861,7 @@
 				DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */,
 				DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
+				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,

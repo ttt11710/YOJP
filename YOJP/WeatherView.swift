@@ -18,6 +18,8 @@ class WeatherView: UIView {
     var weatherLabel : UILabel!
     var addressLabel : UILabel!
 
+    var myTag : Int!
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
