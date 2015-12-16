@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate {
+class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate,UITableViewDelegate,UITableViewDataSource {
 
     
     var customNavigationBar : UIView!
@@ -22,6 +22,10 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
     
     var beginDateBtn : UIButton!
     var endDateBtn : UIButton!
+    var beginDateString : String = ""
+    var endDateString : String = ""
+    var altogetherDay : Int = 0
+    
     
     var backView : UIView!
     var datePicker : UIDatePicker!
@@ -30,6 +34,13 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
     
     var scrollView : UIScrollView!
     
+    var tableView : UITableView!
+    
+    
+    var dict = [Int:NSMutableDictionary]()
+    var array : NSMutableArray = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +48,10 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.creatCustomNavigationBar()
         self.creatChooseScheduingView()
         self.creatDatePickerView()
+        
+     //   dict = [1:["时间":"2015.12.11","数据":["滑雪","溜冰","自由安排"]],2:["时间":"2015.12.11","数据":["泡温泉","小吃街","游船"]],3:["时间":"2015.12.11","数据":["登山","环岛自行车","购物一条街"]]]
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -137,6 +152,8 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.endDateBtn.backgroundColor = yojpTableViewColor
         self.endDateBtn.addTarget(self, action: Selector("selectBeginDatePressed:"), forControlEvents: .TouchUpInside)
         self.chooseScheduingView.addSubview(self.endDateBtn)
+        self.endDateBtn.userInteractionEnabled = false
+        self.endDateBtn.alpha = 0.5
         
         let sureBtn : UIButton = UIButton(frame: CGRectMake(0,screenHeight/2-40,screenWidth-32,40))
         sureBtn.setTitle("确定", forState: .Normal)
@@ -204,43 +221,128 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.backView.hidden = false
         
         self.changeTypeDate = sender.tag
+        
+        
+        if !self.endDateString.isEmpty && !self.beginDateString.isEmpty {
+            switch self.changeTypeDate {
+            case 1:
+                self.datePicker.minimumDate = NSDate()
+                let dateFormat : NSDateFormatter = NSDateFormatter()
+                dateFormat.dateFormat = "yyyy.MM.dd"
+                self.datePicker.maximumDate = dateFormat.dateFromString(self.endDateString)!
+                
+            default:
+                let dateFormat : NSDateFormatter = NSDateFormatter()
+                dateFormat.dateFormat = "yyyy.MM.dd"
+                self.datePicker.minimumDate = dateFormat.dateFromString(self.beginDateString)!
+                self.datePicker.maximumDate = nil
+            }
+        }
+        
+        if self.endDateString.isEmpty && !self.beginDateString.isEmpty {
+            switch self.changeTypeDate {
+            case 1:
+                self.datePicker.minimumDate = NSDate()
+                self.datePicker.maximumDate = nil
+                
+            default:
+                let dateFormat : NSDateFormatter = NSDateFormatter()
+                dateFormat.dateFormat = "yyyy.MM.dd"
+                self.datePicker.minimumDate = dateFormat.dateFromString(self.beginDateString)!
+                self.datePicker.maximumDate = nil
+            }
+        }
+        
     }
-
+    
     
     func showOrHiddenDatePickerView() {
         self.backView.hidden = true
-         print(self.datePicker.date)
+        print(self.datePicker.date)
         let dateFormat : NSDateFormatter = NSDateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
         let string : String = dateFormat.stringFromDate(self.datePicker.date)
-        print(string)
-        switch self.changeTypeDate {
-        case 1:
-            self.beginDateBtn.setTitle(string, forState: .Normal)
-            self.datePicker.minimumDate = self.datePicker.date
-            self.datePicker.maximumDate = nil
-        default:
-            self.endDateBtn.setTitle(string, forState: .Normal)
-            self.datePicker.minimumDate = NSDate()
-            self.datePicker.maximumDate = self.datePicker.date
-        }
+        
+            switch self.changeTypeDate {
+            case 1:
+                self.beginDateBtn.setTitle(string, forState: .Normal)
+                self.datePicker.minimumDate = self.datePicker.date
+                self.datePicker.maximumDate = nil
+                self.endDateBtn.userInteractionEnabled = true
+                self.endDateBtn.alpha = 1
+                self.beginDateString = string
+                
+            default:
+                self.endDateBtn.setTitle(string, forState: .Normal)
+                self.datePicker.minimumDate = NSDate()
+                self.datePicker.maximumDate = self.datePicker.date
+                self.endDateString = string
+            }
         
     }
     
     func sureBtnPressed() {
         
+        if self.endDateString.isEmpty || self.beginDateString.isEmpty {
+            SVProgressShow.showInfoWithStatus("日期未设定!")
+            return
+        }
+        if !self.endDateString.isEmpty && !self.beginDateString.isEmpty {
+            
+            let dateFormat : NSDateFormatter = NSDateFormatter()
+            dateFormat.dateFormat = "yyyy.MM.dd"
+            let interval : NSTimeInterval = dateFormat.dateFromString(self.endDateString)!.timeIntervalSinceDate(dateFormat.dateFromString(self.beginDateString)!)
+            let days = (Int(interval))/86400+1
+            
+            for i in 1...days {
+                
+                dict[i] = ["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]]
+                
+                let dictt : NSMutableDictionary = ["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]]
+                array.addObject(dictt)
+                
+               // array.addObject(["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]])
+            }
+            
+        }
+
+        self.creatTableView()
         
-        self.scrollView = UIScrollView(frame: CGRectMake(0,screenHeight/3,screenWidth,screenHeight/2))
-        self.scrollView.contentSize = CGSizeMake(screenWidth*3, 0)
-        self.scrollView.contentOffset = CGPointMake(0, 0)
-        self.scrollView.pagingEnabled = true
-        self.view.addSubview(self.scrollView)
+//        self.scrollView = UIScrollView(frame: CGRectMake(0,0,screenWidth,screenHeight-44))
+//        self.scrollView.contentSize = CGSizeMake(screenWidth*3, 0)
+//        self.scrollView.contentOffset = CGPointMake(0, 0)
+//        self.scrollView.pagingEnabled = true
+//        self.view.addSubview(self.scrollView)
+//        
+//        
+//        for i in 0...2 {
+//            let nib : NSArray = NSBundle.mainBundle().loadNibNamed("MySchedulingView", owner: nil, options: nil)
+//            let mySchedulingView : MySchedulingView = nib.objectAtIndex(0) as! MySchedulingView
+//            mySchedulingView.tag = i
+//            mySchedulingView.frame = CGRectMake(16 + CGFloat(i)*screenWidth, screenHeight/3, screenWidth-32, screenHeight/2)
+//            mySchedulingView.setView()
+//            mySchedulingView.noButton.setTitle(String(format: "%d/3", i+1), forState: .Normal)
+//            mySchedulingView.noLabel.text = String(format: "第%d天", i+1)
+//            mySchedulingView.addItemBtn.tag = i
+//            mySchedulingView.addItemBtn.callBack = { tag in
+//             
+//                print(tag)
+//            }
+//            self.scrollView.addSubview(mySchedulingView)
+//            
+//            
+//        }
         
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.chooseScheduingView.alpha = 0
             }) { (finished : Bool) -> Void in
-             
+                
+        }
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.tableView.alpha = 1
+            }) { (finished : Bool) -> Void in
+                
         }
     }
     
@@ -251,6 +353,161 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
     
     func dismissPickerView() {
       //  self.picker.dismiss()
+    }
+
+    
+    func creatTableView() {
+        self.tableView = UITableView(frame: CGRectMake((screenHeight-screenWidth)/2, 7*screenHeight/12-screenWidth/2, screenHeight/2,screenWidth), style: .Plain)
+        self.tableView.tableFooterView = UIView()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.separatorStyle = .None
+        self.tableView.backgroundColor = yojpTableViewColor
+        self.view.addSubview(self.tableView)
+        
+        self.tableView.center = CGPointMake(screenWidth/2, screenHeight/12*7)
+        self.tableView.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI/2.000000))
+        self.tableView.showsVerticalScrollIndicator = false
+        
+        self.tableView.alpha = 0
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if tableView == self.tableView {
+            return 1
+        }
+        else {
+            return 3
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if tableView == self.tableView {
+            return array.count
+        }
+        else {
+            return 1
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if tableView == self.tableView {
+            return screenWidth
+        }
+        else {
+            return  (screenHeight/2-110-40-8)/3
+        }
+        
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        if tableView == self.tableView {
+            tableView.registerNib(UINib(nibName: "SchedulingTableViewCell", bundle: nil), forCellReuseIdentifier: "SchedulingTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("SchedulingTableViewCellId", forIndexPath: indexPath) as! SchedulingTableViewCell
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            cell.contentView.backgroundColor = yojpTableViewColor
+            
+            cell.dateLabel.text = array[indexPath.row]["时间"] as? String
+            cell.noButton.setTitle(String(format: "%d/%d", indexPath.row+1,self.array.count), forState: .Normal)
+            cell.noLabel.text = String(format: "第%d天", indexPath.row+1)
+            cell.addItemBtn.tag = indexPath.row
+            cell.addItemBtn.callBack = { tag in
+                
+                print(tag)
+            }
+            
+            cell.garbageBtn.tag = indexPath.row
+            cell.garbageBtn.callBack = { tag in
+                
+                self.array.removeObjectAtIndex(tag)
+                
+                
+                let dateFormat : NSDateFormatter = NSDateFormatter()
+                dateFormat.dateFormat = "yyyy.MM.dd"
+                
+                
+                for i in 0..<self.array.count {
+                    
+                    
+                 //   array.addObject(["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]])
+                    
+                    let string1 : String = dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i)), sinceDate: dateFormat.dateFromString(self.beginDateString)!))
+                    
+                    (self.array.objectAtIndex(i) as! NSMutableDictionary)["时间"]  = string1
+                    
+                }
+
+                
+                
+                self.tableView.reloadData()
+                
+                if self.array.count == 0 {
+                    
+                    self.tableView.alpha = 0
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.chooseScheduingView.alpha = 1
+                        }) { (finished : Bool) -> Void in
+                        
+                    }
+                }
+                
+                print(tag)
+            }
+            
+            
+            cell.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2.000000))
+            
+            
+            let tableView = UITableView(frame: CGRectMake(16, 110, screenWidth-32,screenHeight/2-110-40), style: .Plain)
+            tableView.tableFooterView = UIView()
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.tag = indexPath.row
+            tableView.separatorStyle = .None
+            tableView.showsVerticalScrollIndicator = false
+            tableView.showsHorizontalScrollIndicator = false
+            tableView.backgroundColor = UIColor.whiteColor()
+            cell.addSubview(tableView)
+            
+            
+            return cell
+        }
+        else {
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+            let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            cell.backgroundColor = yojpTableViewColor
+            
+            cell.textLabel?.text = (array[tableView.tag]["数据"] as! NSArray).objectAtIndex(indexPath.section) as? String
+
+            cell.textLabel?.font = font14
+            cell.textLabel?.textColor = yojpText
+                        return cell
+
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if tableView == self.tableView {
+            return 0
+        }
+        else {
+           return 4
+        }
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRectMake(0,0,screenWidth-32,4))
+        view.backgroundColor = UIColor.whiteColor()
+        return view
     }
 
     

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,10 +36,10 @@
                                 <exclude reference="Bi8-gh-juM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Iu6-Vl-fmI"/>
                                 <exclude reference="hlx-Me-ukH"/>
                                 <exclude reference="oQu-EC-2Fa"/>
                                 <exclude reference="rNw-q9-OBC"/>
-                                <exclude reference="Iu6-Vl-fmI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -46,10 +47,10 @@
                                 <include reference="Bi8-gh-juM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Iu6-Vl-fmI"/>
                                 <include reference="hlx-Me-ukH"/>
                                 <include reference="oQu-EC-2Fa"/>
                                 <include reference="rNw-q9-OBC"/>
-                                <include reference="Iu6-Vl-fmI"/>
                             </mask>
                         </variation>
                     </view>

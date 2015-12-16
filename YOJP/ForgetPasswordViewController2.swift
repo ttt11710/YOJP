@@ -57,10 +57,21 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         self.finishBtn = UIButton(frame: CGRectMake(16, 60 + 55 + 16, screenWidth - 32, 44))
         self.finishBtn.backgroundColor = yojpBlue
         self.finishBtn.setTitle("确认", forState: .Normal)
-        self.finishBtn.layer.cornerRadius = 4
-        self.finishBtn.layer.masksToBounds = true
+       // self.finishBtn.layer.cornerRadius = 4
+       // self.finishBtn.layer.masksToBounds = true
         self.finishBtn.addTarget(self, action: Selector("finishBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(self.finishBtn)
+        
+        
+        self.finishBtn.layer.cornerRadius = 5
+        self.finishBtn.layer.shadowOffset = CGSizeMake(1, 1)
+        self.finishBtn.layer.shadowOpacity = 0.8
+        self.finishBtn.layer.shadowRadius = 5.0
+        
+        self.finishBtn.layer.shadowColor = UIColor.blackColor().CGColor
+        
+        
+        self.finishBtn.layer.shadowOpacity = 1.0
         
     }
 

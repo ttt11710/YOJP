@@ -21,6 +21,8 @@
 		DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */; };
 		DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */; };
 		DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69051BF09D29009ED5A9 /* WeatherView.swift */; };
+		DF516A221C1E9573005F9911 /* MySchedulingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF516A211C1E9573005F9911 /* MySchedulingView.xib */; };
+		DF516A241C1E95C1005F9911 /* MySchedulingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF516A231C1E95C1005F9911 /* MySchedulingView.swift */; };
 		DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */; };
 		DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */; };
 		DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690DC1C151F2200305D2E /* MessageViewController.swift */; };
@@ -44,6 +46,7 @@
 		DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */; };
 		DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */; };
 		DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */; };
+		DF8DA90C1C1FB23D00FB0ED1 /* CallBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF8DA90B1C1FB23D00FB0ED1 /* CallBackButton.m */; };
 		DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */; };
 		DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */; };
 		DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9637371C0C1C9800FC2CFE /* MCFireworksView.m */; };
@@ -64,6 +67,8 @@
 		DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F3E1BEB47EA000CB3EE /* Config.swift */; };
 		DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */; };
 		DFAF98D91BEC437D0098E644 /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAF98D81BEC437D0098E644 /* myView.xib */; };
+		DFB823771C1FEAB0002DD733 /* SchedulingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */; };
+		DFB823781C1FEAB0002DD733 /* SchedulingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */; };
 		DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */; };
 		DFC09F6D1C16788D005FBC9E /* IntegralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */; };
 		DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */; };
@@ -142,6 +147,8 @@
 		DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		DF4C69051BF09D29009ED5A9 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		DF516A211C1E9573005F9911 /* MySchedulingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySchedulingView.xib; sourceTree = "<group>"; };
+		DF516A231C1E95C1005F9911 /* MySchedulingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySchedulingView.swift; sourceTree = "<group>"; };
 		DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		DF8690DC1C151F2200305D2E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +183,8 @@
 		DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePassViewController.swift; sourceTree = "<group>"; };
+		DF8DA90A1C1FB23D00FB0ED1 /* CallBackButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallBackButton.h; sourceTree = "<group>"; };
+		DF8DA90B1C1FB23D00FB0ED1 /* CallBackButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallBackButton.m; sourceTree = "<group>"; };
 		DF96372F1C0BE2DF00FC2CFE /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		DF9637341C0C1C9800FC2CFE /* MCFireworksButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCFireworksButton.h; sourceTree = "<group>"; };
 		DF9637351C0C1C9800FC2CFE /* MCFireworksButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCFireworksButton.m; sourceTree = "<group>"; };
@@ -205,6 +214,8 @@
 		DFA9D44C1C083FDD003F9609 /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		DFAF98D81BEC437D0098E644 /* myView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
+		DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingTableViewCell.swift; sourceTree = "<group>"; };
+		DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulingTableViewCell.xib; sourceTree = "<group>"; };
 		DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegralViewController.swift; sourceTree = "<group>"; };
 		DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegralTableViewCell.swift; sourceTree = "<group>"; };
@@ -341,6 +352,7 @@
 		DF4C68F81BF0468B009ED5A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DF8DA9091C1FB23D00FB0ED1 /* CallBackButton */,
 				DF4C68F31BF04642009ED5A9 /* SVProgressShow */,
 			);
 			name = Common;
@@ -419,6 +431,10 @@
 				DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */,
 				DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */,
 				DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */,
+				DF516A231C1E95C1005F9911 /* MySchedulingView.swift */,
+				DF516A211C1E9573005F9911 /* MySchedulingView.xib */,
+				DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */,
+				DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -466,6 +482,15 @@
 				DF8690FD1C157B3000305D2E /* TNRectangularCheckBoxData.m */,
 			);
 			path = TNCheckBoxGroup;
+			sourceTree = "<group>";
+		};
+		DF8DA9091C1FB23D00FB0ED1 /* CallBackButton */ = {
+			isa = PBXGroup;
+			children = (
+				DF8DA90A1C1FB23D00FB0ED1 /* CallBackButton.h */,
+				DF8DA90B1C1FB23D00FB0ED1 /* CallBackButton.m */,
+			);
+			path = CallBackButton;
 			sourceTree = "<group>";
 		};
 		DF9637331C0C1C9800FC2CFE /* MCFireworksButton */ = {
@@ -712,6 +737,7 @@
 			files = (
 				DFAF98D91BEC437D0098E644 /* myView.xib in Resources */,
 				DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */,
+				DF516A221C1E9573005F9911 /* MySchedulingView.xib in Resources */,
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
@@ -724,6 +750,7 @@
 				DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
+				DFB823781C1FEAB0002DD733 /* SchedulingTableViewCell.xib in Resources */,
 				DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */,
 				DFE7EFCC1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib in Resources */,
 				DF9A7F0E1BEB1E78000CB3EE /* Main.storyboard in Resources */,
@@ -853,13 +880,16 @@
 				DF8691011C157B3000305D2E /* TNCircularCheckBox.m in Sources */,
 				DF1990B51C11749F006AACF3 /* CardUseRuleViewController.swift in Sources */,
 				DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */,
+				DFB823771C1FEAB0002DD733 /* SchedulingTableViewCell.swift in Sources */,
 				DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */,
 				DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */,
 				DF8690E21C1532DB00305D2E /* UserCentreViewController.swift in Sources */,
 				DF96373F1C0C310E00FC2CFE /* ProductListViewController.swift in Sources */,
 				DF8690E41C15645100305D2E /* LoginViewController.swift in Sources */,
 				DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */,
+				DF8DA90C1C1FB23D00FB0ED1 /* CallBackButton.m in Sources */,
 				DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */,
+				DF516A241C1E95C1005F9911 /* MySchedulingView.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,

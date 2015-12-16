@@ -79,7 +79,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.staticUserName.textColor = yojpBlue
         self.staticUserName.sizeToFit()
         self.registerView.addSubview(self.staticUserName)
-        
+    
         self.phoneTextField = UITextField(frame: CGRectMake(self.staticUserName.frame.origin.x + self.staticUserName.frame.size.width + 16, 0, screenWidth - 16 - self.staticUserName.frame.size.width - 16, 55))
         self.phoneTextField.placeholder = "1881236932"
         self.phoneTextField.delegate = self
