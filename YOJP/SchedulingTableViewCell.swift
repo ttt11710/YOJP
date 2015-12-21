@@ -14,6 +14,7 @@ class SchedulingTableViewCell: UITableViewCell {
     @IBOutlet weak var noLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateBtn: CallBackButton!
     @IBOutlet weak var garbageBtn: CallBackButton!
     @IBOutlet weak var addItemBtn: CallBackButton!
     override func awakeFromNib() {
@@ -29,6 +30,7 @@ class SchedulingTableViewCell: UITableViewCell {
         self.addItemBtn.backgroundColor = yojpBlue
         self.addItemBtn.setupBlock()
         self.garbageBtn.setupBlock()
+        self.dateBtn.setupBlock()
 
         
     }

@@ -17,7 +17,7 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     var weatherModel : WeatherModel!
     
-    var dataArray1 : NSMutableArray = ["全部","免费券","打折券","抵扣券","福袋"]
+    var dataArray1 : NSMutableArray = ["订单","卡券","清单","消息","我的收藏","个人中心"]
     var dataArray2 : NSMutableArray = ["卡券","行程","消息"]
     
     
@@ -49,12 +49,12 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         self.creatTableView()
         self.requestData("上海")
-        self.creatBtn()
+       // self.creatBtn()
         
     }
     
     func creatTableView() {
-        tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-44))
+        tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         tableView.separatorStyle = .None
         tableView.delegate = self
         tableView.dataSource = self
@@ -265,16 +265,15 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 6 : 3
+        return 7
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 0 {
+    
             if indexPath.row == 0 {
                 tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
                 let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
@@ -325,15 +324,15 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     
                     
                     
-                    let searchBtn = UIButton(type: .Custom)
-                    searchBtn.center = CGPointMake((screenWidth-80)/2, lineImageView.frame.origin.y + lineImageView.frame.size.height + 15 + 8)
-                    searchBtn.bounds = CGRectMake(0, 0, 255, 30)
-                    searchBtn.setImage(UIImage(named: "search"), forState: .Normal)
-                    searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
+//                    let searchBtn = UIButton(type: .Custom)
+//                    searchBtn.center = CGPointMake((screenWidth-80)/2, lineImageView.frame.origin.y + lineImageView.frame.size.height + 15 + 8)
+//                    searchBtn.bounds = CGRectMake(0, 0, 255, 30)
+//                    searchBtn.setImage(UIImage(named: "search"), forState: .Normal)
+//                    searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
                     
                     cell.contentView.addSubview(weatherView)
                     cell.contentView.addSubview(lineImageView)
-                    cell.contentView.addSubview(searchBtn)
+                   // cell.contentView.addSubview(searchBtn)
                 }
                 return cell
                 
@@ -351,79 +350,65 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 cell.backgroundColor = UIColor.clearColor()
                 
                 return cell
-                
-            }
-            
-        }
-        else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
-            
-            cell.selectionStyle = .None
-            
-            let string : String = self.dataArray2[indexPath.row] as! String
-            cell.imageView?.image = UIImage(named: string)
-            cell.textLabel?.text = string
-            cell.textLabel?.textColor = yojpLightText
-            cell.backgroundColor = UIColor.clearColor()
-            
-            return cell
         }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.row == 0 && indexPath.section == 0 ? 184 : 44
-    }
-    
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 40 : 0
-    }
-    
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth-80,40))
-        view.backgroundColor = UIColor.clearColor()
-        
-        return view
+        return indexPath.row == 0 ? 160 : 44
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                self.creatWeatherView()
-            }
-            else {
-                self.mm_drawerController.closeDrawerAnimated(true) { (finished : Bool) -> Void in
-                    MainViewController.shareMainViewController().changeNavigationItemTitleView(indexPath.row)
-                }
- 
-            }
+        
+        if indexPath.row == 0 {
+            self.creatWeatherView()
         }
-        else if indexPath.section == 1 {
-            if indexPath.row == 0 {
-                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                    
-                    MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
-                    MainViewController.shareMainViewController().changeShowLeftBtnType()
-                })
-            }
-            else if indexPath.row == 1 {
-                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                    
-                    MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
-                    MainViewController.shareMainViewController().changeShowLeftBtnType()
-                })
+        if indexPath.row == 1 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
-            }
-                
-            else if indexPath.row == 2 {
-                self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                    
-                    MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
-                    MainViewController.shareMainViewController().changeShowLeftBtnType()
-                })
+                MainViewController.shareMainViewController().navigationController?.pushViewController(OrderViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
 
-            }
+        }
+        if indexPath.row == 2 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+        }
+        else if indexPath.row == 3 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+               // MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+            
+        }
+            
+        else if indexPath.row == 4 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+        }
+        else if indexPath.row == 5 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(CollectViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+        }
+        else if indexPath.row == 6 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
         }
     }
     

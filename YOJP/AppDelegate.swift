@@ -14,7 +14,6 @@ import MMDrawerController
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         let leftSideDrawerViewController = LeftViewController()
         let centerViewController = MainViewController()
@@ -22,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController : MyNavigationController = MyNavigationController(rootViewController: centerViewController)
         navigationController.navigationBar.translucent = false
         navigationController.restorationIdentifier = "MMExampleCenterNavigationControllerRestorationKey"
-        
         let leftSideNavController : MyNavigationController = MyNavigationController(rootViewController: leftSideDrawerViewController)
         //leftSideNavController.navigationBarHidden = true
         leftSideNavController.restorationIdentifier = "MMExampleLeftNavigationControllerRestorationKey"

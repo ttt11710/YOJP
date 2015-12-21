@@ -31,6 +31,8 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
     var datePicker : UIDatePicker!
     var changeTypeDate : Int = 0
     
+    var backView2 : UIView!
+    var datePicker2 : UIDatePicker!
     
     var scrollView : UIScrollView!
     
@@ -41,13 +43,22 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
     var array : NSMutableArray = []
     
     
+    var tableViewDataArray : NSMutableArray = ["    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆","    当你能飞的时候，就不要放弃飞;当你能梦的时候，就不要放弃梦。世界没有尽头，只要心中还有追求。人生真正的终点是希望的终结。苍鹰。","    最闹心的烦躁是你根本不知道自己究竟在烦什么，无缘无故就全身负能量爆棚 。巴拉拉巴拉拉巴拉拉巴所谓的贵人：就是开拓你的眼界，带你进入新的世界。 明天是否辉煌，取决于你今天的选择和行动！","    男人穷不要紧，就怕又穷又有脾气。女人丑也不要紧，就怕又丑又懒惰。","    无论你此刻是否迷茫，在阳光升起的时候，请相信，努力的人最终都有回报 。"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = yojpTableViewColor
+        
+        let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
+        imageView.image = UIImage(named: "JapanBack")
+        self.view.addSubview(imageView)
+        
         self.creatCustomNavigationBar()
         self.creatChooseScheduingView()
         self.creatDatePickerView()
+        self.creatTableView()
+        self.creatDatePickerView2()
         
      //   dict = [1:["时间":"2015.12.11","数据":["滑雪","溜冰","自由安排"]],2:["时间":"2015.12.11","数据":["泡温泉","小吃街","游船"]],3:["时间":"2015.12.11","数据":["登山","环岛自行车","购物一条街"]]]
         
@@ -189,6 +200,35 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         view.addSubview(self.datePicker)
     }
     
+    
+    func creatDatePickerView2() {
+        self.backView2 = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight))
+        self.backView2.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        self.backView2.hidden = true
+       // self.view.insertSubview(self.backView2, atIndex: 0)
+        self.view.addSubview(self.backView2)
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("changeDateLabel"))
+        
+        self.backView2.addGestureRecognizer(tap)
+        self.backView2.userInteractionEnabled = true
+        
+        
+        let view : UIView = UIView()
+        view.backgroundColor = UIColor.whiteColor()
+        view.center = CGPointMake(screenWidth/2, screenHeight/2)
+        view.bounds = CGRectMake(0, 0, screenWidth-32, screenWidth-32)
+        backView2.addSubview(view)
+        
+        self.datePicker2 = UIDatePicker()
+        self.datePicker2.datePickerMode = .Date
+        self.datePicker2.locale = NSLocale(localeIdentifier: "zh_CN")
+        self.datePicker2.center = CGPointMake(view.frame.size.width/2, view.frame.size.height/2)
+        self.datePicker2.minimumDate = NSDate()
+        view.addSubview(self.datePicker2)
+    }
+
+    
     func selectCityBtnPressed() {
         
         if self.picker == nil {
@@ -281,6 +321,26 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         
     }
     
+    func changeDateLabel() {
+        
+        self.backView2.hidden = true
+        print(self.datePicker2.date)
+        let dateFormat : NSDateFormatter = NSDateFormatter()
+        dateFormat.dateFormat = "yyyy.MM.dd"
+        self.beginDateString = dateFormat.stringFromDate(self.datePicker2.date)
+        self.endDateString = dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(self.array.count-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!))
+        
+        for i in 0..<self.array.count {
+            
+            let string1 : String = dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i)), sinceDate: dateFormat.dateFromString(self.beginDateString)!))
+            
+            (self.array.objectAtIndex(i) as! NSMutableDictionary)["时间"]  = string1
+            
+        }
+        self.tableView.reloadData()
+
+    }
+    
     func sureBtnPressed() {
         
         if self.endDateString.isEmpty || self.beginDateString.isEmpty {
@@ -298,42 +358,17 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
                 
                 dict[i] = ["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]]
                 
-                let dictt : NSMutableDictionary = ["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]]
+                let arr : NSMutableArray = ["","",""]
+                
+                let dictt : NSMutableDictionary = ["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":arr]
                 array.addObject(dictt)
                 
-               // array.addObject(["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]])
             }
             
         }
 
-        self.creatTableView()
-        
-//        self.scrollView = UIScrollView(frame: CGRectMake(0,0,screenWidth,screenHeight-44))
-//        self.scrollView.contentSize = CGSizeMake(screenWidth*3, 0)
-//        self.scrollView.contentOffset = CGPointMake(0, 0)
-//        self.scrollView.pagingEnabled = true
-//        self.view.addSubview(self.scrollView)
-//        
-//        
-//        for i in 0...2 {
-//            let nib : NSArray = NSBundle.mainBundle().loadNibNamed("MySchedulingView", owner: nil, options: nil)
-//            let mySchedulingView : MySchedulingView = nib.objectAtIndex(0) as! MySchedulingView
-//            mySchedulingView.tag = i
-//            mySchedulingView.frame = CGRectMake(16 + CGFloat(i)*screenWidth, screenHeight/3, screenWidth-32, screenHeight/2)
-//            mySchedulingView.setView()
-//            mySchedulingView.noButton.setTitle(String(format: "%d/3", i+1), forState: .Normal)
-//            mySchedulingView.noLabel.text = String(format: "第%d天", i+1)
-//            mySchedulingView.addItemBtn.tag = i
-//            mySchedulingView.addItemBtn.callBack = { tag in
-//             
-//                print(tag)
-//            }
-//            self.scrollView.addSubview(mySchedulingView)
-//            
-//            
-//        }
-        
-        
+        self.tableView.reloadData()
+        self.tableView.hidden = false
         UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.chooseScheduingView.alpha = 0
             }) { (finished : Bool) -> Void in
@@ -362,13 +397,14 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .None
-        self.tableView.backgroundColor = yojpTableViewColor
+        self.tableView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(self.tableView)
         
         self.tableView.center = CGPointMake(screenWidth/2, screenHeight/12*7)
         self.tableView.transform = CGAffineTransformMakeRotation(-CGFloat(M_PI/2.000000))
         self.tableView.showsVerticalScrollIndicator = false
         
+        self.tableView.hidden = true
         self.tableView.alpha = 0
     }
 
@@ -377,7 +413,8 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
             return 1
         }
         else {
-            return 3
+            let num = (self.array[tableView.tag]["数据"] as! NSMutableArray).count
+            return num > 3 ? num : 3
         }
         
     }
@@ -398,7 +435,19 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
             return screenWidth
         }
         else {
-            return  (screenHeight/2-110-40-8)/3
+            
+            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-80,100))
+            label.text = (self.array[tableView.tag]["数据"] as! NSArray).objectAtIndex(indexPath.section) as? String
+            label.font = font14
+            label.numberOfLines = 0
+            label.sizeToFit()
+            
+            var height : CGFloat = label.frame.size.height+6+20
+            
+            if (screenHeight/2-110-40-8)/3 > height {
+                height = (screenHeight/2-110-40-8)/3
+            }
+            return  height
         }
         
     }
@@ -412,7 +461,8 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
-            cell.contentView.backgroundColor = yojpTableViewColor
+            cell.backgroundColor = UIColor.clearColor()
+            cell.contentView.backgroundColor = UIColor.clearColor()
             
             cell.dateLabel.text = array[indexPath.row]["时间"] as? String
             cell.noButton.setTitle(String(format: "%d/%d", indexPath.row+1,self.array.count), forState: .Normal)
@@ -421,13 +471,53 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
             cell.addItemBtn.callBack = { tag in
                 
                 print(tag)
+                
+                (self.array[tableView.tag]["数据"] as! NSMutableArray).addObject("添加一条行程")
+                
+                print(self.array[tableView.tag]["数据"])
+                print((self.array[tableView.tag]["数据"] as! NSMutableArray).count)
+                
+                self.tableView.reloadData()
+                //滚动到响应行
+                let scrollIndexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection: (self.array[tableView.tag]["数据"] as! NSMutableArray).count-1)
+                for indexPath in self.tableView.indexPathsForVisibleRows! {
+                    if indexPath.row == tableView.tag {
+                        let cell : SchedulingTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! SchedulingTableViewCell
+                        for tableView in cell.subviews {
+                            if tableView.isKindOfClass(UITableView) {
+                                (tableView as! UITableView).reloadData()
+                                for indexPath in (tableView as! UITableView).indexPathsForVisibleRows! {
+                                    (tableView as! UITableView).scrollToRowAtIndexPath(scrollIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            cell.dateBtn.tag = indexPath.row
+            cell.dateBtn.callBack = { tag in
+                
+                if tag == 0 {
+                   self.backView2.hidden = false
+                }
+                else {
+                    
+                    SVProgressShow.showInfoWithStatus("首页时间可更改")
+                }
             }
             
             cell.garbageBtn.tag = indexPath.row
             cell.garbageBtn.callBack = { tag in
                 
-                self.array.removeObjectAtIndex(tag)
                 
+                if tag == self.array.count-1 {
+                    self.array.removeAllObjects()
+                }
+                else {
+                    self.array.removeObjectAtIndex(tag)
+                }
                 
                 let dateFormat : NSDateFormatter = NSDateFormatter()
                 dateFormat.dateFormat = "yyyy.MM.dd"
@@ -435,8 +525,6 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
                 
                 for i in 0..<self.array.count {
                     
-                    
-                 //   array.addObject(["时间":dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i-1)), sinceDate: dateFormat.dateFromString(self.beginDateString)!)),"数据":["","",""]])
                     
                     let string1 : String = dateFormat.stringFromDate(NSDate(timeInterval: NSTimeInterval(24*3600*(i)), sinceDate: dateFormat.dateFromString(self.beginDateString)!))
                     
@@ -480,17 +568,49 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
             return cell
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
+            tableView.registerNib(UINib(nibName: "SchedulingSubTableViewCell", bundle: nil), forCellReuseIdentifier: "SchedulingSubTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("SchedulingSubTableViewCellId", forIndexPath: indexPath) as! SchedulingSubTableViewCell
+            
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = yojpTableViewColor
             
-            cell.textLabel?.text = (array[tableView.tag]["数据"] as! NSArray).objectAtIndex(indexPath.section) as? String
+            cell.itemLabel.text = (array[tableView.tag]["数据"] as! NSArray).objectAtIndex(indexPath.section) as? String
+            cell.itemLabel?.textColor = yojpText
+            cell.callBack = {
+                print(tableView.tag)
+                print(indexPath.section)
+                var changeTag : Int = indexPath.section
+                //更改数据
+                
+                for i in 0...indexPath.section {
+                    if ((self.array[tableView.tag]["数据"] as! NSMutableArray)[i] as! String).characters.count == 0 {
+                        changeTag = i
+                       (self.array[tableView.tag]["数据"] as! NSMutableArray)[changeTag] = self.tableViewDataArray[changeTag]
+                        break
+                    }
+                }
+                self.tableView.reloadData()
+                //滚动到响应行
+                let scrollIndexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection: changeTag)
+                for indexPath in self.tableView.indexPathsForVisibleRows! {
+                    if indexPath.row == tableView.tag {
+                        let cell : SchedulingTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! SchedulingTableViewCell
+                        for tableView in cell.subviews {
+                            if tableView.isKindOfClass(UITableView) {
+                                for indexPath in (tableView as! UITableView).indexPathsForVisibleRows! {
+                                    (tableView as! UITableView).scrollToRowAtIndexPath(scrollIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
 
-            cell.textLabel?.font = font14
-            cell.textLabel?.textColor = yojpText
-                        return cell
-
+            return cell
+            
+            
         }
         
     }
@@ -509,6 +629,20 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         view.backgroundColor = UIColor.whiteColor()
         return view
     }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if tableView != self.tableView {
+           return .Delete
+        }
+        return .None
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("删除")
+        }
+    }
+    
 
     
     override func didReceiveMemoryWarning() {

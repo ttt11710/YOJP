@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderTableViewCellId" rowHeight="133" id="KGk-i7-Jjw" customClass="OrderTableViewCell" customModule="YOJP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="343" height="132"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="倒计时" translatesAutoresizingMaskIntoConstraints="NO" id="F3h-Po-oHx">
+                        <rect key="frame" x="190" y="0.0" width="153" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="153" id="bI6-UP-GJE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="计时01:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5z-ZY-Erh">
+                        <rect key="frame" x="243" y="0.0" width="92" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="jDf-h6-sn3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付金额:￥999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSt-l1-ZHd">
+                        <rect key="frame" x="22" y="37" width="108" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号码:JP1000000000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6A-KS-K5n">
+                        <rect key="frame" x="22" y="63" width="199" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取货地址:某某街某某路某某号 东京店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55B-jC-VIN">
+                        <rect key="frame" x="22" y="89" width="249" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="topMargin" secondItem="F5z-ZY-Erh" secondAttribute="top" constant="8" id="0we-aj-gVj"/>
+                    <constraint firstItem="hSt-l1-ZHd" firstAttribute="top" secondItem="F5z-ZY-Erh" secondAttribute="bottom" constant="2" id="Bel-AY-9Q7"/>
+                    <constraint firstItem="F3h-Po-oHx" firstAttribute="trailing" secondItem="F5z-ZY-Erh" secondAttribute="trailing" constant="8" id="GaT-lp-daH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="F5z-ZY-Erh" secondAttribute="trailing" id="KxH-JP-ilU"/>
+                    <constraint firstItem="p6A-KS-K5n" firstAttribute="leading" secondItem="hSt-l1-ZHd" secondAttribute="leading" id="QOI-oQ-kkL"/>
+                    <constraint firstItem="hSt-l1-ZHd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="14" id="QgM-6x-HrL"/>
+                    <constraint firstItem="55B-jC-VIN" firstAttribute="top" secondItem="p6A-KS-K5n" secondAttribute="bottom" constant="8" id="Vz9-lG-iDZ"/>
+                    <constraint firstItem="F3h-Po-oHx" firstAttribute="centerY" secondItem="F5z-ZY-Erh" secondAttribute="centerY" id="Wd7-j8-fKe"/>
+                    <constraint firstItem="55B-jC-VIN" firstAttribute="leading" secondItem="p6A-KS-K5n" secondAttribute="leading" id="Xus-yg-Cz7"/>
+                    <constraint firstItem="F3h-Po-oHx" firstAttribute="height" secondItem="F5z-ZY-Erh" secondAttribute="height" id="kBn-or-oYm"/>
+                    <constraint firstItem="p6A-KS-K5n" firstAttribute="top" secondItem="hSt-l1-ZHd" secondAttribute="bottom" constant="8" id="we7-C0-qad"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="55B-jC-VIN" id="aS8-Bu-zuk"/>
+                <outlet property="orderNumberLabel" destination="p6A-KS-K5n" id="Bbz-VB-DCc"/>
+                <outlet property="payMoneyLabel" destination="hSt-l1-ZHd" id="9Hz-FV-AkK"/>
+                <outlet property="stateLabel" destination="F5z-ZY-Erh" id="4pt-xk-HMA"/>
+            </connections>
+            <point key="canvasLocation" x="201.5" y="476.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="倒计时" width="183" height="44"/>
+    </resources>
+</document>

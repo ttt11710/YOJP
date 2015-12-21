@@ -21,8 +21,6 @@
 		DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */; };
 		DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */; };
 		DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4C69051BF09D29009ED5A9 /* WeatherView.swift */; };
-		DF516A221C1E9573005F9911 /* MySchedulingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF516A211C1E9573005F9911 /* MySchedulingView.xib */; };
-		DF516A241C1E95C1005F9911 /* MySchedulingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF516A231C1E95C1005F9911 /* MySchedulingView.swift */; };
 		DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */; };
 		DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */; };
 		DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8690DC1C151F2200305D2E /* MessageViewController.swift */; };
@@ -65,8 +63,12 @@
 		DF9A7F3B1BEB36DF000CB3EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9A7F3A1BEB36DF000CB3EE /* Foundation.framework */; };
 		DF9A7F3D1BEB4450000CB3EE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9A7F3C1BEB4450000CB3EE /* MapKit.framework */; };
 		DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F3E1BEB47EA000CB3EE /* Config.swift */; };
+		DFA37F421C2796BF00F87F70 /* OrderSucceedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA37F411C2796BF00F87F70 /* OrderSucceedViewController.swift */; };
+		DFA37F441C279B6D00F87F70 /* OrderFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA37F431C279B6D00F87F70 /* OrderFailureViewController.swift */; };
 		DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */; };
 		DFAF98D91BEC437D0098E644 /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAF98D81BEC437D0098E644 /* myView.xib */; };
+		DFB36B571C22607500A89BFC /* SchedulingSubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB36B551C22607500A89BFC /* SchedulingSubTableViewCell.swift */; };
+		DFB36B581C22607500A89BFC /* SchedulingSubTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB36B561C22607500A89BFC /* SchedulingSubTableViewCell.xib */; };
 		DFB823771C1FEAB0002DD733 /* SchedulingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */; };
 		DFB823781C1FEAB0002DD733 /* SchedulingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */; };
 		DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */; };
@@ -100,6 +102,13 @@
 		DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */; };
 		DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */; };
 		DFE7EFCC1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */; };
+		DFF3C2B31C23CED400D7EFF2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF3C2B21C23CED400D7EFF2 /* ListViewController.swift */; };
+		DFF3C2B81C23CF1F00D7EFF2 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF3C2B61C23CF1F00D7EFF2 /* ListTableViewCell.swift */; };
+		DFF3C2B91C23CF1F00D7EFF2 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF3C2B71C23CF1F00D7EFF2 /* ListTableViewCell.xib */; };
+		DFF3C2C31C23EE7500D7EFF2 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF3C2C21C23EE7500D7EFF2 /* OrderViewController.swift */; };
+		DFF3C2C81C23F23900D7EFF2 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF3C2C61C23F23900D7EFF2 /* OrderTableViewCell.swift */; };
+		DFF3C2C91C23F23900D7EFF2 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF3C2C71C23F23900D7EFF2 /* OrderTableViewCell.xib */; };
+		DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF3C2CA1C23FAA700D7EFF2 /* OrderDetailViewController.swift */; };
 		DFF748931BF48ECA00244E1A /* myCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF7488F1BF48ECA00244E1A /* myCollectionReusableView.swift */; };
 		DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF748901BF48ECA00244E1A /* myCollectionReusableView.xib */; };
 		DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF748911BF48ECA00244E1A /* myCollectionViewCell.swift */; };
@@ -147,8 +156,6 @@
 		DF4C69001BF092F7009ED5A9 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		DF4C69021BF0951F009ED5A9 /* WeatherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		DF4C69051BF09D29009ED5A9 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
-		DF516A211C1E9573005F9911 /* MySchedulingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySchedulingView.xib; sourceTree = "<group>"; };
-		DF516A231C1E95C1005F9911 /* MySchedulingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySchedulingView.swift; sourceTree = "<group>"; };
 		DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		DF8690DC1C151F2200305D2E /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -211,9 +218,13 @@
 		DF9A7F3A1BEB36DF000CB3EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DF9A7F3C1BEB4450000CB3EE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DF9A7F3E1BEB47EA000CB3EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		DFA37F411C2796BF00F87F70 /* OrderSucceedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSucceedViewController.swift; sourceTree = "<group>"; };
+		DFA37F431C279B6D00F87F70 /* OrderFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFailureViewController.swift; sourceTree = "<group>"; };
 		DFA9D44C1C083FDD003F9609 /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		DFAF98D81BEC437D0098E644 /* myView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
+		DFB36B551C22607500A89BFC /* SchedulingSubTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingSubTableViewCell.swift; sourceTree = "<group>"; };
+		DFB36B561C22607500A89BFC /* SchedulingSubTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulingSubTableViewCell.xib; sourceTree = "<group>"; };
 		DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulingTableViewCell.swift; sourceTree = "<group>"; };
 		DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchedulingTableViewCell.xib; sourceTree = "<group>"; };
 		DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
@@ -253,6 +264,13 @@
 		DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myTableViewCell.xib; sourceTree = "<group>"; };
 		DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAndLabelTableViewCell.swift; sourceTree = "<group>"; };
 		DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageAndLabelTableViewCell.xib; sourceTree = "<group>"; };
+		DFF3C2B21C23CED400D7EFF2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		DFF3C2B61C23CF1F00D7EFF2 /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		DFF3C2B71C23CF1F00D7EFF2 /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		DFF3C2C21C23EE7500D7EFF2 /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		DFF3C2C61C23F23900D7EFF2 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		DFF3C2C71C23F23900D7EFF2 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		DFF3C2CA1C23FAA700D7EFF2 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		DFF7488F1BF48ECA00244E1A /* myCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCollectionReusableView.swift; sourceTree = "<group>"; };
 		DFF748901BF48ECA00244E1A /* myCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myCollectionReusableView.xib; sourceTree = "<group>"; };
 		DFF748911BF48ECA00244E1A /* myCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -323,10 +341,8 @@
 		DF1990B31C117357006AACF3 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
-				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
-				DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */,
-				DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */,
+				DFF3C2BC1C23ECEC00D7EFF2 /* Control */,
+				DFF3C2BD1C23ECF600D7EFF2 /* View */,
 			);
 			name = Card;
 			sourceTree = "<group>";
@@ -386,10 +402,11 @@
 				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
 				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
 				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
+				DFF3C2AE1C23CE1200D7EFF2 /* Order */,
 				DF1990B31C117357006AACF3 /* Card */,
-				DF8690DC1C151F2200305D2E /* MessageViewController.swift */,
-				DF8690DE1C152C8900305D2E /* MessageDetailViewController.swift */,
-				DFC09F721C169D23005FBC9E /* SchedulingViewController.swift */,
+				DFF3C2B11C23CE8800D7EFF2 /* List */,
+				DFF3C2AF1C23CE2900D7EFF2 /* Message */,
+				DFF3C2B01C23CE3E00D7EFF2 /* Collection */,
 				DF8690E01C15328F00305D2E /* User */,
 			);
 			name = control;
@@ -421,20 +438,6 @@
 				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
 				DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */,
 				DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */,
-				DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */,
-				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
-				DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */,
-				DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */,
-				DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */,
-				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
-				DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */,
-				DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */,
-				DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */,
-				DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */,
-				DF516A231C1E95C1005F9911 /* MySchedulingView.swift */,
-				DF516A211C1E9573005F9911 /* MySchedulingView.xib */,
-				DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */,
-				DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -442,17 +445,8 @@
 		DF8690E01C15328F00305D2E /* User */ = {
 			isa = PBXGroup;
 			children = (
-				DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */,
-				DF8690E31C15645100305D2E /* LoginViewController.swift */,
-				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
-				DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */,
-				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
-				DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */,
-				DF8691071C157FC900305D2E /* CollectViewController.swift */,
-				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
-				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
-				DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */,
-				DFD2A4E71C17BF5D004A6DCF /* UpdatePassViewController2.swift */,
+				DFF3C2BE1C23ED4300D7EFF2 /* Control */,
+				DFF3C2BF1C23ED4D00D7EFF2 /* View */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -628,6 +622,151 @@
 			path = KOMovingNavigationBar;
 			sourceTree = "<group>";
 		};
+		DFF3C2AE1C23CE1200D7EFF2 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				DFF3C2C41C23F20B00D7EFF2 /* Control */,
+				DFF3C2C51C23F21200D7EFF2 /* View */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		DFF3C2AF1C23CE2900D7EFF2 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				DF8690DC1C151F2200305D2E /* MessageViewController.swift */,
+				DF8690DE1C152C8900305D2E /* MessageDetailViewController.swift */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
+		DFF3C2B01C23CE3E00D7EFF2 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				DFF3C2C01C23EDD700D7EFF2 /* Control */,
+				DFF3C2C11C23EDE100D7EFF2 /* View */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
+		DFF3C2B11C23CE8800D7EFF2 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DFF3C2BB1C23ECD500D7EFF2 /* Control */,
+				DFF3C2BA1C23ECCC00D7EFF2 /* View */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		DFF3C2BA1C23ECCC00D7EFF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFB823751C1FEAB0002DD733 /* SchedulingTableViewCell.swift */,
+				DFB823761C1FEAB0002DD733 /* SchedulingTableViewCell.xib */,
+				DFB36B551C22607500A89BFC /* SchedulingSubTableViewCell.swift */,
+				DFB36B561C22607500A89BFC /* SchedulingSubTableViewCell.xib */,
+				DFF3C2B61C23CF1F00D7EFF2 /* ListTableViewCell.swift */,
+				DFF3C2B71C23CF1F00D7EFF2 /* ListTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DFF3C2BB1C23ECD500D7EFF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFC09F721C169D23005FBC9E /* SchedulingViewController.swift */,
+				DFF3C2B21C23CED400D7EFF2 /* ListViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFF3C2BC1C23ECEC00D7EFF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
+				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
+				DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */,
+				DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFF3C2BD1C23ECF600D7EFF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */,
+				DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */,
+				DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */,
+				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DFF3C2BE1C23ED4300D7EFF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DF8690E11C1532DB00305D2E /* UserCentreViewController.swift */,
+				DF8690E31C15645100305D2E /* LoginViewController.swift */,
+				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
+				DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */,
+				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
+				DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */,
+				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
+				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
+				DF8691111C158D4B00305D2E /* UpdatePassViewController.swift */,
+				DFD2A4E71C17BF5D004A6DCF /* UpdatePassViewController2.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFF3C2BF1C23ED4D00D7EFF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFC09F6E1C167A11005FBC9E /* IntegralTableViewCell.swift */,
+				DFC09F6F1C167A11005FBC9E /* IntegralTableViewCell.xib */,
+				DF86910D1C158BB700305D2E /* SettingTableViewCell.swift */,
+				DF86910E1C158BB700305D2E /* SettingTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DFF3C2C01C23EDD700D7EFF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DF8691071C157FC900305D2E /* CollectViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFF3C2C11C23EDE100D7EFF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */,
+				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DFF3C2C41C23F20B00D7EFF2 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFF3C2C21C23EE7500D7EFF2 /* OrderViewController.swift */,
+				DFF3C2CA1C23FAA700D7EFF2 /* OrderDetailViewController.swift */,
+				DFA37F411C2796BF00F87F70 /* OrderSucceedViewController.swift */,
+				DFA37F431C279B6D00F87F70 /* OrderFailureViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFF3C2C51C23F21200D7EFF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFF3C2C61C23F23900D7EFF2 /* OrderTableViewCell.swift */,
+				DFF3C2C71C23F23900D7EFF2 /* OrderTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -737,7 +876,6 @@
 			files = (
 				DFAF98D91BEC437D0098E644 /* myView.xib in Resources */,
 				DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */,
-				DF516A221C1E9573005F9911 /* MySchedulingView.xib in Resources */,
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
@@ -745,8 +883,11 @@
 				DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
+				DFB36B581C22607500A89BFC /* SchedulingSubTableViewCell.xib in Resources */,
 				DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
+				DFF3C2C91C23F23900D7EFF2 /* OrderTableViewCell.xib in Resources */,
+				DFF3C2B91C23CF1F00D7EFF2 /* ListTableViewCell.xib in Resources */,
 				DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
@@ -834,10 +975,13 @@
 				DF8690FF1C157B3000305D2E /* TNCheckBoxData.m in Sources */,
 				DF8690DF1C152C8900305D2E /* MessageDetailViewController.swift in Sources */,
 				DF86910A1C15866100305D2E /* HelpCenterViewController.swift in Sources */,
+				DFF3C2B31C23CED400D7EFF2 /* ListViewController.swift in Sources */,
 				DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */,
 				DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */,
 				DFFF9F5A1C0D7D5400FD4A57 /* CardListViewController.swift in Sources */,
+				DFA37F441C279B6D00F87F70 /* OrderFailureViewController.swift in Sources */,
 				DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */,
+				DFB36B571C22607500A89BFC /* SchedulingSubTableViewCell.swift in Sources */,
 				DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */,
 				DFFF9F601C0D907300FD4A57 /* CardDetailsViewController.swift in Sources */,
 				DFDBB1891C119563000252CF /* CardListTableViewWithTimeCell.swift in Sources */,
@@ -862,15 +1006,18 @@
 				DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */,
 				DFD2A4EA1C17CCBF004A6DCF /* ForgetPasswordViewController2.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,
+				DFF3C2C81C23F23900D7EFF2 /* OrderTableViewCell.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
+				DFA37F421C2796BF00F87F70 /* OrderSucceedViewController.swift in Sources */,
 				DFFF9F581C0D4AD000FD4A57 /* SearchViewController.swift in Sources */,
 				DF8691001C157B3000305D2E /* TNCheckBoxGroup.m in Sources */,
 				DFD7261D1BF320160089645A /* LLFlowLayer.swift in Sources */,
 				DFD726221BF3204A0089645A /* LeftViewController.swift in Sources */,
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
+				DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DF8691021C157B3000305D2E /* TNCircularCheckBoxData.m in Sources */,
@@ -889,8 +1036,9 @@
 				DF9637301C0BE2DF00FC2CFE /* GuideViewController.swift in Sources */,
 				DF8DA90C1C1FB23D00FB0ED1 /* CallBackButton.m in Sources */,
 				DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */,
-				DF516A241C1E95C1005F9911 /* MySchedulingView.swift in Sources */,
+				DFF3C2B81C23CF1F00D7EFF2 /* ListTableViewCell.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
+				DFF3C2C31C23EE7500D7EFF2 /* OrderViewController.swift in Sources */,
 				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */,
