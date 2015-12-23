@@ -65,6 +65,8 @@
 		DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9A7F3E1BEB47EA000CB3EE /* Config.swift */; };
 		DFA37F421C2796BF00F87F70 /* OrderSucceedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA37F411C2796BF00F87F70 /* OrderSucceedViewController.swift */; };
 		DFA37F441C279B6D00F87F70 /* OrderFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA37F431C279B6D00F87F70 /* OrderFailureViewController.swift */; };
+		DFA37F4D1C27D85E00F87F70 /* SearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA37F4B1C27D85E00F87F70 /* SearchCollectionReusableView.swift */; };
+		DFA37F4E1C27D85E00F87F70 /* SearchCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA37F4C1C27D85E00F87F70 /* SearchCollectionReusableView.xib */; };
 		DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */; };
 		DFAF98D91BEC437D0098E644 /* myView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAF98D81BEC437D0098E644 /* myView.xib */; };
 		DFB36B571C22607500A89BFC /* SchedulingSubTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB36B551C22607500A89BFC /* SchedulingSubTableViewCell.swift */; };
@@ -95,6 +97,9 @@
 		DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */; };
 		DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */; };
 		DFE37DFF1C0707FE005C3D5F /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */; };
+		DFE5C8321C2A3512003DB635 /* ShopCarListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5C8311C2A3512003DB635 /* ShopCarListViewController.swift */; };
+		DFE5C8371C2A3589003DB635 /* ShopCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */; };
+		DFE5C8381C2A3589003DB635 /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
 		DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFBC1C03FFED009AA953 /* KOMovingBarViewController.m */; };
 		DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */; };
@@ -220,6 +225,8 @@
 		DF9A7F3E1BEB47EA000CB3EE /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DFA37F411C2796BF00F87F70 /* OrderSucceedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSucceedViewController.swift; sourceTree = "<group>"; };
 		DFA37F431C279B6D00F87F70 /* OrderFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFailureViewController.swift; sourceTree = "<group>"; };
+		DFA37F4B1C27D85E00F87F70 /* SearchCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionReusableView.swift; sourceTree = "<group>"; };
+		DFA37F4C1C27D85E00F87F70 /* SearchCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionReusableView.xib; sourceTree = "<group>"; };
 		DFA9D44C1C083FDD003F9609 /* DOPScrollableActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPScrollableActionSheet.h; sourceTree = "<group>"; };
 		DFA9D44D1C083FDD003F9609 /* DOPScrollableActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPScrollableActionSheet.m; sourceTree = "<group>"; };
 		DFAF98D81BEC437D0098E644 /* myView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
@@ -255,6 +262,9 @@
 		DFE37DFB1C070784005C3D5F /* HYAwesomeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAwesomeTransition.h; sourceTree = "<group>"; };
 		DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAwesomeTransition.m; sourceTree = "<group>"; };
 		DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
+		DFE5C8311C2A3512003DB635 /* ShopCarListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCarListViewController.swift; sourceTree = "<group>"; };
+		DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCarTableViewCell.swift; sourceTree = "<group>"; };
+		DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarTableViewCell.xib; sourceTree = "<group>"; };
 		DFE7EFB71C03F74D009AA953 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		DFE7EFB81C03F74D009AA953 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		DFE7EFBB1C03FFED009AA953 /* KOMovingBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMovingBarViewController.h; sourceTree = "<group>"; };
@@ -401,7 +411,10 @@
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
 				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
+				DFA37F4B1C27D85E00F87F70 /* SearchCollectionReusableView.swift */,
+				DFA37F4C1C27D85E00F87F70 /* SearchCollectionReusableView.xib */,
 				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
+				DFE5C8301C2A348B003DB635 /* ShopCar */,
 				DFF3C2AE1C23CE1200D7EFF2 /* Order */,
 				DF1990B31C117357006AACF3 /* Card */,
 				DFF3C2B11C23CE8800D7EFF2 /* List */,
@@ -601,6 +614,32 @@
 				DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */,
 			);
 			path = HYAwesomeTransiton;
+			sourceTree = "<group>";
+		};
+		DFE5C8301C2A348B003DB635 /* ShopCar */ = {
+			isa = PBXGroup;
+			children = (
+				DFE5C8331C2A3523003DB635 /* Control */,
+				DFE5C8341C2A352E003DB635 /* View */,
+			);
+			name = ShopCar;
+			sourceTree = "<group>";
+		};
+		DFE5C8331C2A3523003DB635 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFE5C8311C2A3512003DB635 /* ShopCarListViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFE5C8341C2A352E003DB635 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */,
+				DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		DFE7EFB61C03F74D009AA953 /* NTButton */ = {
@@ -886,10 +925,12 @@
 				DFB36B581C22607500A89BFC /* SchedulingSubTableViewCell.xib in Resources */,
 				DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
+				DFA37F4E1C27D85E00F87F70 /* SearchCollectionReusableView.xib in Resources */,
 				DFF3C2C91C23F23900D7EFF2 /* OrderTableViewCell.xib in Resources */,
 				DFF3C2B91C23CF1F00D7EFF2 /* ListTableViewCell.xib in Resources */,
 				DF8691101C158BB700305D2E /* SettingTableViewCell.xib in Resources */,
 				DFF748961BF48ECA00244E1A /* myCollectionViewCell.xib in Resources */,
+				DFE5C8381C2A3589003DB635 /* ShopCarTableViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
 				DFB823781C1FEAB0002DD733 /* SchedulingTableViewCell.xib in Resources */,
 				DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */,
@@ -982,9 +1023,12 @@
 				DFA37F441C279B6D00F87F70 /* OrderFailureViewController.swift in Sources */,
 				DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */,
 				DFB36B571C22607500A89BFC /* SchedulingSubTableViewCell.swift in Sources */,
+				DFE5C8371C2A3589003DB635 /* ShopCarTableViewCell.swift in Sources */,
+				DFE5C8321C2A3512003DB635 /* ShopCarListViewController.swift in Sources */,
 				DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */,
 				DFFF9F601C0D907300FD4A57 /* CardDetailsViewController.swift in Sources */,
 				DFDBB1891C119563000252CF /* CardListTableViewWithTimeCell.swift in Sources */,
+				DFA37F4D1C27D85E00F87F70 /* SearchCollectionReusableView.swift in Sources */,
 				DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */,
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
 				DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */,

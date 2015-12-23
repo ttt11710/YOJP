@@ -14,7 +14,7 @@ import SDWebImage
 
 var defaultMainViewController : MainViewController!
 
-class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate,UIScrollViewDelegate {
+class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource,StoreDetailViewControllerDelegate,UIViewControllerTransitioningDelegate,UIScrollViewDelegate,UISearchBarDelegate {
 
     var showLeftViewBtn : TBAnimationButton!
     var escapeBtn : UIButton!
@@ -31,14 +31,14 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     var collectionBackView : UIView!
     var collectionView : UICollectionView!
     
+    var mysearchController : UISearchController!
+    
     var tableViewBackView : UIView!
     var tableView : UITableView!
     
     var tableViewDataArray : NSMutableArray = ["    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆","    曾经再美，不过一回空谈。脚下艰难，却是直指明天。","    学会了适应，就会让你的环境变得明亮；学会了宽容，就会让你的生活没有烦恼。","    当你能飞的时候，就不要放弃飞;当你能梦的时候，就不要放弃梦。世界没有尽头，只要心中还有追求。人生真正的终点是希望的终结。苍鹰的骄傲是飞翔的双翼，人生的意义是不断的追求。","    最闹心的烦躁是你根本不知道自己究竟在烦什么，无缘无故就全身负能量爆棚 。巴拉拉巴拉拉巴拉拉巴","    所谓的贵人：就是开拓你的眼界，带你进入新的世界。 明天是否辉煌，取决于你今天的选择和行动！","    男人穷不要紧，就怕又穷又有脾气。女人丑也不要紧，就怕又丑又懒惰。","    无论你此刻是否迷茫，在阳光升起的时候，请相信，努力的人最终都有回报 。"]
     
-    
-    
-    
+
     var awesometransition : HYAwesomeTransition!
     var transitionCell : UIView!
     
@@ -55,10 +55,21 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     var canRecognizer : Bool = false
     var recognizer : UISwipeGestureRecognizer!
     
+    
+    var showSelectTypeTabelView : Bool = false
+    var selectTypeTableViewBackView : UIView!
+    var selectTypeTableView : UITableView!
+    var selectTypeTableViewDataArray : NSMutableArray = ["清洁类","维护类","保湿类"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
+        let leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress:"))
+        self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
+        
+        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "购物车"), style: .Done, target: self, action: Selector("rightButtonPress"))
+        self.navigationItem.setRightBarButtonItem(rightButtonItem, animated: true)
         
         
         NSThread.sleepForTimeInterval(0.0)
@@ -98,6 +109,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.creatNavTitleView()
         self.creatRecognizer()
         
+        self.createSelectTypeTableView()
         
         self.navigationController?.navigationBar.barTintColor = yojpBlue
         
@@ -143,19 +155,17 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func creatNavTitleView() {
         
-        self.tabBarView = UIImageView(frame: CGRectMake(0, 0, screenWidth-16, 44))
+        self.tabBarView = UIImageView(frame: CGRectMake(0, 50, screenWidth-16-100, 44))
         self.tabBarView.backgroundColor = yojpBlue
         self.tabBarView.userInteractionEnabled = true
         self.navigationItem.titleView = self.tabBarView
-        
-        
         
         self.tabBarViewWithOneTitle = UILabel(frame: CGRectMake(0,0,screenWidth-16,44))
         self.tabBarViewWithOneTitle.textColor = UIColor.whiteColor()
         self.tabBarViewWithOneTitle.textAlignment = .Center
         
         
-        self.tabBarScrollView = UIView(frame: CGRectMake(50,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2-100,4))
+        self.tabBarScrollView = UIView(frame: CGRectMake(0,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2,4))
         self.tabBarScrollView.backgroundColor = UIColor.whiteColor()
         self.tabBarView.addSubview(self.tabBarScrollView)
         
@@ -175,6 +185,28 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.collectionBackView.addGestureRecognizer(self.recognizer)
     }
     
+    
+    func createSelectTypeTableView() {
+        
+        self.selectTypeTableViewBackView = UIView(frame: CGRectMake(0, 64, screenWidth, screenHeight))
+        self.selectTypeTableViewBackView.hidden = true
+        //self.selectTypeTableViewBackView.userInteractionEnabled = false
+        
+        self.selectTypeTableView = UITableView(frame: CGRectMake(screenWidth/2, 64 , screenWidth/2, 44*CGFloat(self.selectTypeTableViewDataArray.count)))
+        self.selectTypeTableView.tableFooterView = UIView()
+        self.selectTypeTableView.dataSource = self
+        self.selectTypeTableView.delegate = self
+        self.selectTypeTableView.backgroundColor = UIColor.clearColor()
+        self.selectTypeTableView.scrollEnabled = false
+    
+        self.selectTypeTableView.hidden = true
+        //self.collectionBackView.addSubview(self.selectTypeTableViewBackView)
+        
+       // self.view.insertSubview(self.selectTypeTableViewBackView, aboveSubview: self.view)
+        self.view.insertSubview(self.selectTypeTableView, aboveSubview: self.view)
+    }
+
+    
     func handleSwipeFrom(recognizer : UISwipeGestureRecognizer) {
         print("1111111111111")
     }
@@ -184,7 +216,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     func creatCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .Vertical
-        flowLayout.headerReferenceSize = CGSizeMake(screenWidth, 0)
+        flowLayout.headerReferenceSize = CGSizeMake(screenWidth, 37)
         flowLayout.sectionInset = UIEdgeInsetsMake(2, 0, 0, 0)
         flowLayout.minimumInteritemSpacing = 2
         flowLayout.minimumInteritemSpacing = 2
@@ -197,6 +229,11 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.collectionView.backgroundColor = yojpTableViewColor
         
         self.collectionBackView.addSubview(self.collectionView)
+        
+      //  self.collectionView.registerClass(SearchCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "searchCollectionReusableViewId")
+        self.collectionView.registerNib(UINib(nibName: "SearchCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SearchCollectionReusableViewId")
+        
+      //  self.collectionView.registerClass(SearchCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "SearchCollectionReusableViewId")
         
     }
     
@@ -234,8 +271,6 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
     }
     
-    
-    
     class func shareMainViewController() -> MainViewController {
         return defaultMainViewController
     }
@@ -246,6 +281,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.showLeftViewBtn = TBAnimationButton(type: .Custom)
         self.showLeftViewBtn.frame = CGRectMake(20, screenHeight-60-64, 40, 40)
+        self.showLeftViewBtn.hidden = true
         self.showLeftViewBtn.currentState = TBAnimationButtonState.Menu
         self.showLeftViewBtn.backgroundColor = UIColor(white: 0, alpha: 0.8)
         self.showLeftViewBtn.layer.cornerRadius = 20
@@ -277,18 +313,22 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func changeShowLeftBtnType() {
         if self.showLeftViewBtn.currentState == TBAnimationButtonState.Menu {
+            self.showLeftViewBtn.hidden = false
             self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Arrow)
         }
         else {
+            self.showLeftViewBtn.hidden = true
             self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Menu)
         }
     }
     
     func changeShowLeftBtnTypeWithInt( num : Int) {
         if num == 0 {
+            self.showLeftViewBtn.hidden = true
             self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Menu)
         }
         else {
+            self.showLeftViewBtn.hidden = false
             self.showLeftViewBtn.animationTransformToState(TBAnimationButtonState.Arrow)
         }
     }
@@ -328,7 +368,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         if indexPath.row == 0 {
             
             self.collectionView.registerNib(UINib(nibName: "ScrollViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ScrollViewCollectionViewCellId")
-            self.collectionView.registerClass(ScrollViewCollectionViewCell.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ScrollViewCollectionViewCellId")
+          //  self.collectionView.registerClass(ScrollViewCollectionViewCell.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ScrollViewCollectionViewCellId")
             
             let cellIdentifier : String = "ScrollViewCollectionViewCellId"
             let cell : ScrollViewCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ScrollViewCollectionViewCell
@@ -341,7 +381,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
             
             self.collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
             
-            self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
+          //  self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
             
             let cellIdentifier : String = "myCollectionViewCellId"
             let cell : myCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! myCollectionViewCell
@@ -371,21 +411,87 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(screenWidth, 0)
+        return CGSizeMake(screenWidth,0)
     }
     
-//    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-//        
-//        var sectionHeader : myCollectionReusableView! = myCollectionReusableView()
-//        if kind == UICollectionElementKindSectionHeader {
-//            sectionHeader = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId", forIndexPath: indexPath) as! myCollectionReusableView
-//            
-//           sectionHeader.backgroundColor = UIColor.redColor()
-//            
-//        }
-//        return sectionHeader
-//    }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let resueIdentifier : String!
+        if kind == UICollectionElementKindSectionHeader {
+            resueIdentifier = "SearchCollectionReusableViewId"
+        }
+        
+        let sectionHeader : SearchCollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "SearchCollectionReusableViewId", forIndexPath: indexPath) as! SearchCollectionReusableView
+        
+        print(sectionHeader.viewWithTag(1))
+        
+        if kind == UICollectionElementKindSectionHeader {
+            
+            
+//            let searchImageView : UIImageView = UIImageView(image: UIImage(named: "搜索条"))
+//            searchImageView.frame = CGRectMake(0, 0, screenWidth, 37)
+//            sectionHeader.addSubview(searchImageView)
+//            let showSearchViewTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("presentSearchView"))
+//            searchImageView.addGestureRecognizer(showSearchViewTap)
+//            searchImageView.userInteractionEnabled = true
+//            
+//            let allLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-60,3,55,32))
+//            allLabel.text = "全部"
+//            allLabel.backgroundColor = yojpBlue
+//            allLabel.textColor = UIColor.whiteColor()
+//            searchImageView.addSubview(allLabel)
+//            let allLabelTap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("selectType"))
+//            allLabel.addGestureRecognizer(allLabelTap)
+//            allLabel.userInteractionEnabled = true
+            
+        }
+        return sectionHeader
+    }
+    
+    
+    func selectType() {
+        
+        self.showSelectTypeTabelView = !self.showSelectTypeTabelView
+        if self.showSelectTypeTabelView {
+            
+            self.scrollView.scrollEnabled = false
+            self.collectionView.scrollEnabled = false
+           // self.collectionView.userInteractionEnabled = false
+            self.selectTypeTableViewBackView.hidden = false
+            self.selectTypeTableView.hidden = false
+            
+//            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+//                
+//                self.selectTypeTableView.layer.transform = CATransform3DMakeTranslation(-screenWidth/2, 0, 0)
+//                
+//                }, completion: { (finished : Bool) -> Void in
+//                    
+//            })
+//            
+//            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+//                
+//                self.selectTypeTableViewBackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+//                
+//                }, completion: { (finished : Bool) -> Void in
+//                    
+//            })
+        }
+        else {
+            
+            self.selectTypeTableView.hidden = true
+//            UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+//                self.selectTypeTableView.layer.transform = CATransform3DIdentity
+//                self.selectTypeTableViewBackView.backgroundColor = UIColor.clearColor()
+//                
+//                }) { (finished : Bool) -> Void in
+//                    
+//                    self.selectTypeTableViewBackView.hidden = true
+//                    
+//            }
+        }
+    }
+
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.showNavbar()
@@ -448,48 +554,108 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        if tableView == self.tableView {
+            return 1
+        }
+        else {
+            return self.selectTypeTableViewDataArray.count
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        if tableView == self.tableView {
+            return 7
+        }
+        else {
+            return 1
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-16,30))
-        label.font = font15
-        label.textColor = yojpText
-        label.text = self.tableViewDataArray[indexPath.row] as? String
-        label.numberOfLines = 0
-        label.sizeToFit()
-        return screenWidth/5*3+8+label.frame.size.height+8
+        if tableView == self.tableView {
+            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-16,30))
+            label.font = font15
+            label.textColor = yojpText
+            label.text = self.tableViewDataArray[indexPath.row] as? String
+            label.numberOfLines = 0
+            label.sizeToFit()
+            return screenWidth/5*3+8+label.frame.size.height+8
+        }
+        else {
+            return 44
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableView.registerNib(UINib(nibName: "BrandTableViewCell", bundle: nil), forCellReuseIdentifier: "BrandTableViewCellId")
-        let cell = tableView.dequeueReusableCellWithIdentifier("BrandTableViewCellId", forIndexPath: indexPath) as! BrandTableViewCell
         
-        cell.selectionStyle = .None
-        
-        cell.backImageView.image = UIImage(named: String(format: "image%d", indexPath.row))
-        cell.desLabel.text = self.tableViewDataArray[indexPath.row] as? String
-        cell.desLabel.textColor = yojpText
-        
-        
-        return cell
+        if tableView == self.tableView {
+            tableView.registerNib(UINib(nibName: "BrandTableViewCell", bundle: nil), forCellReuseIdentifier: "BrandTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("BrandTableViewCellId", forIndexPath: indexPath) as! BrandTableViewCell
+            
+            cell.selectionStyle = .None
+            
+            cell.backImageView.image = UIImage(named: String(format: "image%d", indexPath.row))
+            cell.desLabel.text = self.tableViewDataArray[indexPath.row] as? String
+            cell.desLabel.textColor = yojpText
+            
+            
+            return cell
+        }
+        else {
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            cell.textLabel?.text = self.selectTypeTableViewDataArray[indexPath.section] as? String
+            
+            cell.textLabel?.textColor = yojpText
+            
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        self.showNavbar()
-        
-       // self.tableView.removeFromSuperview()
-        self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+        if tableView == self.tableView {
+            self.showNavbar()
+            
+            // self.tableView.removeFromSuperview()
+            self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+        }
+        else {
+            self.showSelectTypeTabelView = !self.showSelectTypeTabelView
+            self.scrollView.scrollEnabled = true
+            self.collectionView.scrollEnabled = true
+            
+            
+            self.selectTypeTableView.hidden = true
+            
+//            UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
+//                self.selectTypeTableView.layer.transform = CATransform3DIdentity
+//                self.selectTypeTableViewBackView.backgroundColor = UIColor.clearColor()
+//                
+//                }) { (finished : Bool) -> Void in
+//                    
+//                    self.selectTypeTableViewBackView.hidden = true
+//                    
+//                    let myPath : NSIndexPath = NSIndexPath(forRow: 0, inSection: indexPath.section)
+//                    self.tableView.selectRowAtIndexPath(myPath, animated: true, scrollPosition: UITableViewScrollPosition.Top)
+//            }
+        }
     }
     
     func showORhideShowLeftViewBtn(flag : Bool) {
         self.showLeftViewBtn.hidden = flag
+        
+        if self.showLeftViewBtn.currentState == TBAnimationButtonState.Menu {
+            self.showLeftViewBtn.hidden = true
+        }
+        else {
+            self.showLeftViewBtn.hidden = false
+        }
+
+        
         self.escapeBtn.hidden = flag
     }
     
@@ -656,19 +822,9 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         }
     }
     
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        let mytouch : UITouch = (touches as NSSet).anyObject() as! UITouch
-//        let touchLocation : CGPoint  = mytouch.locationInView(self.scrollView)
-//        print("touchesBegan",touchLocation)
-//        
-//    }
-//    
-//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//        let mytouch : UITouch = (touches as NSSet).anyObject() as! UITouch
-//        let touchLocation : CGPoint  = mytouch.locationInView(self.scrollView)
-//        print("touchesMoved",touchLocation)
-//    }
-    
+    func rightButtonPress() {
+        self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

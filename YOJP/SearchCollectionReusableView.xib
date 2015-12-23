@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" restorationIdentifier="SearchCollectionReusableViewId" reuseIdentifier="SearchCollectionReusableViewId" id="U6b-Vx-4bR" customClass="SearchCollectionReusableView" customModule="YOJP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <searchBar tag="1" contentMode="redraw" placeholder="更多产品、品牌哦" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GeZ-ba-Y69">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="WV4-mh-L3i"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.34901960780000002" green="0.52941176469999995" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="WV4-mh-L3i"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="WV4-mh-L3i"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6lW-zR-aqC"/>
+                    </connections>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GeZ-ba-Y69" secondAttribute="trailing" id="eoj-94-Mvl"/>
+                <constraint firstItem="GeZ-ba-Y69" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="gE9-fW-Ba2"/>
+                <constraint firstItem="GeZ-ba-Y69" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="r4b-gb-L1A"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="GeZ-ba-Y69"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="eoj-94-Mvl"/>
+                    <exclude reference="gE9-fW-Ba2"/>
+                    <exclude reference="r4b-gb-L1A"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="GeZ-ba-Y69"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="eoj-94-Mvl"/>
+                    <include reference="gE9-fW-Ba2"/>
+                    <include reference="r4b-gb-L1A"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="search" destination="GeZ-ba-Y69" id="BIC-nH-muL"/>
+            </connections>
+            <point key="canvasLocation" x="427" y="426"/>
+        </collectionReusableView>
+    </objects>
+</document>
