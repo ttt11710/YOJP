@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+var defaultShopCarListViewController : ShopCarListViewController!
+
 class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
@@ -33,6 +36,9 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        defaultShopCarListViewController = self
+        
         self.view.backgroundColor = yojpTableViewColor
         
         var dic : NSMutableDictionary = ["产品图片":"image6","产品名称":"产品名称","价格":"150","数量":"3"]
@@ -84,6 +90,35 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     
     
+    class func shareShopCarListViewController() -> ShopCarListViewController {
+        return defaultShopCarListViewController
+    }
+    
+    func removeAllShopCarList() {
+        self.tableViewSectionArray.removeAllObjects()
+        self.tableViewRowArray.removeAllObjects()
+        self.tableView.reloadData()
+        
+        self.sumLabel.text = "总计:￥0"
+        self.tableView.hidden = true
+        
+        let imageView : UIImageView = UIImageView(image: UIImage(named: "空页面"))
+        imageView.center = CGPointMake(screenWidth/2, (screenHeight-88)/2-40)
+        imageView.bounds = CGRectMake(0, 0, 80, 75)
+        self.view.addSubview(imageView)
+        
+        
+        let label : UILabel = UILabel()
+        label.text = "赶快去逛逛吧!"
+        label.textColor = yojpText
+        label.textAlignment = .Center
+        label.font = font15
+        label.center = CGPointMake(screenWidth/2, (screenHeight-88)/2 + 20)
+        label.bounds = CGRectMake(0, 0, 200, 21)
+        self.view.addSubview(label)
+    }
+    
+    
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
         self.customNavigationBar.backgroundColor = yojpBlue
@@ -125,6 +160,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         sumBtn.setTitle("结算", forState: .Normal)
         sumBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         sumBtn.backgroundColor = UIColor(red: 234.0/255.0, green: 103/255.0, blue: 16/255.0, alpha: 1)
+        sumBtn.addTarget(self, action: Selector("sumBtnPressed"), forControlEvents: .TouchUpInside)
         settlementView.addSubview(sumBtn)
     }
     
@@ -248,14 +284,22 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
                     
                     self.sumLabel.text = "总计:￥0"
                     self.tableView.hidden = true
+                    
+                    let imageView : UIImageView = UIImageView(image: UIImage(named: "空页面"))
+                    imageView.center = CGPointMake(screenWidth/2, (screenHeight-88)/2-40)
+                    imageView.bounds = CGRectMake(0, 0, 80, 75)
+                    self.view.addSubview(imageView)
+                    
+                    
                     let label : UILabel = UILabel()
                     label.text = "赶快去逛逛吧!"
                     label.textColor = yojpText
                     label.textAlignment = .Center
                     label.font = font15
-                    label.center = CGPointMake(screenWidth/2, (screenHeight-88)/2)
+                    label.center = CGPointMake(screenWidth/2, (screenHeight-88)/2 + 20)
                     label.bounds = CGRectMake(0, 0, 200, 21)
                     self.view.addSubview(label)
+
                 }
             }
             
@@ -267,6 +311,15 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    func sumBtnPressed() {
+        
+        if self.tableViewSectionArray.count == 0 {
+            SVProgressShow.showInfoWithStatus("没有选中商品,不能结算!")
+            return
+        }
+        self.navigationController?.pushViewController(PayViewController(), animated: true)
     }
     
     func backClicked() {

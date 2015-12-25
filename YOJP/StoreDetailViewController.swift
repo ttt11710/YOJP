@@ -43,7 +43,8 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.creatCustomNavigationBar()
-        self.initView()
+        self.creatNavigationView()
+        self.creatScrollView()
         
         
         // Do any additional setup after loading the view.
@@ -52,7 +53,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -61,12 +62,35 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.navigationController?.navigationBarHidden = false
     }
     
+    func creatNavigationView() {
+        let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth,64))
+        view.backgroundColor = yojpBlue
+        self.view.addSubview(view)
+        
+        let storeBtn = UIButton(type: .Custom)
+        storeBtn.frame = CGRectMake(screenWidth-42,20 + 7, 26, 26)
+        storeBtn.setBackgroundImage(UIImage(named: "商家入口"), forState: UIControlState.Normal)
+        storeBtn.addTarget(self, action: Selector("storeBtnClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        storeBtn.setBackgroundImage(UIImage(named: "商家入口"), forState: UIControlState.Selected)
+        view.addSubview(storeBtn)
+
+        
+        //购物车
+        let shopCarBtn = UIButton(type: .Custom)
+        shopCarBtn.frame = CGRectMake(screenWidth-42-26-16,20 + 7, 26, 26)
+        shopCarBtn.setBackgroundImage(UIImage(named: "购物车"), forState: UIControlState.Normal)
+        shopCarBtn.setBackgroundImage(UIImage(named: "购物车"), forState: UIControlState.Selected)
+        shopCarBtn.addTarget(self, action: Selector("shopCarBtnClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        view.addSubview(shopCarBtn)
+        
+    }
     
-    func initView() {
+    
+    func creatScrollView() {
         
       //  self.view.backgroundColor = UIColor.orangeColor()
         
-        self.scrollView = UIScrollView(frame: CGRectMake(0,0,screenWidth,screenHeight-44))
+        self.scrollView = UIScrollView(frame: CGRectMake(0,64,screenWidth,screenHeight-44-64))
         self.scrollView.contentSize = CGSizeMake(0, screenHeight+300)
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.showsVerticalScrollIndicator = false
@@ -291,6 +315,14 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         let actions : NSArray = ["",[action1,action2,action3,action4],"",[action5,action6,action7]]
         let myAs : DOPScrollableActionSheet = DOPScrollableActionSheet(actionArray: actions as [AnyObject])
         myAs.show()
+    }
+    
+    func storeBtnClicked() {
+        self.navigationController?.pushViewController(ProductListViewController(), animated: true)
+    }
+    
+    func shopCarBtnClicked() {
+        self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
     }
 
     override func didReceiveMemoryWarning() {

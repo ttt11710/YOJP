@@ -39,6 +39,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        UIApplication.sharedApplication().statusBarStyle = .Default
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -118,13 +119,13 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if tableView == self.tableView {
-            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-32,30))
+            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
             label.font = font16
             label.textColor = yojpText
             label.text = self.tableViewDataArray[indexPath.section] as? String
             label.numberOfLines = 0
             label.sizeToFit()
-            return 14+21+2+label.frame.size.height+8+screenWidth/5*3+12+25+12
+            return 14+21+2+label.frame.size.height+8+screenWidth/5*3+16+25+16
         }
         else {
             return 44
@@ -154,6 +155,15 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
             cell.productImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
             cell.moneyLabel.text = "￥300"
             
+            cell.addToShopCarCallBackBtn.callBack = { tag in
+                
+                print("加入购物车")
+            }
+            
+            cell.buyCallBackBtn.callBack = { tag in
+                
+                self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+            }
             return cell
         }
         else {

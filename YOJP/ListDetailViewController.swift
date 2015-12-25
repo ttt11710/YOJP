@@ -1,31 +1,30 @@
 //
-//  CollectViewController.swift
+//  ListDetailViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 15/12/7.
+//  Created by PayBay on 15/12/25.
 //  Copyright © 2015年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class CollectViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ListDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
-    var tableViewDataArray : NSMutableArray = ["    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆","    曾经再美，不过一回空谈。脚下艰难，却是直指明天。","    学会了适应，就会让你的环境变得明亮；学会了宽容，就会让你的生活没有烦恼。","    当你能飞的时候，就不要放弃飞;当你能梦的时候，就不要放弃梦。世界没有尽头，只要心中还有追求。人生真正的终点是希望的终结。苍鹰的骄傲是飞翔的双翼，人生的意义是不断的追求。","    最闹心的烦躁是你根本不知道自己究竟在烦什么，无缘无故就全身负能量爆棚 。巴拉拉巴拉拉巴拉拉巴","    所谓的贵人：就是开拓你的眼界，带你进入新的世界。 明天是否辉煌，取决于你今天的选择和行动！","    男人穷不要紧，就怕又穷又有脾气。女人丑也不要紧，就怕又丑又懒惰。","    无论你此刻是否迷茫，在阳光升起的时候，请相信，努力的人最终都有回报 。"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        self.creatTableView()
+        self.view.backgroundColor = yojpTableViewColor
+        
         self.creatCustomNavigationBar()
+        self.creatTableView()
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -35,11 +34,8 @@ class CollectViewController: UIViewController,UITableViewDataSource,UITableViewD
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        
         self.navigationController?.navigationBarHidden = false
     }
-
     
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
@@ -51,24 +47,22 @@ class CollectViewController: UIViewController,UITableViewDataSource,UITableViewD
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(backBtn)
-        
         self.view.addSubview(self.customNavigationBar)
+        
     }
-    
     
     func creatTableView() {
-        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-44+8), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.separatorStyle = .None
+        self.tableView.backgroundColor = yojpTableViewColor
+        self.tableView.tableFooterView = UIView()
         self.view.addSubview(self.tableView)
+        
     }
     
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 7
-        
+        return 8
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,47 +70,47 @@ class CollectViewController: UIViewController,UITableViewDataSource,UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        
-        let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-32,30))
-        label.font = font16
-        label.textColor = yojpText
-        label.text = self.tableViewDataArray[indexPath.section] as? String
-        label.numberOfLines = 0
-        label.sizeToFit()
-        return 14+21+2+label.frame.size.height+8+screenWidth/5*3+12+25+12
-        
-        
+        return 150
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
         return 8
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        tableView.registerNib(UINib(nibName: "CollectTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectTableViewCellId")
-        let cell = tableView.dequeueReusableCellWithIdentifier("CollectTableViewCellId", forIndexPath: indexPath) as! CollectTableViewCell
+        tableView.registerNib(UINib(nibName: "ListDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "ListDetailTableViewCellId")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ListDetailTableViewCellId", forIndexPath: indexPath) as! ListDetailTableViewCell
         
         cell.selectionStyle = .None
         
-        cell.productNameLabel.text = "商品名称"
-        cell.productDicLabel.text = self.tableViewDataArray[indexPath.section] as? String
-        cell.productImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
-        cell.moneyLabel.text = "￥300"
-        cell.collectionBtn.hidden = true
+        let textView : UITextView = UITextView(frame: CGRectMake(0, 0, screenWidth, 150))
+        textView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."
+        cell.addSubview(textView)
         
         return cell
     }
-
     
-    func backClicked() {
-        self.navigationController?.popViewControllerAnimated(true)
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
     
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    func backClicked() {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

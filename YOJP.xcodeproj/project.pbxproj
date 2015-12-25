@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		46A02557317A50540000DFA8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DF18AAAE1C2D1813005B8BAD /* CollectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */; };
+		DF18AAAF1C2D1813005B8BAD /* CollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */; };
+		DF18AAB11C2D31E5005B8BAD /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAB01C2D31E5005B8BAD /* ListDetailViewController.swift */; };
+		DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */; };
+		DF18AAB51C2D3226005B8BAD /* ListDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF18AAB31C2D3226005B8BAD /* ListDetailTableViewCell.xib */; };
 		DF1990B51C11749F006AACF3 /* CardUseRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */; };
 		DF1990B71C1187F0006AACF3 /* CardUserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */; };
 		DF3A2E511BFD954D00A995E1 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = DF3A2E501BFD954D00A995E1 /* tessdata */; };
@@ -93,6 +98,13 @@
 		DFDBB1891C119563000252CF /* CardListTableViewWithTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */; };
 		DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */; };
 		DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE06CC41C05992300899AE8 /* LabelView.swift */; };
+		DFE1E1AF1C2B87A7002DE1E0 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1AE1C2B87A7002DE1E0 /* PayViewController.swift */; };
+		DFE1E1B21C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1B01C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift */; };
+		DFE1E1B31C2B909A002DE1E0 /* OrderChoosePayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE1E1B11C2B909A002DE1E0 /* OrderChoosePayTableViewCell.xib */; };
+		DFE1E1B61C2BC5E6002DE1E0 /* CodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1B41C2BC5E6002DE1E0 /* CodeTextField.swift */; };
+		DFE1E1B71C2BC5E6002DE1E0 /* popPayPwdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1B51C2BC5E6002DE1E0 /* popPayPwdView.swift */; };
+		DFE1E1B91C2BD80A002DE1E0 /* ShopPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1B81C2BD80A002DE1E0 /* ShopPayViewController.swift */; };
+		DFE1E1BE1C2BE44F002DE1E0 /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE1E1BD1C2BE44F002DE1E0 /* NearbyViewController.swift */; };
 		DFE37DF41C0698FF005C3D5F /* BrandTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */; };
 		DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */; };
 		DFE37DFD1C070784005C3D5F /* HYAwesomeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE37DFC1C070784005C3D5F /* HYAwesomeTransition.m */; };
@@ -146,6 +158,11 @@
 		4A64039892631F01E6A2DDA8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B2D3C5BF53037A1AB1CDB9A2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F894140ABF980A4ADACE8C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectTableViewCell.swift; sourceTree = "<group>"; };
+		DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectTableViewCell.xib; sourceTree = "<group>"; };
+		DF18AAB01C2D31E5005B8BAD /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
+		DF18AAB31C2D3226005B8BAD /* ListDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListDetailTableViewCell.xib; sourceTree = "<group>"; };
 		DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUseRuleViewController.swift; sourceTree = "<group>"; };
 		DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUserHistoryViewController.swift; sourceTree = "<group>"; };
 		DF3A2E501BFD954D00A995E1 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
@@ -257,6 +274,13 @@
 		DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewWithTimeCell.swift; sourceTree = "<group>"; };
 		DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardListTableViewWithTimeCell.xib; sourceTree = "<group>"; };
 		DFE06CC41C05992300899AE8 /* LabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
+		DFE1E1AE1C2B87A7002DE1E0 /* PayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		DFE1E1B01C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderChoosePayTableViewCell.swift; sourceTree = "<group>"; };
+		DFE1E1B11C2B909A002DE1E0 /* OrderChoosePayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderChoosePayTableViewCell.xib; sourceTree = "<group>"; };
+		DFE1E1B41C2BC5E6002DE1E0 /* CodeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeTextField.swift; sourceTree = "<group>"; };
+		DFE1E1B51C2BC5E6002DE1E0 /* popPayPwdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = popPayPwdView.swift; sourceTree = "<group>"; };
+		DFE1E1B81C2BD80A002DE1E0 /* ShopPayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopPayViewController.swift; sourceTree = "<group>"; };
+		DFE1E1BD1C2BE44F002DE1E0 /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTableViewCell.swift; sourceTree = "<group>"; };
 		DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandTableViewCell.xib; sourceTree = "<group>"; };
 		DFE37DFB1C070784005C3D5F /* HYAwesomeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAwesomeTransition.h; sourceTree = "<group>"; };
@@ -348,6 +372,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF18AAA91C2D16D4005B8BAD /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				DF18AAAA1C2D16E4005B8BAD /* Control */,
+				DF18AAAB1C2D16EA005B8BAD /* View */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		DF18AAAA1C2D16E4005B8BAD /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
+				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DF18AAAB1C2D16EA005B8BAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */,
+				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		DF1990B31C117357006AACF3 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,12 +460,12 @@
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
-				DFE37DFE1C0707FE005C3D5F /* StoreDetailViewController.swift */,
-				DF96373E1C0C310E00FC2CFE /* ProductListViewController.swift */,
 				DFA37F4B1C27D85E00F87F70 /* SearchCollectionReusableView.swift */,
 				DFA37F4C1C27D85E00F87F70 /* SearchCollectionReusableView.xib */,
 				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
+				DF18AAA91C2D16D4005B8BAD /* Store */,
 				DFE5C8301C2A348B003DB635 /* ShopCar */,
+				DFE1E1BA1C2BE41D002DE1E0 /* Nearby */,
 				DFF3C2AE1C23CE1200D7EFF2 /* Order */,
 				DF1990B31C117357006AACF3 /* Card */,
 				DFF3C2B11C23CE8800D7EFF2 /* List */,
@@ -607,6 +658,30 @@
 			path = FlowSlideMenuCore;
 			sourceTree = "<group>";
 		};
+		DFE1E1BA1C2BE41D002DE1E0 /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				DFE1E1BB1C2BE427002DE1E0 /* Control */,
+				DFE1E1BC1C2BE434002DE1E0 /* View */,
+			);
+			name = Nearby;
+			sourceTree = "<group>";
+		};
+		DFE1E1BB1C2BE427002DE1E0 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				DFE1E1BD1C2BE44F002DE1E0 /* NearbyViewController.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		DFE1E1BC1C2BE434002DE1E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		DFE37DFA1C070784005C3D5F /* HYAwesomeTransiton */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,6 +704,8 @@
 			isa = PBXGroup;
 			children = (
 				DFE5C8311C2A3512003DB635 /* ShopCarListViewController.swift */,
+				DFE1E1AE1C2B87A7002DE1E0 /* PayViewController.swift */,
+				DFE1E1B81C2BD80A002DE1E0 /* ShopPayViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -638,6 +715,10 @@
 			children = (
 				DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */,
 				DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */,
+				DFE1E1B01C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift */,
+				DFE1E1B11C2B909A002DE1E0 /* OrderChoosePayTableViewCell.xib */,
+				DFE1E1B41C2BC5E6002DE1E0 /* CodeTextField.swift */,
+				DFE1E1B51C2BC5E6002DE1E0 /* popPayPwdView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -706,6 +787,8 @@
 				DFB36B561C22607500A89BFC /* SchedulingSubTableViewCell.xib */,
 				DFF3C2B61C23CF1F00D7EFF2 /* ListTableViewCell.swift */,
 				DFF3C2B71C23CF1F00D7EFF2 /* ListTableViewCell.xib */,
+				DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */,
+				DF18AAB31C2D3226005B8BAD /* ListDetailTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -715,6 +798,7 @@
 			children = (
 				DFC09F721C169D23005FBC9E /* SchedulingViewController.swift */,
 				DFF3C2B21C23CED400D7EFF2 /* ListViewController.swift */,
+				DF18AAB01C2D31E5005B8BAD /* ListDetailViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -780,8 +864,8 @@
 		DFF3C2C11C23EDE100D7EFF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DF96373A1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift */,
-				DF96373B1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib */,
+				DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */,
+				DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -915,7 +999,9 @@
 			files = (
 				DFAF98D91BEC437D0098E644 /* myView.xib in Resources */,
 				DFFF9F5E1C0D7ED300FD4A57 /* CardListTableViewCell.xib in Resources */,
+				DFE1E1B31C2B909A002DE1E0 /* OrderChoosePayTableViewCell.xib in Resources */,
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
+				DF18AAAF1C2D1813005B8BAD /* CollectTableViewCell.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
@@ -933,6 +1019,7 @@
 				DFE5C8381C2A3589003DB635 /* ShopCarTableViewCell.xib in Resources */,
 				DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */,
 				DFB823781C1FEAB0002DD733 /* SchedulingTableViewCell.xib in Resources */,
+				DF18AAB51C2D3226005B8BAD /* ListDetailTableViewCell.xib in Resources */,
 				DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */,
 				DFE7EFCC1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib in Resources */,
 				DF9A7F0E1BEB1E78000CB3EE /* Main.storyboard in Resources */,
@@ -1009,6 +1096,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF8690FE1C157B3000305D2E /* TNCheckBox.m in Sources */,
+				DFE1E1B91C2BD80A002DE1E0 /* ShopPayViewController.swift in Sources */,
 				DF86910C1C158AEC00305D2E /* SettingViewController.swift in Sources */,
 				DF96373C1C0C274200FC2CFE /* ProductDescriptionTableViewCell.swift in Sources */,
 				DFD7261E1BF320160089645A /* LLFlowSlideMenuConfig.swift in Sources */,
@@ -1031,6 +1119,7 @@
 				DFA37F4D1C27D85E00F87F70 /* SearchCollectionReusableView.swift in Sources */,
 				DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */,
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
+				DFE1E1BE1C2BE44F002DE1E0 /* NearbyViewController.swift in Sources */,
 				DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */,
 				DF8691061C157B3000305D2E /* TNRectangularCheckBoxData.m in Sources */,
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
@@ -1042,18 +1131,23 @@
 				DFE06CC51C05992300899AE8 /* LabelView.swift in Sources */,
 				DF8691051C157B3000305D2E /* TNRectangularCheckBox.m in Sources */,
 				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
+				DF18AAB11C2D31E5005B8BAD /* ListDetailViewController.swift in Sources */,
 				DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */,
 				DFD2A4F01C180A14004A6DCF /* IQActionSheetPickerView.m in Sources */,
 				DFC09F731C169D23005FBC9E /* SchedulingViewController.swift in Sources */,
 				DF9A7F091BEB1E78000CB3EE /* AppDelegate.swift in Sources */,
 				DF4C69031BF0951F009ED5A9 /* WeatherModel.swift in Sources */,
 				DFC09F701C167A11005FBC9E /* IntegralTableViewCell.swift in Sources */,
+				DF18AAAE1C2D1813005B8BAD /* CollectTableViewCell.swift in Sources */,
 				DFD2A4EA1C17CCBF004A6DCF /* ForgetPasswordViewController2.swift in Sources */,
 				DFF748951BF48ECA00244E1A /* myCollectionViewCell.swift in Sources */,
 				DFF3C2C81C23F23900D7EFF2 /* OrderTableViewCell.swift in Sources */,
+				DFE1E1AF1C2B87A7002DE1E0 /* PayViewController.swift in Sources */,
+				DFE1E1B61C2BC5E6002DE1E0 /* CodeTextField.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
+				DFE1E1B21C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift in Sources */,
 				DFA37F421C2796BF00F87F70 /* OrderSucceedViewController.swift in Sources */,
 				DFFF9F581C0D4AD000FD4A57 /* SearchViewController.swift in Sources */,
 				DF8691001C157B3000305D2E /* TNCheckBoxGroup.m in Sources */,
@@ -1083,11 +1177,13 @@
 				DFF3C2B81C23CF1F00D7EFF2 /* ListTableViewCell.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DFF3C2C31C23EE7500D7EFF2 /* OrderViewController.swift in Sources */,
+				DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */,
 				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,
 				DF4C68FB1BF06847009ED5A9 /* TranslateViewController.swift in Sources */,
+				DFE1E1B71C2BC5E6002DE1E0 /* popPayPwdView.swift in Sources */,
 				DF8690E61C1578E200305D2E /* ForgetPasswordViewController.swift in Sources */,
 				DF8691041C157B3000305D2E /* TNImageCheckBoxData.m in Sources */,
 				DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */,

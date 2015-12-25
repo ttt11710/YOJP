@@ -118,9 +118,11 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("123")
+        
+        self.navigationController?.pushViewController(ListDetailViewController(), animated: true)
+        
     }
-
+    
     
     func backClicked() {
         self.navigationController?.popViewControllerAnimated(true)
@@ -132,7 +134,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

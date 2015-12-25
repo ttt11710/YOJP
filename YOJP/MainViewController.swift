@@ -525,8 +525,12 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
 //            
 //        }
         
-        self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
-    
+        if indexPath.row == 4 {
+            self.navigationController?.pushViewController(NearbyViewController(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+        }
     }
     
     func modalViewControllerDidClickedDismissButton(viewController: StoreDetailViewController , height : CGFloat) {
