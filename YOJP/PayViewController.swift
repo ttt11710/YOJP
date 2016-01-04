@@ -86,7 +86,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 7
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -97,12 +97,9 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             return 68
         }
         else if indexPath.row == 2 {
-            return 78
+            return 60
         }
-        else if indexPath.row == 3 {
-            return 25
-        }
-        else if indexPath.row <= 6 && indexPath.row >= 4 {
+        else if indexPath.row <= 5 && indexPath.row >= 3 {
             return 44
         }
         else {
@@ -115,6 +112,11 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            for view in cell.subviews {
+            
+                view.removeFromSuperview()
+            }
             
             let payCountLabel : UILabel = UILabel()
             payCountLabel.text = "支付金额"
@@ -144,6 +146,10 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             
             cell.backgroundColor = UIColor(white: 246.0/255.0, alpha: 1)
             
+            for view in cell.subviews {
+                
+                view.removeFromSuperview()
+            }
             let orderNumLabel : UILabel = UILabel(frame: CGRectMake(16,8,screenWidth,20))
             orderNumLabel.text = "订单号码：JP2000000000000"
             orderNumLabel.textColor = yojpText
@@ -162,32 +168,14 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
             cell.backgroundColor = yojpTableViewColor
             
-            let tipLabel : UILabel = UILabel(frame: CGRectMake(16,10,100,20))
-            tipLabel.text = "温馨提示:"
-            tipLabel.font = font14
-            tipLabel.textColor = yojpText
-            cell.addSubview(tipLabel)
+            for view in cell.subviews {
+                
+                view.removeFromSuperview()
+            }
             
-            let tipSubLabel : UILabel = UILabel(frame: CGRectMake(16,tipLabel.frame.origin.y+tipLabel.frame.size.height,screenWidth-16,100))
-            tipSubLabel.text = "订单支付后，1小时内请到指定商家取货，否则订单失效，支付金额将会退回至您的账户。"
-            tipSubLabel.textColor = yojpText
-            tipSubLabel.font = font13
-            tipSubLabel.numberOfLines = 0
-            tipSubLabel.sizeToFit()
-            cell.addSubview(tipSubLabel)
-            
-            return cell
-        }
-        else if indexPath.row == 3 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.backgroundColor = yojpTableViewColor
-            
-            let payTypeLabel : UILabel = UILabel(frame: CGRectMake(16,2,screenWidth,20))
+            let payTypeLabel : UILabel = UILabel(frame: CGRectMake(16,35,screenWidth,20))
             payTypeLabel.text = "支付方式:"
             payTypeLabel.textColor = yojpText
             payTypeLabel.font = font15
@@ -195,12 +183,12 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             
             return cell
         }
-        else if indexPath.row >= 4 && indexPath.row <= 6 {
+        else if indexPath.row >= 3 && indexPath.row <= 5 {
             tableView.registerNib(UINib(nibName: "OrderChoosePayTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderChoosePayTableViewCellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("OrderChoosePayTableViewCellId", forIndexPath: indexPath) as! OrderChoosePayTableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            let i : Int = indexPath.row - 4
+            let i : Int = indexPath.row - 3
             cell.payTypeLogo.image = UIImage(named: self.payTypeArray.objectAtIndex(i)["payTypeLogo"] as! String)
             cell.payTypeName.text = self.payTypeArray.objectAtIndex(i)["payTypeName"] as? String
             cell.payRuleLabel.text = self.payTypeArray.objectAtIndex(i)["payRuleLabel"] as? String
@@ -267,11 +255,22 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
        
         print(payCode)
         
-        let nav : UINavigationController = self.navigationController!
+        self.popPayView!.clearPayCodeTextField()
         
-        self.navigationController?.popViewControllerAnimated(false)
-        nav.pushViewController(ShopPayViewController(), animated: true)
-        
+        if payCode == "000000" {
+            self.popPayView?.tipLabel.text = "余额不足，使用其他支付方式"
+            return
+        }
+        if payCode != "111111" {
+            self.popPayView?.tipLabel.text = "密码错误，请重试"
+        }
+        else {
+            self.popPayView?.dismiss()
+            let nav : UINavigationController = self.navigationController!
+            
+            self.navigationController?.popViewControllerAnimated(false)
+            nav.pushViewController(PaySuccessViewController(), animated: true)
+        }
     }
     
     

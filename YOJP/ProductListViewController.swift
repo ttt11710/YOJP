@@ -10,6 +10,7 @@ import UIKit
 
 class ProductListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
+    var ticketType : String!
     
     var customNavigationBar : UIView!
     var typeBtn : UIButton!
@@ -105,7 +106,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if tableView == self.tableView {
-           return 7
+           return self.tableViewDataArray.count + 2
         }
         else {
             return self.selectTypeTableViewDataArray.count
@@ -119,13 +120,19 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if tableView == self.tableView {
-            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
-            label.font = font16
-            label.textColor = yojpText
-            label.text = self.tableViewDataArray[indexPath.section] as? String
-            label.numberOfLines = 0
-            label.sizeToFit()
-            return 14+21+2+label.frame.size.height+8+screenWidth/5*3+16+25+16
+            
+            if indexPath.section <= 1 {
+                return 44
+            }
+            else {
+                let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
+                label.font = font16
+                label.textColor = yojpText
+                label.text = self.tableViewDataArray[indexPath.section-2] as? String
+                label.numberOfLines = 0
+                label.sizeToFit()
+                return 14+21+2+label.frame.size.height+8+screenWidth/5*3+16+25+16
+            }
         }
         else {
             return 44
@@ -145,26 +152,51 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if tableView == self.tableView {
-            tableView.registerNib(UINib(nibName: "ProductDescriptionTableViewCell", bundle: nil), forCellReuseIdentifier: "ProductDescriptionTableViewCellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("ProductDescriptionTableViewCellId", forIndexPath: indexPath) as! ProductDescriptionTableViewCell
-            
-            cell.selectionStyle = .None
-            
-            cell.productNameLabel.text = "商品名称"
-            cell.productDicLabel.text = self.tableViewDataArray[indexPath.section] as? String
-            cell.productImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
-            cell.moneyLabel.text = "￥300"
-            
-            cell.addToShopCarCallBackBtn.callBack = { tag in
+            if indexPath.section == 0 {
                 
-                print("加入购物车")
-            }
-            
-            cell.buyCallBackBtn.callBack = { tag in
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "cellId")
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.accessoryType = .DisclosureIndicator
                 
-                self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+                cell.imageView?.image = UIImage(named: "定位")
+                cell.textLabel?.text = "当前商家:某某街某某路某某号某某店"
+                cell.textLabel?.textColor = yojpText
+                cell.textLabel?.font = font14
+                
+                return cell
+
             }
-            return cell
+            else if indexPath.section == 1 {
+                
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+                let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "cellId")
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.accessoryType = .DisclosureIndicator
+                
+                cell.textLabel?.text = ticketType
+                cell.detailTextLabel?.text = "已有200人领取"
+                cell.textLabel?.textColor = yojpText
+                cell.detailTextLabel?.textColor = yojpLightText
+                cell.detailTextLabel?.font = font14
+                
+                return cell
+            }
+            else {
+                tableView.registerNib(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCellId")
+                let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCellId", forIndexPath: indexPath) as! DetailTableViewCell
+                
+                cell.selectionStyle = .None
+                
+                cell.productNameLabel.text = "商品名称"
+                cell.productDicLabel.text = self.tableViewDataArray[indexPath.section-2] as? String
+                cell.ProductImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
+                cell.moneyLabel.text = "￥300"
+                cell.stockLabel.text = "库存量:123件"
+                
+                return cell
+                
+            }
         }
         else {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
@@ -183,6 +215,11 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == self.tableView {
             
+            if indexPath.section == 1 {
+                let takeTicketViewController = TakeTicketViewController()
+                takeTicketViewController.ticketType = self.ticketType
+                self.navigationController?.pushViewController(takeTicketViewController, animated: true)
+            }
         }
         else {
             self.showSelectTypeTabelView = !self.showSelectTypeTabelView

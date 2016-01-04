@@ -18,6 +18,9 @@ import UIKit
 
 public class popPayPwdView: UIView, UITextFieldDelegate {
     
+    
+    
+    
     public init() {
         //可重新定义frame
         super.init(frame: CGRect(x: 0, y: SCREEN_SIZE_HEIGHT-226-120, width: SCREEN_SIZE_WIDTH, height: 226+120))
@@ -44,6 +47,10 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
     //密码长度默认6位
     let passWordLength = 6
     var pwdCode = ""
+    
+    
+    //my
+    var tipLabel : UILabel!
     
     func customInit() {
         self.backgroundColor = UIColor.whiteColor()
@@ -107,6 +114,12 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
             dotLabel!.hidden = true
         }
         self.addSubview(payCodeTextField)
+        
+        tipLabel = UILabel(frame: CGRectMake(0,48+44+8,self.frame.width-16,25))
+        tipLabel.textAlignment = .Right
+        tipLabel.font = font13
+        tipLabel.textColor = UIColor.redColor()
+        self.addSubview(tipLabel)
     }
 
     public func cancelBtnPressed() {
@@ -166,15 +179,12 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
     
     public func dismiss() {
         fadeOut()
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     func textFieldDidChange() {
         let length = payCodeTextField.text!.characters.count
-        if length == passWordLength {
-            dismiss()
-            delegate?.compareCode(payCodeTextField.text!)
-            NSNotificationCenter.defaultCenter().removeObserver(self)
-        }
+        
         for var i = 0; i < passWordLength; i++ {
             dotLabel = payCodeTextField.viewWithTag(dotTag + i) as? UILabel
             if (dotLabel != nil) {
@@ -182,6 +192,23 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
             }
         }
         payCodeTextField.sendActionsForControlEvents(.ValueChanged)
+        
+        if length == passWordLength {
+            //dismiss()
+            delegate?.compareCode(payCodeTextField.text!)
+            
+        }
+    }
+    
+    func clearPayCodeTextField() {
+        self.payCodeTextField.text = ""
+        for var i = 0; i < passWordLength; i++ {
+            dotLabel = payCodeTextField.viewWithTag(dotTag + i) as? UILabel
+            if (dotLabel != nil) {
+                dotLabel!.hidden = true
+            }
+        }
+
     }
     
     

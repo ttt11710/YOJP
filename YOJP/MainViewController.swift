@@ -528,8 +528,27 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         if indexPath.row == 4 {
             self.navigationController?.pushViewController(NearbyViewController(), animated: true)
         }
-        else {
-            self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+        
+        else if indexPath.row != 0 {
+            let cell : myCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! myCollectionViewCell
+            let string = cell.labelLabel.text
+            
+            let freeDetailViewController : FreeDetailViewController = FreeDetailViewController()
+            
+            if string == "免费券" {
+                freeDetailViewController.ticketType = "免费券"
+            }
+            else if string == "打折券" {
+                freeDetailViewController.ticketType = "九折券"
+            }
+            else if string == "抵扣券" {
+                freeDetailViewController.ticketType = "100元抵扣券"
+            }
+            else if string == "福袋" {
+                freeDetailViewController.ticketType = "福袋"
+            }
+
+            self.navigationController?.pushViewController(freeDetailViewController, animated: true)
         }
     }
     
