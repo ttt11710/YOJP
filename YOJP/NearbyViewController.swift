@@ -89,7 +89,7 @@ class NearbyViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         return cell
     }
-
+    
     func backClicked() {
         
         self.navigationController?.popViewControllerAnimated(true)

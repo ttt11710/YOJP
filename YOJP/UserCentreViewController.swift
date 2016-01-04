@@ -51,11 +51,13 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     
     func creatTableView() {
         self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-44), style: .Plain)
-        self.tableView.tableFooterView = UIView()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.separatorStyle = .None
         self.tableView.backgroundColor = yojpTableViewColor
+        self.tableView.tableFooterView = UIView()
+        //self.tableView.separatorStyle = .None
+        
         self.view.addSubview(self.tableView)
         
     }
@@ -80,7 +82,8 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, 200))
@@ -119,12 +122,16 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
         }
         else {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.textLabel?.text = self.tableViewDataArray1[indexPath.section-1] as? String
             cell.textLabel?.font = font15
             cell.textLabel?.textColor = yojpText
+            
+            cell.layoutSubviews()
+            
             return cell
         }
     }
@@ -163,7 +170,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

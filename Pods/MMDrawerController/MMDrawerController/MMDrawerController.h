@@ -424,6 +424,14 @@ typedef void (^MMDrawerControllerDrawerVisualStateBlock)(MMDrawerController * dr
  */
 -(void)setDrawerVisualStateBlock:(void(^)(MMDrawerController * drawerController, MMDrawerSide drawerSide, CGFloat percentVisible))drawerVisualStateBlock;
 
+
+//My
+@property (nonatomic, strong) UIPanGestureRecognizer * pan;
+@property (nonatomic, strong) UITapGestureRecognizer * tap;
+
+-(void)setupGestureRecognizers;
+-(void)removeGestureRecognizers;
+
 ///---------------------------------------
 /// @name Gesture Completion Handling
 ///---------------------------------------

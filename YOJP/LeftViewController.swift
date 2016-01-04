@@ -17,7 +17,7 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     var weatherModel : WeatherModel!
     
-    var dataArray1 : NSMutableArray = ["订单","卡券","清单","消息","我的收藏","个人中心"]
+    var dataArray1 : NSMutableArray = ["卡券","清单","消息","我的收藏","个人中心"]
     var dataArray2 : NSMutableArray = ["卡券","行程","消息"]
     
     
@@ -264,12 +264,8 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return self.dataArray1.count + 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -363,22 +359,22 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if indexPath.row == 0 {
             self.creatWeatherView()
         }
+//        if indexPath.row == 1 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(OrderViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//
+//        }
         if indexPath.row == 1 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(OrderViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-
-        }
-        if indexPath.row == 2 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                 MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                // MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
@@ -389,21 +385,21 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
             
-        else if indexPath.row == 4 {
+        else if indexPath.row == 3 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                 MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
-        else if indexPath.row == 5 {
+        else if indexPath.row == 4 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                 MainViewController.shareMainViewController().navigationController?.pushViewController(CollectViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
-        else if indexPath.row == 6 {
+        else if indexPath.row == 5 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                 MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)

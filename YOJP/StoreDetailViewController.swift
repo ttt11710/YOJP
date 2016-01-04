@@ -23,6 +23,8 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
     
     var scrollView : UIScrollView!
     
+    var storeNameSrting : String!
+    
     var storeName : UILabel!
     var imageView : UIImageView!
     var label1 : UILabel!
@@ -43,7 +45,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.creatCustomNavigationBar()
-        self.creatNavigationView()
+       // self.creatNavigationView()
         self.creatScrollView()
         
         
@@ -53,7 +55,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UIApplication.sharedApplication().statusBarStyle = .Default
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -90,7 +92,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         
       //  self.view.backgroundColor = UIColor.orangeColor()
         
-        self.scrollView = UIScrollView(frame: CGRectMake(0,64,screenWidth,screenHeight-44-64))
+        self.scrollView = UIScrollView(frame: CGRectMake(0,20,screenWidth,screenHeight-44-20))
         self.scrollView.contentSize = CGSizeMake(0, screenHeight+300)
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.showsVerticalScrollIndicator = false
@@ -98,12 +100,12 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.view.addSubview(self.scrollView)
         
         
-        self.storeName = UILabel(frame: CGRectMake(16,20,200,30))
-        self.storeName.text = "某某某某某"
+        self.storeName = UILabel(frame: CGRectMake(16,0,200,25))
+        self.storeName.text = storeNameSrting
         self.storeName.textColor = yojpText
         self.scrollView.addSubview(self.storeName)
         
-        self.updateTime = UILabel(frame: CGRectMake(screenWidth-150,60,140,30))
+        self.updateTime = UILabel(frame: CGRectMake(screenWidth-150,30,140,30))
         self.updateTime.text = "4小时前"
         self.updateTime.font = font14
         self.updateTime.textAlignment = .Right
@@ -206,16 +208,6 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
 
     
     func backClicked() {
-        
-        
-        print(self.scrollView.contentOffset)
-        
-        
-//        self.delegate.modalViewControllerDidClickedDismissButton(self, height: self.scrollView.contentOffset.y)
-        
-//        if self.delegate != nil && self.delegate.respondsToSelector(Selector("modalViewControllerDidClickedDismissButton:")) {
-//            self.delegate.modalViewControllerDidClickedDismissButton(self, height: self.scrollView.contentOffset.y)
-//        }
         
         self.navigationController?.popViewControllerAnimated(true)
     }

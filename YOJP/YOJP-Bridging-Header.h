@@ -14,3 +14,6 @@
 #import "TNCheckBoxData.h"
 #import "IQActionSheetPickerView.h"
 #import "CallBackButton.h"
+#import "QRItem.h"
+#import "QRMenu.h"
+#import "QRView.h"

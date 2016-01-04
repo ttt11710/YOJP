@@ -68,7 +68,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         let leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress:"))
         self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
         
-        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "购物车"), style: .Done, target: self, action: Selector("rightButtonPress"))
+        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫"), style: .Done, target: self, action: Selector("rightButtonPress"))
         self.navigationItem.setRightBarButtonItem(rightButtonItem, animated: true)
         
         
@@ -146,7 +146,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        
+        self.mm_drawerController.leftDrawerViewController = nil
         self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
             self.mm_drawerController.leftDrawerViewController = nil
         })
@@ -171,8 +171,8 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         
         self.navigationController?.navigationBar.translucent = false
         
-        self.creatButtonWithNormalName("店铺", SelectName: "未评价高亮", Index: 0)
-        self.creatButtonWithNormalName("品牌", SelectName: "已评价高亮", Index: 1)
+        self.creatButtonWithNormalName("产品", SelectName: "未评价高亮", Index: 0)
+        self.creatButtonWithNormalName("文章", SelectName: "已评价高亮", Index: 1)
 
         self.previousBtn = NTButton()
         let button : NTButton = self.tabBarView.subviews[1] as! NTButton
@@ -603,7 +603,6 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
             cell.desLabel.text = self.tableViewDataArray[indexPath.row] as? String
             cell.desLabel.textColor = yojpText
             
-            
             return cell
         }
         else {
@@ -624,8 +623,9 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         if tableView == self.tableView {
             self.showNavbar()
             
-            // self.tableView.removeFromSuperview()
-            self.navigationController?.pushViewController(StoreDetailViewController(), animated: true)
+            let storeDetailViewController = StoreDetailViewController()
+            storeDetailViewController.storeNameSrting = indexPath.row % 2 == 0 ? "品牌介绍":"软文推荐"
+            self.navigationController?.pushViewController(storeDetailViewController, animated: true)
         }
         else {
             self.showSelectTypeTabelView = !self.showSelectTypeTabelView
@@ -827,7 +827,8 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     }
     
     func rightButtonPress() {
-        self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+      //  self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+        self.navigationController?.pushViewController(ScanViewController(), animated: true)
     }
     
     override func didReceiveMemoryWarning() {

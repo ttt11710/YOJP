@@ -1256,13 +1256,18 @@ static inline CGFloat originXForDrawerOriginAndTargetOriginOffset(CGFloat origin
 
 #pragma mark - Helpers
 -(void)setupGestureRecognizers{
-    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureCallback:)];
-    [pan setDelegate:self];
-    [self.view addGestureRecognizer:pan];
+    self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureCallback:)];
+    [self.pan setDelegate:self];
+    [self.view addGestureRecognizer:self.pan];
     
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureCallback:)];
-    [tap setDelegate:self];
-    [self.view addGestureRecognizer:tap];
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureCallback:)];
+    [self.tap setDelegate:self];
+    [self.view addGestureRecognizer:self.tap];
+}
+
+-(void)removeGestureRecognizers {
+    [self.view removeGestureRecognizer:self.pan];
+    [self.view removeGestureRecognizer:self.tap];
 }
 
 -(void)prepareToPresentDrawer:(MMDrawerSide)drawer animated:(BOOL)animated{
