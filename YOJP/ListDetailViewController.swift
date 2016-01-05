@@ -38,11 +38,29 @@ class ListDetailViewController: UIViewController,UITableViewDelegate,UITableView
         // Do any additional setup after loading the view.
     }
 
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        UIApplication.sharedApplication().statusBarStyle = .Default
+//        self.navigationController?.navigationBarHidden = true
+//        
+//        self.registerForKeyboardNottifications()
+//        
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.navigationBarHidden = false
+//        self.mm_drawerController.setupGestureRecognizers()
+//        
+//        NSNotificationCenter.defaultCenter().removeObserver(self)
+//    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = .Default
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.alpha = 0
         
         self.registerForKeyboardNottifications()
         
@@ -50,11 +68,14 @@ class ListDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.alpha = 1
+        
         self.mm_drawerController.setupGestureRecognizers()
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+
+    
     
     func registerForKeyboardNottifications() {
         

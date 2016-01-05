@@ -37,6 +37,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
         self.navigationController?.navigationBarHidden = false
     }
     
+    
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
         self.customNavigationBar.backgroundColor = yojpBlue

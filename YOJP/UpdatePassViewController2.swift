@@ -29,16 +29,30 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
     }
 
     
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        UIApplication.sharedApplication().statusBarStyle = .Default
+//        self.navigationController?.navigationBarHidden = true
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.navigationBarHidden = false
+//    }
+
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = .Default
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.alpha = 0
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = false
+        
+        self.navigationController?.navigationBar.alpha = 1
     }
 
     
