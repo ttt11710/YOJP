@@ -81,7 +81,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.registerView.addSubview(self.staticUserName)
     
         self.phoneTextField = UITextField(frame: CGRectMake(self.staticUserName.frame.origin.x + self.staticUserName.frame.size.width + 16, 0, screenWidth - 16 - self.staticUserName.frame.size.width - 16, 55))
-        self.phoneTextField.placeholder = "1881236932"
+        self.phoneTextField.placeholder = CurrentUser.user?.userId
         self.phoneTextField.delegate = self
         self.phoneTextField.keyboardType = .NumberPad
         self.registerView.addSubview(self.phoneTextField)
@@ -140,6 +140,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
        self.presentViewController(ForgetPasswordViewController2(), animated: true) { () -> Void in
         
         }
+
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

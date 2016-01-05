@@ -180,6 +180,15 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             return
         }
         
+        SVProgressShow.showSuccessWithStatus("注册成功!")
+        self.phoneTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        
+        CurrentUser.user = JapanUser(userId: self.phoneTextField.text!)
+        
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+        }
         
     }
     

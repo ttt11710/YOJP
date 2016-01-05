@@ -19,6 +19,8 @@ class TakeTicketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         self.creatCustomNavigationBar()
         self.creatScrollView()
         self.creatDetailView()

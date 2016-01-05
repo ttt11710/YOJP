@@ -127,6 +127,14 @@
 		DFE7EFC31C0405CB009AA953 /* myTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */; };
 		DFE7EFCB1C0458D6009AA953 /* ImageAndLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */; };
 		DFE7EFCC1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */; };
+		DFE9BD0D1C3B5C4E0037C8D7 /* CardScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD0C1C3B5C4E0037C8D7 /* CardScanViewController.swift */; };
+		DFE9BD0F1C3B5D0C0037C8D7 /* CardScanPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD0E1C3B5D0C0037C8D7 /* CardScanPayViewController.swift */; };
+		DFE9BD111C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD101C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift */; };
+		DFE9BD151C3B6C110037C8D7 /* BarcodePayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD141C3B6C110037C8D7 /* BarcodePayViewController.swift */; };
+		DFE9BD171C3B8B1B0037C8D7 /* UserHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD161C3B8B1B0037C8D7 /* UserHistoryViewController.swift */; };
+		DFE9BD1A1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD181C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift */; };
+		DFE9BD1B1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE9BD191C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib */; };
+		DFE9BD201C3B934F0037C8D7 /* JapanUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE9BD1F1C3B934F0037C8D7 /* JapanUser.swift */; };
 		DFEB0D511C3A166900EA2F6D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFEB0D501C3A166900EA2F6D /* ScanViewController.swift */; };
 		DFEB0D591C3A176600EA2F6D /* QRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB0D541C3A176600EA2F6D /* QRItem.m */; };
 		DFEB0D5A1C3A176600EA2F6D /* QRMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB0D561C3A176600EA2F6D /* QRMenu.m */; };
@@ -318,6 +326,14 @@
 		DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = myTableViewCell.xib; sourceTree = "<group>"; };
 		DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAndLabelTableViewCell.swift; sourceTree = "<group>"; };
 		DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageAndLabelTableViewCell.xib; sourceTree = "<group>"; };
+		DFE9BD0C1C3B5C4E0037C8D7 /* CardScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScanViewController.swift; sourceTree = "<group>"; };
+		DFE9BD0E1C3B5D0C0037C8D7 /* CardScanPayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScanPayViewController.swift; sourceTree = "<group>"; };
+		DFE9BD101C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardScanPaySuccessViewController.swift; sourceTree = "<group>"; };
+		DFE9BD141C3B6C110037C8D7 /* BarcodePayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodePayViewController.swift; sourceTree = "<group>"; };
+		DFE9BD161C3B8B1B0037C8D7 /* UserHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserHistoryViewController.swift; sourceTree = "<group>"; };
+		DFE9BD181C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewWithOnlyMoneyCell.swift; sourceTree = "<group>"; };
+		DFE9BD191C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardListTableViewWithOnlyMoneyCell.xib; sourceTree = "<group>"; };
+		DFE9BD1F1C3B934F0037C8D7 /* JapanUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapanUser.swift; sourceTree = "<group>"; };
 		DFEB0D501C3A166900EA2F6D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		DFEB0D531C3A176600EA2F6D /* QRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRItem.h; sourceTree = "<group>"; };
 		DFEB0D541C3A176600EA2F6D /* QRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRItem.m; sourceTree = "<group>"; };
@@ -514,6 +530,7 @@
 		DF4C68F81BF0468B009ED5A9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DFE9BD1F1C3B934F0037C8D7 /* JapanUser.swift */,
 				DF8DA9091C1FB23D00FB0ED1 /* CallBackButton */,
 				DF4C68F31BF04642009ED5A9 /* SVProgressShow */,
 			);
@@ -782,8 +799,7 @@
 		DFE5C8301C2A348B003DB635 /* ShopCar */ = {
 			isa = PBXGroup;
 			children = (
-				DFE5C8331C2A3523003DB635 /* Control */,
-				DFE5C8341C2A352E003DB635 /* View */,
+				DFE9BD1E1C3B90550037C8D7 /* 备用 */,
 			);
 			name = ShopCar;
 			sourceTree = "<group>";
@@ -825,6 +841,50 @@
 				DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */,
 			);
 			path = KOMovingNavigationBar;
+			sourceTree = "<group>";
+		};
+		DFE9BD121C3B6BDD0037C8D7 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				DFE9BD0C1C3B5C4E0037C8D7 /* CardScanViewController.swift */,
+				DFE9BD0E1C3B5D0C0037C8D7 /* CardScanPayViewController.swift */,
+				DFE9BD101C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
+		DFE9BD131C3B6BF20037C8D7 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				DFE9BD141C3B6C110037C8D7 /* BarcodePayViewController.swift */,
+			);
+			name = Barcode;
+			sourceTree = "<group>";
+		};
+		DFE9BD1C1C3B901A0037C8D7 /* 备用 */ = {
+			isa = PBXGroup;
+			children = (
+				DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */,
+			);
+			name = "备用";
+			sourceTree = "<group>";
+		};
+		DFE9BD1D1C3B903B0037C8D7 /* 备用 */ = {
+			isa = PBXGroup;
+			children = (
+				DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */,
+				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
+			);
+			name = "备用";
+			sourceTree = "<group>";
+		};
+		DFE9BD1E1C3B90550037C8D7 /* 备用 */ = {
+			isa = PBXGroup;
+			children = (
+				DFE5C8331C2A3523003DB635 /* Control */,
+				DFE5C8341C2A352E003DB635 /* View */,
+			);
+			name = "备用";
 			sourceTree = "<group>";
 		};
 		DFEB0D521C3A176600EA2F6D /* QRView */ = {
@@ -905,9 +965,11 @@
 			isa = PBXGroup;
 			children = (
 				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
+				DFE9BD121C3B6BDD0037C8D7 /* Scan */,
+				DFE9BD131C3B6BF20037C8D7 /* Barcode */,
 				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
 				DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */,
-				DF1990B61C1187F0006AACF3 /* CardUserHistoryViewController.swift */,
+				DFE9BD1C1C3B901A0037C8D7 /* 备用 */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -917,8 +979,9 @@
 			children = (
 				DFFF9F5B1C0D7ED300FD4A57 /* CardListTableViewCell.swift */,
 				DFFF9F5C1C0D7ED300FD4A57 /* CardListTableViewCell.xib */,
-				DFDBB1871C119563000252CF /* CardListTableViewWithTimeCell.swift */,
-				DFDBB1881C119563000252CF /* CardListTableViewWithTimeCell.xib */,
+				DFE9BD181C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift */,
+				DFE9BD191C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib */,
+				DFE9BD1D1C3B903B0037C8D7 /* 备用 */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -931,6 +994,7 @@
 				DF8690E51C1578E200305D2E /* ForgetPasswordViewController.swift */,
 				DFD2A4E91C17CCBF004A6DCF /* ForgetPasswordViewController2.swift */,
 				DF8690E71C157AE500305D2E /* RegisterViewController.swift */,
+				DFE9BD161C3B8B1B0037C8D7 /* UserHistoryViewController.swift */,
 				DFC09F6C1C16788D005FBC9E /* IntegralViewController.swift */,
 				DF8691091C15866100305D2E /* HelpCenterViewController.swift */,
 				DF86910B1C158AEC00305D2E /* SettingViewController.swift */,
@@ -1103,6 +1167,7 @@
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
 				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
+				DFE9BD1B1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib in Resources */,
 				DFDBB18A1C119563000252CF /* CardListTableViewWithTimeCell.xib in Resources */,
 				DF3A2E511BFD954D00A995E1 /* tessdata in Resources */,
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
@@ -1205,6 +1270,7 @@
 				DF8690FF1C157B3000305D2E /* TNCheckBoxData.m in Sources */,
 				DF8690DF1C152C8900305D2E /* MessageDetailViewController.swift in Sources */,
 				DF86910A1C15866100305D2E /* HelpCenterViewController.swift in Sources */,
+				DFE9BD0D1C3B5C4E0037C8D7 /* CardScanViewController.swift in Sources */,
 				DFF3C2B31C23CED400D7EFF2 /* ListViewController.swift in Sources */,
 				DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */,
 				DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */,
@@ -1234,7 +1300,9 @@
 				DF8691051C157B3000305D2E /* TNRectangularCheckBox.m in Sources */,
 				DF854C851C054E63009F53A5 /* ScrollViewCollectionViewCell.swift in Sources */,
 				DF8690DD1C151F2200305D2E /* MessageViewController.swift in Sources */,
+				DFE9BD151C3B6C110037C8D7 /* BarcodePayViewController.swift in Sources */,
 				DF46C09E1C3A667300700272 /* TakeTicketViewController.swift in Sources */,
+				DFE9BD111C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift in Sources */,
 				DFD2A4F01C180A14004A6DCF /* IQActionSheetPickerView.m in Sources */,
 				DFC09F731C169D23005FBC9E /* SchedulingViewController.swift in Sources */,
 				DFE713E71C30D8B400937933 /* ListDetailViewController.swift in Sources */,
@@ -1249,9 +1317,12 @@
 				DFF3C2C81C23F23900D7EFF2 /* OrderTableViewCell.swift in Sources */,
 				DFE1E1AF1C2B87A7002DE1E0 /* PayViewController.swift in Sources */,
 				DFE1E1B61C2BC5E6002DE1E0 /* CodeTextField.swift in Sources */,
+				DFE9BD171C3B8B1B0037C8D7 /* UserHistoryViewController.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
 				DF46C0A01C3A78A000700272 /* PaySuccessViewController.swift in Sources */,
 				DF46C0971C3A449600700272 /* DetailTableViewCell.swift in Sources */,
+				DFE9BD0F1C3B5D0C0037C8D7 /* CardScanPayViewController.swift in Sources */,
+				DFE9BD1A1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
 				DFE1E1B21C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift in Sources */,
@@ -1264,6 +1335,7 @@
 				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
 				DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
+				DFE9BD201C3B934F0037C8D7 /* JapanUser.swift in Sources */,
 				DFEB0D5B1C3A176600EA2F6D /* QRView.m in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
 				DF8691021C157B3000305D2E /* TNCircularCheckBoxData.m in Sources */,

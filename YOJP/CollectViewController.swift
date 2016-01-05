@@ -19,6 +19,7 @@ class CollectViewController: UIViewController,UITableViewDataSource,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.whiteColor()
         
         self.creatTableView()
         self.creatCustomNavigationBar()
@@ -97,17 +98,16 @@ class CollectViewController: UIViewController,UITableViewDataSource,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        tableView.registerNib(UINib(nibName: "CollectTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectTableViewCellId")
-        let cell = tableView.dequeueReusableCellWithIdentifier("CollectTableViewCellId", forIndexPath: indexPath) as! CollectTableViewCell
+        tableView.registerNib(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCellId")
+        let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCellId", forIndexPath: indexPath) as! DetailTableViewCell
         
         cell.selectionStyle = .None
         
         cell.productNameLabel.text = "商品名称"
         cell.productDicLabel.text = self.tableViewDataArray[indexPath.section] as? String
-        cell.productImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
+        cell.ProductImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
         cell.moneyLabel.text = "￥300"
-        cell.collectionBtn.hidden = true
+        cell.stockLabel.text = "库存量:123件"
         
         return cell
     }

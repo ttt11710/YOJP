@@ -18,6 +18,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         imageView.image = UIImage(named: "JapanBack")
         self.view.addSubview(imageView)
@@ -30,12 +32,14 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = .Default
-        self.navigationController?.navigationBarHidden = true
+       // self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBar.alpha = 0
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBarHidden = false
+       // self.navigationController?.navigationBarHidden = false
+        self.navigationController?.navigationBar.alpha = 1
     }
 
     
@@ -98,7 +102,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let deleteIndexPath : NSIndexPath = NSIndexPath(forRow: tag, inSection: 0)
             self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: UITableViewRowAnimation.Top)
             
-            
+            self.tableView.reloadData()
         }
         
         cell.newBtn.tag = indexPath.row
@@ -108,6 +112,8 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.tableView.insertRowsAtIndexPaths([addIndexPath], withRowAnimation: UITableViewRowAnimation.Middle)
             
             self.tableView.scrollToRowAtIndexPath(addIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+            
+            self.tableView.reloadData()
             
         }
         

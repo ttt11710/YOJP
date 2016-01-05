@@ -1,17 +1,17 @@
 //
-//  SupermarketQRViewController.swift
-//  swiftShrb
+//  CardScanViewController.swift
+//  YOJP
 //
-//  Created by PayBay on 15/10/14.
-//  Copyright © 2015年 PayBay. All rights reserved.
+//  Created by PayBay on 16/1/5.
+//  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
 
-class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutputObjectsDelegate {
-
+class CardScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutputObjectsDelegate {
+    
     
     var customNavigationBar : UIView!
     
@@ -35,7 +35,7 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         } catch {
             print(error)
         }
-
+        
         
         output.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
         session.canSetSessionPreset(AVCaptureSessionPresetHigh)
@@ -70,7 +70,7 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         pop.frame = CGRectMake(20, 20, 50, 50)
         pop.setTitle("返回", forState: .Normal)
         pop.addTarget(self, action: Selector("pop"), forControlEvents: UIControlEvents.TouchUpInside)
-      //  self.view.addSubview(pop)
+        //  self.view.addSubview(pop)
         
         let cropRect = CGRectMake((screenWidth - qrRectView.transparentArea.width)/2, (screenHeight - qrRectView.transparentArea.height)/2, qrRectView.transparentArea.width, qrRectView.transparentArea.height)
         
@@ -84,33 +84,17 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
     }
     
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        UIApplication.sharedApplication().statusBarStyle = .LightContent
-//        self.navigationController?.navigationBarHidden = true
-//    }
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.navigationController?.navigationBarHidden = false
-//    }
-
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        // self.navigationController?.navigationBarHidden = true
-        self.navigationController?.navigationBar.alpha = 0
+        self.navigationController?.navigationBarHidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        // self.navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBar.alpha = 1
+        self.navigationController?.navigationBarHidden = false
     }
-
     
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
@@ -124,14 +108,14 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
-
+        
     }
     
     func backClicked() {
         
         self.navigationController?.popViewControllerAnimated(true)
     }
-
+    
     
     
     func scanTypeConfig(item: QRItem!) {
@@ -166,24 +150,24 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         
         let nav : UINavigationController = self.navigationController!
         self.navigationController?.popViewControllerAnimated(false)
-        nav.pushViewController(ScanProductDetailViewController(), animated: true)
+        nav.pushViewController(CardScanPayViewController(), animated: true)
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

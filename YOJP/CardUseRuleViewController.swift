@@ -122,7 +122,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
             print("取消操作")
         case 1:
             SVProgressShow.showSuccessWithStatus("兑换成功!")
-            self.navigationController?.pushViewController(CardUserHistoryViewController(), animated: true)
+            self.navigationController?.pushViewController(UserHistoryViewController(), animated: true)
         default:
             break
         }

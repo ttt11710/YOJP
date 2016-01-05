@@ -1,35 +1,35 @@
 //
-//  PaySuccessViewController.swift
+//  CardScanPaySuccessViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 16/1/4.
+//  Created by PayBay on 16/1/5.
 //  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+class CardScanPaySuccessViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.whiteColor()
         
+        
+        self.view.backgroundColor = UIColor.whiteColor()
         self.creatTableView()
         self.creatCustomNavigationBar()
-
+        
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        UIApplication.sharedApplication().statusBarStyle = .Default
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -93,7 +93,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             cell.addSubview(payTypeLabel)
             
             return cell
-
+            
         }
         else if indexPath.section == 1 {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
@@ -115,7 +115,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             cell.addSubview(payCountLabel)
             
             let payLabel : UILabel = UILabel()
-            payLabel.text = "￥30"
+            payLabel.text = "￥9999"
             payLabel.textColor = yojpText
             payLabel.font = UIFont.boldSystemFontOfSize(28)
             payLabel.textAlignment = .Center
@@ -123,8 +123,16 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             payLabel.bounds = CGRectMake(0, 0, 200, 40)
             cell.addSubview(payLabel)
             
+            
+            let japanPayLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-200,70,184,25))
+            japanPayLabel.text = "日元金额:9999"
+            japanPayLabel.textAlignment = .Right
+            japanPayLabel.textColor = yojpText
+            japanPayLabel.font = font13
+            cell.addSubview(japanPayLabel)
+            
             return cell
-
+            
         }
         else if indexPath.section == 2 {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
@@ -156,7 +164,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             cell.addSubview(addressLabel)
             
             return cell
-
+            
         }
         else  {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
@@ -183,25 +191,31 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             }
             
             return cell
-
+            
         }
     }
-
+    
+    
+    func backClicked() {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

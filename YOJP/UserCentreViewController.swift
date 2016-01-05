@@ -13,7 +13,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
-    var tableViewDataArray1 : NSMutableArray = ["积分","使用历史","我的收藏","帮助中心","常用设置"]
+    var tableViewDataArray1 : NSMutableArray = ["积分","历史记录","我的收藏","帮助中心","常用设置"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,8 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
         
         UIApplication.sharedApplication().statusBarStyle = .Default
         self.navigationController?.navigationBarHidden = true
+        
+        self.tableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -86,36 +88,57 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
+            for view in cell.subviews {
+                view.removeFromSuperview()
+            }
+            
+            
             let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, 200))
             imageView.image = UIImage(named: "userCenterBack")
-            cell.contentView.addSubview(imageView)
+            cell.addSubview(imageView)
             
-            let label : UILabel = UILabel()
-            label.bounds = CGRectMake(0, 0, 200, 25)
-            label.center = CGPointMake(screenWidth/2, 90)
-            label.textAlignment = .Center
-            label.text = "还没有登录哦"
-            label.textColor = yojpText
-            label.font = font15
-            cell.contentView.addSubview(label)
+            if CurrentUser.user == nil {
+                
+                let label : UILabel = UILabel()
+                label.bounds = CGRectMake(0, 0, 200, 25)
+                label.center = CGPointMake(screenWidth/2, 90)
+                label.textAlignment = .Center
+                label.text = "还没有登录哦"
+                label.textColor = yojpText
+                label.font = font15
+                cell.addSubview(label)
+                
+                let loginBtn : UIButton = UIButton()
+                loginBtn.center = CGPointMake(screenWidth/3, 170)
+                loginBtn.bounds = CGRectMake(0, 0, 100, 30)
+                loginBtn.setTitle("登录", forState: .Normal)
+                loginBtn.setTitleColor(yojpText, forState: .Normal)
+                loginBtn.titleLabel?.font = font15
+                loginBtn.addTarget(self, action: Selector("loginBtnPressed"), forControlEvents: .TouchUpInside)
+                cell.addSubview(loginBtn)
+                
+                let registerBtn : UIButton = UIButton()
+                registerBtn.center = CGPointMake(screenWidth/3*2, 170)
+                registerBtn.bounds = CGRectMake(0, 0, 100, 30)
+                registerBtn.setTitle("注册", forState: .Normal)
+                registerBtn.setTitleColor(yojpText, forState: .Normal)
+                registerBtn.titleLabel?.font = font15
+                registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: .TouchUpInside)
+                cell.addSubview(registerBtn)
+
+            }
             
-            let loginBtn : UIButton = UIButton()
-            loginBtn.center = CGPointMake(screenWidth/3, 170)
-            loginBtn.bounds = CGRectMake(0, 0, 100, 30)
-            loginBtn.setTitle("登录", forState: .Normal)
-            loginBtn.setTitleColor(yojpText, forState: .Normal)
-            loginBtn.titleLabel?.font = font15
-            loginBtn.addTarget(self, action: Selector("loginBtnPressed"), forControlEvents: .TouchUpInside)
-            cell.contentView.addSubview(loginBtn)
-            
-            let registerBtn : UIButton = UIButton()
-            registerBtn.center = CGPointMake(screenWidth/3*2, 170)
-            registerBtn.bounds = CGRectMake(0, 0, 100, 30)
-            registerBtn.setTitle("注册", forState: .Normal)
-            registerBtn.setTitleColor(yojpText, forState: .Normal)
-            registerBtn.titleLabel?.font = font15
-            registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: .TouchUpInside)
-            cell.contentView.addSubview(registerBtn)
+            else {
+                
+                let label : UILabel = UILabel()
+                label.bounds = CGRectMake(0, 0, 200, 25)
+                label.center = CGPointMake(screenWidth/2, 120)
+                label.textAlignment = .Center
+                label.text = String(format: "用户账号:%@", (CurrentUser.user?.userId)!)
+                label.textColor = yojpText
+                label.font = font15
+                cell.addSubview(label)
+            }
             
             return cell
 
@@ -141,7 +164,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             self.navigationController?.pushViewController(IntegralViewController(), animated: true)
         }
         else if indexPath.section == 2 {
-            self.navigationController?.pushViewController(CardUserHistoryViewController(), animated: true)
+            self.navigationController?.pushViewController(UserHistoryViewController(), animated: true)
         }
         else if indexPath.section == 3 {
             self.navigationController?.pushViewController(CollectViewController(), animated: true)

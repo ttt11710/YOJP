@@ -68,7 +68,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         let leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress:"))
         self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
         
-        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫"), style: .Done, target: self, action: Selector("rightButtonPress"))
+        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: Selector("rightButtonPress"))
         self.navigationItem.setRightBarButtonItem(rightButtonItem, animated: true)
         
         

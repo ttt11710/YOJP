@@ -1,15 +1,15 @@
 //
-//  PayViewController.swift
+//  CardScanPayViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 15/12/24.
-//  Copyright © 2015年 PayBay. All rights reserved.
+//  Created by PayBay on 16/1/5.
+//  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class PayViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,popPayDelegate {
-
+class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,popPayDelegate {
+    
     
     var customNavigationBar : UIView!
     
@@ -24,16 +24,16 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.creatTableView()
         self.creatCustomNavigationBar()
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        UIApplication.sharedApplication().statusBarStyle = .Default
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -49,7 +49,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         self.tableView.backgroundColor = yojpTableViewColor
         self.view.addSubview(self.tableView)
     }
-
+    
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
         self.customNavigationBar.backgroundColor = yojpBlue
@@ -116,7 +116,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             for view in cell.subviews {
-            
+                
                 view.removeFromSuperview()
             }
             
@@ -137,6 +137,14 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             payLabel.center = CGPointMake(screenWidth/2, 65)
             payLabel.bounds = CGRectMake(0, 0, 200, 40)
             cell.addSubview(payLabel)
+            
+            
+            let japanPayLabel : UILabel = UILabel(frame: CGRectMake(screenWidth-200,70,184,25))
+            japanPayLabel.text = "日元金额:9999"
+            japanPayLabel.textAlignment = .Right
+            japanPayLabel.textColor = yojpText
+            japanPayLabel.font = font13
+            cell.addSubview(japanPayLabel)
             
             return cell
         }
@@ -177,6 +185,22 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
                 view.removeFromSuperview()
             }
             
+            let ticketLabel : UILabel = UILabel()
+            ticketLabel.text = "抵扣券-100元"
+            ticketLabel.textColor = yojpText
+            ticketLabel.font = font13
+            ticketLabel.sizeToFit()
+            ticketLabel.frame = CGRectMake(screenWidth-16-ticketLabel.frame.size.width,8,ticketLabel.frame.size.width,20)
+            ticketLabel.textAlignment = .Right
+            cell.addSubview(ticketLabel)
+            
+            let checkBtn : UIButton = UIButton(frame: CGRectMake(ticketLabel.frame.origin.x-22,8,20,20))
+            checkBtn.setBackgroundImage(UIImage(named: "未选中"), forState: .Normal)
+            checkBtn.setBackgroundImage(UIImage(named: "选中"), forState: .Selected)
+            checkBtn.addTarget(self, action: Selector("checkBtnPressed:"), forControlEvents: .TouchUpInside)
+            cell.addSubview(checkBtn)
+        
+            
             let payTypeLabel : UILabel = UILabel(frame: CGRectMake(16,35,screenWidth,20))
             payTypeLabel.text = "支付方式:"
             payTypeLabel.textColor = yojpText
@@ -197,7 +221,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             if i != 0 {
                 cell.payTypeChooseBtn.setImage(UIImage(named: "payUncheck"), forState: UIControlState.Normal)
             }
-
+            
             return cell
         }
         else {
@@ -223,7 +247,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
                 self.popPayView = popPayPwdView()
                 self.popPayView!.delegate = self
                 self.popPayView!.pop()
-
+                
             }
             
             return cell
@@ -232,10 +256,13 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        for indexPath in self.tableView.indexPathsForVisibleRows! {
-            if indexPath.row >= 3 && indexPath.row <=  5 {
-                let cell : OrderChoosePayTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! OrderChoosePayTableViewCell
-                cell.payTypeChooseBtn.setImage(UIImage(named: "payUncheck"), forState: UIControlState.Normal)
+        
+        if indexPath.row >= 3 && indexPath.row <=  5 {
+            for indexPath in self.tableView.indexPathsForVisibleRows! {
+                if indexPath.row >= 3 && indexPath.row <=  5 {
+                    let cell : OrderChoosePayTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! OrderChoosePayTableViewCell
+                    cell.payTypeChooseBtn.setImage(UIImage(named: "payUncheck"), forState: UIControlState.Normal)
+                }
             }
         }
         
@@ -251,10 +278,10 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             
         }
     }
-
+    
     
     func compareCode(payCode: String) {
-       
+        
         print(payCode)
         
         self.popPayView!.clearPayCodeTextField()
@@ -271,8 +298,12 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             let nav : UINavigationController = self.navigationController!
             
             self.navigationController?.popViewControllerAnimated(false)
-            nav.pushViewController(PaySuccessViewController(), animated: true)
+            nav.pushViewController(CardScanPaySuccessViewController(), animated: true)
         }
+    }
+    
+    func checkBtnPressed(sender : UIButton) {
+        sender.selected = !sender.selected
     }
     
     
@@ -285,15 +316,15 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

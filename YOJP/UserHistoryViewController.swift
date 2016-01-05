@@ -1,27 +1,25 @@
 //
-//  MessageViewController.swift
+//  UserHistoryViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 15/12/7.
-//  Copyright © 2015年 PayBay. All rights reserved.
+//  Created by PayBay on 16/1/5.
+//  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class UserHistoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
-    var customNavigationBar : UIView!
+    var tableViewDataArray1 : NSMutableArray = ["免费券","八五折-打折券","100元-抵扣券","888元-福袋","九折-打折券","500元-抵扣券","免费券","八五折-打折券","100元-抵扣券","888元-福袋","九折-打折券","500元-抵扣券"]
     
+    var customNavigationBar : UIView!
     var tableView : UITableView!
-    var tableViewDataArray1 : NSMutableArray = ["收音机","信息","信息","收音机","收音机"]
-    var tableViewDataArray2 : NSMutableArray = ["今日13:14,日本北海道发生4.2级地震","您有一张免费券3天后即将失效","您消费了一张抵扣券","今日13:14,日本北海道发生4.2级地震","今日13:14,日本北海道发生4.2级地震"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // self.view.backgroundColor = yojpTableViewColor
 
+        
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.creatCustomNavigationBar()
@@ -30,6 +28,7 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
 
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -41,7 +40,8 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBarHidden = false
     }
-
+    
+    
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
         self.customNavigationBar.backgroundColor = yojpBlue
@@ -55,55 +55,67 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.view.addSubview(self.customNavigationBar)
         
     }
+
     
     func creatTableView() {
-        self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
-        self.tableView.tableFooterView = UIView()
+        self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-20-44), style: .Plain)
+        self.tableView.backgroundColor = yojpTableViewColor
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = yojpTableViewColor
+        self.tableView.separatorStyle = .None
         self.view.addSubview(self.tableView)
-        
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableViewDataArray1.count
+            return 5
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 48
+        return 90
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-        let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
-        cell.imageView?.image = UIImage(named: self.tableViewDataArray1[indexPath.row] as! String)
-        cell.textLabel?.text = self.tableViewDataArray2[indexPath.row] as? String
-        cell.detailTextLabel?.text = "2015.10.01"
-        
-        cell.textLabel?.font = font14
-        cell.textLabel?.textColor = yojpText
-        cell.detailTextLabel?.textColor = yojpLightText
-        return cell
+        if indexPath.row < 3 {
+            
+            tableView.registerNib(UINib(nibName: "CardListTableViewCell", bundle: nil), forCellReuseIdentifier: "CardListTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("CardListTableViewCellId", forIndexPath: indexPath) as! CardListTableViewCell
+            
+            cell.selectionStyle = .None
+            cell.backgroundColor = yojpTableViewColor
+            
+            cell.barcodeImagwView.image = UIImage(named: "2DBarcode")
+            cell.ticketTypeLabel.text = self.tableViewDataArray1[indexPath.row] as? String
+            cell.validityLabel.text = "2015.11.21 13:23"
+            
+            return cell
+        }
+        else {
+            tableView.registerNib(UINib(nibName: "CardListTableViewWithOnlyMoneyCell", bundle: nil), forCellReuseIdentifier: "CardListTableViewWithOnlyMoneyCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("CardListTableViewWithOnlyMoneyCellId", forIndexPath: indexPath) as! CardListTableViewWithOnlyMoneyCell
+            
+            cell.selectionStyle = .None
+            cell.backgroundColor = yojpTableViewColor
+            
+            cell.payMoneyLabel.text = "消费金额 ￥888"
+            cell.userTimeLabel.text = "2015.12.27 11:20"
+            
+             return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController?.pushViewController(MessageDetailViewController(), animated: true)
+        
     }
+    
     
     func backClicked() {
         
         self.navigationController?.popViewControllerAnimated(true)
         
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

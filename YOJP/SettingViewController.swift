@@ -132,6 +132,13 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.navigationController?.pushViewController(UpdatePassViewController(), animated: true)
         }
         else if indexPath.section == 2 {
+            
+            if CurrentUser.user == nil {
+                SVProgressShow.showInfoWithStatus("用户尚未登录!")
+                return
+            }
+            CurrentUser.user = nil
+            SVProgressShow.showSuccessWithStatus("注销成功")
             self.backClicked()
         }
         

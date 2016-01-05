@@ -16,6 +16,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var tableViewDataArray1 : NSMutableArray = ["免费券","八五折-打折券","100元-抵扣券","888元-福袋","九折-打折券","500元-抵扣券","免费券","八五折-打折券","100元-抵扣券","888元-福袋","九折-打折券","500元-抵扣券"]
     
     
+    var scanView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         
         self.creatCustomNavigationBar()
+        self.creatScanView()
         self.creatTableView()
         
         
@@ -33,7 +35,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        UIApplication.sharedApplication().statusBarStyle = .Default
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         self.navigationController?.navigationBarHidden = true
     }
     
@@ -56,9 +58,51 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.view.addSubview(self.customNavigationBar)
     
     }
+    
+    func creatScanView() {
+        self.scanView = UIView(frame: CGRectMake(0,0,screenWidth,140))
+        self.scanView.backgroundColor = yojpBlue
+        self.view.addSubview(self.scanView)
+        
+        let scanBtn : UIButton = UIButton(type: .Custom)
+        scanBtn.bounds = CGRectMake(0, 0, 60, 60)
+        scanBtn.center = CGPointMake(screenWidth/2-80, 70)
+        scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Normal)
+        scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Highlighted)
+        scanBtn.addTarget(self, action: Selector("scanBtnPressed"), forControlEvents: .TouchUpInside)
+        self.scanView.addSubview(scanBtn)
+        
+        
+        let scanLabel : UILabel = UILabel()
+        scanLabel.text = "扫一扫"
+        scanLabel.textAlignment = .Center
+        scanLabel.textColor = UIColor.whiteColor()
+        scanLabel.sizeToFit()
+        scanLabel.center = CGPointMake(screenWidth/2-80, 120)
+        self.scanView.addSubview(scanLabel)
+        
+        
+        let barcodeBtn : UIButton = UIButton(type: .Custom)
+        barcodeBtn.bounds = CGRectMake(0, 0, 60, 60)
+        barcodeBtn.center = CGPointMake(screenWidth/2+80, 70)
+        barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Normal)
+        barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Highlighted)
+        barcodeBtn.addTarget(self, action: Selector("barcodeBtnPressed"), forControlEvents: .TouchUpInside)
+        self.scanView.addSubview(barcodeBtn)
+        
+        let barcodeLabel : UILabel = UILabel()
+        barcodeLabel.text = "条码付款"
+        barcodeLabel.textAlignment = .Center
+        barcodeLabel.textColor = UIColor.whiteColor()
+        barcodeLabel.sizeToFit()
+        barcodeLabel.center = CGPointMake(screenWidth/2+80, 120)
+        self.scanView.addSubview(barcodeLabel)
+
+        
+    }
 
     func creatTableView() {
-        self.tableView = UITableView(frame: CGRectMake(0, 20, screenWidth, screenHeight-64), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 140, screenWidth, screenHeight-44-140), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .None
@@ -96,6 +140,16 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.navigationController?.pushViewController(CardDetailsViewController(), animated: true)
     }
 
+    
+    func scanBtnPressed() {
+        
+        self.navigationController?.pushViewController(CardScanViewController(), animated: true)
+    }
+    
+    func barcodeBtnPressed() {
+        self.navigationController?.pushViewController(BarcodePayViewController(), animated: true)
+    }
+    
     func backClicked() {
         
         self.navigationController?.popViewControllerAnimated(true)
