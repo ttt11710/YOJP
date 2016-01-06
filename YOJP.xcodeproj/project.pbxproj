@@ -18,6 +18,8 @@
 		DF3A2E531BFD956800A995E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */; };
 		DF3A2E551BFD958300A995E1 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */; };
 		DF3A2E571BFD959700A995E1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3A2E561BFD959700A995E1 /* CoreImage.framework */; };
+		DF3AEDAA1C3CDF7F00754D62 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3AEDA81C3CDF7F00754D62 /* CategoryCollectionViewCell.swift */; };
+		DF3AEDAB1C3CDF7F00754D62 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3AEDA91C3CDF7F00754D62 /* CategoryCollectionViewCell.xib */; };
 		DF46C08C1C3A363100700272 /* ScanProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C08B1C3A363100700272 /* ScanProductDetailViewController.swift */; };
 		DF46C0941C3A425A00700272 /* FreeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C0931C3A425A00700272 /* FreeDetailViewController.swift */; };
 		DF46C0971C3A449600700272 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C0951C3A449600700272 /* DetailTableViewCell.swift */; };
@@ -188,6 +190,8 @@
 		DF3A2E521BFD956800A995E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		DF3A2E541BFD958300A995E1 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		DF3A2E561BFD959700A995E1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		DF3AEDA81C3CDF7F00754D62 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		DF3AEDA91C3CDF7F00754D62 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		DF46C08B1C3A363100700272 /* ScanProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanProductDetailViewController.swift; sourceTree = "<group>"; };
 		DF46C0931C3A425A00700272 /* FreeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeDetailViewController.swift; sourceTree = "<group>"; };
 		DF46C0951C3A449600700272 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -593,6 +597,10 @@
 		DF4C69041BF09D0A009ED5A9 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				DF3AEDA81C3CDF7F00754D62 /* CategoryCollectionViewCell.swift */,
+				DF3AEDA91C3CDF7F00754D62 /* CategoryCollectionViewCell.xib */,
+				DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */,
+				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
 				DF4C69051BF09D29009ED5A9 /* WeatherView.swift */,
 				DFE06CC41C05992300899AE8 /* LabelView.swift */,
 				DFF7488F1BF48ECA00244E1A /* myCollectionReusableView.swift */,
@@ -603,8 +611,6 @@
 				DFE7EFC11C0405CB009AA953 /* myTableViewCell.xib */,
 				DFE7EFC91C0458D6009AA953 /* ImageAndLabelTableViewCell.swift */,
 				DFE7EFCA1C0458D6009AA953 /* ImageAndLabelTableViewCell.xib */,
-				DF854C831C054E63009F53A5 /* ScrollViewCollectionViewCell.swift */,
-				DF854C841C054E63009F53A5 /* ScrollViewCollectionViewCell.xib */,
 				DFE37DF21C0698FF005C3D5F /* BrandTableViewCell.swift */,
 				DFE37DF31C0698FF005C3D5F /* BrandTableViewCell.xib */,
 			);
@@ -1165,6 +1171,7 @@
 				DFF748941BF48ECA00244E1A /* myCollectionReusableView.xib in Resources */,
 				DF18AAAF1C2D1813005B8BAD /* CollectTableViewCell.xib in Resources */,
 				DF96373D1C0C274200FC2CFE /* ProductDescriptionTableViewCell.xib in Resources */,
+				DF3AEDAB1C3CDF7F00754D62 /* CategoryCollectionViewCell.xib in Resources */,
 				DFC09F711C167A11005FBC9E /* IntegralTableViewCell.xib in Resources */,
 				DF9A7F131BEB1E78000CB3EE /* LaunchScreen.storyboard in Resources */,
 				DFE9BD1B1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.xib in Resources */,
@@ -1356,6 +1363,7 @@
 				DF46C0941C3A425A00700272 /* FreeDetailViewController.swift in Sources */,
 				DF8691081C157FC900305D2E /* CollectViewController.swift in Sources */,
 				DFF3C2B81C23CF1F00D7EFF2 /* ListTableViewCell.swift in Sources */,
+				DF3AEDAA1C3CDF7F00754D62 /* CategoryCollectionViewCell.swift in Sources */,
 				DF4C69011BF092F7009ED5A9 /* WeatherViewController.swift in Sources */,
 				DFF3C2C31C23EE7500D7EFF2 /* OrderViewController.swift in Sources */,
 				DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */,

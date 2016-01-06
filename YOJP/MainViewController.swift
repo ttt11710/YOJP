@@ -365,23 +365,33 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+//        if indexPath.row == 1 {
+//            
+//            self.collectionView.registerNib(UINib(nibName: "CategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCollectionViewCellId")
+//            
+//            let cellIdentifier : String = "CategoryCollectionViewCellId"
+//            let cell : CategoryCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CategoryCollectionViewCell
+//            
+//            cell.layoutIfNeeded()
+//            return cell
+//            
+//        }
+//            
+//        else
         if indexPath.row == 0 {
-            
+        
             self.collectionView.registerNib(UINib(nibName: "ScrollViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ScrollViewCollectionViewCellId")
-          //  self.collectionView.registerClass(ScrollViewCollectionViewCell.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ScrollViewCollectionViewCellId")
             
             let cellIdentifier : String = "ScrollViewCollectionViewCellId"
             let cell : ScrollViewCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ScrollViewCollectionViewCell
-            
             cell.layoutIfNeeded()
-            
             return cell
         }
+
+            
         else {
             
             self.collectionView.registerNib(UINib(nibName: "myCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionViewCellId")
-            
-          //  self.collectionView.registerClass(myCollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "myCollectionReusableViewId")
             
             let cellIdentifier : String = "myCollectionViewCellId"
             let cell : myCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! myCollectionViewCell
@@ -394,9 +404,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
             cell.dateLabel.text = "1小时前"
             cell.dateLabel.textColor = yojpLightText
             cell.dateLabel.font = font14
-            
             cell.layoutIfNeeded()
-            
             return cell
             
         }
@@ -406,8 +414,13 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         if indexPath.row == 0 {
             return CGSizeMake(screenWidth, 200)
         }
-        return CGSizeMake(screenWidth/2-2, (screenWidth-10)/8*3+100)
-        
+//        else if indexPath.row == 1 {
+//            return CGSizeMake(screenWidth, 40)
+//        }
+        else {
+            return CGSizeMake(screenWidth/2-2, (screenWidth-10)/8*3+100)
+            
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
