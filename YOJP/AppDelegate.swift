@@ -15,53 +15,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        let leftSideDrawerViewController = LeftViewController()
-        let centerViewController = MainViewController()
-        
-        let navigationController : MyNavigationController = MyNavigationController(rootViewController: centerViewController)
-        navigationController.navigationBar.translucent = false
-        navigationController.restorationIdentifier = "MMExampleCenterNavigationControllerRestorationKey"
-        let leftSideNavController : MyNavigationController = MyNavigationController(rootViewController: leftSideDrawerViewController)
-        //leftSideNavController.navigationBarHidden = true
-        leftSideNavController.restorationIdentifier = "MMExampleLeftNavigationControllerRestorationKey"
-        
-        let drawerController : MMDrawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController)
-        drawerController.showsShadow = true
-        drawerController.restorationIdentifier = "MMDrawer"
-        drawerController.maximumLeftDrawerWidth = screenWidth-80
-        drawerController.openDrawerGestureModeMask = .All
-        drawerController.closeDrawerGestureModeMask = .All
-        drawerController.setGestureShouldRecognizeTouchBlock { (drawerController : MMDrawerController!, gesture : UIGestureRecognizer!, touch : UITouch!) -> Bool in
-            var shouldRecognizeTouch : Bool = false
-            if drawerController.openSide == MMDrawerSide.None && gesture.isKindOfClass(UIPanGestureRecognizer) {
-                let customView : UIView = drawerController.centerViewController.view
-                let location : CGPoint = touch.locationInView(customView)
-                shouldRecognizeTouch = CGRectContainsPoint(customView.bounds, location)
-            }
-
-           return shouldRecognizeTouch
-        }
-        
-        
-        drawerController.setGestureCompletionBlock { (drawerController : MMDrawerController!, gesture :UIGestureRecognizer!) -> Void in
-            
-            if drawerController.openSide == MMDrawerSide.Left {
-                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(1)
-             
-            }
-            else {
-                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(0)
-             
-            }
-            MainViewController.shareMainViewController().showORhideShowLeftViewBtn(false)
-           
-        }
-        
-        
-        
-        self.window?.tintColor = yojpBlue
-               
-        drawerController.view.backgroundColor = UIColor.whiteColor()
+//        let leftSideDrawerViewController = LeftViewController()
+//        let centerViewController = MainViewController()
+//        
+//        let navigationController : MyNavigationController = MyNavigationController(rootViewController: centerViewController)
+//        navigationController.navigationBar.translucent = false
+//        navigationController.restorationIdentifier = "MMExampleCenterNavigationControllerRestorationKey"
+//        let leftSideNavController : MyNavigationController = MyNavigationController(rootViewController: leftSideDrawerViewController)
+//        //leftSideNavController.navigationBarHidden = true
+//        leftSideNavController.restorationIdentifier = "MMExampleLeftNavigationControllerRestorationKey"
+//        
+//        let drawerController : MMDrawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController)
+//        drawerController.showsShadow = true
+//        drawerController.restorationIdentifier = "MMDrawer"
+//        drawerController.maximumLeftDrawerWidth = screenWidth-80
+//        drawerController.openDrawerGestureModeMask = .All
+//        drawerController.closeDrawerGestureModeMask = .All
+//        drawerController.setGestureShouldRecognizeTouchBlock { (drawerController : MMDrawerController!, gesture : UIGestureRecognizer!, touch : UITouch!) -> Bool in
+//            var shouldRecognizeTouch : Bool = false
+//            if drawerController.openSide == MMDrawerSide.None && gesture.isKindOfClass(UIPanGestureRecognizer) {
+//                let customView : UIView = drawerController.centerViewController.view
+//                let location : CGPoint = touch.locationInView(customView)
+//                shouldRecognizeTouch = CGRectContainsPoint(customView.bounds, location)
+//            }
+//
+//           return shouldRecognizeTouch
+//        }
+//        
+//        
+//        drawerController.setGestureCompletionBlock { (drawerController : MMDrawerController!, gesture :UIGestureRecognizer!) -> Void in
+//            
+//            if drawerController.openSide == MMDrawerSide.Left {
+//                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(1)
+//             
+//            }
+//            else {
+//                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(0)
+//             
+//            }
+//            MainViewController.shareMainViewController().showORhideShowLeftViewBtn(false)
+//           
+//        }
+//        
+//        
+//        
+//        self.window?.tintColor = yojpBlue
+//               
+//        drawerController.view.backgroundColor = UIColor.whiteColor()
         
         if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
            // NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstLaunch")
-            self.window?.rootViewController = drawerController
+           //  self.window?.rootViewController = drawerController
         }
         return true
     }

@@ -17,8 +17,8 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     var weatherModel : WeatherModel!
     
-    var dataArray1 : NSMutableArray = ["卡券","清单","消息","我的收藏","个人中心"]
-    var dataArray2 : NSMutableArray = ["卡券","行程","消息"]
+    var dataArray1 : NSMutableArray = ["卡包","清单","投稿","我的收藏","消费记录","消息通知","账户管理"]
+    var dataArray2 : NSMutableArray = ["卡包","行程","消息"]
     
     
     var cityArray : NSMutableArray = ["山中湖村","前桥","美瑛","冰库","富士山","大分","川本","枥木","德岛","鸟取","青森","千叶","广岛","鹿儿岛","金泽","北九州","神户","熊本","京都","松山","长崎","名古屋","那霸","奈良","新潟","冲绳","埼玉","大阪","札幌","长野","静冈","福冈","仙台"]
@@ -388,24 +388,40 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         else if indexPath.row == 3 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
-                MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
+                MainViewController.shareMainViewController().navigationController?.pushViewController(ContributeViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
         else if indexPath.row == 4 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
-                MainViewController.shareMainViewController().navigationController?.pushViewController(CollectViewController(), animated: true)
+                MainViewController.shareMainViewController().navigationController?.pushViewController(NewCollectionViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
+
         else if indexPath.row == 5 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+        }
+        else if indexPath.row == 6 {
+            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+                
+                MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
+                MainViewController.shareMainViewController().changeShowLeftBtnType()
+            })
+        }
+        else if indexPath.row == 7 {
             self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
                 
                 MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)
                 MainViewController.shareMainViewController().changeShowLeftBtnType()
             })
         }
+
     }
     
     

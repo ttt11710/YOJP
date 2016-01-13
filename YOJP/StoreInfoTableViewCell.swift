@@ -16,11 +16,17 @@ class StoreInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var currentStoreAddressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var store1AddressLabel: UILabel!
+    @IBOutlet weak var store2AddressLabel: UILabel!
+    @IBOutlet weak var store3AddressLabel: UILabel!
+    @IBOutlet weak var moreCallBackBtn: CallBackButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.gotoStoreCallBtn.setupBlock()
         self.mapView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth]
+        
+        self.moreCallBackBtn.setupBlock()
         
         // Initialization code
     }

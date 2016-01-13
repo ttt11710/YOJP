@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCellId" rowHeight="432" id="KGk-i7-Jjw" customClass="DetailTableViewCell" customModule="YOJP" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCellId" rowHeight="419" id="KGk-i7-Jjw" customClass="DetailTableViewCell" customModule="YOJP" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="453" height="375"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -41,18 +41,27 @@
                             <constraint firstAttribute="height" constant="25" id="URl-q6-ppc"/>
                             <constraint firstAttribute="width" constant="36" id="wqg-bE-0qa"/>
                         </constraints>
+                        <variation key="widthClass=compact" misplaced="YES">
+                            <rect key="frame" x="346" y="329" width="36" height="25"/>
+                        </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZx-n4-lHc">
                         <rect key="frame" x="373" y="336" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="widthClass=compact" misplaced="YES">
+                            <rect key="frame" x="390" y="331" width="40" height="20"/>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库存量:50件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNJ-PU-Toe">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
+                        <variation key="widthClass=compact" misplaced="YES">
+                            <rect key="frame" x="24" y="331" width="88" height="20"/>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -117,7 +126,7 @@
                 <outlet property="productNameLabel" destination="Gef-0B-sVe" id="cOK-op-CLu"/>
                 <outlet property="stockLabel" destination="QNJ-PU-Toe" id="gQl-PS-8a2"/>
             </connections>
-            <point key="canvasLocation" x="273.5" y="397.5"/>
+            <point key="canvasLocation" x="273.5" y="391"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -332,6 +332,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
                 self.datePicker.minimumDate = NSDate()
                 self.datePicker.maximumDate = self.datePicker.date
                 self.endDateString = string
+                print(string)
             }
         
     }

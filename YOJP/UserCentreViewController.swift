@@ -13,7 +13,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
-    var tableViewDataArray1 : NSMutableArray = ["积分","历史记录","我的收藏","帮助中心","常用设置"]
+    var tableViewDataArray1 : NSMutableArray = ["积分","资料完善","帮助中心","常用设置"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +79,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 5 || section == 0 ? 0 : section == 2 || section == 3 ? 2 : 8
+        return section == 4 || section == 0 ? 0 : section == 2 || section == 3 ? 2 : 8
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -165,15 +165,12 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             self.navigationController?.pushViewController(IntegralViewController(), animated: true)
         }
         else if indexPath.section == 2 {
-            self.navigationController?.pushViewController(UserHistoryViewController(), animated: true)
+            self.navigationController?.pushViewController(InformationViewController(), animated: true)
         }
         else if indexPath.section == 3 {
-            self.navigationController?.pushViewController(CollectViewController(), animated: true)
-        }
-        else if indexPath.section == 4 {
             self.navigationController?.pushViewController(HelpCenterViewController(), animated: true)
         }
-        else if indexPath.section == 5 {
+        else if indexPath.section == 4 {
             self.navigationController?.pushViewController(SettingViewController(), animated: true)
         }
     }

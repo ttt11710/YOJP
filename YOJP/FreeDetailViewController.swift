@@ -105,7 +105,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 2
+        return  1
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -118,32 +118,27 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             label.numberOfLines = 0
             label.sizeToFit()
             
-            return 35 + label.frame.size.height + 4 + screenWidth/5*3*2 + 8*2 + 16 + 25 + 16
+            return 35 + label.frame.size.height + 4 + screenWidth/5*3 + 8 + 16 + 25 + 16
         }
-        else if indexPath.section == 1 && indexPath.row == 0 {
-            return 44
-        }
+//        else if indexPath.section == 1 && indexPath.row == 0 {
+//            return 44
+//        }
         else {
-            return 350
+            return 350 + 30*3
         }
-    }
-    
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 12
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            tableView.registerNib(UINib(nibName: "DetailTableViewCell", bundle: nil), forCellReuseIdentifier: "DetailTableViewCellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("DetailTableViewCellId", forIndexPath: indexPath) as! DetailTableViewCell
+            tableView.registerNib(UINib(nibName: "CollectTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("CollectTableViewCellId", forIndexPath: indexPath) as! CollectTableViewCell
             
             cell.selectionStyle = .None
             
             cell.productNameLabel.text = "商品名称"
             cell.productDicLabel.text = "    在这个冬天的早晨，静静的看看柏林老宅里的暖心咖啡馆"
-            cell.stockLabel.text = "库存量:123件"
             cell.moneyLabel.text = "￥300"
-            cell.ProductImageView.hidden = true
+            cell.productImageView.hidden = true
             
             let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
             label.font = font16
@@ -152,32 +147,39 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             label.numberOfLines = 0
             label.sizeToFit()
             
+            
+            let scrollView : UIScrollView = UIScrollView(frame: CGRectMake(0,35 + label.frame.size.height+4+8,screenWidth,screenWidth/5*3))
+            scrollView.contentSize = CGSizeMake(screenWidth*2, 0)
+            scrollView.pagingEnabled = true
+            cell.contentView.addSubview(scrollView)
+            
             for i in 0...1 {
-                
-                let imageView : UIImageView = UIImageView(frame: CGRectMake(16,35 + label.frame.size.height + 4 + CGFloat(i)*screenWidth/5*3 + CGFloat(i+1)*8 , screenWidth-32,screenWidth/5*3))
+                let imageView : UIImageView = UIImageView(frame: CGRectMake(CGFloat(i)*screenWidth ,0 , screenWidth,screenWidth/5*3))
                 imageView.image = UIImage(named: String(format: "image%d", i))
-                cell.contentView.addSubview(imageView)
+                scrollView.addSubview(imageView)
             }
             
             return cell
         }
-        else if indexPath.section == 1 && indexPath.row == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "cellId")
-            cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.accessoryType = .DisclosureIndicator
-            
-            cell.textLabel?.text = self.ticketType
-            cell.detailTextLabel?.text = "已有200人领取"
-            cell.textLabel?.textColor = yojpText
-            cell.detailTextLabel?.textColor = yojpLightText
-            cell.detailTextLabel?.font = font14
-            
-            return cell
-        }
+//        else if indexPath.section == 1 && indexPath.row == 0 {
+//            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+//            let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "cellId")
+//            cell.selectionStyle = UITableViewCellSelectionStyle.None
+//            cell.accessoryType = .DisclosureIndicator
+//            
+//            cell.textLabel?.text = self.ticketType
+//            cell.detailTextLabel?.text = "已有200人领取"
+//            cell.textLabel?.textColor = yojpText
+//            cell.detailTextLabel?.textColor = yojpLightText
+//            cell.detailTextLabel?.font = font14
+//            
+//            return cell
+//        }
         else {
             tableView.registerNib(UINib(nibName: "StoreInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "StoreInfoTableViewCellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("StoreInfoTableViewCellId", forIndexPath: indexPath) as! StoreInfoTableViewCell
+            
+            cell.selectionStyle = .None
             
             cell.gotoStoreCallBtn.setBackgroundImage(UIImage(named: "YOJPLogo"), forState: .Normal)
             cell.gotoStoreCallBtn.setBackgroundImage(UIImage(named: "YOJPLogo"), forState: .Highlighted)
@@ -188,18 +190,24 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
                 productListViewController.ticketType = self.ticketType
                 self.navigationController?.pushViewController(productListViewController, animated: true)
             }
+            
+            cell.moreCallBackBtn.callBack = { tag in
+                
+                self.navigationController?.pushViewController(MoreStoresViewController(), animated: true)
+            }
+            
             return cell
         }
     }
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 && indexPath.row == 0 {
-            
-            let takeTicketViewController = TakeTicketViewController()
-            takeTicketViewController.ticketType = self.ticketType
-            self.navigationController?.pushViewController(takeTicketViewController, animated: true)
-        }
+//        if indexPath.section == 1 && indexPath.row == 0 {
+//            
+//            let takeTicketViewController = TakeTicketViewController()
+//            takeTicketViewController.ticketType = self.ticketType
+//            self.navigationController?.pushViewController(takeTicketViewController, animated: true)
+//        }
     }
     
     func collectionClicked(sender : UIButton) {

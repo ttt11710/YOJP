@@ -17,3 +17,4 @@
 #import "QRItem.h"
 #import "QRMenu.h"
 #import "QRView.h"
+#import "LeftSlideViewController.h"

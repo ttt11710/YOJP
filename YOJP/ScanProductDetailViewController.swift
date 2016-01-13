@@ -14,6 +14,9 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
     var customNavigationBar : UIView!
     var tableView : UITableView!
     
+    var collectionBtn : MCFireworksButton!
+    var collectionSelect : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -133,13 +136,35 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
                 imageView.image = UIImage(named: "image5")
                 cell.addSubview(imageView)
                 
-                
-                let label : UILabel = UILabel(frame: CGRectMake(screenWidth-200,120,184,30))
+                let label : UILabel = UILabel(frame: CGRectMake(16,170,184,30))
                 label.font = font16
                 label.textColor = yojpText
                 label.text = "库存量:50件"
-                label.textAlignment = .Right
                 cell.addSubview(label)
+            
+                self.collectionBtn = MCFireworksButton(frame: CGRectMake(screenWidth-41, 170, 25, 25))
+                self.collectionBtn.particleImage = UIImage(named: "spark")
+                self.collectionBtn.particleScale = 0.05
+                self.collectionBtn.particleScaleRange = 0.02
+                self.collectionBtn.selected = self.collectionSelect
+                
+                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+                
+                if self.collectionBtn.selected {
+                    self.collectionBtn.popOutsideWithDuration(0.5)
+                    self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
+                    self.collectionBtn.animate()
+                    self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
+                }
+                else {
+                    self.collectionBtn.popInsideWithDuration(0.4)
+                    self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+                    self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+                }
+                
+                self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+                cell.addSubview(self.collectionBtn)
                 
                 return cell
                 
@@ -195,6 +220,24 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
         // Dispose of any resources that can be recreated.
     }
     
+
+    func collectionClicked(sender : UIButton) {
+        sender.selected = !sender.selected
+        self.collectionSelect = sender.selected
+        if sender.selected {
+            self.collectionBtn.popOutsideWithDuration(0.5)
+            self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
+            self.collectionBtn.animate()
+            self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
+            
+            SVProgressShow.showSuccessWithStatus("收藏成功!")
+        }
+        else {
+            self.collectionBtn.popInsideWithDuration(0.4)
+            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+        }
+    }
 
     /*
     // MARK: - Navigation

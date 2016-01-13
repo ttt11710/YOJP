@@ -83,8 +83,8 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         self.selectTypeTableView.backgroundColor = UIColor.clearColor()
         self.selectTypeTableView.scrollEnabled = false
         
-        self.view.addSubview(self.selectTypeTableViewBackView)
-        self.view.addSubview(self.selectTypeTableView)
+      //  self.view.addSubview(self.selectTypeTableViewBackView)
+      //  self.view.addSubview(self.selectTypeTableView)
     }
 
     
@@ -105,7 +105,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         self.typeBtn.frame = CGRectMake(screenWidth-55, 7, 50, 25)
         self.typeBtn.setTitle("分类", forState: .Normal)
         self.typeBtn.addTarget(self, action: Selector("selectType"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.customNavigationBar.addSubview(self.typeBtn)
+       // self.customNavigationBar.addSubview(self.typeBtn)
         
         self.view.addSubview(self.customNavigationBar)
     }
@@ -120,7 +120,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if tableView == self.tableView {
-           return self.tableViewDataArray.count + 2
+           return self.tableViewDataArray.count + 3
         }
         else {
             return self.selectTypeTableViewDataArray.count
@@ -135,14 +135,17 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         
         if tableView == self.tableView {
             
-            if indexPath.section <= 1 {
+            if indexPath.section == 0 {
+                return 150
+            }
+            else if indexPath.section == 1 || indexPath.section == 2 {
                 return 44
             }
             else {
                 let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
                 label.font = font16
                 label.textColor = yojpText
-                label.text = self.tableViewDataArray[indexPath.section-2] as? String
+                label.text = self.tableViewDataArray[indexPath.section-3] as? String
                 label.numberOfLines = 0
                 label.sizeToFit()
                 return 14+21+2+label.frame.size.height+8+screenWidth/5*3+16+25+16
@@ -156,7 +159,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if tableView == self.tableView {
-            return 8
+            return section == 0 ? 1 : 8
         }
         else {
             return 0
@@ -171,6 +174,48 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
                 let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "cellId")
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
+                
+                
+                let scanBtn : CallBackButton = CallBackButton(type: .Custom)
+                scanBtn.frame = CGRectMake(screenWidth-41, 20, 25, 25)
+                scanBtn.setBackgroundImage(UIImage(named: "扫一扫Black"), forState: .Normal)
+                scanBtn.setBackgroundImage(UIImage(named: "扫一扫Black"), forState: .Highlighted)
+                scanBtn.setupBlock()
+                scanBtn.callBack = { tag in
+                    
+                    self.navigationController?.pushViewController(ScanViewController(), animated: true)
+                }
+                cell.addSubview(scanBtn)
+                
+                let label : UILabel = UILabel()
+                label.text = "无印良品"
+                label.textColor = yojpText
+                label.textAlignment = .Center
+                label.layer.borderColor = yojpTableViewColor.CGColor
+                label.layer.borderWidth = 1
+                label.font = font15
+                label.bounds = CGRectMake(0, 0, screenWidth/2, 30)
+                label.center = CGPointMake(screenWidth/2, 20+15)
+                cell.addSubview(label)
+                
+                
+                let detailLabel : UILabel = UILabel(frame: CGRectMake(16,label.frame.origin.y + label.frame.size.height + 16,screenWidth-32,30))
+                detailLabel.text = "保留天然素材的原始颜色、使用未经加工的纸和布，不断地发掘材质本身原有的魅力，无印良品由此而生"
+                detailLabel.textColor = yojpText
+                detailLabel.textAlignment = .Center
+                detailLabel.font = font14
+                detailLabel.numberOfLines = 0
+                detailLabel.sizeToFit()
+                cell.addSubview(detailLabel)
+                
+                return cell
+                
+            }
+            if indexPath.section == 1 {
+                
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "cellId")
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
                 cell.accessoryType = .DisclosureIndicator
                 
                 cell.imageView?.image = UIImage(named: "定位")
@@ -181,7 +226,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 return cell
 
             }
-            else if indexPath.section == 1 {
+            else if indexPath.section == 2 {
                 
                 tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
                 let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "cellId")
@@ -203,7 +248,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 cell.selectionStyle = .None
                 
                 cell.productNameLabel.text = "商品名称"
-                cell.productDicLabel.text = self.tableViewDataArray[indexPath.section-2] as? String
+                cell.productDicLabel.text = self.tableViewDataArray[indexPath.section-3] as? String
                 cell.ProductImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
                 cell.moneyLabel.text = "￥300"
                 cell.stockLabel.text = "库存量:123件"
@@ -230,6 +275,9 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         if tableView == self.tableView {
             
             if indexPath.section == 1 {
+                self.navigationController?.pushViewController(StoreMapViewController(), animated: true)
+            }
+            else if indexPath.section == 2 {
                 let takeTicketViewController = TakeTicketViewController()
                 takeTicketViewController.ticketType = self.ticketType
                 self.navigationController?.pushViewController(takeTicketViewController, animated: true)
