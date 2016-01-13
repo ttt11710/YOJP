@@ -74,7 +74,7 @@ class StoreMapViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     
     func creatDetailView() {
         
-        self.detailView = UIView(frame: CGRectMake(0,screenHeight-40-100,screenWidth,100))
+        self.detailView = UIView(frame: CGRectMake(0,screenHeight-44-100,screenWidth,100))
         self.detailView.backgroundColor = yojpLightCell
         self.view.addSubview(self.detailView)
         

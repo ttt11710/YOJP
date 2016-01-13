@@ -14,6 +14,11 @@ import MMDrawerController
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var leftSlideVC : LeftSlideViewController!
+    
+    var firstNavigationController : UINavigationController?
+    
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
 //        let leftSideDrawerViewController = LeftViewController()
 //        let centerViewController = MainViewController()
@@ -63,6 +68,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //               
 //        drawerController.view.backgroundColor = UIColor.whiteColor()
         
+        
+        let firstViewController : FirstViewController = FirstViewController()
+        self.firstNavigationController = UINavigationController(rootViewController: firstViewController)
+        self.firstNavigationController?.view.backgroundColor = UIColor.whiteColor()
+        
+        self.leftSlideVC = LeftSlideViewController(leftView: LeftViewController(), andMainView: self.firstNavigationController)
+        
+        //self.window?.rootViewController = self.leftSlideVC
+        
         if !NSUserDefaults.standardUserDefaults().boolForKey("firstLaunch") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstLaunch")
             //第一次启动
@@ -71,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
            // NSUserDefaults.standardUserDefaults().setBool(false, forKey: "firstLaunch")
-           //  self.window?.rootViewController = drawerController
+             self.window?.rootViewController = self.leftSlideVC
         }
         return true
     }
@@ -88,6 +102,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.backgroundColor = UIColor.whiteColor()
         self.window?.makeKeyAndVisible()
+        
+        
+        
         
         return true
     }

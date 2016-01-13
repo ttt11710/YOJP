@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate {
+class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,UITextViewDelegate {
 
     
     var customNavigationBar : UIView!
@@ -98,6 +98,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         self.textView.text = "分享你的使用心得"
         self.textView.textColor = yojpLightText
         self.textView.font = font15
+        self.textView.delegate = self
         self.backView.addSubview(self.textView)
         
         
@@ -229,9 +230,29 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         self.navigationController?.pushViewController(contributePreViewController, animated: true)
     }
     
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (touches as NSSet).anyObject()?.view != self.textView {
+            self.textView.resignFirstResponder()
+        }
+    }
+    
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return true
+        }
+        return true
+    }
+
+    
     func backClicked() {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

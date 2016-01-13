@@ -157,19 +157,19 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         self.view.addSubview(settlementView)
         
         
-        self.sumLabel = UILabel(frame: CGRectMake(0,0,screenWidth-100,44))
+        self.sumLabel = UILabel(frame: CGRectMake(0,0,screenWidth,44))
         self.sumLabel.text = "总计:￥900"
         self.sumLabel.textColor = yojpText
         self.sumLabel.textAlignment = .Center
         self.sumLabel.font = font16
         settlementView.addSubview(self.sumLabel)
         
-        let sumBtn : UIButton = UIButton(frame: CGRectMake(screenWidth-100,4,90,36))
-        sumBtn.setTitle("结算", forState: .Normal)
-        sumBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        sumBtn.backgroundColor = UIColor(red: 234.0/255.0, green: 103/255.0, blue: 16/255.0, alpha: 1)
-        sumBtn.addTarget(self, action: Selector("sumBtnPressed"), forControlEvents: .TouchUpInside)
-        settlementView.addSubview(sumBtn)
+//        let sumBtn : UIButton = UIButton(frame: CGRectMake(screenWidth-100,4,90,36))
+//        sumBtn.setTitle("结算", forState: .Normal)
+//        sumBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+//        sumBtn.backgroundColor = UIColor(red: 234.0/255.0, green: 103/255.0, blue: 16/255.0, alpha: 1)
+//        sumBtn.addTarget(self, action: Selector("sumBtnPressed"), forControlEvents: .TouchUpInside)
+//        settlementView.addSubview(sumBtn)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -193,7 +193,17 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth,30))
         view.backgroundColor = yojpSectionColor
         
-        let storeName : UILabel = UILabel(frame: CGRectMake(16,4,100,21))
+        let chooseBtn : CallBackButton = CallBackButton(frame: CGRectMake(10,6,20,20))
+        chooseBtn.setBackgroundImage(UIImage(named: "圆圈不选"), forState: .Normal)
+        chooseBtn.setBackgroundImage(UIImage(named: "圆圈选中"), forState: .Selected)
+        view.addSubview(chooseBtn)
+        chooseBtn.setupBlock()
+        chooseBtn.callBack = { tag in
+            
+            chooseBtn.selected = !chooseBtn.selected
+            
+        }
+        let storeName : UILabel = UILabel(frame: CGRectMake(30+4,4,100,21))
         storeName.text = "商家名称"
         storeName.textColor = yojpText
         view.addSubview(storeName)

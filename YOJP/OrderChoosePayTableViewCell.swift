@@ -12,6 +12,7 @@ class OrderChoosePayTableViewCell: UITableViewCell {
 
     @IBOutlet weak var payTypeLogo: UIImageView!
     @IBOutlet weak var payTypeName: UILabel!
+    @IBOutlet weak var payTypeNameCallBtn: CallBackButton!
     @IBOutlet weak var payRuleLabel: UILabel!
     @IBOutlet weak var payTypeChooseBtn: UIButton!
     
@@ -20,6 +21,7 @@ class OrderChoosePayTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        self.payTypeNameCallBtn.setupBlock()
         self.payTypeChooseBtn.userInteractionEnabled = false
     }
 

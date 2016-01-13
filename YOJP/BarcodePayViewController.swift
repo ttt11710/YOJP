@@ -112,7 +112,7 @@ class BarcodePayViewController: UIViewController {
     }
     
     func gotoPayView() {
-        self.navigationController?.pushViewController(CardScanPayViewController(), animated: true)
+        self.navigationController?.pushViewController(CardOrderViewController(), animated: true)
     }
     
     func backClicked() {

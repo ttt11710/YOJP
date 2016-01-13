@@ -75,51 +75,9 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func gotoDrawerView() {
-        let leftSideDrawerViewController = LeftViewController()
-        let centerViewController = MainViewController()
+        let tempAppDelegatea : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        let navigationController : MyNavigationController = MyNavigationController(rootViewController: centerViewController)
-        navigationController.navigationBar.translucent = false
-        navigationController.restorationIdentifier = "MMExampleCenterNavigationControllerRestorationKey"
-        
-        let leftSideNavController : MyNavigationController = MyNavigationController(rootViewController: leftSideDrawerViewController)
-        //leftSideNavController.navigationBarHidden = true
-        leftSideNavController.restorationIdentifier = "MMExampleLeftNavigationControllerRestorationKey"
-        
-        let drawerController : MMDrawerController = MMDrawerController(centerViewController: navigationController, leftDrawerViewController: leftSideNavController)
-        drawerController.showsShadow = true
-        drawerController.restorationIdentifier = "MMDrawer"
-        drawerController.maximumLeftDrawerWidth = screenWidth-80
-        drawerController.openDrawerGestureModeMask = .All
-        drawerController.closeDrawerGestureModeMask = .All
-        drawerController.setGestureShouldRecognizeTouchBlock { (drawerController : MMDrawerController!, gesture : UIGestureRecognizer!, touch : UITouch!) -> Bool in
-            var shouldRecognizeTouch : Bool = false
-            if drawerController.openSide == MMDrawerSide.None && gesture.isKindOfClass(UIPanGestureRecognizer) {
-                let customView : UIView = drawerController.centerViewController.view
-                let location : CGPoint = touch.locationInView(customView)
-                shouldRecognizeTouch = CGRectContainsPoint(customView.bounds, location)
-            }
-            
-            return shouldRecognizeTouch
-        }
-        
-        
-        drawerController.setGestureCompletionBlock { (drawerController : MMDrawerController!, gesture :UIGestureRecognizer!) -> Void in
-            
-            if drawerController.openSide == MMDrawerSide.Left {
-                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(1)
-                
-            }
-            else {
-                MainViewController.shareMainViewController().changeShowLeftBtnTypeWithInt(0)
-                
-            }
-            MainViewController.shareMainViewController().showORhideShowLeftViewBtn(false)
-            
-        }
-        
-        drawerController.view.backgroundColor = UIColor.whiteColor()
-        self.presentViewController(drawerController, animated: true) { () -> Void in
+        self.presentViewController(tempAppDelegatea.leftSlideVC, animated: true) { () -> Void in
             
         }
     }

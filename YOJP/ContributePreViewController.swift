@@ -82,6 +82,7 @@ class ContributePreViewController: UIViewController {
         contributeLabel.numberOfLines = 10
         contributeLabel.text = self.contributeViewText
         contributeLabel.textColor = yojpText
+        contributeLabel.sizeToFit()
         self.scrollView.addSubview(contributeLabel)
         
         
@@ -92,6 +93,7 @@ class ContributePreViewController: UIViewController {
         contributeBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         contributeBtn.titleLabel?.font = font15
         contributeBtn.addTarget(self, action: Selector("finishContributePreview"), forControlEvents: .TouchUpInside)
+        contributeBtn.layer.cornerRadius = 4
         self.scrollView.addSubview(contributeBtn)
         
         
@@ -99,7 +101,7 @@ class ContributePreViewController: UIViewController {
     }
     
     func finishContributePreview() {
-       SVProgressShow.showSuccessWithStatus("投稿成功!等待核实")
+        SVProgressShow.showSuccessWithStatus("投稿成功，如若采用，将有好礼相送。3-7个工作日会有结果")
     }
 
     func backClicked() {

@@ -15,6 +15,7 @@ class CollectTableViewCell: UITableViewCell {
     @IBOutlet weak var productDicLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var collectionBtn: MCFireworksButton!
+    @IBOutlet weak var moneyImageView: UIImageView!
     @IBOutlet weak var moneyLabel: UILabel!
     
     override func awakeFromNib() {

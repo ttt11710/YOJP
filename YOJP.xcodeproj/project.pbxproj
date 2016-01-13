@@ -32,6 +32,17 @@
 		DF3AEDAB1C3CDF7F00754D62 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3AEDA91C3CDF7F00754D62 /* CategoryCollectionViewCell.xib */; };
 		DF3CA50E1C45DF390089D331 /* LeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA50B1C45DF390089D331 /* LeftSlideViewController.m */; };
 		DF3CA50F1C45DF390089D331 /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA50D1C45DF390089D331 /* UIView_extra.m */; };
+		DF3CA5111C45E65E0089D331 /* FirstRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5101C45E65E0089D331 /* FirstRootViewController.swift */; };
+		DF3CA5131C45E9200089D331 /* SecondRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5121C45E9200089D331 /* SecondRootViewController.swift */; };
+		DF3CA5161C45EB570089D331 /* FeaturedFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5151C45EB570089D331 /* FeaturedFirstViewController.swift */; };
+		DF3CA5181C45ED8D0089D331 /* FreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5171C45ED8D0089D331 /* FreeViewController.swift */; };
+		DF3CA51A1C45EE290089D331 /* DiscountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5191C45EE290089D331 /* DiscountViewController.swift */; };
+		DF3CA51C1C45EE5F0089D331 /* DeductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA51B1C45EE5F0089D331 /* DeductionViewController.swift */; };
+		DF3CA51E1C45EEAB0089D331 /* LuckyBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA51D1C45EEAB0089D331 /* LuckyBagViewController.swift */; };
+		DF3CA5211C45F01B0089D331 /* FeatureSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5201C45F01B0089D331 /* FeatureSecondViewController.swift */; };
+		DF3CA5231C4635FC0089D331 /* OrderExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5221C4635FC0089D331 /* OrderExpenseViewController.swift */; };
+		DF3CA5251C463E820089D331 /* CardExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5241C463E820089D331 /* CardExpenseViewController.swift */; };
+		DF3CA5271C46411D0089D331 /* CardOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3CA5261C46411D0089D331 /* CardOrderViewController.swift */; };
 		DF46C08C1C3A363100700272 /* ScanProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C08B1C3A363100700272 /* ScanProductDetailViewController.swift */; };
 		DF46C0941C3A425A00700272 /* FreeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C0931C3A425A00700272 /* FreeDetailViewController.swift */; };
 		DF46C0971C3A449600700272 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF46C0951C3A449600700272 /* DetailTableViewCell.swift */; };
@@ -220,6 +231,17 @@
 		DF3CA50B1C45DF390089D331 /* LeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSlideViewController.m; sourceTree = "<group>"; };
 		DF3CA50C1C45DF390089D331 /* UIView_extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_extra.h; sourceTree = "<group>"; };
 		DF3CA50D1C45DF390089D331 /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_extra.m; sourceTree = "<group>"; };
+		DF3CA5101C45E65E0089D331 /* FirstRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRootViewController.swift; sourceTree = "<group>"; };
+		DF3CA5121C45E9200089D331 /* SecondRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRootViewController.swift; sourceTree = "<group>"; };
+		DF3CA5151C45EB570089D331 /* FeaturedFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedFirstViewController.swift; sourceTree = "<group>"; };
+		DF3CA5171C45ED8D0089D331 /* FreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeViewController.swift; sourceTree = "<group>"; };
+		DF3CA5191C45EE290089D331 /* DiscountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountViewController.swift; sourceTree = "<group>"; };
+		DF3CA51B1C45EE5F0089D331 /* DeductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeductionViewController.swift; sourceTree = "<group>"; };
+		DF3CA51D1C45EEAB0089D331 /* LuckyBagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LuckyBagViewController.swift; sourceTree = "<group>"; };
+		DF3CA5201C45F01B0089D331 /* FeatureSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureSecondViewController.swift; sourceTree = "<group>"; };
+		DF3CA5221C4635FC0089D331 /* OrderExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderExpenseViewController.swift; sourceTree = "<group>"; };
+		DF3CA5241C463E820089D331 /* CardExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardExpenseViewController.swift; sourceTree = "<group>"; };
+		DF3CA5261C46411D0089D331 /* CardOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOrderViewController.swift; sourceTree = "<group>"; };
 		DF46C08B1C3A363100700272 /* ScanProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanProductDetailViewController.swift; sourceTree = "<group>"; };
 		DF46C0931C3A425A00700272 /* FreeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeDetailViewController.swift; sourceTree = "<group>"; };
 		DF46C0951C3A449600700272 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -485,6 +507,8 @@
 			isa = PBXGroup;
 			children = (
 				DF0CC6361C44933400666805 /* ExpenseViewController.swift */,
+				DF3CA5221C4635FC0089D331 /* OrderExpenseViewController.swift */,
+				DF3CA5241C463E820089D331 /* CardExpenseViewController.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -551,6 +575,26 @@
 				DF3CA50D1C45DF390089D331 /* UIView_extra.m */,
 			);
 			path = LeftSlideViewController;
+			sourceTree = "<group>";
+		};
+		DF3CA5141C45EB350089D331 /* FirstRoot */ = {
+			isa = PBXGroup;
+			children = (
+				DF3CA5151C45EB570089D331 /* FeaturedFirstViewController.swift */,
+				DF3CA5171C45ED8D0089D331 /* FreeViewController.swift */,
+				DF3CA5191C45EE290089D331 /* DiscountViewController.swift */,
+				DF3CA51B1C45EE5F0089D331 /* DeductionViewController.swift */,
+				DF3CA51D1C45EEAB0089D331 /* LuckyBagViewController.swift */,
+			);
+			name = FirstRoot;
+			sourceTree = "<group>";
+		};
+		DF3CA51F1C45EFF40089D331 /* SecondRoot */ = {
+			isa = PBXGroup;
+			children = (
+				DF3CA5201C45F01B0089D331 /* FeatureSecondViewController.swift */,
+			);
+			name = SecondRoot;
 			sourceTree = "<group>";
 		};
 		DF46C08D1C3A364A00700272 /* Scan */ = {
@@ -660,10 +704,14 @@
 				DFBCF6A61BFEAC1D000645F7 /* MyNavigationController.swift */,
 				DF4C68F11BF02DCE009ED5A9 /* MainViewController.swift */,
 				DF0CE8F31C43859900B1E4FA /* FirstViewController.swift */,
+				DF3CA5101C45E65E0089D331 /* FirstRootViewController.swift */,
+				DF3CA5121C45E9200089D331 /* SecondRootViewController.swift */,
 				DFD726211BF3204A0089645A /* LeftViewController.swift */,
 				DFA37F4B1C27D85E00F87F70 /* SearchCollectionReusableView.swift */,
 				DFA37F4C1C27D85E00F87F70 /* SearchCollectionReusableView.xib */,
 				DFFF9F571C0D4AD000FD4A57 /* SearchViewController.swift */,
+				DF3CA5141C45EB350089D331 /* FirstRoot */,
+				DF3CA51F1C45EFF40089D331 /* SecondRoot */,
 				DF46C08D1C3A364A00700272 /* Scan */,
 				DF18AAA91C2D16D4005B8BAD /* Store */,
 				DF46C0901C3A420300700272 /* Detail */,
@@ -1063,6 +1111,7 @@
 				DFFF9F591C0D7D5400FD4A57 /* CardListViewController.swift */,
 				DFE9BD121C3B6BDD0037C8D7 /* Scan */,
 				DFE9BD131C3B6BF20037C8D7 /* Barcode */,
+				DF3CA5261C46411D0089D331 /* CardOrderViewController.swift */,
 				DFFF9F5F1C0D907300FD4A57 /* CardDetailsViewController.swift */,
 				DF1990B41C11749F006AACF3 /* CardUseRuleViewController.swift */,
 				DFE9BD1C1C3B901A0037C8D7 /* 备用 */,
@@ -1377,10 +1426,12 @@
 				DF0CC64A1C44DFA600666805 /* NewCollectTableViewCell.swift in Sources */,
 				DFF3C2B31C23CED400D7EFF2 /* ListViewController.swift in Sources */,
 				DFD726201BF320160089645A /* LLFlowSlideMenuVC.swift in Sources */,
+				DF3CA51E1C45EEAB0089D331 /* LuckyBagViewController.swift in Sources */,
 				DF8691121C158D4B00305D2E /* UpdatePassViewController.swift in Sources */,
 				DFFF9F5A1C0D7D5400FD4A57 /* CardListViewController.swift in Sources */,
 				DFA37F441C279B6D00F87F70 /* OrderFailureViewController.swift in Sources */,
 				DF9637381C0C1C9800FC2CFE /* MCFireworksButton.m in Sources */,
+				DF3CA51A1C45EE290089D331 /* DiscountViewController.swift in Sources */,
 				DFB36B571C22607500A89BFC /* SchedulingSubTableViewCell.swift in Sources */,
 				DFE5C8371C2A3589003DB635 /* ShopCarTableViewCell.swift in Sources */,
 				DFE5C8321C2A3512003DB635 /* ShopCarListViewController.swift in Sources */,
@@ -1391,10 +1442,14 @@
 				DFA37F4D1C27D85E00F87F70 /* SearchCollectionReusableView.swift in Sources */,
 				DF4C68F71BF04660009ED5A9 /* SVProgressShow.m in Sources */,
 				DF0CC6401C449D1A00666805 /* InformationViewController.swift in Sources */,
+				DF3CA5161C45EB570089D331 /* FeaturedFirstViewController.swift in Sources */,
 				DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */,
 				DFE1E1BE1C2BE44F002DE1E0 /* NearbyViewController.swift in Sources */,
+				DF3CA5231C4635FC0089D331 /* OrderExpenseViewController.swift in Sources */,
 				DF9637391C0C1C9800FC2CFE /* MCFireworksView.m in Sources */,
+				DF3CA5251C463E820089D331 /* CardExpenseViewController.swift in Sources */,
 				DF8691061C157B3000305D2E /* TNRectangularCheckBoxData.m in Sources */,
+				DF3CA5271C46411D0089D331 /* CardOrderViewController.swift in Sources */,
 				DF9A7F0B1BEB1E78000CB3EE /* MapViewController.swift in Sources */,
 				DF4C68FF1BF0754A009ED5A9 /* TranslateModel.swift in Sources */,
 				DFA9D44E1C083FDD003F9609 /* DOPScrollableActionSheet.m in Sources */,
@@ -1433,7 +1488,9 @@
 				DFE9BD0F1C3B5D0C0037C8D7 /* CardScanPayViewController.swift in Sources */,
 				DFE9BD1A1C3B8C390037C8D7 /* CardListTableViewWithOnlyMoneyCell.swift in Sources */,
 				DFBCF6A71BFEAC1D000645F7 /* MyNavigationController.swift in Sources */,
+				DF3CA5111C45E65E0089D331 /* FirstRootViewController.swift in Sources */,
 				DF4C69061BF09D29009ED5A9 /* WeatherView.swift in Sources */,
+				DF3CA5211C45F01B0089D331 /* FeatureSecondViewController.swift in Sources */,
 				DFE1E1B21C2B909A002DE1E0 /* OrderChoosePayTableViewCell.swift in Sources */,
 				DFA37F421C2796BF00F87F70 /* OrderSucceedViewController.swift in Sources */,
 				DF0CC6471C44DEAA00666805 /* NewCollectionViewController.swift in Sources */,
@@ -1446,6 +1503,7 @@
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
 				DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */,
+				DF3CA51C1C45EE5F0089D331 /* DeductionViewController.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFE9BD201C3B934F0037C8D7 /* JapanUser.swift in Sources */,
 				DFEB0D5B1C3A176600EA2F6D /* QRView.m in Sources */,
@@ -1477,11 +1535,13 @@
 				DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */,
 				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
 				DF46C09B1C3A585900700272 /* StoreInfoTableViewCell.swift in Sources */,
+				DF3CA5181C45ED8D0089D331 /* FreeViewController.swift in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,
 				DF86910F1C158BB700305D2E /* SettingTableViewCell.swift in Sources */,
 				DFE7EFC21C0405CB009AA953 /* myTableViewCell.swift in Sources */,
 				DF4C68FB1BF06847009ED5A9 /* TranslateViewController.swift in Sources */,
 				DFE1E1B71C2BC5E6002DE1E0 /* popPayPwdView.swift in Sources */,
+				DF3CA5131C45E9200089D331 /* SecondRootViewController.swift in Sources */,
 				DF8690E61C1578E200305D2E /* ForgetPasswordViewController.swift in Sources */,
 				DF8691041C157B3000305D2E /* TNImageCheckBoxData.m in Sources */,
 				DFD7261F1BF320160089645A /* LLFlowSlideMenuEnum.swift in Sources */,

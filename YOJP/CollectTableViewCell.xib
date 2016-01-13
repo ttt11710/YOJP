@@ -76,6 +76,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionBtn" destination="i6u-gt-RbE" id="DnI-R7-ffZ"/>
+                <outlet property="moneyImageView" destination="7c7-e2-cEM" id="lhN-BY-cDB"/>
                 <outlet property="moneyLabel" destination="45j-WR-Zwu" id="azl-fN-AiT"/>
                 <outlet property="productDicLabel" destination="3Cx-k5-ThS" id="rRW-be-sDn"/>
                 <outlet property="productImageView" destination="mnw-ba-1wJ" id="jDX-bN-gCL"/>

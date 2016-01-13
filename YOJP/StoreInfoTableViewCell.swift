@@ -14,7 +14,6 @@ class StoreInfoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var gotoStoreCallBtn: CallBackButton!
     @IBOutlet weak var currentStoreAddressLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var store1AddressLabel: UILabel!
     @IBOutlet weak var store2AddressLabel: UILabel!
     @IBOutlet weak var store3AddressLabel: UILabel!
@@ -24,7 +23,7 @@ class StoreInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.gotoStoreCallBtn.setupBlock()
-        self.mapView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth]
+       // self.mapView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight,UIViewAutoresizing.FlexibleWidth]
         
         self.moreCallBackBtn.setupBlock()
         

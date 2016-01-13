@@ -356,71 +356,108 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
+        let tempAppDelegatea : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        
         if indexPath.row == 0 {
             self.creatWeatherView()
         }
+        else {
+            tempAppDelegatea.leftSlideVC.closeLeftView()
+            if indexPath.row == 1 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(CardListViewController(), animated: true)
+            }
+            else if indexPath.row == 2 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(ListViewController(), animated: true)
+            }
+            else if indexPath.row == 3 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(ContributeViewController(), animated: true)
+            }
+            else if indexPath.row == 4 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(NewCollectionViewController(), animated: true)
+            }
+            else if indexPath.row == 5 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(ExpenseViewController(), animated: true)
+            }
+            else if indexPath.row == 6 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(MessageViewController(), animated: true)
+            }
+            else if indexPath.row == 7 {
+                
+                tempAppDelegatea.firstNavigationController?.pushViewController(UserCentreViewController(), animated: true)
+            }
+
+
+        }
+        
+////        if indexPath.row == 1 {
+////            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+////                
+////                MainViewController.shareMainViewController().navigationController?.pushViewController(OrderViewController(), animated: true)
+////                MainViewController.shareMainViewController().changeShowLeftBtnType()
+////            })
+////
+////        }
 //        if indexPath.row == 1 {
 //            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
 //                
-//                MainViewController.shareMainViewController().navigationController?.pushViewController(OrderViewController(), animated: true)
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
 //                MainViewController.shareMainViewController().changeShowLeftBtnType()
 //            })
-//
 //        }
-        if indexPath.row == 1 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(CardListViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
-        else if indexPath.row == 2 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-               // MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-            
-        }
-            
-        else if indexPath.row == 3 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(ContributeViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
-        else if indexPath.row == 4 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(NewCollectionViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
-
-        else if indexPath.row == 5 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
-        else if indexPath.row == 6 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
-        else if indexPath.row == 7 {
-            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
-                
-                MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)
-                MainViewController.shareMainViewController().changeShowLeftBtnType()
-            })
-        }
+//        else if indexPath.row == 2 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//               // MainViewController.shareMainViewController().navigationController?.pushViewController(SchedulingViewController(), animated: true)
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//            
+//        }
+//            
+//        else if indexPath.row == 3 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(ContributeViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//        }
+//        else if indexPath.row == 4 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(NewCollectionViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//        }
+//
+//        else if indexPath.row == 5 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(ListViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//        }
+//        else if indexPath.row == 6 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(MessageViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//        }
+//        else if indexPath.row == 7 {
+//            self.mm_drawerController.closeDrawerAnimated(true, completion: { (finished : Bool) -> Void in
+//                
+//                MainViewController.shareMainViewController().navigationController?.pushViewController(UserCentreViewController(), animated: true)
+//                MainViewController.shareMainViewController().changeShowLeftBtnType()
+//            })
+//        }
 
     }
     

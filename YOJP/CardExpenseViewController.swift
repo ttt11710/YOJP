@@ -1,39 +1,27 @@
 //
-//  CardDetailsViewController.swift
+//  CardExpenseViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 15/12/1.
-//  Copyright © 2015年 PayBay. All rights reserved.
+//  Created by PayBay on 16/1/13.
+//  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
+class CardExpenseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var tableView : UITableView!
     var customNavigationBar : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = UIColor.whiteColor()
+        
+        self.view.backgroundColor = yojpTableViewColor
         
         self.creatCustomNavigationBar()
         self.creatTableView()
     }
 
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        UIApplication.sharedApplication().statusBarStyle = .Default
-//        self.navigationController?.navigationBarHidden = true
-//    }
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.navigationController?.navigationBarHidden = false
-//    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -45,8 +33,8 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.alpha = 1
     }
-
-
+    
+    
     func creatCustomNavigationBar() {
         self.customNavigationBar = UIView(frame: CGRectMake(0,screenHeight-44,screenWidth,44))
         self.customNavigationBar.backgroundColor = yojpBlue
@@ -70,18 +58,14 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return indexPath.row == 0 ? 450 : 44
-
+        return indexPath.row == 0 ? 450 : 100
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -156,39 +140,25 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            cell.accessoryType = .DisclosureIndicator
+            
             
             cell.backgroundColor = yojpTableViewColor
             
-            cell.textLabel?.text = indexPath.row == 1 ? "打折券详情" : "立即使用"
+            let lineImageView1 = UIImageView(frame: CGRectMake(0, 0, screenWidth-32, 1))
+            lineImageView1.image = UIImage(named: "dashedLine")
+            cell.addSubview(lineImageView1)
             
-            cell.textLabel?.textColor = yojpText
+            cell.textLabel?.numberOfLines = 2
+            cell.textLabel?.text = "消费时间：2016-01-08  10:59\n商家地址：某某某某某某某某某某某某某"
             cell.textLabel?.font = font16
+            cell.textLabel?.textColor = yojpText
+            cell.textLabel?.sizeToFit()
+            
+            let lineImageView2 = UIImageView(frame: CGRectMake(0, 99, screenWidth-32, 1))
+            lineImageView2.image = UIImage(named: "dashedLine")
+            cell.addSubview(lineImageView2)
+            
             return cell
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if indexPath.row == 1 {
-            self.navigationController?.pushViewController(CardUseRuleViewController(), animated: true)
-        }
-        else if indexPath.row == 2 {
-            let alertView : UIAlertView = UIAlertView(title: "警告", message: "注意!确认使用后,本券将失效", delegate: self, cancelButtonTitle: "取消操作", otherButtonTitles: "确认使用")
-            alertView.show()
-        }
-    }
-    
-    
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        switch buttonIndex {
-        case 0:
-            print("取消操作")
-        case 1:
-            SVProgressShow.showSuccessWithStatus("兑换成功!")
-            self.navigationController?.popToViewController(self.navigationController!.viewControllers[1], animated: true)
-        default:
-            break
         }
     }
 
@@ -198,7 +168,6 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         self.navigationController?.popViewControllerAnimated(true)
         
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

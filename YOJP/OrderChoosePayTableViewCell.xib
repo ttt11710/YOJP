@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="343" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员卡支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4Z-m4-0rJ">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员卡支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4Z-m4-0rJ">
                         <rect key="frame" x="68" y="30" width="75" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,29 +39,51 @@
                             <constraint firstAttribute="height" constant="30" id="lop-G9-NnB"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="允许注册本店会员的用户使用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZq-lB-BkT">
-                        <rect key="frame" x="68" y="38" width="182" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="允许注册本店会员的用户使用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZq-lB-BkT">
+                        <rect key="frame" x="68" y="50" width="182" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaT-Ht-hx2" customClass="CallBackButton">
+                        <rect key="frame" x="68" y="30" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="pGi-VH-Bbt"/>
+                        </constraints>
+                        <state key="normal" title="上海银行">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="PaT-Ht-hx2" firstAttribute="trailing" secondItem="v4Z-m4-0rJ" secondAttribute="trailing" id="41J-iI-UoB"/>
                     <constraint firstItem="OZD-z5-hIe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="93U-te-oxW"/>
                     <constraint firstItem="v4Z-m4-0rJ" firstAttribute="top" secondItem="OZD-z5-hIe" secondAttribute="top" id="Ba6-OJ-7Ox"/>
+                    <constraint firstItem="bZq-lB-BkT" firstAttribute="top" secondItem="PaT-Ht-hx2" secondAttribute="bottom" id="EWV-ye-FLi"/>
+                    <constraint firstItem="PaT-Ht-hx2" firstAttribute="bottom" secondItem="v4Z-m4-0rJ" secondAttribute="bottom" id="L4L-04-x7Q"/>
                     <constraint firstItem="bZq-lB-BkT" firstAttribute="top" secondItem="v4Z-m4-0rJ" secondAttribute="bottom" constant="-1" id="NLY-t1-LeI"/>
                     <constraint firstItem="M0d-bl-b7t" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Srm-Ep-kSi"/>
                     <constraint firstItem="v4Z-m4-0rJ" firstAttribute="leading" secondItem="OZD-z5-hIe" secondAttribute="trailing" constant="8" id="bcA-6Y-h9O"/>
+                    <constraint firstItem="PaT-Ht-hx2" firstAttribute="top" secondItem="v4Z-m4-0rJ" secondAttribute="top" id="bnH-Gi-yYv"/>
+                    <constraint firstItem="PaT-Ht-hx2" firstAttribute="leading" secondItem="v4Z-m4-0rJ" secondAttribute="leading" id="hCM-PE-K7l"/>
                     <constraint firstAttribute="trailingMargin" secondItem="M0d-bl-b7t" secondAttribute="trailing" constant="8" id="lae-i8-PZg"/>
                     <constraint firstItem="bZq-lB-BkT" firstAttribute="leading" secondItem="v4Z-m4-0rJ" secondAttribute="leading" id="njg-kz-38o"/>
                     <constraint firstItem="OZD-z5-hIe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="wle-nF-P0M"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="41J-iI-UoB"/>
+                        <exclude reference="L4L-04-x7Q"/>
+                        <exclude reference="NLY-t1-LeI"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="payRuleLabel" destination="bZq-lB-BkT" id="HP5-k3-8WJ"/>
                 <outlet property="payTypeChooseBtn" destination="M0d-bl-b7t" id="52a-U3-eXh"/>
                 <outlet property="payTypeLogo" destination="OZD-z5-hIe" id="BTw-ox-E9D"/>
                 <outlet property="payTypeName" destination="v4Z-m4-0rJ" id="kiH-Mq-ON2"/>
+                <outlet property="payTypeNameCallBtn" destination="PaT-Ht-hx2" id="n7n-8V-blX"/>
             </connections>
             <point key="canvasLocation" x="207.5" y="455.5"/>
         </tableViewCell>

@@ -76,12 +76,33 @@ class ExpenseViewController: UIViewController,UITableViewDataSource,UITableViewD
         tableView.registerNib(UINib(nibName: "ExpenseTableViewCell", bundle: nil), forCellReuseIdentifier: "ExpenseTableViewCellId")
         let cell = tableView.dequeueReusableCellWithIdentifier("ExpenseTableViewCellId", forIndexPath: indexPath) as! ExpenseTableViewCell
         
-        cell.titleLabel.text = "下单时间:2016-01-08 10:59"
-        cell.orderNumberLabel.text = "订单编号:JP300000000000"
-        cell.orderMoneyLabel.text = "￥1256"
-        cell.orderStateLabel.text = "订单状态:已完成"
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        if indexPath.row % 2 == 0 {
+            cell.titleLabel.text = "下单时间:2016-01-08 10:59"
+            cell.orderNumberLabel.text = "订单编号:JP300000000000"
+            cell.orderMoneyLabel.text = "订单金额￥1256"
+            cell.orderStateLabel.text = "订单状态:已完成"
+        }
+        else {
+            cell.titleLabel.text = "消费时间:2016-01-08  10:59"
+            cell.orderNumberLabel.text = "订单编号:JP300000000000"
+            cell.orderMoneyLabel.text = "订单类型：100云抵扣券"
+            cell.orderStateLabel.text = "订单状态:已完成"
+        }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row % 2 == 0 {
+            self.navigationController?.pushViewController(OrderExpenseViewController(), animated: true)
+        }
+        else {
+            self.navigationController?.pushViewController(CardExpenseViewController(), animated: true)
+        }
+        
     }
 
     func backClicked() {

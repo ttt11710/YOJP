@@ -164,7 +164,7 @@ class CardScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataO
         
         let nav : UINavigationController = self.navigationController!
         self.navigationController?.popViewControllerAnimated(false)
-        nav.pushViewController(CardScanPayViewController(), animated: true)
+        nav.pushViewController(CardOrderViewController(), animated: true)
     }
     
     

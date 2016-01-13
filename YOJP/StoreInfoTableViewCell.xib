@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreInfoTableViewCellId" rowHeight="497" id="KGk-i7-Jjw" customClass="StoreInfoTableViewCell" customModule="YOJP" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoreInfoTableViewCellId" rowHeight="646" id="KGk-i7-Jjw" customClass="StoreInfoTableViewCell" customModule="YOJP" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="403" height="277"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -101,22 +101,22 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OCw-i6-OF8">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="地图样式" translatesAutoresizingMaskIntoConstraints="NO" id="gRq-uI-VvE">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="200" id="nDD-yt-yww"/>
+                            <constraint firstAttribute="height" constant="200" id="yEm-By-IFu"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="nDD-yt-yww"/>
+                                <exclude reference="yEm-By-IFu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
-                                <include reference="nDD-yt-yww"/>
+                                <include reference="yEm-By-IFu"/>
                             </mask>
                         </variation>
-                    </mapView>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商家1:某某街某某路某某号某某店 100米" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqi-tZ-Dlp">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -159,25 +159,25 @@
                 <constraints>
                     <constraint firstItem="jBe-If-Zvu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="11" id="0tN-85-vEi"/>
                     <constraint firstItem="wdk-O9-0rW" firstAttribute="top" secondItem="mPl-hu-3i4" secondAttribute="bottom" constant="8" id="4Nc-sR-XJE"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="gRq-uI-VvE" secondAttribute="leading" id="4gv-hj-i4J"/>
                     <constraint firstItem="Ee3-D5-CZB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="699-zd-sWl"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="OCw-i6-OF8" secondAttribute="leading" id="6g4-hc-DFU"/>
                     <constraint firstItem="mPl-hu-3i4" firstAttribute="top" secondItem="aqi-tZ-Dlp" secondAttribute="bottom" constant="8" id="8as-t5-Vjb"/>
                     <constraint firstItem="E5V-zn-61u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="DqS-vx-0aR"/>
                     <constraint firstItem="UsF-go-mEN" firstAttribute="top" secondItem="E5V-zn-61u" secondAttribute="top" id="F5a-ND-MuK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Ee3-D5-CZB" secondAttribute="trailing" constant="-8" id="H5a-Dl-Y6v"/>
                     <constraint firstItem="0mn-R6-ckS" firstAttribute="top" secondItem="UsF-go-mEN" secondAttribute="bottom" constant="8" id="JDW-TO-Jjo"/>
                     <constraint firstItem="UsF-go-mEN" firstAttribute="leading" secondItem="E5V-zn-61u" secondAttribute="trailing" constant="8" id="MrE-5o-5yH"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="OCw-i6-OF8" secondAttribute="trailing" id="NKE-Sk-GAO"/>
                     <constraint firstItem="mPl-hu-3i4" firstAttribute="leading" secondItem="aqi-tZ-Dlp" secondAttribute="leading" id="WoK-h5-D9G"/>
                     <constraint firstItem="jBe-If-Zvu" firstAttribute="top" secondItem="E5V-zn-61u" secondAttribute="bottom" constant="19" id="XA4-FT-FVa"/>
                     <constraint firstItem="aqi-tZ-Dlp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="306" id="Xwm-Yv-5XQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gRq-uI-VvE" secondAttribute="trailing" id="ahH-Ul-0D8"/>
                     <constraint firstItem="aqi-tZ-Dlp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="9" id="dOb-dg-oy3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="VHb-Oi-bei" secondAttribute="trailing" constant="6" id="fzG-Oa-lWn"/>
                     <constraint firstItem="E5V-zn-61u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="11" id="iMd-14-kua"/>
                     <constraint firstItem="jBe-If-Zvu" firstAttribute="top" secondItem="Ee3-D5-CZB" secondAttribute="bottom" constant="8" id="kuQ-PE-swh"/>
                     <constraint firstItem="VHb-Oi-bei" firstAttribute="top" secondItem="wdk-O9-0rW" secondAttribute="bottom" constant="7" id="nIs-f4-gc1"/>
-                    <constraint firstItem="OCw-i6-OF8" firstAttribute="top" secondItem="jBe-If-Zvu" secondAttribute="bottom" constant="8" id="oNy-6a-eRU"/>
                     <constraint firstItem="Ee3-D5-CZB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="qGK-Sv-rPb"/>
+                    <constraint firstItem="gRq-uI-VvE" firstAttribute="top" secondItem="jBe-If-Zvu" secondAttribute="bottom" constant="8" id="vCX-3K-g1g"/>
                     <constraint firstItem="0mn-R6-ckS" firstAttribute="leading" secondItem="UsF-go-mEN" secondAttribute="leading" id="yel-yp-z7f"/>
                     <constraint firstItem="wdk-O9-0rW" firstAttribute="leading" secondItem="mPl-hu-3i4" secondAttribute="leading" id="zqE-mJ-Cjg"/>
                 </constraints>
@@ -188,7 +188,7 @@
                         <exclude reference="UsF-go-mEN"/>
                         <exclude reference="0mn-R6-ckS"/>
                         <exclude reference="jBe-If-Zvu"/>
-                        <exclude reference="OCw-i6-OF8"/>
+                        <exclude reference="gRq-uI-VvE"/>
                         <exclude reference="aqi-tZ-Dlp"/>
                         <exclude reference="mPl-hu-3i4"/>
                         <exclude reference="wdk-O9-0rW"/>
@@ -207,9 +207,9 @@
                         <exclude reference="kuQ-PE-swh"/>
                         <exclude reference="JDW-TO-Jjo"/>
                         <exclude reference="yel-yp-z7f"/>
-                        <exclude reference="6g4-hc-DFU"/>
-                        <exclude reference="NKE-Sk-GAO"/>
-                        <exclude reference="oNy-6a-eRU"/>
+                        <exclude reference="4gv-hj-i4J"/>
+                        <exclude reference="ahH-Ul-0D8"/>
+                        <exclude reference="vCX-3K-g1g"/>
                         <exclude reference="Xwm-Yv-5XQ"/>
                         <exclude reference="dOb-dg-oy3"/>
                         <exclude reference="8as-t5-Vjb"/>
@@ -227,7 +227,7 @@
                         <include reference="UsF-go-mEN"/>
                         <include reference="0mn-R6-ckS"/>
                         <include reference="jBe-If-Zvu"/>
-                        <include reference="OCw-i6-OF8"/>
+                        <include reference="gRq-uI-VvE"/>
                         <include reference="aqi-tZ-Dlp"/>
                         <include reference="mPl-hu-3i4"/>
                         <include reference="wdk-O9-0rW"/>
@@ -246,9 +246,9 @@
                         <include reference="kuQ-PE-swh"/>
                         <include reference="JDW-TO-Jjo"/>
                         <include reference="yel-yp-z7f"/>
-                        <include reference="6g4-hc-DFU"/>
-                        <include reference="NKE-Sk-GAO"/>
-                        <include reference="oNy-6a-eRU"/>
+                        <include reference="4gv-hj-i4J"/>
+                        <include reference="ahH-Ul-0D8"/>
+                        <include reference="vCX-3K-g1g"/>
                         <include reference="Xwm-Yv-5XQ"/>
                         <include reference="dOb-dg-oy3"/>
                         <include reference="8as-t5-Vjb"/>
@@ -263,17 +263,17 @@
             <connections>
                 <outlet property="currentStoreAddressLabel" destination="0mn-R6-ckS" id="o8O-pd-lpg"/>
                 <outlet property="gotoStoreCallBtn" destination="E5V-zn-61u" id="jCu-PL-ajV"/>
-                <outlet property="mapView" destination="OCw-i6-OF8" id="bjh-WD-Bwv"/>
                 <outlet property="moreCallBackBtn" destination="VHb-Oi-bei" id="Y7S-l5-YqY"/>
                 <outlet property="store1AddressLabel" destination="aqi-tZ-Dlp" id="idU-JF-abf"/>
                 <outlet property="store2AddressLabel" destination="mPl-hu-3i4" id="bBF-ij-3Aw"/>
                 <outlet property="store3AddressLabel" destination="wdk-O9-0rW" id="sHF-2h-uEx"/>
             </connections>
-            <point key="canvasLocation" x="475.5" y="609"/>
+            <point key="canvasLocation" x="475.5" y="683"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="YOJPLogo" width="60" height="60"/>
         <image name="dashedLine" width="318" height="1"/>
+        <image name="地图样式" width="332" height="188"/>
     </resources>
 </document>

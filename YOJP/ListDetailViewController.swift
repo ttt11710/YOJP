@@ -29,7 +29,7 @@ class ListDetailViewController: UIViewController,UITableViewDelegate,UITableView
 
         self.view.backgroundColor = yojpTableViewColor
         
-        self.mm_drawerController.removeGestureRecognizers()
+//        self.mm_drawerController.removeGestureRecognizers()
         
         self.creatCustomNavigationBar()
         self.creatTableView()
@@ -70,7 +70,7 @@ class ListDetailViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.alpha = 1
         
-        self.mm_drawerController.setupGestureRecognizers()
+       // self.mm_drawerController.setupGestureRecognizers()
         
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -168,7 +168,7 @@ class ListDetailViewController: UIViewController,UITableViewDelegate,UITableView
             let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
-            cell.textLabel?.text = "增加一个清单"
+            cell.textLabel?.text = "增加一个内容"
             cell.textLabel?.textColor = yojpText
             
             return cell

@@ -18,6 +18,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     var tableView : UITableView!
     
     var collectionBtn : MCFireworksButton!
+    var collectionSelect : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +119,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             label.numberOfLines = 0
             label.sizeToFit()
             
-            return 35 + label.frame.size.height + 4 + screenWidth/5*3 + 8 + 16 + 25 + 16
+            return 35 + label.frame.size.height + 4 + screenWidth/5*3 + 8 + 16
         }
 //        else if indexPath.section == 1 && indexPath.row == 0 {
 //            return 44
@@ -140,6 +141,9 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             cell.moneyLabel.text = "￥300"
             cell.productImageView.hidden = true
             
+            cell.moneyImageView.hidden = true
+            cell.moneyLabel.hidden = true
+            cell.collectionBtn.hidden = true
             let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
             label.font = font16
             label.textColor = yojpText
@@ -158,6 +162,33 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
                 imageView.image = UIImage(named: String(format: "image%d", i))
                 scrollView.addSubview(imageView)
             }
+            
+            
+            self.collectionBtn = MCFireworksButton(frame: CGRectMake(16, 35 + label.frame.size.height+4+8+screenWidth/5*3-35, 25, 25))
+            
+            
+            self.collectionBtn.particleImage = UIImage(named: "spark")
+            self.collectionBtn.particleScale = 0.05
+            self.collectionBtn.particleScaleRange = 0.02
+            self.collectionBtn.selected = self.collectionSelect
+            
+            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+            
+            if self.collectionBtn.selected {
+                self.collectionBtn.popOutsideWithDuration(0.5)
+                self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
+                self.collectionBtn.animate()
+                self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
+            }
+            else {
+                self.collectionBtn.popInsideWithDuration(0.4)
+                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+            }
+            
+            self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+            cell.contentView.addSubview(self.collectionBtn)
             
             return cell
         }
@@ -212,6 +243,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func collectionClicked(sender : UIButton) {
         sender.selected = !sender.selected
+        self.collectionSelect = sender.selected
         if sender.selected {
             self.collectionBtn.popOutsideWithDuration(0.5)
             self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Normal)

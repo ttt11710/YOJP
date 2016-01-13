@@ -15,7 +15,10 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
     
     var tableView : UITableView!
     
-    var payTypeArray : NSMutableArray = [["payTypeLogo":"支付宝支付","payTypeName":"支付宝支付","payRuleLabel":"推荐安装支付宝的用户使用"],["payTypeLogo":"weixinpay","payTypeName":"微信支付","payRuleLabel":"推荐安装微信5.0及以上版本的使用"],["payTypeLogo":"yinhangpay","payTypeName":"银行卡支付","payRuleLabel":"支持储蓄卡信用卡，无需开通网银"]]
+//    var payTypeArray : NSMutableArray = [["payTypeLogo":"支付宝支付","payTypeName":"支付宝支付","payRuleLabel":"推荐安装支付宝的用户使用"],["payTypeLogo":"weixinpay","payTypeName":"微信支付","payRuleLabel":"推荐安装微信5.0及以上版本的使用"],["payTypeLogo":"yinhangpay","payTypeName":"银行卡支付","payRuleLabel":"支持储蓄卡信用卡，无需开通网银"]]
+    
+    var payTypeArray : NSMutableArray = [["payTypeLogo":"yinhangpay","payTypeName":"上海银行","payRuleLabel":"支持储蓄卡信用卡，无需开通网银"]]
+    
     
     var payView : UIView!
     
@@ -101,7 +104,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 5
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -114,7 +117,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
         else if indexPath.row == 2 {
             return 60
         }
-        else if indexPath.row <= 5 && indexPath.row >= 3 {
+        else if indexPath.row == 3 {
             return 44
         }
         else {
@@ -222,7 +225,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             
             return cell
         }
-        else if indexPath.row >= 3 && indexPath.row <= 5 {
+        else if indexPath.row == 3 {
             tableView.registerNib(UINib(nibName: "OrderChoosePayTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderChoosePayTableViewCellId")
             let cell = tableView.dequeueReusableCellWithIdentifier("OrderChoosePayTableViewCellId", forIndexPath: indexPath) as! OrderChoosePayTableViewCell
             
@@ -233,6 +236,10 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             cell.payRuleLabel.text = self.payTypeArray.objectAtIndex(i)["payRuleLabel"] as? String
             if i != 0 {
                 cell.payTypeChooseBtn.setImage(UIImage(named: "payUncheck"), forState: UIControlState.Normal)
+            }
+            
+            cell.payTypeNameCallBtn.callBack = { tag in
+              self.navigationController?.pushViewController(InformationViewController(), animated: true)
             }
             
             return cell
@@ -270,16 +277,16 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.row >= 3 && indexPath.row <=  5 {
+        if indexPath.row == 3  {
             for indexPath in self.tableView.indexPathsForVisibleRows! {
-                if indexPath.row >= 3 && indexPath.row <=  5 {
+                if indexPath.row == 3  {
                     let cell : OrderChoosePayTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! OrderChoosePayTableViewCell
                     cell.payTypeChooseBtn.setImage(UIImage(named: "payUncheck"), forState: UIControlState.Normal)
                 }
             }
         }
         
-        if indexPath.row >= 3 && indexPath.row <=  5 {
+        if indexPath.row == 3 {
             let cell : OrderChoosePayTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! OrderChoosePayTableViewCell
             
             if cell.payTypeChooseBtn.currentImage!.isEqual(UIImage(named: "payUncheck")) {
