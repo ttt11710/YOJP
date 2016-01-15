@@ -65,6 +65,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -76,6 +77,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.customLabel.text = "请输入138***1234收到的短信验证码"
         self.customLabel.font = font14
         self.customLabel.textColor = yojpText
+        self.customLabel.opaque = true
         self.view.addSubview(self.customLabel)
         
         self.captchaTextField = UITextField(frame: CGRectMake(16, self.customLabel.frame.origin.y + self.customLabel.frame.size.height+16, (screenWidth-48)/3*2, 45))
@@ -85,6 +87,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.captchaTextField.keyboardType = .NumberPad
         self.captchaTextField.layer.borderColor = yojpBlue.CGColor
         self.captchaTextField.layer.borderWidth = 1
+        self.captchaTextField.opaque = true
         self.view.addSubview(self.captchaTextField)
         
         self.getCaptchaBtn = UIButton(type: .Custom)
@@ -96,6 +99,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.getCaptchaBtn.layer.borderWidth = 1
         self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x+self.captchaTextField.frame.size.width+16, self.captchaTextField.frame.origin.y , (screenWidth-48)/3, 45)
         self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.getCaptchaBtn.titleLabel!.opaque = true
         self.view.addSubview(self.getCaptchaBtn)
         
     }
@@ -107,6 +111,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.nextBtn.layer.cornerRadius = 4
         self.nextBtn.layer.masksToBounds = true
         self.nextBtn.addTarget(self, action: Selector("nextBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.nextBtn.titleLabel!.opaque = true
         self.view.addSubview(self.nextBtn)
         
     }

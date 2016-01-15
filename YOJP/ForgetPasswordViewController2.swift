@@ -32,6 +32,7 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
     
@@ -40,11 +41,13 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         self.staticpassword.text = "密  码"
         self.staticpassword.textColor = yojpBlue
         self.staticpassword.sizeToFit()
+        self.staticpassword.opaque = true
         self.view.addSubview(self.staticpassword)
         
         self.passwordTextField = UITextField(frame: CGRectMake(self.staticpassword.frame.origin.x + self.staticpassword.frame.size.width + 16, 60, screenWidth - 16 - self.staticpassword.frame.size.width - 16-16, 55))
         self.passwordTextField.placeholder = "登录密码  6-20位字母、数字"
         self.passwordTextField.delegate = self
+        self.passwordTextField.opaque = true
         self.view.addSubview(self.passwordTextField)
         
         self.betweenLine1 = UIImageView(frame: CGRectMake(self.staticpassword.frame.origin.x, self.passwordTextField.frame.origin.y+self.passwordTextField.frame.size.height, screenWidth-self.staticpassword.frame.origin.x-16, 1))
@@ -60,6 +63,7 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         self.finishBtn.layer.cornerRadius = 4
        // self.finishBtn.layer.masksToBounds = true
         self.finishBtn.addTarget(self, action: Selector("finishBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.finishBtn.titleLabel!.opaque = true
         self.view.addSubview(self.finishBtn)
         
         

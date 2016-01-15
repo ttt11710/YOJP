@@ -40,6 +40,7 @@ class ScrollViewCollectionViewCell: UICollectionViewCell,UIScrollViewDelegate {
             imageView.clipsToBounds = true
             imageView.backgroundColor = UIColor.whiteColor()
             imageView.contentMode = .ScaleAspectFill
+            imageView.opaque = true
             if index == 0 {
                 imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "back3"))
                 imageView.tag = imageCount
@@ -72,11 +73,13 @@ class ScrollViewCollectionViewCell: UICollectionViewCell,UIScrollViewDelegate {
             describeLabel.font = font17
             describeLabel.textColor = UIColor.whiteColor()
             describeLabel.sizeToFit()
+            describeLabel.opaque = true
             imageView.addSubview(describeLabel)
             
             describeLabel.frame = CGRectMake(10, 200-30-describeLabel.frame.size.height, describeLabel.frame.size.width, describeLabel.frame.size.height)
             
             let labelView = LabelView(frame: CGRectMake(10,describeLabel.frame.origin.y-30,100,20))
+            labelView.opaque = true
             imageView.addSubview(labelView)
             
         }

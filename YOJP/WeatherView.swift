@@ -41,6 +41,7 @@ class WeatherView: UIView {
         dataLabel.textColor = UIColor.whiteColor()
         dataLabel.font = font16
         dataLabel.textAlignment = .Center
+        dataLabel.opaque = true
         self.addSubview(dataLabel)
        
         
@@ -56,17 +57,20 @@ class WeatherView: UIView {
 
         dayPictureUrlImageView = UIImageView(frame: CGRectMake(10, dataLabel.frame.origin.y + dataLabel.frame.size.height + 10, 60, 60))
         dayPictureUrlImageView.image = UIImage(named: "大雪")
+        dayPictureUrlImageView.opaque = true
         self.addSubview(dayPictureUrlImageView)
         
         maxTemperatureLabel = UILabel(frame: CGRectMake(self.frame.size.width-20-20,dayPictureUrlImageView.frame.origin.y + 10, 50,20))
         maxTemperatureLabel.text = "13℃"
         maxTemperatureLabel.textColor = UIColor.whiteColor()
+        maxTemperatureLabel.opaque = true
         self.addSubview(maxTemperatureLabel)
         
         
         minTemperatureLabel = UILabel(frame:CGRectMake(self.frame.size.width-20-20,maxTemperatureLabel.frame.origin.y + maxTemperatureLabel.frame.size.height + 10, 50,20))
         minTemperatureLabel.text = "10°"
         minTemperatureLabel.textColor = UIColor.whiteColor()
+        minTemperatureLabel.opaque = true
         self.addSubview(minTemperatureLabel)
        
         
@@ -76,6 +80,7 @@ class WeatherView: UIView {
         weatherLabel.sizeToFit()
         weatherLabel.textColor = UIColor.whiteColor()
         weatherLabel.center = CGPointMake(self.frame.size.width/2, minTemperatureLabel.frame.origin.y + minTemperatureLabel.frame.size.height + 20)
+        weatherLabel.opaque = true
         self.addSubview(weatherLabel)
         
 //        addressLabel = UILabel(frame: CGRectMake(10,weatherLabel.frame.origin.y + weatherLabel.frame.size.height,200,30))

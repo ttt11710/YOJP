@@ -64,6 +64,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
 
@@ -78,6 +79,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.staticUserName.text = "用户名"
         self.staticUserName.textColor = yojpBlue
         self.staticUserName.sizeToFit()
+        self.staticUserName.opaque = true
         self.registerView.addSubview(self.staticUserName)
     
         self.phoneTextField = UITextField(frame: CGRectMake(self.staticUserName.frame.origin.x + self.staticUserName.frame.size.width + 16, 0, screenWidth - 16 - self.staticUserName.frame.size.width - 16, 55))
@@ -88,6 +90,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         
         self.betweenLine1 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 55, screenWidth-self.staticUserName.frame.origin.x-16, 1))
         self.betweenLine1.backgroundColor = yojpText
+        self.betweenLine1.opaque = true
         self.registerView.addSubview(self.betweenLine1)
         
         
@@ -96,6 +99,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.captchaTextField.secureTextEntry = true
         self.captchaTextField.delegate = self
         self.captchaTextField.keyboardType = .NumberPad
+        self.captchaTextField.opaque = true
         self.registerView.addSubview(self.captchaTextField)
         
         self.getCaptchaBtn = UIButton(type: .Custom)
@@ -107,11 +111,13 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.getCaptchaBtn.layer.borderWidth = 1
         self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x+self.captchaTextField.frame.size.width+16, self.captchaTextField.frame.origin.y , (screenWidth-48)/3, 45)
         self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.getCaptchaBtn.titleLabel!.opaque = true
         self.registerView.addSubview(self.getCaptchaBtn)
         
         
         self.betweenLine2 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 110, self.captchaTextField.frame.size.width, 1))
         self.betweenLine2.backgroundColor = yojpText
+        self.betweenLine2.opaque = true
         self.registerView.addSubview(self.betweenLine2)
         
     }
@@ -123,6 +129,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         self.nextBtn.layer.cornerRadius = 4
         self.nextBtn.layer.masksToBounds = true
         self.nextBtn.addTarget(self, action: Selector("nextBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.nextBtn.titleLabel!.opaque = true
         self.view.addSubview(self.nextBtn)
         
     }

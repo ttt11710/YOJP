@@ -67,6 +67,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
     
@@ -82,6 +83,8 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         scanBtn.center = CGPointMake(screenWidth/2-80, 70)
         scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Normal)
         scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Highlighted)
+        scanBtn.backgroundColor = yojpBlue
+        scanBtn.opaque = true
         scanBtn.addTarget(self, action: Selector("scanBtnPressed"), forControlEvents: .TouchUpInside)
         self.scanView.addSubview(scanBtn)
         
@@ -92,6 +95,8 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         scanLabel.textColor = UIColor.whiteColor()
         scanLabel.sizeToFit()
         scanLabel.center = CGPointMake(screenWidth/2-80, 120)
+        scanLabel.backgroundColor = yojpBlue
+        scanLabel.opaque = true
         self.scanView.addSubview(scanLabel)
         
         
@@ -101,12 +106,14 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Normal)
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Highlighted)
         barcodeBtn.addTarget(self, action: Selector("barcodeBtnPressed"), forControlEvents: .TouchUpInside)
+        barcodeBtn.opaque = true
         self.scanView.addSubview(barcodeBtn)
         
         let barcodeLabel : UILabel = UILabel()
         barcodeLabel.text = "条码付款"
         barcodeLabel.textAlignment = .Center
         barcodeLabel.textColor = UIColor.whiteColor()
+        barcodeLabel.opaque = true
         barcodeLabel.sizeToFit()
         barcodeLabel.center = CGPointMake(screenWidth/2+80, 120)
         self.scanView.addSubview(barcodeLabel)

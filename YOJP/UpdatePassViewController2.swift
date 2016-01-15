@@ -62,6 +62,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         self.customLabel.text = "新登录密码仅用于账户登录"
         self.customLabel.font = font14
         self.customLabel.textColor = yojpText
+        self.customLabel.opaque = true
         self.view.addSubview(self.customLabel)
         
         
@@ -71,6 +72,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         self.passwordTextField.secureTextEntry = true
         self.passwordTextField.delegate = self
         self.passwordTextField.keyboardType = .NumberPad
+        self.passwordTextField.opaque = true
         self.view.addSubview(self.passwordTextField)
         
         self.betweenLine1 = UIImageView(frame: CGRectMake(16, self.passwordTextField.frame.origin.y+self.passwordTextField.frame.size.height, screenWidth-32, 1))
@@ -87,6 +89,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -99,6 +102,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         self.finishBtn.layer.cornerRadius = 4
         self.finishBtn.layer.masksToBounds = true
         self.finishBtn.addTarget(self, action: Selector("finishBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.finishBtn.titleLabel!.opaque = true
         self.view.addSubview(self.finishBtn)
         
     }

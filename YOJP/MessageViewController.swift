@@ -65,6 +65,7 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -94,8 +95,8 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-        let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cellId")
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        let cell : UITableViewCell = UITableViewCell(style: .Subtitle, reuseIdentifier: "Cell")
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         cell.imageView?.image = UIImage(named: self.tableViewDataArray1[indexPath.row] as! String)
@@ -105,6 +106,10 @@ class MessageViewController: UIViewController,UITableViewDelegate,UITableViewDat
         cell.textLabel?.font = font14
         cell.textLabel?.textColor = yojpText
         cell.detailTextLabel?.textColor = yojpLightText
+        
+        cell.imageView?.opaque = true
+        cell.textLabel?.opaque = true
+        cell.detailTextLabel?.opaque = true
         return cell
     }
     

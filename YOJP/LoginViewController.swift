@@ -48,12 +48,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
     
     func creatPaybayLogo() {
         self.paybayLogoImageView = UIImageView(frame: CGRectMake((screenWidth - 75)/2,  20 + 44 , 75, 75))
         self.paybayLogoImageView.image = UIImage(named: "YOJPLogo")
+        self.paybayLogoImageView.opaque = true
         self.view.addSubview(self.paybayLogoImageView)
     }
 
@@ -69,12 +71,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.staticUserName.text = "用户名"
         self.staticUserName.textColor = yojpText
         self.staticUserName.sizeToFit()
+        self.staticUserName.opaque = true
         self.loginView.addSubview(self.staticUserName)
         
         self.phoneTextField = UITextField(frame: CGRectMake(self.staticUserName.frame.origin.x + self.staticUserName.frame.size.width + 16, 0, screenWidth - 16 - self.staticUserName.frame.size.width - 16, 55))
         self.phoneTextField.placeholder = "手机号"
         self.phoneTextField.keyboardType = .NumberPad
         self.phoneTextField.delegate = self
+        self.phoneTextField.opaque = true
         self.loginView.addSubview(self.phoneTextField)
         
         self.betweenLine1 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 55, screenWidth-self.staticUserName.frame.origin.x - 16, 1))
@@ -85,12 +89,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.passwordLabel.text = "密   码"
         self.passwordLabel.textColor = yojpText
         self.passwordLabel.sizeToFit()
+        self.passwordLabel.opaque = true
         self.loginView.addSubview(self.passwordLabel)
         
         self.passwordTextField = UITextField(frame: CGRectMake(self.phoneTextField.frame.origin.x, self.phoneTextField.frame.size.height, self.phoneTextField.frame.size.width, self.phoneTextField.frame.size.height))
         self.passwordTextField.placeholder = "登录密码由6-20位字母或数字组成"
         self.passwordTextField.secureTextEntry = true
         self.passwordTextField.delegate = self
+        self.passwordTextField.opaque = true
         self.loginView.addSubview(self.passwordTextField)
         
         self.betweenLine2 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 110, self.betweenLine1.frame.size.width, 1))
@@ -106,6 +112,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.loginBtn.layer.cornerRadius = 4
         self.loginBtn.layer.masksToBounds = true
         self.loginBtn.addTarget(self, action: Selector("loginInBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.loginBtn.opaque = true
         self.view.addSubview(self.loginBtn)
         
         self.forgetPasswordBtn = UIButton(frame: CGRectMake(screenWidth - 100, self.loginBtn.frame.origin.y + self.loginBtn.frame.size.height + 8, 0, 21))
@@ -115,10 +122,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.forgetPasswordBtn.backgroundColor = UIColor.clearColor()
         self.forgetPasswordBtn.sizeToFit()
         self.forgetPasswordBtn.addTarget(self, action: Selector("forgetPassword"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.forgetPasswordBtn.opaque = true
         self.view.addSubview(self.forgetPasswordBtn)
         
         self.belowLine = UIImageView(frame: CGRectMake(self.forgetPasswordBtn.frame.origin.x, self.forgetPasswordBtn.frame.origin.y + self.forgetPasswordBtn.frame.size.height - 5, self.forgetPasswordBtn.frame.size.width, 1))
         self.belowLine.backgroundColor = yojpLightText
+        self.belowLine.opaque = true
         self.view.addSubview(self.belowLine)
         
         
@@ -130,14 +139,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.registerBtn.titleLabel!.font = font15
         self.registerBtn.titleLabel?.textAlignment = .Center
         self.registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.registerBtn.opaque = true
         self.view.addSubview(self.registerBtn)
         
         let leftLineImageView : UIImageView = UIImageView(frame: CGRectMake(16, self.registerBtn.center.y, screenWidth/2-self.registerBtn.frame.size.width/2-16, 1))
         leftLineImageView.backgroundColor = yojpLightText
+        leftLineImageView.opaque = true
         self.view.addSubview(leftLineImageView)
         
         let rightLineImageView : UIImageView = UIImageView(frame: CGRectMake(screenWidth-16-leftLineImageView.frame.size.width, self.registerBtn.center.y, leftLineImageView.frame.size.width, 1))
         rightLineImageView.backgroundColor = yojpLightText
+        rightLineImageView.opaque = true
         self.view.addSubview(rightLineImageView)
         
     }

@@ -77,6 +77,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(backBtn)
+        backBtn.opaque = true
         
         self.view.addSubview(self.customNavigationBar)
     }
@@ -92,6 +93,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.payView.addSubview(backBtn)
         
         let countLabel : UILabel = UILabel()
@@ -101,6 +103,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         countLabel.center = CGPointMake(screenWidth/2, 20)
         countLabel.bounds = CGRectMake(0, 0, 200, 30)
         countLabel.font = font17
+        countLabel.opaque = true
         self.payView.addSubview(countLabel)
     }
     
@@ -128,8 +131,8 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             for view in cell.subviews {
@@ -144,6 +147,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             payCountLabel.textAlignment = .Center
             payCountLabel.center = CGPointMake(screenWidth/2, 35)
             payCountLabel.bounds = CGRectMake(0, 0, 200, 25)
+            payCountLabel.opaque = true
             cell.addSubview(payCountLabel)
             
             let payLabel : UILabel = UILabel()
@@ -153,14 +157,15 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             payLabel.textAlignment = .Center
             payLabel.center = CGPointMake(screenWidth/2, 65)
             payLabel.bounds = CGRectMake(0, 0, 200, 40)
+            payLabel.opaque = true
             cell.addSubview(payLabel)
             
             return cell
         }
         else if indexPath.row == 1 {
             
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = UIColor(white: 246.0/255.0, alpha: 1)
@@ -173,19 +178,21 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             orderNumLabel.text = "订单号码：JP2000000000000"
             orderNumLabel.textColor = yojpText
             orderNumLabel.font = font14
+            orderNumLabel.opaque = true
             cell.addSubview(orderNumLabel)
             
             let addressLabel : UILabel = UILabel(frame: CGRectMake(16,orderNumLabel.frame.origin.y+orderNumLabel.frame.size.height + 8,300,20))
             addressLabel.text = "取货地址：某某街某某路某某号 东京店"
             addressLabel.textColor = yojpText
             addressLabel.font = font14
+            addressLabel.opaque = true
             cell.addSubview(addressLabel)
             
             return cell
         }
         else if indexPath.row == 2 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = yojpTableViewColor
             
@@ -198,6 +205,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             payTypeLabel.text = "支付方式:"
             payTypeLabel.textColor = yojpText
             payTypeLabel.font = font15
+            payTypeLabel.opaque = true
             cell.addSubview(payTypeLabel)
             
             return cell
@@ -222,8 +230,8 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
             return cell
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = yojpTableViewColor

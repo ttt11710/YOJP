@@ -64,6 +64,7 @@ class CardScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataO
         qrRectView.backgroundColor = UIColor.clearColor()
         qrRectView.center = CGPointMake(view.bounds.width/2, view.bounds.height/2)
         qrRectView.delegate = self
+        qrRectView.opaque = true
         view.addSubview(qrRectView)
         
         let pop = UIButton(type: .Custom)
@@ -119,6 +120,7 @@ class CardScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataO
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)

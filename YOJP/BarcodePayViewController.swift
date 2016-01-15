@@ -60,6 +60,7 @@ class BarcodePayViewController: UIViewController {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -80,6 +81,7 @@ class BarcodePayViewController: UIViewController {
         customLabel.bounds = CGRectMake(0, 0, 200, 25)
         customLabel.sizeToFit()
         customLabel.center = CGPointMake(screenWidth/2, 40)
+        customLabel.opaque = true
         self.barcodeView.addSubview(customLabel)
         
         let view : UIView = UIView(frame: CGRectMake(0,80,self.barcodeView.frame.size.width,self.barcodeView.frame.size.height-80))
@@ -89,6 +91,7 @@ class BarcodePayViewController: UIViewController {
         let barcodeImageView : UIImageView = UIImageView(image: UIImage(named: "条形码"))
         barcodeImageView.center = CGPointMake(view.center.x, 90)
         barcodeImageView.bounds = CGRectMake(0, 0, 250, 100)
+        barcodeImageView.opaque = true
         view.addSubview(barcodeImageView)
         
         
@@ -98,6 +101,7 @@ class BarcodePayViewController: UIViewController {
         view.addSubview(barcode2DImageView)
         barcode2DImageView.userInteractionEnabled = true
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("gotoPayView"))
+        barcode2DImageView.opaque = true
         barcode2DImageView.addGestureRecognizer(tap)
         
         
@@ -108,6 +112,7 @@ class BarcodePayViewController: UIViewController {
         tipLabel.font = font14
         tipLabel.center = CGPointMake(view.frame.size.width/2, barcode2DImageView.frame.origin.y + barcode2DImageView.frame.size.height + 30)
         tipLabel.bounds = CGRectMake(0, 0, 200, 25)
+        tipLabel.opaque = true
         view.addSubview(tipLabel)
     }
     

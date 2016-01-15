@@ -57,6 +57,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -80,6 +81,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         countCardName.text = "卡券名称:"
         countCardName.textColor = yojpText
         countCardName.sizeToFit()
+        countCardName.opaque = true
         self.scrollView.addSubview(countCardName)
         
         let cardName : UILabel = UILabel(frame: CGRectMake(countCardName.frame.origin.x + countCardName.frame.size.width + 5,40,screenWidth-countCardName.frame.origin.x - countCardName.frame.size.width - 5 - 16,30))
@@ -98,6 +100,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         useBtn.titleLabel?.font = font15
         useBtn.backgroundColor = UIColor.whiteColor()
         useBtn.addTarget(self, action: Selector("userBtnPressed"), forControlEvents: .TouchUpInside)
+        useBtn.titleLabel!.opaque = true
         self.scrollView.addSubview(useBtn)
         
         let countUseRuleLabel : UILabel = UILabel(frame: CGRectMake(16,useBtn.frame.origin.y + useBtn.frame.size.height + 16,100,30))
@@ -105,6 +108,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         countUseRuleLabel.textColor = yojpText
         countUseRuleLabel.font = font15
         countUseRuleLabel.sizeToFit()
+        countUseRuleLabel.opaque = true
         self.scrollView.addSubview(countUseRuleLabel)
         
         let useRuleLabelBackView : UIView = UIView(frame: CGRectMake(16,countUseRuleLabel.frame.origin.y + countUseRuleLabel.frame.size.height + 8,screenWidth-32,screenWidth-32))
@@ -117,6 +121,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         useRuleLabel.font = font15
         useRuleLabel.numberOfLines = 0
         useRuleLabel.sizeToFit()
+        useRuleLabel.opaque = true
         useRuleLabelBackView.addSubview(useRuleLabel)
         
     }

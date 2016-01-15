@@ -75,6 +75,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -91,6 +92,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.payView.addSubview(backBtn)
         
         let countLabel : UILabel = UILabel()
@@ -100,6 +102,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
         countLabel.center = CGPointMake(screenWidth/2, 20)
         countLabel.bounds = CGRectMake(0, 0, 200, 30)
         countLabel.font = font17
+        countLabel.opaque = true
         self.payView.addSubview(countLabel)
     }
     
@@ -127,8 +130,8 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             for view in cell.subviews {
@@ -143,6 +146,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             payCountLabel.textAlignment = .Center
             payCountLabel.center = CGPointMake(screenWidth/2, 35)
             payCountLabel.bounds = CGRectMake(0, 0, 200, 25)
+            payCountLabel.opaque = true
             cell.addSubview(payCountLabel)
             
             let payLabel : UILabel = UILabel()
@@ -152,6 +156,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             payLabel.textAlignment = .Center
             payLabel.center = CGPointMake(screenWidth/2, 65)
             payLabel.bounds = CGRectMake(0, 0, 200, 40)
+            payLabel.opaque = true
             cell.addSubview(payLabel)
             
             
@@ -160,14 +165,15 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             japanPayLabel.textAlignment = .Right
             japanPayLabel.textColor = yojpText
             japanPayLabel.font = font13
+            japanPayLabel.opaque = true
             cell.addSubview(japanPayLabel)
             
             return cell
         }
         else if indexPath.row == 1 {
             
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = UIColor(white: 246.0/255.0, alpha: 1)
@@ -180,19 +186,21 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             orderNumLabel.text = "订单号码：JP2000000000000"
             orderNumLabel.textColor = yojpText
             orderNumLabel.font = font14
+            orderNumLabel.opaque = true
             cell.addSubview(orderNumLabel)
             
             let addressLabel : UILabel = UILabel(frame: CGRectMake(16,orderNumLabel.frame.origin.y+orderNumLabel.frame.size.height + 8,300,20))
             addressLabel.text = "取货地址：某某街某某路某某号 东京店"
             addressLabel.textColor = yojpText
             addressLabel.font = font14
+            addressLabel.opaque = true
             cell.addSubview(addressLabel)
             
             return cell
         }
         else if indexPath.row == 2 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = yojpTableViewColor
             
@@ -208,12 +216,14 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             ticketLabel.sizeToFit()
             ticketLabel.frame = CGRectMake(screenWidth-16-ticketLabel.frame.size.width,8,ticketLabel.frame.size.width,20)
             ticketLabel.textAlignment = .Right
+            ticketLabel.opaque = true
             cell.addSubview(ticketLabel)
             
             let checkBtn : UIButton = UIButton(frame: CGRectMake(ticketLabel.frame.origin.x-22,8,20,20))
             checkBtn.setBackgroundImage(UIImage(named: "未选中"), forState: .Normal)
             checkBtn.setBackgroundImage(UIImage(named: "选中"), forState: .Selected)
             checkBtn.addTarget(self, action: Selector("checkBtnPressed:"), forControlEvents: .TouchUpInside)
+            checkBtn.opaque = true
             cell.addSubview(checkBtn)
         
             
@@ -221,6 +231,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             payTypeLabel.text = "支付方式:"
             payTypeLabel.textColor = yojpText
             payTypeLabel.font = font15
+            payTypeLabel.opaque = true
             cell.addSubview(payTypeLabel)
             
             return cell
@@ -245,8 +256,8 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             return cell
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = yojpTableViewColor
@@ -260,6 +271,7 @@ class CardScanPayViewController: UIViewController,UITableViewDataSource,UITableV
             sureBtn.bounds = CGRectMake(0, 0, screenWidth-32, 44)
             sureBtn.center = CGPointMake(screenWidth/2, 80)
             sureBtn.layer.cornerRadius = 4
+            sureBtn.titleLabel?.opaque = true
             cell.addSubview(sureBtn)
             
             sureBtn.callBack = { tag in

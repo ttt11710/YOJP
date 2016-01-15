@@ -138,7 +138,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
             // 字体大小
             button.titleLabel?.font = UIFont.systemFontOfSize(15)
             
-            button.backgroundColor = UIColor.whiteColor()
+            button.opaque = true
             // 添加点击事件
             button.addTarget(self, action:"btAction:" , forControlEvents:UIControlEvents.TouchUpInside)
             // 数组添加 button

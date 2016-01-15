@@ -56,6 +56,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -86,13 +87,14 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             let storeNameLabel : UILabel = UILabel(frame: CGRectMake(8,20,200,30))
             storeNameLabel.text = "某某品牌"
             storeNameLabel.textColor = yojpText
+            storeNameLabel.backgroundColor = yojpTableViewColor
             
             let cardBackView : UIView = UIView(frame: CGRectMake(16,storeNameLabel.frame.origin.y+storeNameLabel.frame.size.height + 8,screenWidth-32,380))
             cardBackView.backgroundColor = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1)
@@ -102,6 +104,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             ticketTypeLabel.text = "打折券"
             ticketTypeLabel.textColor = yojpText
             ticketTypeLabel.font = font15
+            ticketTypeLabel.opaque = true
             cardBackView.addSubview(ticketTypeLabel)
             
             
@@ -113,6 +116,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             validityLabel.numberOfLines = 2
             validityLabel.sizeToFit()
             validityLabel.frame = CGRectMake(cardBackView.frame.size.width-16-validityLabel.frame.size.width, 70-validityLabel.frame.size.height-8, validityLabel.frame.size.width, validityLabel.frame.size.height)
+            validityLabel.opaque = true
             cardBackView.addSubview(validityLabel)
             
             
@@ -123,6 +127,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             let barcodeBackImageView : UIImageView = UIImageView(image: UIImage(named: "2DBarcode"))
             barcodeBackImageView.center = CGPointMake(barcodeBackView.frame.size.width/2, barcodeBackView.center.y)
             barcodeBackImageView.bounds = CGRectMake(0, 0, 150, 150)
+            barcodeBackImageView.opaque = true
             cardBackView.addSubview(barcodeBackImageView)
             
             
@@ -133,6 +138,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             barcodeLabel.font = font15
             barcodeLabel.center = CGPointMake(barcodeBackImageView.center.x, barcodeBackImageView.center.y + barcodeBackImageView.frame.size.height/2+15)
             barcodeLabel.bounds = CGRectMake(0, 0, 200, 30)
+            barcodeLabel.opaque = true
             cardBackView.addSubview(barcodeLabel)
             
             let warmPrompt : UILabel = UILabel()
@@ -142,6 +148,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             warmPrompt.font = font15
             warmPrompt.center = CGPointMake(barcodeLabel.center.x, barcodeLabel.center.y + barcodeLabel.frame.size.height/2+10)
             warmPrompt.bounds = CGRectMake(0, 0, screenWidth, 30)
+            warmPrompt.opaque = true
             cardBackView.addSubview(warmPrompt)
             
             
@@ -153,8 +160,8 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.accessoryType = .DisclosureIndicator
             
@@ -164,6 +171,7 @@ class CardDetailsViewController: UIViewController,UITableViewDelegate,UITableVie
             
             cell.textLabel?.textColor = yojpText
             cell.textLabel?.font = font16
+            cell.textLabel!.opaque = true
             return cell
         }
     }

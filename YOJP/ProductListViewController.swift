@@ -98,6 +98,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         
@@ -171,8 +172,8 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         if tableView == self.tableView {
             if indexPath.section == 0 {
                 
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "cellId")
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 
@@ -185,6 +186,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                     
                     self.navigationController?.pushViewController(ScanViewController(), animated: true)
                 }
+                scanBtn.opaque = true
                 cell.addSubview(scanBtn)
                 
                 let label : UILabel = UILabel()
@@ -196,6 +198,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 label.font = font15
                 label.bounds = CGRectMake(0, 0, screenWidth/2, 30)
                 label.center = CGPointMake(screenWidth/2, 20+15)
+                label.opaque = true
                 cell.addSubview(label)
                 
                 
@@ -206,6 +209,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 detailLabel.font = font14
                 detailLabel.numberOfLines = 0
                 detailLabel.sizeToFit()
+                detailLabel.opaque = true
                 cell.addSubview(detailLabel)
                 
                 return cell
@@ -213,8 +217,8 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
             }
             if indexPath.section == 1 {
                 
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "cellId")
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell : UITableViewCell = UITableViewCell(style: .Default, reuseIdentifier: "Cell")
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 cell.accessoryType = .DisclosureIndicator
                 
@@ -228,8 +232,8 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
             }
             else if indexPath.section == 2 {
                 
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "cellId")
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell : UITableViewCell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 cell.accessoryType = .DisclosureIndicator
                 
@@ -258,8 +262,8 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
             }
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.textLabel?.text = self.selectTypeTableViewDataArray[indexPath.section] as? String

@@ -90,6 +90,7 @@ class FirstViewController: UIViewController {
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Normal)
         self.escapeBtn.addTarget(self, action: Selector("showEscapeView"), forControlEvents: .TouchUpInside)
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Highlighted)
+        self.escapeBtn.opaque = true
         
         self.view.insertSubview(self.escapeBtn, aboveSubview: self.view)
     }
@@ -158,7 +159,7 @@ class FirstViewController: UIViewController {
         let buttonH = self.tabBarView.frame.size.height
         
         customButton.frame = CGRectMake(buttonW * CGFloat(Index), 0, buttonW, buttonH)
-        customButton.backgroundColor = yojpBlue
+        customButton.opaque = true
         customButton.setBackgroundImage(UIImage(named: "未评价选中选中高亮"), forState: UIControlState.Disabled)
         customButton.setTitle(normal, forState: UIControlState.Normal)
         customButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)

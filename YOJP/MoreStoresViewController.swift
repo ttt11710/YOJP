@@ -45,6 +45,7 @@ class MoreStoresViewController: UIViewController,UITableViewDataSource,UITableVi
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
     }
@@ -78,8 +79,8 @@ class MoreStoresViewController: UIViewController,UITableViewDataSource,UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-        let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         for view in cell.subviews {
@@ -92,10 +93,12 @@ class MoreStoresViewController: UIViewController,UITableViewDataSource,UITableVi
             label.text = String(format: "商家%d:某某街某某路某某号 东京店   %d00米", (indexPath.row+1)/2+1,(indexPath.row+1)/2+1)
             label.font = font14
             label.textColor = yojpText
+            label.opaque = true
             cell.addSubview(label)
             
             let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 30, screenWidth, 1))
             imageView.image = UIImage(named: "dashedLine")
+            imageView.opaque = true
             cell.addSubview(imageView)
             
         }
@@ -106,6 +109,7 @@ class MoreStoresViewController: UIViewController,UITableViewDataSource,UITableVi
             label.text = "     日本最大的药妆品牌连锁店，店铺面积多少，拥有药妆品牌店铺优惠活动、优惠券"
             label.numberOfLines = 0
             label.sizeToFit()
+            label.opaque = true
             cell.addSubview(label)
             
             let view : UIView = UIView(frame: CGRectMake(0,label.frame.origin.y + label.frame.size.height + 8,screenWidth,8))

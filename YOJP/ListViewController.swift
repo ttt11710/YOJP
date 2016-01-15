@@ -22,6 +22,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         imageView.image = UIImage(named: "JapanBack")
+        imageView.opaque = true
         self.view.addSubview(imageView)
         
         self.creatTableView()
@@ -52,6 +53,7 @@ class ListViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)

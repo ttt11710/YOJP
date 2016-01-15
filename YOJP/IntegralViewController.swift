@@ -63,6 +63,7 @@ class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDa
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -92,6 +93,7 @@ class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDa
         titleLabel.text = "积分变动明细:"
         titleLabel.textColor = yojpText
         titleLabel.font = font15
+        titleLabel.opaque = true
         view.addSubview(titleLabel)
     
         return view
@@ -116,8 +118,8 @@ class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDa
         switch indexPath.section
         {
         case 0:
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = yojpTableViewColor
@@ -126,12 +128,14 @@ class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDa
             countLabel.text = "我的积分"
             countLabel.textColor = yojpText
             countLabel.font = font15
+            countLabel.opaque = true
             cell.contentView.addSubview(countLabel)
             
             let integralLabel : UILabel = UILabel(frame: CGRectMake(20,70,100,30))
             integralLabel.text = "36"
             integralLabel.textColor = yojpText
             integralLabel.font = UIFont.systemFontOfSize(30)
+            integralLabel.opaque = true
             cell.contentView.addSubview(integralLabel)
             
             return cell
@@ -145,6 +149,10 @@ class IntegralViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell.leftSubLabel.text = self.dataArray2[indexPath.row] as? String
             
             cell.rightLabel.text = "+10积分"
+            
+            cell.leftLabel.opaque = true
+            cell.leftSubLabel.opaque = true
+            cell.rightLabel.opaque = true
             
             return cell
             

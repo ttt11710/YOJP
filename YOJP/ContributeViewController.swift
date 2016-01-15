@@ -56,6 +56,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -86,12 +87,15 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
                 imageView.addGestureRecognizer(self.tap)
 
             }
+            
+            imageView.opaque = true
             self.imageArray.addObject(imageView.image!)
             self.backView.addSubview(imageView)
         }
         
         self.lineImageView = UIImageView(frame: CGRectMake(16, 10+(screenWidth-40)/3+10, screenWidth-32, 1))
         self.lineImageView.image = UIImage(named: "dashedLine")
+        self.lineImageView.opaque = true
         self.backView.addSubview(self.lineImageView)
         
         self.textView = UITextView(frame: CGRectMake(8, lineImageView.frame.origin.y+1+8, screenWidth-16, 200))
@@ -99,6 +103,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         self.textView.textColor = yojpLightText
         self.textView.font = font15
         self.textView.delegate = self
+        self.textView.opaque = true
         self.backView.addSubview(self.textView)
         
         
@@ -113,6 +118,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         contributeBtn.setTitleColor(yojpText, forState: .Highlighted)
         contributeBtn.titleLabel?.font = font15
         contributeBtn.addTarget(self, action: Selector("gotoContributePreview"), forControlEvents: .TouchUpInside)
+        contributeBtn.opaque = true
         self.contributeView.addSubview(contributeBtn)
         
     }

@@ -62,6 +62,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         nameLabel.textColor = yojpText
         nameLabel.textAlignment = .Right
         nameLabel.font = font15
+        nameLabel.opaque = true
         self.scrollView.addSubview(nameLabel)
         
         self.nameTextField = UITextField(frame: CGRectMake(nameLabel.frame.origin.x + nameLabel.frame.size.width + 8, nameLabel.frame.origin.y - 8,screenWidth - nameLabel.frame.origin.x-nameLabel.frame.size.width-8-32,nameLabel.frame.size.height+16))
@@ -72,6 +73,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         self.nameTextField.layer.borderColor = yojpText.CGColor
         self.nameTextField.layer.borderWidth = 1
         self.nameTextField.delegate = self
+        self.nameTextField.opaque = true
         self.scrollView.addSubview(self.nameTextField)
         
         let phoneLabel : UILabel = UILabel(frame: CGRectMake(0,nameLabel.frame.origin.y+nameLabel.frame.size.height+24,100,25))
@@ -79,6 +81,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         phoneLabel.textColor = yojpText
         phoneLabel.textAlignment = .Right
         phoneLabel.font = font15
+        phoneLabel.opaque = true
         self.scrollView.addSubview(phoneLabel)
         
        self.phoneTextField = UITextField(frame: CGRectMake(phoneLabel.frame.origin.x + phoneLabel.frame.size.width + 8, phoneLabel.frame.origin.y - 8,screenWidth - phoneLabel.frame.origin.x-phoneLabel.frame.size.width-8-32,phoneLabel.frame.size.height+16))
@@ -89,6 +92,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         self.phoneTextField.layer.borderColor = yojpText.CGColor
         self.phoneTextField.layer.borderWidth = 1
         self.phoneTextField.delegate = self
+        self.phoneTextField.opaque = true
         self.scrollView.addSubview(self.phoneTextField)
         
         let tipLabel : UILabel = UILabel()
@@ -98,6 +102,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         tipLabel.center = CGPointMake(phoneTextField.frame.origin.x+phoneTextField.frame.size.width-100, phoneTextField.frame.origin.y + phoneTextField.frame.size.height + 15)
         tipLabel.textColor = yojpText
         tipLabel.font = font14
+        tipLabel.opaque = true
         self.scrollView.addSubview(tipLabel)
         
         let IDCardLabel : UILabel = UILabel(frame: CGRectMake(0,phoneLabel.frame.origin.y+phoneLabel.frame.size.height+24 + 20,100,25))
@@ -105,6 +110,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         IDCardLabel.textColor = yojpText
         IDCardLabel.textAlignment = .Right
         IDCardLabel.font = font15
+        IDCardLabel.opaque = true
         self.scrollView.addSubview(IDCardLabel)
         
         self.IDCardTextField = UITextField(frame: CGRectMake(IDCardLabel.frame.origin.x + IDCardLabel.frame.size.width + 8, IDCardLabel.frame.origin.y - 8,screenWidth - IDCardLabel.frame.origin.x-IDCardLabel.frame.size.width-8-32,IDCardLabel.frame.size.height+16))
@@ -121,6 +127,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         BankAccountLabel.textColor = yojpText
         BankAccountLabel.textAlignment = .Right
         BankAccountLabel.font = font15
+        BankAccountLabel.opaque = true
         self.scrollView.addSubview(BankAccountLabel)
         
         self.BankAccountTextField = UITextField(frame: CGRectMake(BankAccountLabel.frame.origin.x + BankAccountLabel.frame.size.width + 8, BankAccountLabel.frame.origin.y - 8,screenWidth - BankAccountLabel.frame.origin.x-BankAccountLabel.frame.size.width-8-32,BankAccountLabel.frame.size.height+16))
@@ -141,6 +148,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         submitBtn.backgroundColor = yojpBlue
         submitBtn.addTarget(self, action: Selector("submitBtnPressed"), forControlEvents: .TouchUpInside)
         submitBtn.layer.cornerRadius = 4
+        submitBtn.titleLabel!.opaque = true
         self.scrollView.addSubview(submitBtn)
         
     }
@@ -154,6 +162,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         

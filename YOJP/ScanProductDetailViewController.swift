@@ -63,6 +63,7 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         
@@ -128,8 +129,8 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,200))
@@ -171,8 +172,8 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
             }
             else if indexPath.row == 1 {
                 
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 cell.textLabel?.text = "产品名称"
@@ -182,8 +183,8 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
                 return cell
             }
             else {
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 cell.textLabel?.text = "产品单价"
@@ -195,8 +196,8 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
         }
         else {
             
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             let label : UILabel = UILabel(frame: CGRectMake(16,16,screenWidth-32,30))

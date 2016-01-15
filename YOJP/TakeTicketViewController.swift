@@ -65,6 +65,7 @@ class TakeTicketViewController: UIViewController {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -91,6 +92,7 @@ class TakeTicketViewController: UIViewController {
         self.scrollView.addSubview(ticketBtn)
         
         let getTicket : UIButton = UIButton(frame: CGRectMake(screenWidth-90,ticketBtn.frame.origin.y + ticketBtn.frame.size.height + 8,70,30))
+        getTicket.opaque = true
         if self.ticketType == "免费券" {
             
             getTicket.setTitle("领取", forState: .Normal)
@@ -112,12 +114,14 @@ class TakeTicketViewController: UIViewController {
             
             let picketImageView : UIImageView = UIImageView(frame: CGRectMake(16, getTicket.frame.origin.y+2, 36, 25))
             picketImageView.image = UIImage(named: "card")
+            picketImageView.opaque = true
             self.scrollView.addSubview(picketImageView)
             
             let moneyLabel : UILabel = UILabel(frame: CGRectMake(picketImageView.frame.origin.x+picketImageView.frame.size.width + 4,picketImageView.frame.origin.y,100,25))
             moneyLabel.text = "￥30.00"
             moneyLabel.font = font15
             moneyLabel.textColor = yojpText
+            moneyLabel.opaque = true
             self.scrollView.addSubview(moneyLabel)
             
         }
@@ -128,6 +132,7 @@ class TakeTicketViewController: UIViewController {
         countUseRuleLabel.textColor = yojpText
         countUseRuleLabel.font = font15
         countUseRuleLabel.sizeToFit()
+        countUseRuleLabel.opaque = true
         self.scrollView.addSubview(countUseRuleLabel)
         
         let useRuleLabelBackView : UIView = UIView(frame: CGRectMake(16,countUseRuleLabel.frame.origin.y + countUseRuleLabel.frame.size.height + 8,screenWidth-32,screenWidth-32))
@@ -140,6 +145,7 @@ class TakeTicketViewController: UIViewController {
         useRuleLabel.font = font15
         useRuleLabel.numberOfLines = 0
         useRuleLabel.sizeToFit()
+        useRuleLabel.opaque = true
         useRuleLabelBackView.addSubview(useRuleLabel)
     }
     

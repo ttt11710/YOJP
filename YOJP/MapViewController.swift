@@ -31,6 +31,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         backBtn.frame = CGRectMake(20, 30, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Blue"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
     

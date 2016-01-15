@@ -62,6 +62,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
 
@@ -76,12 +77,14 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.staticUserName.text = "用户名"
         self.staticUserName.textColor = yojpBlue
         self.staticUserName.sizeToFit()
+        self.staticUserName.opaque = true
         self.registerView.addSubview(self.staticUserName)
         
         self.phoneTextField = UITextField(frame: CGRectMake(self.staticUserName.frame.origin.x + self.staticUserName.frame.size.width + 16, 0, screenWidth - 16 - self.staticUserName.frame.size.width - 16, 55))
         self.phoneTextField.placeholder = "请输入手机号码"
         self.phoneTextField.delegate = self
         self.phoneTextField.keyboardType = .NumberPad
+        self.phoneTextField.opaque = true
         self.registerView.addSubview(self.phoneTextField)
         
         self.betweenLine1 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 55, screenWidth-self.staticUserName.frame.origin.x - 16, 1))
@@ -92,12 +95,14 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.passwordLabel.text = "密码"
         self.passwordLabel.textColor = yojpBlue
         self.passwordLabel.sizeToFit()
+        self.passwordLabel.opaque = true
         self.registerView.addSubview(self.passwordLabel)
         
         self.passwordTextField = UITextField(frame: CGRectMake(self.phoneTextField.frame.origin.x, self.phoneTextField.frame.size.height, self.phoneTextField.frame.size.width, self.phoneTextField.frame.size.height))
         self.passwordTextField.placeholder = "请输入密码"
         self.passwordTextField.secureTextEntry = true
         self.passwordTextField.delegate = self
+        self.passwordTextField.opaque = true
         self.registerView.addSubview(self.passwordTextField)
         
         self.betweenLine2 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 110, screenWidth-self.staticUserName.frame.origin.x - 16, 1))
@@ -115,6 +120,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.captchaTextField.placeholder = "请输入验证码"
         self.captchaTextField.delegate = self
         self.captchaTextField.keyboardType = .NumberPad
+        self.captchaTextField.opaque = true
         self.captchaView.addSubview(self.captchaTextField)
         
         
@@ -128,6 +134,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.getCaptchaBtn.titleLabel?.font = font16
         self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x + self.captchaTextField.frame.size.width, 10, 120, 35)
         self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.getCaptchaBtn.titleLabel!.opaque = true
         self.captchaView.addSubview(self.getCaptchaBtn)
         
         self.betweenLine3 = UIImageView(frame: CGRectMake(self.staticUserName.frame.origin.x, 55, self.captchaTextField.frame.size.width, 1))
@@ -159,6 +166,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.registerBtn.layer.cornerRadius = 4
         self.registerBtn.layer.masksToBounds = true
         self.registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.registerBtn.titleLabel!.opaque = true
         self.view.addSubview(self.registerBtn)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("agreeClauseViewChanged:"), name: GROUP_CHANGED, object: self.agreeClauseView)

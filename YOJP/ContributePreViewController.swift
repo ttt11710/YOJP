@@ -51,6 +51,7 @@ class ContributePreViewController: UIViewController {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -74,7 +75,7 @@ class ContributePreViewController: UIViewController {
             let imageView : UIImageView = UIImageView(frame: CGRectMake(CGFloat(i%3+1)*10+CGFloat(i%3)*(screenWidth-40)/3, 10*CGFloat(i/3+1)+CGFloat(i/3)*(screenWidth-40)/3+10, (screenWidth-40)/3, (screenWidth-40)/3))
             
             imageView.image = self.imageArray[i] as? UIImage
-            
+            imageView.opaque = true
             self.scrollView.addSubview(imageView)
         }
         
@@ -83,6 +84,7 @@ class ContributePreViewController: UIViewController {
         contributeLabel.text = self.contributeViewText
         contributeLabel.textColor = yojpText
         contributeLabel.sizeToFit()
+        contributeLabel.opaque = true
         self.scrollView.addSubview(contributeLabel)
         
         
@@ -94,6 +96,7 @@ class ContributePreViewController: UIViewController {
         contributeBtn.titleLabel?.font = font15
         contributeBtn.addTarget(self, action: Selector("finishContributePreview"), forControlEvents: .TouchUpInside)
         contributeBtn.layer.cornerRadius = 4
+        contributeBtn.opaque = true
         self.scrollView.addSubview(contributeBtn)
         
         

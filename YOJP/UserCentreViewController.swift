@@ -47,6 +47,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -84,8 +85,8 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
@@ -96,6 +97,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
             
             let imageView : UIImageView = UIImageView(frame: CGRectMake(0, 0, screenWidth, 200))
             imageView.image = UIImage(named: "userCenterBack")
+            imageView.opaque = true
             cell.addSubview(imageView)
             
             if CurrentUser.user == nil {
@@ -107,6 +109,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 label.text = "还没有登录哦"
                 label.textColor = yojpText
                 label.font = font15
+                label.opaque = true
                 cell.addSubview(label)
                 
                 let loginBtn : UIButton = UIButton()
@@ -116,6 +119,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 loginBtn.setTitleColor(yojpText, forState: .Normal)
                 loginBtn.titleLabel?.font = font15
                 loginBtn.addTarget(self, action: Selector("loginBtnPressed"), forControlEvents: .TouchUpInside)
+                loginBtn.opaque = true
                 cell.addSubview(loginBtn)
                 
                 let registerBtn : UIButton = UIButton()
@@ -125,6 +129,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 registerBtn.setTitleColor(yojpText, forState: .Normal)
                 registerBtn.titleLabel?.font = font15
                 registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: .TouchUpInside)
+                registerBtn.opaque = true
                 cell.addSubview(registerBtn)
 
             }
@@ -138,6 +143,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 label.text = String(format: "用户账号:%@", (CurrentUser.user?.userId)!)
                 label.textColor = yojpText
                 label.font = font15
+                label.opaque = true
                 cell.addSubview(label)
             }
             
@@ -145,15 +151,15 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
 
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.textLabel?.text = self.tableViewDataArray1[indexPath.section-1] as? String
             cell.textLabel?.font = font15
             cell.textLabel?.textColor = yojpText
-            
+            cell.textLabel?.opaque = true
             cell.layoutSubviews()
             
             return cell

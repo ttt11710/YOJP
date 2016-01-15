@@ -113,6 +113,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         let imageView : UIImageView = UIImageView(image: UIImage(named: "空页面"))
         imageView.center = CGPointMake(screenWidth/2, (screenHeight-88)/2-40)
         imageView.bounds = CGRectMake(0, 0, 80, 75)
+        imageView.opaque = true
         self.view.addSubview(imageView)
         
         
@@ -123,6 +124,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         label.font = font15
         label.center = CGPointMake(screenWidth/2, (screenHeight-88)/2 + 20)
         label.bounds = CGRectMake(0, 0, 200, 21)
+        label.opaque = true
         self.view.addSubview(label)
     }
     
@@ -136,6 +138,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -162,6 +165,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         self.sumLabel.textColor = yojpText
         self.sumLabel.textAlignment = .Center
         self.sumLabel.font = font16
+        self.sumLabel.opaque = true
         settlementView.addSubview(self.sumLabel)
         
 //        let sumBtn : UIButton = UIButton(frame: CGRectMake(screenWidth-100,4,90,36))
@@ -198,6 +202,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         chooseBtn.setBackgroundImage(UIImage(named: "圆圈选中"), forState: .Selected)
         view.addSubview(chooseBtn)
         chooseBtn.setupBlock()
+        chooseBtn.opaque = true
         chooseBtn.callBack = { tag in
             
             chooseBtn.selected = !chooseBtn.selected
@@ -206,6 +211,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         let storeName : UILabel = UILabel(frame: CGRectMake(30+4,4,100,21))
         storeName.text = "商家名称"
         storeName.textColor = yojpText
+        storeName.opaque = true
         view.addSubview(storeName)
         
         let editCallBtn : CallBackButton = CallBackButton(frame: CGRectMake(screenWidth-70,4,60,21))
@@ -215,6 +221,7 @@ class NewCollectionViewController: UIViewController,UITableViewDelegate,UITableV
         editCallBtn.titleLabel!.font = font15
         editCallBtn.tag = section
         editCallBtn.setupBlock()
+        editCallBtn.opaque = true
         editCallBtn.callBack = { tag in
             
             self.tableViewSectionArray[tag] = self.tableViewSectionArray[tag] as! String == "0" ? "1" : "0"

@@ -63,6 +63,7 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
         backBtn.frame = CGRectMake(20, 4, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Blue"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("dismiss"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.addSubview(backBtn)
         
         let countLabel : UILabel = UILabel(frame: CGRectMake(64,4,SCREEN_SIZE_WIDTH-128,30))

@@ -69,6 +69,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -88,8 +89,8 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             for view in cell.subviews {
@@ -104,14 +105,15 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             payTypeLabel.textAlignment = .Center
             payTypeLabel.center = CGPointMake(screenWidth/2, 35)
             payTypeLabel.bounds = CGRectMake(0, 0, 200, 25)
+            payTypeLabel.opaque = true
             cell.addSubview(payTypeLabel)
             
             return cell
 
         }
         else if indexPath.section == 1 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             for view in cell.subviews {
@@ -126,6 +128,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             payCountLabel.textAlignment = .Center
             payCountLabel.center = CGPointMake(screenWidth/2, 35)
             payCountLabel.bounds = CGRectMake(0, 0, 200, 25)
+            payCountLabel.opaque = true
             cell.addSubview(payCountLabel)
             
             let payLabel : UILabel = UILabel()
@@ -135,14 +138,15 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             payLabel.textAlignment = .Center
             payLabel.center = CGPointMake(screenWidth/2, 65)
             payLabel.bounds = CGRectMake(0, 0, 200, 40)
+            payLabel.opaque = true
             cell.addSubview(payLabel)
             
             return cell
 
         }
         else if indexPath.section == 2 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = UIColor(white: 246.0/255.0, alpha: 1)
@@ -155,26 +159,29 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             orderNumLabel.text = "订单号码：JP2000000000000"
             orderNumLabel.textColor = yojpText
             orderNumLabel.font = font14
+            orderNumLabel.opaque = true
             cell.addSubview(orderNumLabel)
             
             let payTimeLabel : UILabel = UILabel(frame: CGRectMake(16,orderNumLabel.frame.origin.y+orderNumLabel.frame.size.height + 8,300,20))
             payTimeLabel.text = "2015.12.28 11:29"
             payTimeLabel.textColor = yojpText
             payTimeLabel.font = font14
+            payTimeLabel.opaque = true
             cell.addSubview(payTimeLabel)
             
             let addressLabel : UILabel = UILabel(frame: CGRectMake(16,payTimeLabel.frame.origin.y+payTimeLabel.frame.size.height + 8,300,20))
             addressLabel.text = "商家地址：某某街某某路某某号 东京店"
             addressLabel.textColor = yojpText
             addressLabel.font = font14
+            addressLabel.opaque = true
             cell.addSubview(addressLabel)
             
             return cell
 
         }
         else  {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.backgroundColor = yojpTableViewColor
@@ -188,6 +195,7 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
             sureBtn.bounds = CGRectMake(0, 0, screenWidth-32, 44)
             sureBtn.center = CGPointMake(screenWidth/2, 80)
             sureBtn.layer.cornerRadius = 4
+            sureBtn.titleLabel!.opaque = true
             cell.addSubview(sureBtn)
             
             sureBtn.callBack = { tag in
@@ -201,6 +209,10 @@ class PaySuccessViewController: UIViewController,UITableViewDelegate,UITableView
         }
     }
 
+    
+    func backClicked() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -271,8 +271,8 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
             if indexPath.row == 0 {
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
                 
                 cell.selectionStyle = .None
                 
@@ -334,17 +334,18 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             }
             else {
-                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-                let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
                 
                 cell.selectionStyle = .None
                 
                 let string : String = self.dataArray1[indexPath.row-1] as! String
                 cell.imageView?.image = UIImage(named: string)
+                cell.imageView?.opaque = true
                 cell.textLabel?.text = string
                 cell.textLabel?.textColor = yojpLightText
                 cell.backgroundColor = UIColor.clearColor()
-                
+                cell.textLabel?.opaque = true
                 return cell
         }
     }

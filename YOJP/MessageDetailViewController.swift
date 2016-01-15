@@ -57,6 +57,7 @@ class MessageDetailViewController: UIViewController,UIScrollViewDelegate {
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
         
@@ -77,6 +78,7 @@ class MessageDetailViewController: UIViewController,UIScrollViewDelegate {
         messageTitleLabel.font = font14
         messageTitleLabel.textColor = yojpText
         messageTitleLabel.sizeToFit()
+        messageTitleLabel.opaque = true
         self.scrollView.addSubview(messageTitleLabel)
         
         let dateLabel : UILabel = UILabel(frame: CGRectMake(16,messageTitleLabel.frame.origin.y + messageTitleLabel.frame.size.height + 8,100,20))
@@ -84,6 +86,7 @@ class MessageDetailViewController: UIViewController,UIScrollViewDelegate {
         dateLabel.textColor = yojpLightText
         dateLabel.font = font13
         dateLabel.sizeToFit()
+        dateLabel.opaque = true
         self.scrollView.addSubview(dateLabel)
         
         let messageDetailLabel : UILabel = UILabel(frame: CGRectMake(8,dateLabel.frame.origin.y + dateLabel.frame.size.height+20,screenWidth-16,20))
@@ -92,6 +95,7 @@ class MessageDetailViewController: UIViewController,UIScrollViewDelegate {
         messageDetailLabel.font = font15
         messageDetailLabel.numberOfLines = 0
         messageDetailLabel.sizeToFit()
+        messageDetailLabel.opaque = true
         self.scrollView.addSubview(messageDetailLabel)
         
         

@@ -47,6 +47,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
         backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -78,8 +79,8 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             let storeName : UILabel = UILabel()
@@ -89,6 +90,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             storeName.textColor = yojpText
             storeName.font = font20
             storeName.textAlignment = .Center
+            storeName.opaque = true
             cell.addSubview(storeName)
             
             let contentLabel : UILabel = UILabel(frame: CGRectMake(16,70,screenWidth-32,30))
@@ -97,13 +99,14 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             contentLabel.textColor = yojpText
             contentLabel.font = font14
             contentLabel.sizeToFit()
+            contentLabel.opaque = true
             cell.addSubview(contentLabel)
             
             return cell
         }
         else if indexPath.row == 1 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             
@@ -116,6 +119,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label1.textAlignment = .Center
             label1.textColor = yojpText
             label1.font = font15
+            label1.opaque = true
             cell.addSubview(label1)
             
             let label2 : UILabel = UILabel(frame: CGRectMake(screenWidth/4,10,screenWidth/4,25))
@@ -123,6 +127,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label2.textAlignment = .Center
             label2.textColor = yojpText
             label2.font = font15
+            label2.opaque = true
             cell.addSubview(label2)
             
             let label3 : UILabel = UILabel(frame: CGRectMake(screenWidth/2,10,screenWidth/4,25))
@@ -130,6 +135,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label3.textAlignment = .Center
             label3.textColor = yojpText
             label3.font = font15
+            label3.opaque = true
             cell.addSubview(label3)
             
             let label4 : UILabel = UILabel(frame: CGRectMake(screenWidth/4*3,10,screenWidth/4,25))
@@ -137,17 +143,19 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label4.textAlignment = .Center
             label4.textColor = yojpText
             label4.font = font15
+            label4.opaque = true
             cell.addSubview(label4)
             
             let lineImageView2 = UIImageView(frame: CGRectMake(0, 43, screenWidth-32, 1))
             lineImageView2.image = UIImage(named: "dashedLine")
+            lineImageView2.opaque = true
             cell.addSubview(lineImageView2)
             
             return cell
         }
         else if indexPath.row >= 2  && indexPath.row <= 6 {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
 
             let label1 : UILabel = UILabel(frame: CGRectMake(0,10,screenWidth/4,25))
@@ -155,6 +163,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label1.textAlignment = .Center
             label1.textColor = yojpText
             label1.font = font15
+            label1.opaque = true
             cell.addSubview(label1)
             
             let label2 : UILabel = UILabel(frame: CGRectMake(screenWidth/4,10,screenWidth/4,25))
@@ -162,6 +171,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label2.textAlignment = .Center
             label2.textColor = yojpText
             label2.font = font15
+            label2.opaque = true
             cell.addSubview(label2)
             
             let label3 : UILabel = UILabel(frame: CGRectMake(screenWidth/2,10,screenWidth/4,25))
@@ -169,6 +179,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label3.textAlignment = .Center
             label3.textColor = yojpText
             label3.font = font15
+            label3.opaque = true
             cell.addSubview(label3)
             
             let label4 : UILabel = UILabel(frame: CGRectMake(screenWidth/4*3,10,screenWidth/4,25))
@@ -176,35 +187,39 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             label4.textAlignment = .Center
             label4.textColor = yojpText
             label4.font = font15
+            label4.opaque = true
             cell.addSubview(label4)
             
             if indexPath.row == 6 {
                 let lineImageView = UIImageView(frame: CGRectMake(0, 43, screenWidth-32, 1))
                 lineImageView.image = UIImage(named: "dashedLine")
+                lineImageView.opaque = true
                 cell.addSubview(lineImageView)
             }
             return cell
         }
         else if indexPath.row == 7 {
            
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             cell.textLabel?.text = "合计:9999日元"
             cell.textLabel?.textColor = yojpText
             cell.textLabel?.font = font16
+            cell.textLabel?.opaque = true
             return cell
         }
         else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("cellId", forIndexPath: indexPath) as UITableViewCell
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             cell.backgroundColor = yojpLightCell
             
             cell.textLabel?.text = "商家地址：某某街某某路某某号 东京店"
             cell.textLabel?.textColor = yojpText
             cell.textLabel?.font = font15
+            cell.textLabel?.opaque = true
             return cell
         }
     }
