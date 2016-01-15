@@ -26,6 +26,7 @@ class ScrollViewCollectionViewCell: UICollectionViewCell,UIScrollViewDelegate {
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.delegate = self
+        self.scrollView.backgroundColor = UIColor.whiteColor()
         
         self.pageControl.numberOfPages = imageCount
         self.pageControl.currentPage = 0
@@ -37,6 +38,7 @@ class ScrollViewCollectionViewCell: UICollectionViewCell,UIScrollViewDelegate {
             
             let imageView = UIImageView(frame: CGRectMake(screenWidth * CGFloat(index), 0, screenWidth, self.frame.size.height))
             imageView.clipsToBounds = true
+            imageView.backgroundColor = UIColor.whiteColor()
             imageView.contentMode = .ScaleAspectFill
             if index == 0 {
                 imageView.sd_setImageWithURL(NSURL(string: ""), placeholderImage: UIImage(named: "back3"))

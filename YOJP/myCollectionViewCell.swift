@@ -22,6 +22,10 @@ class myCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.backImageView.backgroundColor = UIColor.whiteColor()
+        self.desLabel.backgroundColor = UIColor.whiteColor()
+        self.dateLabel.backgroundColor = UIColor.whiteColor()
+        
         var string : String = "免费券"
         switch arc4random()%4 {
         case 0:

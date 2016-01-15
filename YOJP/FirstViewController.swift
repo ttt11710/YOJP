@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+var defaultFirstViewController : FirstViewController!
+
 class FirstViewController: UIViewController {
 
     
@@ -27,11 +30,14 @@ class FirstViewController: UIViewController {
 
         self.view.backgroundColor = UIColor.whiteColor()
         
+        defaultFirstViewController = self
+        
         self.myView = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight-64))
         self.view.addSubview(self.myView)
         
         let leftButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .Done, target: self, action: Selector("leftButtonPressed"))
         self.navigationItem.setLeftBarButtonItem(leftButtonItem, animated: true)
+        
         
         let rightButtonItem1 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "搜索"), style: .Done, target: self, action: Selector("rightButton1Press"))
         
@@ -72,6 +78,11 @@ class FirstViewController: UIViewController {
         tempAppDelegatea.leftSlideVC.setPanEnabled(false)
     }
 
+    
+    class func shareFirstViewController() -> FirstViewController {
+        return defaultFirstViewController
+    }
+    
     func creatEscapeBtn() {
         
         self.escapeBtn = UIButton(type: .Custom)
@@ -147,7 +158,7 @@ class FirstViewController: UIViewController {
         let buttonH = self.tabBarView.frame.size.height
         
         customButton.frame = CGRectMake(buttonW * CGFloat(Index), 0, buttonW, buttonH)
-        
+        customButton.backgroundColor = yojpBlue
         customButton.setBackgroundImage(UIImage(named: "未评价选中选中高亮"), forState: UIControlState.Disabled)
         customButton.setTitle(normal, forState: UIControlState.Normal)
         customButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)

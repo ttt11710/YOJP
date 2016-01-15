@@ -8,6 +8,8 @@
 
 import UIKit
 
+var oldOffsetY : CGFloat = 0
+
 class FeatureSecondViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
@@ -49,6 +51,10 @@ class FeatureSecondViewController: UIViewController,UITableViewDelegate,UITableV
             return screenWidth/5*3+8+label.frame.size.height+8
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
@@ -70,7 +76,22 @@ class FeatureSecondViewController: UIViewController,UITableViewDelegate,UITableV
             storeDetailViewController.storeNameSrting = indexPath.row % 2 == 0 ? "品牌介绍":"软文推荐"
             self.navigationController?.pushViewController(storeDetailViewController, animated: true)
     }
-
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > oldOffsetY {
+            FirstViewController.shareFirstViewController().escapeBtn.hidden = true
+        }
+        else {
+            FirstViewController.shareFirstViewController().escapeBtn.hidden = false
+        }
+        
+        oldOffsetY = scrollView.contentOffset.y
+        
+        if scrollView.contentOffset.y == 0 {
+           FirstViewController.shareFirstViewController().escapeBtn.hidden = false
+        }
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

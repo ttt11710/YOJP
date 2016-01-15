@@ -108,6 +108,22 @@ class FreeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }
     }
 
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > oldOffsetY {
+            FirstViewController.shareFirstViewController().escapeBtn.hidden = true
+        }
+        else {
+            FirstViewController.shareFirstViewController().escapeBtn.hidden = false
+        }
+        
+        oldOffsetY = scrollView.contentOffset.y
+        
+        if scrollView.contentOffset.y == 0 {
+            FirstViewController.shareFirstViewController().escapeBtn.hidden = false
+        }
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
