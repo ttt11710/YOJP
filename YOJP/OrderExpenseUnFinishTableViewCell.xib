@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenseTableViewCellId" rowHeight="118" id="KGk-i7-Jjw" customClass="ExpenseTableViewCell" customModule="YOJP" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderExpenseUnFinishTableViewCellId" rowHeight="118" id="KGk-i7-Jjw" customClass="OrderExpenseUnFinishTableViewCell" customModule="YOJP" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,50 +19,51 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSv-pT-Fpk">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2DBarcode" translatesAutoresizingMaskIntoConstraints="NO" id="9WI-n9-iJ8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="bLx-0f-RsF">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Rpx-dD-teQ"/>
-                                    <constraint firstAttribute="width" constant="25" id="tS7-cr-4Fq"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Rpx-dD-teQ"/>
-                                        <exclude reference="tS7-cr-4Fq"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Rpx-dD-teQ"/>
-                                        <include reference="tS7-cr-4Fq"/>
-                                    </mask>
-                                </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等待取货" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3i-sr-oyf">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9WI-n9-iJ8" secondAttribute="trailing" constant="8" id="28N-II-nxl"/>
-                            <constraint firstItem="9WI-n9-iJ8" firstAttribute="top" secondItem="LSv-pT-Fpk" secondAttribute="top" constant="8" id="MOB-4z-weQ"/>
-                            <constraint firstItem="9WI-n9-iJ8" firstAttribute="centerY" secondItem="LSv-pT-Fpk" secondAttribute="centerY" id="P5a-IL-yhL"/>
+                            <constraint firstItem="z3i-sr-oyf" firstAttribute="centerY" secondItem="LSv-pT-Fpk" secondAttribute="centerY" id="I3X-gh-G81"/>
+                            <constraint firstItem="bLx-0f-RsF" firstAttribute="top" secondItem="z3i-sr-oyf" secondAttribute="top" id="Ulb-O2-nhl"/>
+                            <constraint firstItem="bLx-0f-RsF" firstAttribute="leading" secondItem="z3i-sr-oyf" secondAttribute="leading" id="faf-4A-KT8"/>
+                            <constraint firstAttribute="trailing" secondItem="z3i-sr-oyf" secondAttribute="trailing" constant="8" id="kCi-Dx-rUf"/>
+                            <constraint firstItem="bLx-0f-RsF" firstAttribute="centerY" secondItem="z3i-sr-oyf" secondAttribute="centerY" id="kFC-20-Kdd"/>
+                            <constraint firstItem="bLx-0f-RsF" firstAttribute="trailing" secondItem="z3i-sr-oyf" secondAttribute="trailing" id="reh-Ju-69J"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="9WI-n9-iJ8"/>
+                                <exclude reference="bLx-0f-RsF"/>
+                                <exclude reference="z3i-sr-oyf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="28N-II-nxl"/>
-                                <exclude reference="MOB-4z-weQ"/>
-                                <exclude reference="P5a-IL-yhL"/>
+                                <exclude reference="Ulb-O2-nhl"/>
+                                <exclude reference="faf-4A-KT8"/>
+                                <exclude reference="kFC-20-Kdd"/>
+                                <exclude reference="reh-Ju-69J"/>
+                                <exclude reference="I3X-gh-G81"/>
+                                <exclude reference="kCi-Dx-rUf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="9WI-n9-iJ8"/>
+                                <include reference="bLx-0f-RsF"/>
+                                <include reference="z3i-sr-oyf"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="28N-II-nxl"/>
-                                <exclude reference="MOB-4z-weQ"/>
-                                <include reference="P5a-IL-yhL"/>
+                                <include reference="Ulb-O2-nhl"/>
+                                <include reference="faf-4A-KT8"/>
+                                <include reference="kFC-20-Kdd"/>
+                                <include reference="reh-Ju-69J"/>
+                                <include reference="I3X-gh-G81"/>
+                                <include reference="kCi-Dx-rUf"/>
                             </mask>
                         </variation>
                     </view>
@@ -94,18 +95,12 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="widthClass=compact" misplaced="YES">
-                            <rect key="frame" x="76" y="46" width="215" height="17"/>
-                        </variation>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单状态:已完成" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaM-zS-uP8">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="widthClass=compact" misplaced="YES">
-                            <rect key="frame" x="76" y="96" width="103" height="17"/>
-                        </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9G-fn-Gq6">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -148,9 +143,6 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <variation key="widthClass=compact" misplaced="YES">
-                            <rect key="frame" x="76" y="71" width="101" height="17"/>
-                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -251,7 +243,6 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="barcodeImageView" destination="9WI-n9-iJ8" id="eBQ-8q-xi7"/>
                 <outlet property="label1" destination="zUN-qu-PHt" id="whM-Ll-SW7"/>
                 <outlet property="label2" destination="2Vf-0M-9WM" id="49g-m4-QzN"/>
                 <outlet property="label3" destination="yaM-zS-uP8" id="Ekm-if-adB"/>
@@ -262,7 +253,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="2DBarcode" width="54" height="54"/>
         <image name="YOJPLogo" width="60" height="60"/>
+        <image name="tag" width="80" height="24"/>
     </resources>
 </document>

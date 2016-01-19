@@ -1,14 +1,14 @@
 //
-//  OrderExpenseViewController.swift
+//  OrderExpenseFinishViewController.swift
 //  YOJP
 //
-//  Created by PayBay on 16/1/13.
+//  Created by PayBay on 16/1/19.
 //  Copyright © 2016年 PayBay. All rights reserved.
 //
 
 import UIKit
 
-class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class OrderExpenseFinishViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     var customNavigationBar : UIView!
     
@@ -65,11 +65,11 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 10
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0  {
+        if indexPath.row == 0 || indexPath.row == 9 {
             return 150
         }
         else if indexPath.row == 7 {
@@ -224,7 +224,7 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             
             return cell
         }
-        else  {
+        else  if indexPath.row == 8 {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
             let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -243,6 +243,33 @@ class OrderExpenseViewController: UIViewController,UITableViewDataSource,UITable
             depositCardLabel.font = font14
             depositCardLabel.opaque = true
             cell.addSubview(depositCardLabel)
+            
+            return cell
+        }
+        else {
+            
+            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            let barcode2DImageView : UIImageView = UIImageView(frame: CGRectMake(32, 32, 60, 60))
+            barcode2DImageView.image = UIImage(named: "2DBarcode")
+            barcode2DImageView.opaque = true
+            cell.addSubview(barcode2DImageView)
+            
+            let label1 : UILabel = UILabel(frame: CGRectMake(barcode2DImageView.frame.origin.x + barcode2DImageView.frame.size.width + 8, 40,200,25))
+            label1.text = "谢谢惠顾，购物愉快!"
+            label1.textColor = yojpText
+            label1.font = font15
+            label1.opaque = true
+            cell.addSubview(label1)
+            
+            let label2 : UILabel = UILabel(frame: CGRectMake(label1.frame.origin.x , label1.frame.origin.y + label1.frame.size.height+2,300,25))
+            label2.text = "取货时间：2016-01-18 13：19"
+            label2.textColor = yojpText
+            label2.font = font15
+            label2.opaque = true
+            cell.addSubview(label2)
             
             return cell
         }

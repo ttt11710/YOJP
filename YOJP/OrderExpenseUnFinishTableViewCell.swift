@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ExpenseTableViewCell: UITableViewCell {
+class OrderExpenseUnFinishTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var barcodeImageView: UIImageView!
     @IBOutlet weak var storeLogoImageView: UIImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!

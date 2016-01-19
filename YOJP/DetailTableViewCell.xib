@@ -3,14 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCellId" rowHeight="419" id="KGk-i7-Jjw" customClass="DetailTableViewCell" customModule="YOJP" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCellId" rowHeight="433" id="KGk-i7-Jjw" customClass="DetailTableViewCell" customModule="YOJP" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="453" height="375"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -36,6 +36,12 @@
                             <constraint firstAttribute="width" secondItem="Wsn-wm-dZa" secondAttribute="height" multiplier="5:3" id="Cxd-o4-Yjr"/>
                         </constraints>
                     </imageView>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库存量:50件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNJ-PU-Toe">
+                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="tI7-eO-B2o">
                         <rect key="frame" x="329" y="334" width="36" height="25"/>
                         <constraints>
@@ -50,27 +56,71 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库存量:50件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNJ-PU-Toe">
-                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-tZ-4oM" customClass="CallBackButton">
+                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                        <color key="backgroundColor" red="0.34901960780000002" green="0.52941176469999995" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="4rB-ME-84a"/>
+                            <constraint firstAttribute="height" constant="30" id="Der-SI-80I"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <state key="normal" title="购物车"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4rB-ME-84a"/>
+                                <exclude reference="Der-SI-80I"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="4rB-ME-84a"/>
+                                <include reference="Der-SI-80I"/>
+                            </mask>
+                        </variation>
+                    </button>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopCar" translatesAutoresizingMaskIntoConstraints="NO" id="lp1-cL-OXT">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lp1-cL-OXT" secondAttribute="height" multiplier="1:1" id="8rO-5P-9fY"/>
+                            <constraint firstAttribute="height" constant="26" id="yAZ-nX-5Xc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8rO-5P-9fY"/>
+                                <exclude reference="yAZ-nX-5Xc"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="8rO-5P-9fY"/>
+                                <include reference="yAZ-nX-5Xc"/>
+                            </mask>
+                        </variation>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="lp1-cL-OXT" firstAttribute="bottom" secondItem="Fqx-tZ-4oM" secondAttribute="bottom" multiplier="2" id="2Uw-AT-DiV"/>
                     <constraint firstItem="tI7-eO-B2o" firstAttribute="centerY" secondItem="RZx-n4-lHc" secondAttribute="centerY" id="2uC-uh-m1p"/>
+                    <constraint firstItem="Fqx-tZ-4oM" firstAttribute="centerY" secondItem="RZx-n4-lHc" secondAttribute="centerY" id="5l0-qN-g0g"/>
                     <constraint firstItem="RLS-39-ocN" firstAttribute="top" secondItem="Gef-0B-sVe" secondAttribute="bottom" constant="2" id="6Di-W0-ju3"/>
                     <constraint firstItem="RLS-39-ocN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="GK5-JI-g2g"/>
+                    <constraint firstItem="lp1-cL-OXT" firstAttribute="top" secondItem="Fqx-tZ-4oM" secondAttribute="top" constant="2" id="Ijh-jo-R6P"/>
                     <constraint firstItem="RZx-n4-lHc" firstAttribute="leading" secondItem="tI7-eO-B2o" secondAttribute="trailing" constant="8" id="MOk-on-vGl"/>
                     <constraint firstAttribute="bottomMargin" secondItem="RZx-n4-lHc" secondAttribute="bottom" constant="15" id="PFh-kf-vkb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Wsn-wm-dZa" secondAttribute="trailing" constant="-8" id="RIg-mg-UyR"/>
                     <constraint firstItem="Gef-0B-sVe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="SYG-ot-uiZ"/>
                     <constraint firstItem="Wsn-wm-dZa" firstAttribute="top" secondItem="RLS-39-ocN" secondAttribute="bottom" constant="8" id="SnK-AR-ucj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RZx-n4-lHc" secondAttribute="trailing" constant="15" id="V7X-So-Apx"/>
+                    <constraint firstItem="tI7-eO-B2o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="bc6-nf-M3O"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fqx-tZ-4oM" secondAttribute="trailing" constant="9" id="cGO-CT-aGs"/>
+                    <constraint firstItem="tI7-eO-B2o" firstAttribute="top" secondItem="Wsn-wm-dZa" secondAttribute="bottom" constant="16" id="hPC-iE-e7c"/>
                     <constraint firstItem="RZx-n4-lHc" firstAttribute="top" secondItem="Wsn-wm-dZa" secondAttribute="bottom" constant="12" id="i68-ra-KzP"/>
                     <constraint firstItem="Gef-0B-sVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="jhR-F8-pxk"/>
+                    <constraint firstItem="lp1-cL-OXT" firstAttribute="leading" secondItem="Fqx-tZ-4oM" secondAttribute="leading" constant="5" id="lO9-Fy-qC3"/>
+                    <constraint firstItem="QNJ-PU-Toe" firstAttribute="bottom" secondItem="Wsn-wm-dZa" secondAttribute="bottom" id="lQO-8k-OLT"/>
                     <constraint firstItem="Wsn-wm-dZa" firstAttribute="width" secondItem="Wsn-wm-dZa" secondAttribute="height" multiplier="5:3" id="mAl-ds-Tih"/>
-                    <constraint firstItem="QNJ-PU-Toe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="rOe-hN-TU6"/>
+                    <constraint firstItem="lp1-cL-OXT" firstAttribute="top" secondItem="Fqx-tZ-4oM" secondAttribute="top" constant="2" id="o5I-Xg-7g1"/>
+                    <constraint firstItem="QNJ-PU-Toe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="rOe-hN-TU6"/>
                     <constraint firstItem="Wsn-wm-dZa" firstAttribute="width" secondItem="Wsn-wm-dZa" secondAttribute="height" multiplier="5:3" id="sNY-6S-5Kh"/>
                     <constraint firstItem="QNJ-PU-Toe" firstAttribute="centerY" secondItem="RZx-n4-lHc" secondAttribute="centerY" id="tBZ-Xh-Fod"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RLS-39-ocN" secondAttribute="trailing" constant="16" id="tF5-Ne-U6j"/>
@@ -79,50 +129,74 @@
                 <variation key="default">
                     <mask key="subviews">
                         <exclude reference="QNJ-PU-Toe"/>
+                        <exclude reference="Fqx-tZ-4oM"/>
+                        <exclude reference="lp1-cL-OXT"/>
                     </mask>
                     <mask key="constraints">
-                        <exclude reference="rOe-hN-TU6"/>
-                        <exclude reference="tBZ-Xh-Fod"/>
                         <exclude reference="SYG-ot-uiZ"/>
                         <exclude reference="jhR-F8-pxk"/>
                         <exclude reference="GK5-JI-g2g"/>
                         <exclude reference="tF5-Ne-U6j"/>
                         <exclude reference="RIg-mg-UyR"/>
                         <exclude reference="uqq-ax-by4"/>
+                        <exclude reference="lQO-8k-OLT"/>
+                        <exclude reference="rOe-hN-TU6"/>
+                        <exclude reference="tBZ-Xh-Fod"/>
+                        <exclude reference="bc6-nf-M3O"/>
+                        <exclude reference="hPC-iE-e7c"/>
                         <exclude reference="PFh-kf-vkb"/>
                         <exclude reference="V7X-So-Apx"/>
+                        <exclude reference="5l0-qN-g0g"/>
+                        <exclude reference="cGO-CT-aGs"/>
+                        <exclude reference="2Uw-AT-DiV"/>
+                        <exclude reference="Ijh-jo-R6P"/>
+                        <exclude reference="lO9-Fy-qC3"/>
+                        <exclude reference="o5I-Xg-7g1"/>
                     </mask>
                 </variation>
                 <variation key="widthClass=compact">
                     <mask key="subviews">
                         <include reference="QNJ-PU-Toe"/>
+                        <include reference="Fqx-tZ-4oM"/>
+                        <include reference="lp1-cL-OXT"/>
                     </mask>
                     <mask key="constraints">
-                        <include reference="rOe-hN-TU6"/>
-                        <include reference="tBZ-Xh-Fod"/>
                         <include reference="SYG-ot-uiZ"/>
                         <include reference="jhR-F8-pxk"/>
                         <include reference="GK5-JI-g2g"/>
                         <include reference="tF5-Ne-U6j"/>
                         <include reference="RIg-mg-UyR"/>
                         <include reference="uqq-ax-by4"/>
-                        <include reference="PFh-kf-vkb"/>
+                        <include reference="lQO-8k-OLT"/>
+                        <include reference="rOe-hN-TU6"/>
+                        <exclude reference="tBZ-Xh-Fod"/>
+                        <include reference="bc6-nf-M3O"/>
+                        <include reference="hPC-iE-e7c"/>
+                        <exclude reference="PFh-kf-vkb"/>
                         <include reference="V7X-So-Apx"/>
                         <exclude reference="i68-ra-KzP"/>
+                        <include reference="5l0-qN-g0g"/>
+                        <include reference="cGO-CT-aGs"/>
+                        <exclude reference="2Uw-AT-DiV"/>
+                        <include reference="Ijh-jo-R6P"/>
+                        <include reference="lO9-Fy-qC3"/>
+                        <exclude reference="o5I-Xg-7g1"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="ProductImageView" destination="Wsn-wm-dZa" id="hgc-VA-L2i"/>
+                <outlet property="addShopCarCallBtn" destination="Fqx-tZ-4oM" id="5ck-we-Lyw"/>
                 <outlet property="moneyLabel" destination="RZx-n4-lHc" id="FGe-6b-k3A"/>
                 <outlet property="productDicLabel" destination="RLS-39-ocN" id="PLU-mu-hnP"/>
                 <outlet property="productNameLabel" destination="Gef-0B-sVe" id="cOK-op-CLu"/>
                 <outlet property="stockLabel" destination="QNJ-PU-Toe" id="gQl-PS-8a2"/>
             </connections>
-            <point key="canvasLocation" x="273.5" y="391"/>
+            <point key="canvasLocation" x="273.5" y="397.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="card" width="36" height="25"/>
+        <image name="shopCar" width="50" height="45"/>
     </resources>
 </document>

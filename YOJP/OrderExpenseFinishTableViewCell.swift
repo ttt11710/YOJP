@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ExpenseTableViewCell: UITableViewCell {
+class OrderExpenseFinishTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var barcodeImageView: UIImageView!
     @IBOutlet weak var storeLogoImageView: UIImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

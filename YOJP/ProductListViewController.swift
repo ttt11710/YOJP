@@ -177,6 +177,19 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
                 
                 
+                let shopCarBtn : CallBackButton = CallBackButton(type: .Custom)
+                shopCarBtn.frame = CGRectMake(screenWidth-82, 20, 25, 25)
+                shopCarBtn.setBackgroundImage(UIImage(named: "shopCarBlack"), forState: .Normal)
+                shopCarBtn.setBackgroundImage(UIImage(named: "shopCarBlack"), forState: .Highlighted)
+                shopCarBtn.setupBlock()
+                shopCarBtn.callBack = { tag in
+                    
+                    self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
+                }
+                shopCarBtn.opaque = true
+                cell.addSubview(shopCarBtn)
+                
+                
                 let scanBtn : CallBackButton = CallBackButton(type: .Custom)
                 scanBtn.frame = CGRectMake(screenWidth-41, 20, 25, 25)
                 scanBtn.setBackgroundImage(UIImage(named: "扫一扫Black"), forState: .Normal)
@@ -256,6 +269,9 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
                 cell.ProductImageView.image =  UIImage(named: String(format: "image%d", indexPath.section))
                 cell.moneyLabel.text = "￥300"
                 cell.stockLabel.text = "库存量:123件"
+                cell.addShopCarCallBtn.callBack = { tag in
+                    
+                }
                 
                 return cell
                 

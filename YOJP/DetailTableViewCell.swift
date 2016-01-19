@@ -15,9 +15,14 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var ProductImageView: UIImageView!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var addShopCarCallBtn: CallBackButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.addShopCarCallBtn.layer.cornerRadius = 4
+        self.addShopCarCallBtn.setupBlock()
+        
         // Initialization code
     }
 
