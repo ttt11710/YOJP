@@ -14,9 +14,14 @@ var defaultShopCarListViewController : ShopCarListViewController!
 class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
+    var tableViewHeaderArray : NSMutableArray = ["0","0"]
+    var sum : Float = 0.00
+    
     var customNavigationBar : UIView!
     
     var tableView : UITableView!
+    
+    var tableFooterView : UIView!
     
     var tableViewRowArray : NSMutableArray = []
 //    [
@@ -54,16 +59,16 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         
         self.tableViewRowArray.addObject(array.mutableCopy())
         array.removeAllObjects()
-        dic = ["产品图片":"image9","产品名称":"产品名称","价格":"1500","数量":"30"]
+        dic = ["产品图片":"image9","产品名称":"产品名称","价格":"10","数量":"30"]
         array.addObject(dic.mutableCopy())
         dic.removeAllObjects()
-        dic = ["产品图片":"image4","产品名称":"产品名称","价格":"60","数量":"12"]
+        dic = ["产品图片":"image4","产品名称":"产品名称","价格":"4","数量":"12"]
         array.addObject(dic.mutableCopy())
         dic.removeAllObjects()
-        dic = ["产品图片":"image5","产品名称":"产品名称","价格":"50","数量":"4"]
+        dic = ["产品图片":"image5","产品名称":"产品名称","价格":"2","数量":"4"]
         array.addObject(dic.mutableCopy())
         dic.removeAllObjects()
-        dic = ["产品图片":"image7","产品名称":"产品名称","价格":"20","数量":"335"]
+        dic = ["产品图片":"image7","产品名称":"产品名称","价格":"1","数量":"335"]
         array.addObject(dic.mutableCopy())
         dic.removeAllObjects()
         self.tableViewRowArray.addObject(array.mutableCopy())
@@ -116,7 +121,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         self.sumLabel.text = "总计:￥0"
         self.tableView.hidden = true
         
-        let imageView : UIImageView = UIImageView(image: UIImage(named: "空页面"))
+        let imageView : UIImageView = UIImageView(image: UIImage(named: "空购物车"))
         imageView.center = CGPointMake(screenWidth/2, (screenHeight-88)/2-40)
         imageView.bounds = CGRectMake(0, 0, 80, 75)
         self.view.addSubview(imageView)
@@ -153,9 +158,50 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = yojpTableViewColor
-        self.tableView.tableFooterView = UIView()
+        
+        self.tableFooterView = UIView(frame: CGRectMake(0,0,screenWidth,200))
+        let label : UILabel = UILabel(frame: CGRectMake(0,80,screenWidth,30))
+        label.text = "您选购的商品不在一家店铺哦!"
+        label.textColor = yojpText
+        label.textAlignment = .Center
+        label.font = font16
+        self.tableFooterView.addSubview(label)
+        
+        self.updateTableFooterView()
+        
         self.view.addSubview(self.tableView)
         
+    }
+    
+    func updateTableFooterView() {
+
+        if self.tableViewRowArray.count >= 2 {
+            self.tableView.tableFooterView = self.tableFooterView
+        }
+        else {
+           self.tableView.tableFooterView = UIView()
+        }
+    }
+    
+    func sumPrice() {
+        
+        self.sum = 0.00
+        
+        for i in 0..<self.tableViewHeaderArray.count {
+            
+            if self.tableViewHeaderArray[i] as! String == "1" {
+                
+                for j in 0..<self.tableViewRowArray[i].count {
+                    
+                    let price : Float = Float(self.tableViewRowArray[i][j]["价格"] as! String)!
+                    let count : Float = Float(self.tableViewRowArray[i][j]["数量"] as! String)!
+                    
+                    self.sum = self.sum + price * count
+                }
+            }
+        }
+        
+        self.sumLabel.text = String(format: "总计:￥%.2f", self.sum)
     }
     
     func creatSettlementView() {
@@ -196,14 +242,38 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         return 30
     }
     
+
+        
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth,30))
         view.backgroundColor = yojpSectionColor
         
-        let storeName : UILabel = UILabel(frame: CGRectMake(16,4,100,21))
+        let chooseBtn : CallBackButton = CallBackButton(frame: CGRectMake(10,6,20,20))
+        chooseBtn.setBackgroundImage(UIImage(named: "圆圈不选"), forState: .Normal)
+        chooseBtn.setBackgroundImage(UIImage(named: "圆圈选中"), forState: .Selected)
+        view.addSubview(chooseBtn)
+        chooseBtn.setupBlock()
+        chooseBtn.opaque = true
+        chooseBtn.tag = section
+        chooseBtn.selected = self.tableViewHeaderArray[section] as! String == "0" ? false : true
+        chooseBtn.callBack = { tag in
+            
+            chooseBtn.selected = !chooseBtn.selected
+            if chooseBtn.selected {
+                
+                self.tableViewHeaderArray[tag] = "1"
+            }
+            else {
+                self.tableViewHeaderArray[tag] = "0"
+            }
+            self.sumPrice()
+        }
+        let storeName : UILabel = UILabel(frame: CGRectMake(30+4,4,100,21))
         storeName.text = "商家名称"
         storeName.textColor = yojpText
+        storeName.opaque = true
         view.addSubview(storeName)
+        
         
         let editCallBtn : CallBackButton = CallBackButton(frame: CGRectMake(screenWidth-70,4,60,21))
         let string : String = self.tableViewSectionArray[section] as! String == "0" ? "编辑":"完成"
@@ -249,6 +319,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
             count = count - 1
             ((self.tableViewRowArray[indexPath.section] as! NSMutableArray)[indexPath.row] as! NSMutableDictionary)["数量"] = String(format: "%d", count)
             self.tableView.reloadData()
+            self.sumPrice()
         }
         cell.increaseCallBtn.callBack = { tag in
             
@@ -256,6 +327,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
             count = count + 1
             ((self.tableViewRowArray[indexPath.section] as! NSMutableArray)[indexPath.row] as! NSMutableDictionary)["数量"] = String(format: "%d", count)
             self.tableView.reloadData()
+            self.sumPrice()
         }
         cell.editReduceCallBtn.callBack = { tag in
             
@@ -267,7 +339,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
             count = count - 1
             ((self.tableViewRowArray[indexPath.section] as! NSMutableArray)[indexPath.row] as! NSMutableDictionary)["数量"] = String(format: "%d", count)
             self.tableView.reloadData()
-
+            self.sumPrice()
         }
         cell.editIncreaseCallBtn.callBack = { tag in
             
@@ -275,6 +347,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
             count = count + 1
             ((self.tableViewRowArray[indexPath.section] as! NSMutableArray)[indexPath.row] as! NSMutableDictionary)["数量"] = String(format: "%d", count)
             self.tableView.reloadData()
+            self.sumPrice()
         }
         cell.editDeleteCallBtn.callBack = { tag in
             
@@ -300,7 +373,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
                     self.sumLabel.text = "总计:￥0"
                     self.tableView.hidden = true
                     
-                    let imageView : UIImageView = UIImageView(image: UIImage(named: "空页面"))
+                    let imageView : UIImageView = UIImageView(image: UIImage(named: "空购物车"))
                     imageView.center = CGPointMake(screenWidth/2, (screenHeight-88)/2-40)
                     imageView.bounds = CGRectMake(0, 0, 80, 75)
                     self.view.addSubview(imageView)
@@ -318,7 +391,8 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
                 }
             }
             
-            
+            self.updateTableFooterView()
+            self.sumPrice()
         }
         
         return cell
@@ -334,7 +408,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
             SVProgressShow.showInfoWithStatus("没有选中商品,不能结算!")
             return
         }
-        self.navigationController?.pushViewController(PayViewController(), animated: true)
+        self.navigationController?.pushViewController(ShopOrderViewController(), animated: true)
     }
     
     func backClicked() {

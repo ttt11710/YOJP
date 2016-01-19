@@ -39,7 +39,7 @@ class FirstViewController: UIViewController {
         self.navigationItem.setLeftBarButtonItem(leftButtonItem, animated: true)
         
         
-        let rightButtonItem1 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "搜索"), style: .Done, target: self, action: Selector("rightButton1Press"))
+        let rightButtonItem1 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "shopCarBar"), style: .Done, target: self, action: Selector("rightButton1Press"))
         
         let rightButtonItem2 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: Selector("rightButton2Press"))
         
@@ -112,9 +112,10 @@ class FirstViewController: UIViewController {
     }
     
     func rightButton1Press() {
-        self.navigationController?.presentViewController(SearchViewController(), animated: true, completion: { () -> Void in
-            
-        })
+//        self.navigationController?.presentViewController(SearchViewController(), animated: true, completion: { () -> Void in
+//            
+//        })
+        self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
 
     }
     

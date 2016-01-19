@@ -86,7 +86,7 @@ class WeatherViewController: UIViewController {
                         }
                         
                         
-                        var pm25 = Int(self.weatherModel.results.pm25!)
+                        let pm25 = Int(self.weatherModel.results.pm25!)
                         
                         if pm25 < 50 {
                             weatherView.pm25.text = "优"

@@ -78,31 +78,10 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.scanView.backgroundColor = yojpBlue
         self.view.addSubview(self.scanView)
         
-        let scanBtn : UIButton = UIButton(type: .Custom)
-        scanBtn.bounds = CGRectMake(0, 0, 60, 60)
-        scanBtn.center = CGPointMake(screenWidth/2-80, 70)
-        scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Normal)
-        scanBtn.setBackgroundImage(UIImage(named: "扫一扫"), forState: .Highlighted)
-        scanBtn.backgroundColor = yojpBlue
-        scanBtn.opaque = true
-        scanBtn.addTarget(self, action: Selector("scanBtnPressed"), forControlEvents: .TouchUpInside)
-        self.scanView.addSubview(scanBtn)
-        
-        
-        let scanLabel : UILabel = UILabel()
-        scanLabel.text = "扫一扫"
-        scanLabel.textAlignment = .Center
-        scanLabel.textColor = UIColor.whiteColor()
-        scanLabel.sizeToFit()
-        scanLabel.center = CGPointMake(screenWidth/2-80, 120)
-        scanLabel.backgroundColor = yojpBlue
-        scanLabel.opaque = true
-        self.scanView.addSubview(scanLabel)
-        
         
         let barcodeBtn : UIButton = UIButton(type: .Custom)
         barcodeBtn.bounds = CGRectMake(0, 0, 60, 60)
-        barcodeBtn.center = CGPointMake(screenWidth/2+80, 70)
+        barcodeBtn.center = CGPointMake(screenWidth/2-80, 70)
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Normal)
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Highlighted)
         barcodeBtn.addTarget(self, action: Selector("barcodeBtnPressed"), forControlEvents: .TouchUpInside)
@@ -115,9 +94,30 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         barcodeLabel.textColor = UIColor.whiteColor()
         barcodeLabel.opaque = true
         barcodeLabel.sizeToFit()
-        barcodeLabel.center = CGPointMake(screenWidth/2+80, 120)
+        barcodeLabel.center = CGPointMake(screenWidth/2-80, 120)
         self.scanView.addSubview(barcodeLabel)
 
+        
+        let shopCarBtn : UIButton = UIButton(type: .Custom)
+        shopCarBtn.bounds = CGRectMake(0, 0, 60, 60)
+        shopCarBtn.center = CGPointMake(screenWidth/2+80, 70)
+        shopCarBtn.setBackgroundImage(UIImage(named: "shopCar"), forState: .Normal)
+        shopCarBtn.setBackgroundImage(UIImage(named: "shopCar"), forState: .Highlighted)
+        shopCarBtn.backgroundColor = yojpBlue
+        shopCarBtn.opaque = true
+        shopCarBtn.addTarget(self, action: Selector("shopCarBtnPressed"), forControlEvents: .TouchUpInside)
+        self.scanView.addSubview(shopCarBtn)
+        
+        
+        let shopCarLabel : UILabel = UILabel()
+        shopCarLabel.text = "购物车"
+        shopCarLabel.textAlignment = .Center
+        shopCarLabel.textColor = UIColor.whiteColor()
+        shopCarLabel.sizeToFit()
+        shopCarLabel.center = CGPointMake(screenWidth/2+80, 120)
+        shopCarLabel.backgroundColor = yojpBlue
+        shopCarLabel.opaque = true
+        self.scanView.addSubview(shopCarLabel)
         
     }
 
@@ -161,9 +161,8 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
 
     
-    func scanBtnPressed() {
-        
-        self.navigationController?.pushViewController(CardScanViewController(), animated: true)
+    func shopCarBtnPressed() {
+        self.navigationController?.pushViewController(ShopCarListViewController(), animated: true)
     }
     
     func barcodeBtnPressed() {

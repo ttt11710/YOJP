@@ -34,6 +34,8 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         self.view.backgroundColor = UIColor.whiteColor()
         // 设置头部标题栏
         setupTitleScrollView()
+        //设置搜索
+        setupSearchView()
         // 设置内容
         setupContentScrollView()
         // 添加子控制器
@@ -50,7 +52,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         contentScrollView.showsHorizontalScrollIndicator = false
         // 设置代理(必须先遵守协议!)
         contentScrollView.delegate = self
-        
+    
     }
     
     
@@ -62,12 +64,27 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         
         let y : CGFloat = 0
         // 设置标题栏的 frame
-        let rect:CGRect = CGRectMake(0, y, screenWidth, titleH)
+        let rect:CGRect = CGRectMake(0, y, screenWidth-35, titleH)
         let scrollView = UIScrollView()
         scrollView.frame = rect;
         scrollView.backgroundColor = UIColor.whiteColor()
         view.addSubview(scrollView)
         titleScrollView = scrollView;
+    }
+    
+    //设置searchView
+    func setupSearchView() {
+        //设置搜索
+        let searchBtnBackView : UIView = UIView(frame: CGRectMake(screenWidth-35,0,35,44))
+        searchBtnBackView.backgroundColor = yojpBlue
+        self.view.addSubview(searchBtnBackView)
+        
+        let searchBtn : UIButton = UIButton(type: .Custom)
+        searchBtn.frame = CGRectMake(5, 10, 25, 25)
+        searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Normal)
+        searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Highlighted)
+        searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
+        searchBtnBackView.addSubview(searchBtn)
     }
     
     
@@ -195,13 +212,13 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
     /**  让 button 居中显示  */
     func setupTitleCenter(btn:UIButton){
         // 计算偏移量
-        var offset = btn.center.x - screenWidth * 0.5
+        var offset = btn.center.x - (screenWidth-35) * 0.5
         // 让偏移量不为负数
         if offset < 0 {
             offset = 0
         }
         // 计算偏移量的最大值
-        let maxOffset = titleScrollView.contentSize.width - screenWidth
+        let maxOffset = titleScrollView.contentSize.width - (screenWidth-35)
         // 不能超出偏移量最大值
         if offset > maxOffset {
             offset = maxOffset
@@ -212,8 +229,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
     
     func setUpOneChildViewController(i:Int){
         // 显示当前 btn 个数对应的偏移量
-        let x:CGFloat = CGFloat(i) * screenWidth
-        // 得到 btn 对应的控制器
+        let x:CGFloat = CGFloat(i) * screenWidth        // 得到 btn 对应的控制器
         let vc = childViewControllers[i]
         // 如果视图存在结束函数
         if vc.view.superview != nil{
@@ -241,11 +257,16 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         
         if scrollView == self.contentScrollView {
-            let i:Int = Int(self.contentScrollView.contentOffset.x / screenWidth)
+            let i:Int = Int(self.contentScrollView.contentOffset.x / (screenWidth-35))
             selTitleBtn(buttons[i])
             setUpOneChildViewController(i)
             
         }
+    }
+    
+    func showSearchView() {
+        self.presentViewController(SearchViewController(), animated: true, completion: nil)
+        
     }
     
 

@@ -147,6 +147,9 @@
 		DFE5C8371C2A3589003DB635 /* ShopCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */; };
 		DFE5C8381C2A3589003DB635 /* ShopCarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */; };
 		DFE713E71C30D8B400937933 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE713E61C30D8B400937933 /* ListDetailViewController.swift */; };
+		DFE76DAE1C4E1CA100CD3B0C /* ShopOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE76DAD1C4E1CA000CD3B0C /* ShopOrderViewController.swift */; };
+		DFE76DB01C4E27DC00CD3B0C /* ShopPaySucceedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE76DAF1C4E27DC00CD3B0C /* ShopPaySucceedViewController.swift */; };
+		DFE76DB21C4E2E5B00CD3B0C /* ShopOrderPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE76DB11C4E2E5B00CD3B0C /* ShopOrderPayViewController.swift */; };
 		DFE7EFB91C03F74D009AA953 /* NTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFB81C03F74D009AA953 /* NTButton.m */; };
 		DFE7EFBE1C03FFED009AA953 /* KOMovingBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE7EFBC1C03FFED009AA953 /* KOMovingBarViewController.m */; };
 		DFE7EFBF1C03FFED009AA953 /* KOViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFE7EFBD1C03FFED009AA953 /* KOViewController.xib */; };
@@ -373,6 +376,9 @@
 		DFE5C8351C2A3589003DB635 /* ShopCarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopCarTableViewCell.swift; sourceTree = "<group>"; };
 		DFE5C8361C2A3589003DB635 /* ShopCarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCarTableViewCell.xib; sourceTree = "<group>"; };
 		DFE713E61C30D8B400937933 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		DFE76DAD1C4E1CA000CD3B0C /* ShopOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopOrderViewController.swift; sourceTree = "<group>"; };
+		DFE76DAF1C4E27DC00CD3B0C /* ShopPaySucceedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopPaySucceedViewController.swift; sourceTree = "<group>"; };
+		DFE76DB11C4E2E5B00CD3B0C /* ShopOrderPayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopOrderPayViewController.swift; sourceTree = "<group>"; };
 		DFE7EFB71C03F74D009AA953 /* NTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTButton.h; sourceTree = "<group>"; };
 		DFE7EFB81C03F74D009AA953 /* NTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTButton.m; sourceTree = "<group>"; };
 		DFE7EFBB1C03FFED009AA953 /* KOMovingBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KOMovingBarViewController.h; sourceTree = "<group>"; };
@@ -952,6 +958,9 @@
 			isa = PBXGroup;
 			children = (
 				DFE5C8311C2A3512003DB635 /* ShopCarListViewController.swift */,
+				DFE76DAD1C4E1CA000CD3B0C /* ShopOrderViewController.swift */,
+				DFE76DB11C4E2E5B00CD3B0C /* ShopOrderPayViewController.swift */,
+				DFE76DAF1C4E27DC00CD3B0C /* ShopPaySucceedViewController.swift */,
 				DFE1E1B81C2BD80A002DE1E0 /* ShopPayViewController.swift */,
 			);
 			name = Control;
@@ -1484,6 +1493,7 @@
 				DFE1E1B61C2BC5E6002DE1E0 /* CodeTextField.swift in Sources */,
 				DFE9BD171C3B8B1B0037C8D7 /* UserHistoryViewController.swift in Sources */,
 				DFD7261B1BF320160089645A /* LLFlowCurveProtocol.swift in Sources */,
+				DFE76DB01C4E27DC00CD3B0C /* ShopPaySucceedViewController.swift in Sources */,
 				DF46C0A01C3A78A000700272 /* PaySuccessViewController.swift in Sources */,
 				DF46C0971C3A449600700272 /* DetailTableViewCell.swift in Sources */,
 				DFE9BD0F1C3B5D0C0037C8D7 /* CardScanPayViewController.swift in Sources */,
@@ -1506,6 +1516,7 @@
 				DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */,
 				DF3CA51C1C45EE5F0089D331 /* DeductionViewController.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
+				DFE76DAE1C4E1CA100CD3B0C /* ShopOrderViewController.swift in Sources */,
 				DFE9BD201C3B934F0037C8D7 /* JapanUser.swift in Sources */,
 				DFEB0D5B1C3A176600EA2F6D /* QRView.m in Sources */,
 				DFD7261C1BF320160089645A /* LLFlowCurveView.swift in Sources */,
@@ -1535,6 +1546,7 @@
 				DFF3C2C31C23EE7500D7EFF2 /* OrderViewController.swift in Sources */,
 				DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */,
 				DFD2A4F11C180A14004A6DCF /* IQActionSheetViewController.m in Sources */,
+				DFE76DB21C4E2E5B00CD3B0C /* ShopOrderPayViewController.swift in Sources */,
 				DF46C09B1C3A585900700272 /* StoreInfoTableViewCell.swift in Sources */,
 				DF3CA5181C45ED8D0089D331 /* FreeViewController.swift in Sources */,
 				DF4C68F21BF02DCE009ED5A9 /* MainViewController.swift in Sources */,

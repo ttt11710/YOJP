@@ -72,7 +72,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     
     func annotations() ->NSArray {
         
-        var annotations : NSMutableArray = []
+        let annotations : NSMutableArray = []
         
         for i in 0..<13 {
             let thumbnail : JPSThumbnail = JPSThumbnail()
@@ -113,21 +113,21 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if view.conformsToProtocol(JPSThumbnailAnnotationViewProtocol) {
             
-           var myView =  view as! JPSThumbnailAnnotationViewProtocol
+           let myView =  view as! JPSThumbnailAnnotationViewProtocol
             myView.didSelectAnnotationViewInMap(mapView)
         }
     }
     
     func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         if view.conformsToProtocol(JPSThumbnailAnnotationViewProtocol) {
-            var myView =  view as! JPSThumbnailAnnotationViewProtocol
+            let myView =  view as! JPSThumbnailAnnotationViewProtocol
             myView.didDeselectAnnotationViewInMap(mapView)
         }
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation.conformsToProtocol(JPSThumbnailAnnotationProtocol) {
-            var myAnnotation =  annotation as! JPSThumbnailAnnotationProtocol
+            let myAnnotation =  annotation as! JPSThumbnailAnnotationProtocol
             return myAnnotation.annotationViewInMap(mapView)
     
         }

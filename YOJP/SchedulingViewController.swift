@@ -503,7 +503,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
                         for tableView in cell.subviews {
                             if tableView.isKindOfClass(UITableView) {
                                 (tableView as! UITableView).reloadData()
-                                for indexPath in (tableView as! UITableView).indexPathsForVisibleRows! {
+                                for _ in (tableView as! UITableView).indexPathsForVisibleRows! {
                                     (tableView as! UITableView).scrollToRowAtIndexPath(scrollIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
                                     
                                 }
@@ -614,7 +614,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
                         let cell : SchedulingTableViewCell = self.tableView.cellForRowAtIndexPath(indexPath) as! SchedulingTableViewCell
                         for tableView in cell.subviews {
                             if tableView.isKindOfClass(UITableView) {
-                                for indexPath in (tableView as! UITableView).indexPathsForVisibleRows! {
+                                for _ in (tableView as! UITableView).indexPathsForVisibleRows! {
                                     (tableView as! UITableView).scrollToRowAtIndexPath(scrollIndexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
                                     
                                 }

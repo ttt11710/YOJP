@@ -430,8 +430,9 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
-        let resueIdentifier : String!
+        
         if kind == UICollectionElementKindSectionHeader {
+            let resueIdentifier : String!
             resueIdentifier = "SearchCollectionReusableViewId"
         }
         
