@@ -18,6 +18,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
     var tableView : UITableView!
     
     var collectionBtn : MCFireworksButton!
+    var collectionBtn1 : MCFireworksButton!
     var collectionSelect : Bool = false
     
     override func viewDidLoad() {
@@ -165,31 +166,31 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             
             
-            self.collectionBtn = MCFireworksButton(frame: CGRectMake(16, 35 + label.frame.size.height+4+8+screenWidth/5*3-35, 25, 25))
+            self.collectionBtn1 = MCFireworksButton(frame: CGRectMake(16, 35 + label.frame.size.height+4+8+screenWidth/5*3-35, 25, 25))
             
             
-            self.collectionBtn.particleImage = UIImage(named: "spark")
-            self.collectionBtn.particleScale = 0.05
-            self.collectionBtn.particleScaleRange = 0.02
-            self.collectionBtn.selected = self.collectionSelect
+            self.collectionBtn1.particleImage = UIImage(named: "spark")
+            self.collectionBtn1.particleScale = 0.05
+            self.collectionBtn1.particleScaleRange = 0.02
+            self.collectionBtn1.selected = self.collectionSelect
             
-            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
-            self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+            self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+            self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
             
-            if self.collectionBtn.selected {
-                self.collectionBtn.popOutsideWithDuration(0.5)
-                self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
-                self.collectionBtn.animate()
-                self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
+            if self.collectionBtn1.selected {
+                self.collectionBtn1.popOutsideWithDuration(0.5)
+                self.collectionBtn1.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
+                self.collectionBtn1.animate()
+                self.collectionBtn1.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
             }
             else {
-                self.collectionBtn.popInsideWithDuration(0.4)
-                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
-                self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+                self.collectionBtn1.popInsideWithDuration(0.4)
+                self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+                self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
             }
             
-            self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
-            cell.contentView.addSubview(self.collectionBtn)
+            self.collectionBtn1.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+            cell.contentView.addSubview(self.collectionBtn1)
             
             return cell
         }
@@ -251,12 +252,20 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
             self.collectionBtn.animate()
             self.collectionBtn.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
             
+            self.collectionBtn1.popOutsideWithDuration(0.5)
+            self.collectionBtn1.setImage(UIImage(named: "collectionGolden"), forState: .Normal)
+            self.collectionBtn1.animate()
+            self.collectionBtn1.setImage(UIImage(named: "collectionGolden"), forState: .Highlighted)
             SVProgressShow.showSuccessWithStatus("收藏成功!")
         }
         else {
             self.collectionBtn.popInsideWithDuration(0.4)
             self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
             self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
+            
+            self.collectionBtn1.popInsideWithDuration(0.4)
+            self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
+            self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
         }
     }
     

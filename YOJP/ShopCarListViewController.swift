@@ -362,6 +362,9 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
                 print(self.tableViewSectionArray)
                 self.tableViewRowArray.removeObjectAtIndex(indexPath.section)
                 self.tableViewSectionArray.removeObjectAtIndex(indexPath.section)
+                
+                self.tableViewHeaderArray.removeObjectAtIndex(indexPath.section)
+                
                 self.tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Top)
                 
                 self.tableView.reloadData()

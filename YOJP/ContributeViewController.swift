@@ -79,6 +79,11 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
             let imageView : UIImageView = UIImageView(frame: CGRectMake(CGFloat(i+1)*10+CGFloat(i)*(screenWidth-40)/3, 10, (screenWidth-40)/3, (screenWidth-40)/3))
             if i < 2 {
                 imageView.image = UIImage(named: String(format: "image%d", i))
+                imageView.tag = i
+                imageView.userInteractionEnabled = true
+                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showMeImageViewPressed:"))
+                imageView.addGestureRecognizer(tap)
+                
             }
             else {
                 imageView.image = UIImage(named: "添加图片")
@@ -121,6 +126,8 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         contributeBtn.opaque = true
         self.contributeView.addSubview(contributeBtn)
         
+        self.scrollView.contentSize = CGSizeMake(0,screenHeight)
+        
     }
     
     func updateScrollView() {
@@ -130,7 +137,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         let num = (self.imageArray.count)/3 + num1
         self.backView.frame = CGRectMake(0,0,screenWidth,10+((screenWidth-40)/3+10)*CGFloat(num)+1+8+200+44)
         
-        self.scrollView.contentSize = CGSizeMake(0,self.backView.frame.size.height)
+        self.scrollView.contentSize = CGSizeMake(0,self.backView.frame.size.height > screenHeight ? self.backView.frame.size.height : screenHeight)
         
         for view in self.backView.subviews {
             if view.isKindOfClass(UIImageView) {
@@ -143,11 +150,18 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
             
                 imageView.image = self.imageArray[i] as? UIImage
            
+            imageView.userInteractionEnabled = true
+            
             if i == self.imageArray.count-1 {
                 
                 self.tap = UITapGestureRecognizer(target: self, action: Selector("tapAddImage"))
-                imageView.userInteractionEnabled = true
+                
                 imageView.addGestureRecognizer(self.tap)
+            }
+            else {
+                imageView.tag = i
+                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showMeImageViewPressed:"))
+                imageView.addGestureRecognizer(tap)
             }
             
             self.backView.addSubview(imageView)
@@ -258,6 +272,17 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    
+    func showMeImageViewPressed(tap:UITapGestureRecognizer) {
+        print(tap.view?.tag)
+        
+        let viewController : ShowImageViewController = ShowImageViewController()
+        viewController.imageArray = self.imageArray
+        viewController.currentImageIndex = tap.view?.tag
+        self.presentViewController(viewController, animated: true) { () -> Void in
+            
+        }
+    }
     
     
     override func didReceiveMemoryWarning() {

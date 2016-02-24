@@ -143,8 +143,8 @@ class FirstViewController: UIViewController {
         
         self.navigationController?.navigationBar.translucent = false
         
-        self.creatButtonWithNormalName("产品", SelectName: "未评价高亮", Index: 0)
-        self.creatButtonWithNormalName("文章", SelectName: "已评价高亮", Index: 1)
+        self.creatButtonWithNormalName("好物", SelectName: "未评价高亮", Index: 0)
+        self.creatButtonWithNormalName("优店", SelectName: "已评价高亮", Index: 1)
         
         self.previousBtn = NTButton()
         let button : NTButton = self.tabBarView.subviews[1] as! NTButton

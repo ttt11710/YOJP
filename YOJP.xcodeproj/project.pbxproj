@@ -17,6 +17,7 @@
 		DF0CC64A1C44DFA600666805 /* NewCollectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0CC6481C44DFA600666805 /* NewCollectTableViewCell.swift */; };
 		DF0CC64B1C44DFA600666805 /* NewCollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF0CC6491C44DFA600666805 /* NewCollectTableViewCell.xib */; };
 		DF0CE8F41C43859900B1E4FA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0CE8F31C43859900B1E4FA /* FirstViewController.swift */; };
+		DF1751801C7C3FB400D85553 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF17517F1C7C3FB400D85553 /* ShowImageViewController.swift */; };
 		DF18AAAE1C2D1813005B8BAD /* CollectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */; };
 		DF18AAAF1C2D1813005B8BAD /* CollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */; };
 		DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */; };
@@ -223,6 +224,7 @@
 		DF0CC6481C44DFA600666805 /* NewCollectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCollectTableViewCell.swift; sourceTree = "<group>"; };
 		DF0CC6491C44DFA600666805 /* NewCollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCollectTableViewCell.xib; sourceTree = "<group>"; };
 		DF0CE8F31C43859900B1E4FA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DF17517F1C7C3FB400D85553 /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
 		DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectTableViewCell.swift; sourceTree = "<group>"; };
 		DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectTableViewCell.xib; sourceTree = "<group>"; };
 		DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 			children = (
 				DF36461F1C3DFBB8001B4C90 /* ContributeViewController.swift */,
 				DF0CC6411C44C37F00666805 /* ContributePreViewController.swift */,
+				DF17517F1C7C3FB400D85553 /* ShowImageViewController.swift */,
 			);
 			name = Contribute;
 			sourceTree = "<group>";
@@ -1497,6 +1500,7 @@
 				DFE9BD151C3B6C110037C8D7 /* BarcodePayViewController.swift in Sources */,
 				DF46C09E1C3A667300700272 /* TakeTicketViewController.swift in Sources */,
 				DFDB78AC1C3F8FFC00DA027C /* StoreMapViewController.swift in Sources */,
+				DF1751801C7C3FB400D85553 /* ShowImageViewController.swift in Sources */,
 				DFE9BD111C3B6A2E0037C8D7 /* CardScanPaySuccessViewController.swift in Sources */,
 				DFD2A4F01C180A14004A6DCF /* IQActionSheetPickerView.m in Sources */,
 				DFC09F731C169D23005FBC9E /* SchedulingViewController.swift in Sources */,

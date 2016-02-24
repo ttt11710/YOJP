@@ -276,6 +276,16 @@ class ExpenseViewController: UIViewController,UITableViewDataSource,UITableViewD
         self.navigationController?.popViewControllerAnimated(true)
     }
 
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        if scrollView == self.scrollView {
+            let page = Int(scrollView.contentOffset.x / screenWidth)
+            let button : NTButton = self.tabBarView.subviews[page+1] as! NTButton
+            self.changeViewController(button)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
