@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 
-class TranslateViewController: UIViewController,UITextViewDelegate,UINavigationControllerDelegate {
+class TranslateViewController: UIViewController,UITextViewDelegate,  UINavigationControllerDelegate {
 
     
     
