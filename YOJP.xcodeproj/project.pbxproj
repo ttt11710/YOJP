@@ -18,6 +18,8 @@
 		DF0CC64B1C44DFA600666805 /* NewCollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF0CC6491C44DFA600666805 /* NewCollectTableViewCell.xib */; };
 		DF0CE8F41C43859900B1E4FA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0CE8F31C43859900B1E4FA /* FirstViewController.swift */; };
 		DF1751801C7C3FB400D85553 /* ShowImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF17517F1C7C3FB400D85553 /* ShowImageViewController.swift */; };
+		DF17BC1B1C9971B500974D99 /* TwoImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF17BC191C9971B500974D99 /* TwoImageViewTableViewCell.swift */; };
+		DF17BC1C1C9971B500974D99 /* TwoImageViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF17BC1A1C9971B500974D99 /* TwoImageViewTableViewCell.xib */; };
 		DF18AAAE1C2D1813005B8BAD /* CollectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */; };
 		DF18AAAF1C2D1813005B8BAD /* CollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */; };
 		DF18AAB41C2D3226005B8BAD /* ListDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */; };
@@ -225,6 +227,8 @@
 		DF0CC6491C44DFA600666805 /* NewCollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCollectTableViewCell.xib; sourceTree = "<group>"; };
 		DF0CE8F31C43859900B1E4FA /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		DF17517F1C7C3FB400D85553 /* ShowImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageViewController.swift; sourceTree = "<group>"; };
+		DF17BC191C9971B500974D99 /* TwoImageViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoImageViewTableViewCell.swift; sourceTree = "<group>"; };
+		DF17BC1A1C9971B500974D99 /* TwoImageViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoImageViewTableViewCell.xib; sourceTree = "<group>"; };
 		DF18AAAC1C2D1813005B8BAD /* CollectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectTableViewCell.swift; sourceTree = "<group>"; };
 		DF18AAAD1C2D1813005B8BAD /* CollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectTableViewCell.xib; sourceTree = "<group>"; };
 		DF18AAB21C2D3226005B8BAD /* ListDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -612,6 +616,8 @@
 				DF3CA5191C45EE290089D331 /* DiscountViewController.swift */,
 				DF3CA51B1C45EE5F0089D331 /* DeductionViewController.swift */,
 				DF3CA51D1C45EEAB0089D331 /* LuckyBagViewController.swift */,
+				DF17BC191C9971B500974D99 /* TwoImageViewTableViewCell.swift */,
+				DF17BC1A1C9971B500974D99 /* TwoImageViewTableViewCell.xib */,
 			);
 			name = FirstRoot;
 			sourceTree = "<group>";
@@ -1357,6 +1363,7 @@
 				DF854C861C054E63009F53A5 /* ScrollViewCollectionViewCell.xib in Resources */,
 				DF46C09C1C3A585900700272 /* StoreInfoTableViewCell.xib in Resources */,
 				DFB36B581C22607500A89BFC /* SchedulingSubTableViewCell.xib in Resources */,
+				DF17BC1C1C9971B500974D99 /* TwoImageViewTableViewCell.xib in Resources */,
 				DFE37DF51C0698FF005C3D5F /* BrandTableViewCell.xib in Resources */,
 				DF9A7F101BEB1E78000CB3EE /* Assets.xcassets in Resources */,
 				DFA37F4E1C27D85E00F87F70 /* SearchCollectionReusableView.xib in Resources */,
@@ -1540,6 +1547,7 @@
 				DFCB3E591C030A20006222C7 /* AMScrollingNavbarViewController.m in Sources */,
 				DFFF9F5D1C0D7ED300FD4A57 /* CardListTableViewCell.swift in Sources */,
 				DFF3C2CB1C23FAA700D7EFF2 /* OrderDetailViewController.swift in Sources */,
+				DF17BC1B1C9971B500974D99 /* TwoImageViewTableViewCell.swift in Sources */,
 				DF3CA51C1C45EE5F0089D331 /* DeductionViewController.swift in Sources */,
 				DF9A7F3F1BEB47EA000CB3EE /* Config.swift in Sources */,
 				DFE76DAE1C4E1CA100CD3B0C /* ShopOrderViewController.swift in Sources */,

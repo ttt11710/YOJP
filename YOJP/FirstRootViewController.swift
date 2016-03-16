@@ -112,7 +112,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         vc3.title = "打折券"
         
         let vc4 = DeductionViewController()
-        vc4.title = "抵扣券"
+        vc4.title = "现金券"
         
         let vc5 = LuckyBagViewController()
         vc5.title = "福袋"

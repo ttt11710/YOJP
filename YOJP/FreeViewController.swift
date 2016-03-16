@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FreeViewController: UIViewController,UICollectionViewDelegateFlowLayout, UITableViewDelegate,UITableViewDataSource {
+class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     
     
@@ -48,11 +48,34 @@ class FreeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         let view : UIView = UIView(frame: CGRectMake(0,0,screenWidth,25))
         view.backgroundColor = yojpTableViewColor
         
+        let viewWidth = (screenWidth-48-20)/4
+        for i in 0..<4{
+            let chooseTypeBtn : CallBackButton = CallBackButton(frame: CGRectMake(4*CGFloat(i%4+1)+CGFloat(i%4)*viewWidth,0,viewWidth,30))
+            chooseTypeBtn.setTitle(String(format: "商品分类%d", i), forState: .Normal)
+            chooseTypeBtn.setTitleColor(yojpText, forState: .Normal)
+            chooseTypeBtn.setTitleColor(yojpLightText, forState: .Selected)
+            chooseTypeBtn.setupBlock()
+            chooseTypeBtn.titleLabel?.font = font14
+            chooseTypeBtn.tag = i
+            chooseTypeBtn.callBack = { tag in
+                print(tag)
+                
+                for view1 in view.subviews {
+                    if view1.isKindOfClass(CallBackButton.classForCoder()) {
+                        let chooseTypeBtn : CallBackButton = view1 as! CallBackButton
+                        chooseTypeBtn.selected = false
+                    }
+                }
+                chooseTypeBtn.selected = true
+            }
+            view.addSubview(chooseTypeBtn)
+        }
+
         
-        let callBtn : CallBackButton = CallBackButton(frame: CGRectMake(screenWidth-80,0,68,30))
-        callBtn.setTitle("打开", forState: .Normal)
-        callBtn.setTitleColor(yojpBlue, forState: .Normal)
+        let callBtn : CallBackButton = CallBackButton(frame: CGRectMake(screenWidth-48,0,48,30))
+        callBtn.setImage(UIImage(named: "下拉箭头"), forState: .Normal)
         callBtn.setupBlock()
+        callBtn.backgroundColor = UIColor.whiteColor()
         callBtn.callBack = { tag in
             self.showChoose = !self.showChoose
             self.tableView.reloadData()
@@ -61,7 +84,7 @@ class FreeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         
         if self.showChoose && !self.showSubChoose {
             
-            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth,30))
+            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-48,30))
             label.text = "切换选项"
             label.backgroundColor = yojpTableViewColor
             label.textColor = yojpLightText
@@ -123,7 +146,13 @@ class FreeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        
+        if indexPath.section == 0 {
+            return indexPath.row == 0 ? 100 : 30
+        }
+        else {
+            return 140
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -136,15 +165,64 @@ class FreeViewController: UIViewController,UICollectionViewDelegateFlowLayout, U
         }
     }
     
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        cell.selectionStyle = UITableViewCellSelectionStyle.None
-        cell.accessoryType = .DisclosureIndicator
-        cell.textLabel?.text = "设置备注"
-        cell.textLabel?.textColor = yojpText
-        cell.textLabel?.font = font15
-        return cell
+        
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                
+                for view in cell.contentView.subviews {
+                    view.removeFromSuperview()
+                }
+                
+                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,100))
+                imageView.image = UIImage(named: "免费券banner")
+                cell.contentView.addSubview(imageView)
+                return cell
+            }
+            else {
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.accessoryType = .DisclosureIndicator
+                for view in cell.contentView.subviews {
+                    view.removeFromSuperview()
+                }
+                
+                let label : UILabel = UILabel(frame: CGRectMake(0,0,100,30))
+                label.text = "头条信息"
+                label.textColor = yojpText
+                label.font = font15
+                cell.contentView.addSubview(label)
+                
+                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,0,screenWidth-label.frame.size.width-50,30))
+                messageLabel.text = "紧急通知，京东发生5.2级地震"
+                messageLabel.textColor = yojpText
+                messageLabel.font = font15
+                cell.contentView.addSubview(messageLabel)
+                
+                return cell
+            }
+        }
+        else {
+            tableView.registerNib(UINib(nibName: "TwoImageViewTableViewCell", bundle: nil), forCellReuseIdentifier: "TwoImageViewTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("TwoImageViewTableViewCellId", forIndexPath: indexPath) as! TwoImageViewTableViewCell
+            
+            cell.selectionStyle = .None
+            cell.imageView1.image = UIImage(named: "免费券图片设计")
+            cell.imageView2.image = UIImage(named: "免费券图片设计")
+            cell.label1.text = "吃多少玩多少，就免多少，太划算了，还等什么"
+            cell.label2.text = "吃多少玩多少，就免多少，太划算了，还等什么"
+            
+            return cell
+        }
+        
     }
 
     
