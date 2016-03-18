@@ -11,7 +11,7 @@ import UIKit
 class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     
-    
+    //OK
     var tableView : UITableView!
     
     var showChoose : Bool = false
