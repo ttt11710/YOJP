@@ -64,7 +64,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(UpdatePassViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -98,7 +98,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.getCaptchaBtn.layer.borderColor = yojpBlue.CGColor
         self.getCaptchaBtn.layer.borderWidth = 1
         self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x+self.captchaTextField.frame.size.width+16, self.captchaTextField.frame.origin.y , (screenWidth-48)/3, 45)
-        self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.getCaptchaBtn.addTarget(self, action: #selector(UpdatePassViewController.getCodeBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.getCaptchaBtn.titleLabel!.opaque = true
         self.view.addSubview(self.getCaptchaBtn)
         
@@ -110,7 +110,7 @@ class UpdatePassViewController: UIViewController,UITextFieldDelegate {
         self.nextBtn.setTitle("下一步", forState: .Normal)
         self.nextBtn.layer.cornerRadius = 4
         self.nextBtn.layer.masksToBounds = true
-        self.nextBtn.addTarget(self, action: Selector("nextBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.nextBtn.addTarget(self, action: #selector(UpdatePassViewController.nextBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.nextBtn.titleLabel!.opaque = true
         self.view.addSubview(self.nextBtn)
         

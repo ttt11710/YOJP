@@ -56,7 +56,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(CardUseRuleViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -99,7 +99,7 @@ class CardUseRuleViewController: UIViewController,UIAlertViewDelegate {
         useBtn.setTitleColor(yojpBlue, forState: .Normal)
         useBtn.titleLabel?.font = font15
         useBtn.backgroundColor = UIColor.whiteColor()
-        useBtn.addTarget(self, action: Selector("userBtnPressed"), forControlEvents: .TouchUpInside)
+        useBtn.addTarget(self, action: #selector(CardUseRuleViewController.userBtnPressed), forControlEvents: .TouchUpInside)
         useBtn.titleLabel!.opaque = true
         self.scrollView.addSubview(useBtn)
         

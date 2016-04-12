@@ -65,10 +65,10 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         super.viewDidLoad()
 
         
-        let leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: Selector("leftDrawerButtonPress:"))
+        let leftDrawerButton : MMDrawerBarButtonItem = MMDrawerBarButtonItem(target: self, action: #selector(MainViewController.leftDrawerButtonPress(_:)))
         self.navigationItem.setLeftBarButtonItem(leftDrawerButton, animated: true)
         
-        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: Selector("rightButtonPress"))
+        let rightButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: #selector(MainViewController.rightButtonPress))
         self.navigationItem.setRightBarButtonItem(rightButtonItem, animated: true)
         
         
@@ -180,7 +180,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
     }
     
     func creatRecognizer() {
-        self.recognizer = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipeFrom:"))
+        self.recognizer = UISwipeGestureRecognizer(target: self, action: #selector(MainViewController.handleSwipeFrom(_:)))
         self.recognizer.direction = .Left
         self.collectionBackView.addGestureRecognizer(self.recognizer)
     }
@@ -251,14 +251,14 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         mapViewBtn.frame = CGRectMake(screenWidth/2-40, 100, 80, 40)
         mapViewBtn.setTitle("地图", forState: UIControlState.Normal)
         mapViewBtn.setTitleColor(yojpBlue, forState: UIControlState.Normal)
-        mapViewBtn.addTarget(self, action: Selector("gotoMapView"), forControlEvents: UIControlEvents.TouchUpInside)
+        mapViewBtn.addTarget(self, action: #selector(MainViewController.gotoMapView), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(mapViewBtn)
         
         let translateViewBtn : UIButton = UIButton(type: .Custom)
         translateViewBtn.frame = CGRectMake(screenWidth/2-40, 160, 80, 40)
         translateViewBtn.setTitle("翻译", forState: UIControlState.Normal)
         translateViewBtn.setTitleColor(yojpBlue, forState: UIControlState.Normal)
-        translateViewBtn.addTarget(self, action: Selector("gotoTranslateView"), forControlEvents: UIControlEvents.TouchUpInside)
+        translateViewBtn.addTarget(self, action: #selector(MainViewController.gotoTranslateView), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(translateViewBtn)
         
         
@@ -266,7 +266,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         weatherViewBtn.frame = CGRectMake(screenWidth/2-40, 220, 80, 40)
         weatherViewBtn.setTitle("天气", forState: UIControlState.Normal)
         weatherViewBtn.setTitleColor(yojpBlue, forState: UIControlState.Normal)
-        weatherViewBtn.addTarget(self, action: Selector("gotoWeatherView"), forControlEvents: UIControlEvents.TouchUpInside)
+        weatherViewBtn.addTarget(self, action: #selector(MainViewController.gotoWeatherView), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(weatherViewBtn)
         
     }
@@ -289,7 +289,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.showLeftViewBtn.lineHeight = 3
         self.showLeftViewBtn.lineWidth = 20
         self.showLeftViewBtn.lineSpacing = 3
-        self.showLeftViewBtn.addTarget(self, action: Selector("leftDrawerButtonPress:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.showLeftViewBtn.addTarget(self, action: #selector(MainViewController.leftDrawerButtonPress(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.insertSubview(self.showLeftViewBtn, aboveSubview: self.view)
     }
     
@@ -298,7 +298,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         self.escapeBtn = UIButton(type: .Custom)
         self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118, 120, 108)
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Normal)
-        self.escapeBtn.addTarget(self, action: Selector("showEscapeView"), forControlEvents: .TouchUpInside)
+        self.escapeBtn.addTarget(self, action: #selector(MainViewController.showEscapeView), forControlEvents: .TouchUpInside)
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Highlighted)
         
         self.view.insertSubview(self.escapeBtn, aboveSubview: self.view)
@@ -711,7 +711,7 @@ class MainViewController: AMScrollingNavbarViewController,UICollectionViewDataSo
         customButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
         customButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         customButton.titleLabel?.font = font18
-        customButton.addTarget(self, action: Selector("changeViewController:"), forControlEvents: UIControlEvents.TouchDown)
+        customButton.addTarget(self, action: #selector(MainViewController.changeViewController(_:)), forControlEvents: UIControlEvents.TouchDown)
         customButton.imageView?.contentMode = .Center
         self.tabBarView.addSubview(customButton)
         

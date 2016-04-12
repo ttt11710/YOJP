@@ -32,7 +32,7 @@ class SubPageViewController : UIViewController,UIAlertViewDelegate {
 //            })
 //        }
         self.imageView.userInteractionEnabled = true
-        let pinch : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: Selector("pinchGestureEven:"))
+        let pinch : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(SubPageViewController.pinchGestureEven(_:)))
         self.imageView.addGestureRecognizer(pinch)
         
         
@@ -66,7 +66,7 @@ class ShowImageViewController: UIViewController, UIPageViewControllerDelegate, U
         self.view.backgroundColor = UIColor.blackColor()
         self.view.userInteractionEnabled = true
         
-        let tapGestureRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tapGrstureEven:"))
+        let tapGestureRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ShowImageViewController.tapGrstureEven(_:)))
         self.view.addGestureRecognizer(tapGestureRecognizer)
         
         self.showImageView = UIImageView()
@@ -81,7 +81,7 @@ class ShowImageViewController: UIViewController, UIPageViewControllerDelegate, U
             
             self.showImageView.userInteractionEnabled = true
             
-            let pinch : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: Selector("pinchGestureEven:"))
+            let pinch : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(SubPageViewController.pinchGestureEven(_:)))
             self.showImageView.addGestureRecognizer(pinch)
         }
         else {

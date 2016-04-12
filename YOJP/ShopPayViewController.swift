@@ -58,7 +58,7 @@ class ShopPayViewController: UIViewController {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ShopPayViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -104,7 +104,7 @@ class ShopPayViewController: UIViewController {
         sureBtn.center = CGPointMake(screenWidth/2, dateLabel.frame.origin.y+dateLabel.frame.size.height+40)
         sureBtn.bounds = CGRectMake(0, 0, screenWidth-32, 44)
         self.scrollView.addSubview(sureBtn)
-        sureBtn.addTarget(self, action: Selector("sureBtnPressed"), forControlEvents: .TouchUpInside)
+        sureBtn.addTarget(self, action: #selector(ShopPayViewController.sureBtnPressed), forControlEvents: .TouchUpInside)
         
     
         let view : UIView = UIView(frame: CGRectMake(0,sureBtn.frame.origin.y+sureBtn.frame.size.height + 22,screenWidth,100))

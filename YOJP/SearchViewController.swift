@@ -42,7 +42,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UITableViewDele
         cancelBtn.titleLabel?.textAlignment = .Center
         cancelBtn.setTitleColor(UIColor(white: 1, alpha: 0.8), forState: .Normal)
         cancelBtn.backgroundColor = UIColor.clearColor()
-        cancelBtn.addTarget(self, action: Selector("cancelSearchBtnPressed"), forControlEvents: .TouchUpInside)
+        cancelBtn.addTarget(self, action: #selector(SearchViewController.cancelSearchBtnPressed), forControlEvents: .TouchUpInside)
         searchBackView.addSubview(cancelBtn)
         
         

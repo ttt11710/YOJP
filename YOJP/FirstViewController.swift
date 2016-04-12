@@ -35,13 +35,13 @@ class FirstViewController: UIViewController {
         self.myView = UIView(frame: CGRectMake(0,0,screenWidth,screenHeight-64))
         self.view.addSubview(self.myView)
         
-        let leftButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .Done, target: self, action: Selector("leftButtonPressed"))
+        let leftButtonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .Done, target: self, action: #selector(FirstViewController.leftButtonPressed))
         self.navigationItem.setLeftBarButtonItem(leftButtonItem, animated: true)
         
         
-        let rightButtonItem1 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "shopCarBar"), style: .Done, target: self, action: Selector("rightButton1Press"))
+        let rightButtonItem1 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "shopCarBar"), style: .Done, target: self, action: #selector(FirstViewController.rightButton1Press))
         
-        let rightButtonItem2 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: Selector("rightButton2Press"))
+        let rightButtonItem2 : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "扫一扫bar"), style: .Done, target: self, action: #selector(FirstViewController.rightButton2Press))
         
         self.navigationItem.setRightBarButtonItems([rightButtonItem2,rightButtonItem1], animated: true)
         
@@ -88,7 +88,7 @@ class FirstViewController: UIViewController {
         self.escapeBtn = UIButton(type: .Custom)
         self.escapeBtn.frame = CGRectMake(10, screenHeight-60-64-118, 120, 108)
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Normal)
-        self.escapeBtn.addTarget(self, action: Selector("showEscapeView"), forControlEvents: .TouchUpInside)
+        self.escapeBtn.addTarget(self, action: #selector(FirstViewController.showEscapeView), forControlEvents: .TouchUpInside)
         self.escapeBtn.setBackgroundImage(UIImage(named: "escape"), forState: .Highlighted)
         self.escapeBtn.opaque = true
         
@@ -167,7 +167,7 @@ class FirstViewController: UIViewController {
         customButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         customButton.tag = Index
         customButton.titleLabel?.font = UIFont.systemFontOfSize(18.0)
-        customButton.addTarget(self, action: Selector("changeViewController:"), forControlEvents: UIControlEvents.TouchDown)
+        customButton.addTarget(self, action: #selector(FirstViewController.changeViewController(_:)), forControlEvents: UIControlEvents.TouchDown)
         customButton.imageView?.contentMode = .Center
         self.tabBarView.addSubview(customButton)
         

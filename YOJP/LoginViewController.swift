@@ -111,7 +111,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.loginBtn.setTitle("登录", forState: .Normal)
         self.loginBtn.layer.cornerRadius = 4
         self.loginBtn.layer.masksToBounds = true
-        self.loginBtn.addTarget(self, action: Selector("loginInBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.loginBtn.addTarget(self, action: #selector(LoginViewController.loginInBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.loginBtn.opaque = true
         self.view.addSubview(self.loginBtn)
         

@@ -31,7 +31,7 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ForgetPasswordViewController2.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
@@ -62,7 +62,7 @@ class ForgetPasswordViewController2: UIViewController,UITextFieldDelegate {
         self.finishBtn.setTitle("确认", forState: .Normal)
         self.finishBtn.layer.cornerRadius = 4
        // self.finishBtn.layer.masksToBounds = true
-        self.finishBtn.addTarget(self, action: Selector("finishBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.finishBtn.addTarget(self, action: #selector(ForgetPasswordViewController2.finishBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.finishBtn.titleLabel!.opaque = true
         self.view.addSubview(self.finishBtn)
         

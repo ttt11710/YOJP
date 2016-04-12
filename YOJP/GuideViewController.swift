@@ -58,7 +58,7 @@ class GuideViewController: UIViewController, UIScrollViewDelegate {
                 finishBtn.setTitle("立即体验", forState: .Normal)
                 finishBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 imageView.userInteractionEnabled = true
-                finishBtn.addTarget(self, action: Selector("gotoDrawerView"), forControlEvents: .TouchUpInside)
+                finishBtn.addTarget(self, action: #selector(GuideViewController.gotoDrawerView), forControlEvents: .TouchUpInside)
                 imageView.addSubview(finishBtn)
             }
         }

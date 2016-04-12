@@ -25,7 +25,7 @@ class ListTableViewCell: UITableViewCell {
         self.deleteBtn.setupBlock()
         self.newBtn.setupBlock()
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tap"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ListTableViewCell.tap))
         self.backView.addGestureRecognizer(tap)
     }
     

@@ -61,7 +61,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 20, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Black"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(RegisterViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.view.addSubview(backBtn)
     }
@@ -133,7 +133,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.getCaptchaBtn.layer.masksToBounds = true
         self.getCaptchaBtn.titleLabel?.font = font16
         self.getCaptchaBtn.frame = CGRectMake(self.captchaTextField.frame.origin.x + self.captchaTextField.frame.size.width, 10, 120, 35)
-        self.getCaptchaBtn.addTarget(self, action: Selector("getCodeBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.getCaptchaBtn.addTarget(self, action: #selector(RegisterViewController.getCodeBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.getCaptchaBtn.titleLabel!.opaque = true
         self.captchaView.addSubview(self.getCaptchaBtn)
         
@@ -165,11 +165,11 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         self.registerBtn.setTitle("注册", forState: .Normal)
         self.registerBtn.layer.cornerRadius = 4
         self.registerBtn.layer.masksToBounds = true
-        self.registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.registerBtn.addTarget(self, action: #selector(RegisterViewController.registerBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.registerBtn.titleLabel!.opaque = true
         self.view.addSubview(self.registerBtn)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("agreeClauseViewChanged:"), name: GROUP_CHANGED, object: self.agreeClauseView)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterViewController.agreeClauseViewChanged(_:)), name: GROUP_CHANGED, object: self.agreeClauseView)
         
     }
     
@@ -246,7 +246,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
     
     func startTime() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerFun"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(RegisterViewController.timerFun), userInfo: nil, repeats: true)
         
     }
     

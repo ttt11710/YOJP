@@ -53,7 +53,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         self.scrollView.showsVerticalScrollIndicator = false
         self.view.addSubview(self.scrollView)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("tapInScrollView:"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InformationViewController.tapInScrollView(_:)))
         self.scrollView.addGestureRecognizer(tap)
         
         
@@ -146,7 +146,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         submitBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         submitBtn.titleLabel!.font = font16
         submitBtn.backgroundColor = yojpBlue
-        submitBtn.addTarget(self, action: Selector("submitBtnPressed"), forControlEvents: .TouchUpInside)
+        submitBtn.addTarget(self, action: #selector(InformationViewController.submitBtnPressed), forControlEvents: .TouchUpInside)
         submitBtn.layer.cornerRadius = 4
         submitBtn.titleLabel!.opaque = true
         self.scrollView.addSubview(submitBtn)
@@ -161,7 +161,7 @@ class InformationViewController: UIViewController,UITextFieldDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(InformationViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)

@@ -59,7 +59,7 @@ class OrderDetailViewController: UIViewController {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(OrderDetailViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -78,7 +78,7 @@ class OrderDetailViewController: UIViewController {
         barcodeBackImageView.bounds = CGRectMake(0, 0, 200, 200)
         self.scrollView.addSubview(barcodeBackImageView)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showSucceedView"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OrderDetailViewController.showSucceedView))
         barcodeBackImageView.userInteractionEnabled = true
         barcodeBackImageView.addGestureRecognizer(tap)
         

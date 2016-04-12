@@ -62,7 +62,7 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ScanProductDetailViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -72,7 +72,7 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
         translateBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         translateBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         translateBtn.backgroundColor = yojpBlue
-        translateBtn.addTarget(self, action: Selector("translateBtnPressed"), forControlEvents: .TouchUpInside)
+        translateBtn.addTarget(self, action: #selector(ScanProductDetailViewController.translateBtnPressed), forControlEvents: .TouchUpInside)
         self.customNavigationBar.addSubview(translateBtn)
         
         self.view.addSubview(self.customNavigationBar)
@@ -164,7 +164,7 @@ class ScanProductDetailViewController: UIViewController,UITableViewDelegate,UITa
                     self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
                 }
                 
-                self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+                self.collectionBtn.addTarget(self, action: #selector(ScanProductDetailViewController.collectionClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
                 cell.addSubview(self.collectionBtn)
                 
                 return cell

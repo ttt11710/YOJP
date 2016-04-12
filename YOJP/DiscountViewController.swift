@@ -28,7 +28,7 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func creatTableView() {
         
-        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-navBarH-titleH), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
@@ -41,7 +41,7 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 10
+        return section == 0 ? 2 : 2
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -148,10 +148,10 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-            return indexPath.row == 0 ? 100 : 30
+            return indexPath.row == 0 ? 200 : 44
         }
         else {
-            return 140
+            return 200
         }
     }
     
@@ -181,8 +181,8 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
                     view.removeFromSuperview()
                 }
                 
-                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,100))
-                imageView.image = UIImage(named: "打折券banner")
+                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,200))
+                imageView.image = UIImage(named: "打折券-1")
                 cell.contentView.addSubview(imageView)
                 return cell
             }
@@ -195,16 +195,16 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
                     view.removeFromSuperview()
                 }
                 
-                let label : UILabel = UILabel(frame: CGRectMake(0,0,100,30))
-                label.text = "头条信息"
-                label.textColor = yojpText
+                let label : UILabel = UILabel(frame: CGRectMake(8,7,100,30))
+                label.text = "热门头条"
+                label.textColor = UIColor(red: 232/255.0, green: 7/255.0, blue: 74/255.0, alpha: 1)
                 label.font = font15
                 cell.contentView.addSubview(label)
                 
-                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,0,screenWidth-label.frame.size.width-50,30))
-                messageLabel.text = "好吃、好玩头条推荐"
+                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,7,screenWidth-label.frame.size.width-50,30))
+                messageLabel.text = "紧急通知，东京发生5.2级地震"
                 messageLabel.textColor = yojpText
-                messageLabel.font = font15
+                messageLabel.font = font14
                 cell.contentView.addSubview(messageLabel)
                 
                 return cell
@@ -215,8 +215,8 @@ class DiscountViewController: UIViewController, UITableViewDelegate,UITableViewD
             let cell = tableView.dequeueReusableCellWithIdentifier("TwoImageViewTableViewCellId", forIndexPath: indexPath) as! TwoImageViewTableViewCell
             
             cell.selectionStyle = .None
-            cell.imageView1.image = UIImage(named: "打折券图片设计")
-            cell.imageView2.image = UIImage(named: "打折券图片设计")
+            cell.imageView1.image = UIImage(named: String(format: "优惠推荐%d", indexPath.row*2))
+            cell.imageView2.image = UIImage(named: String(format: "优惠推荐%d", indexPath.row*2+1))
             cell.label1.text = "消费越多，省的越多，不信吗！那就睁大眼睛喽"
             cell.label2.text = "消费越多，省的越多，不信吗！那就睁大眼睛喽"
             

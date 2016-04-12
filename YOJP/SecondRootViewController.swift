@@ -75,7 +75,7 @@ class SecondRootViewController: UIViewController, UIScrollViewDelegate {
         searchBtn.frame = CGRectMake(5, 10, 25, 25)
         searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Normal)
         searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Highlighted)
-        searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
+        searchBtn.addTarget(self, action: #selector(SecondRootViewController.showSearchView), forControlEvents: .TouchUpInside)
         searchBtnBackView.addSubview(searchBtn)
     }
 
@@ -150,7 +150,7 @@ class SecondRootViewController: UIViewController, UIScrollViewDelegate {
             // 字体大小
             button.titleLabel?.font = UIFont.systemFontOfSize(15)
             // 添加点击事件
-            button.addTarget(self, action:"btAction:" , forControlEvents:UIControlEvents.TouchUpInside)
+            button.addTarget(self, action:#selector(SecondRootViewController.btAction(_:)) , forControlEvents:UIControlEvents.TouchUpInside)
             // 数组添加 button
             buttons.append(button)
             // 添加子视图

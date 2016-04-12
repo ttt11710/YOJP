@@ -146,7 +146,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ShopCarListViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -221,7 +221,7 @@ class ShopCarListViewController: UIViewController,UITableViewDelegate,UITableVie
         sumBtn.setTitle("结算", forState: .Normal)
         sumBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         sumBtn.backgroundColor = UIColor(red: 234.0/255.0, green: 103/255.0, blue: 16/255.0, alpha: 1)
-        sumBtn.addTarget(self, action: Selector("sumBtnPressed"), forControlEvents: .TouchUpInside)
+        sumBtn.addTarget(self, action: #selector(ShopCarListViewController.sumBtnPressed), forControlEvents: .TouchUpInside)
         settlementView.addSubview(sumBtn)
     }
     

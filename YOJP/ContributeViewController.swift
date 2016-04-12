@@ -55,7 +55,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ContributeViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -81,13 +81,13 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
                 imageView.image = UIImage(named: String(format: "image%d", i))
                 imageView.tag = i
                 imageView.userInteractionEnabled = true
-                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showMeImageViewPressed:"))
+                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ContributeViewController.showMeImageViewPressed(_:)))
                 imageView.addGestureRecognizer(tap)
                 
             }
             else {
                 imageView.image = UIImage(named: "添加图片")
-                self.tap = UITapGestureRecognizer(target: self, action: Selector("tapAddImage"))
+                self.tap = UITapGestureRecognizer(target: self, action: #selector(ContributeViewController.tapAddImage))
                 imageView.userInteractionEnabled = true
                 imageView.addGestureRecognizer(self.tap)
 
@@ -122,7 +122,7 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
         contributeBtn.setTitleColor(yojpText, forState: .Normal)
         contributeBtn.setTitleColor(yojpText, forState: .Highlighted)
         contributeBtn.titleLabel?.font = font15
-        contributeBtn.addTarget(self, action: Selector("gotoContributePreview"), forControlEvents: .TouchUpInside)
+        contributeBtn.addTarget(self, action: #selector(ContributeViewController.gotoContributePreview), forControlEvents: .TouchUpInside)
         contributeBtn.opaque = true
         self.contributeView.addSubview(contributeBtn)
         
@@ -154,13 +154,13 @@ class ContributeViewController: UIViewController,UIActionSheetDelegate,UIImagePi
             
             if i == self.imageArray.count-1 {
                 
-                self.tap = UITapGestureRecognizer(target: self, action: Selector("tapAddImage"))
+                self.tap = UITapGestureRecognizer(target: self, action: #selector(ContributeViewController.tapAddImage))
                 
                 imageView.addGestureRecognizer(self.tap)
             }
             else {
                 imageView.tag = i
-                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showMeImageViewPressed:"))
+                let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ContributeViewController.showMeImageViewPressed(_:)))
                 imageView.addGestureRecognizer(tap)
             }
             

@@ -102,7 +102,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(SchedulingViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -145,7 +145,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.cityBtn = UIButton(frame: CGRectMake(16,80,screenWidth-64,40))
         self.cityBtn.setTitle("请选择城市", forState: .Normal)
         self.cityBtn.setTitleColor(yojpText, forState: .Normal)
-        self.cityBtn.addTarget(self, action: Selector("selectCityBtnPressed"), forControlEvents: .TouchUpInside)
+        self.cityBtn.addTarget(self, action: #selector(SchedulingViewController.selectCityBtnPressed), forControlEvents: .TouchUpInside)
         self.cityBtn.titleLabel?.font = font15
         self.cityBtn.backgroundColor = yojpTableViewColor
         self.chooseScheduingView.addSubview(self.cityBtn)
@@ -162,7 +162,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.beginDateBtn.titleLabel?.font = font15
         self.beginDateBtn.tag = 1
         self.beginDateBtn.backgroundColor = yojpTableViewColor
-        self.beginDateBtn.addTarget(self, action: Selector("selectBeginDatePressed:"), forControlEvents: .TouchUpInside)
+        self.beginDateBtn.addTarget(self, action: #selector(SchedulingViewController.selectBeginDatePressed(_:)), forControlEvents: .TouchUpInside)
         self.chooseScheduingView.addSubview(self.beginDateBtn)
         
         
@@ -177,7 +177,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.endDateBtn.titleLabel?.font = font15
         self.endDateBtn.tag = 2
         self.endDateBtn.backgroundColor = yojpTableViewColor
-        self.endDateBtn.addTarget(self, action: Selector("selectBeginDatePressed:"), forControlEvents: .TouchUpInside)
+        self.endDateBtn.addTarget(self, action: #selector(SchedulingViewController.selectBeginDatePressed(_:)), forControlEvents: .TouchUpInside)
         self.chooseScheduingView.addSubview(self.endDateBtn)
         self.endDateBtn.userInteractionEnabled = false
         self.endDateBtn.alpha = 0.5
@@ -186,7 +186,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         sureBtn.setTitle("确定", forState: .Normal)
         sureBtn.backgroundColor = yojpBlue
         sureBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        sureBtn.addTarget(self, action: Selector("sureBtnPressed"), forControlEvents: .TouchUpInside)
+        sureBtn.addTarget(self, action: #selector(SchedulingViewController.sureBtnPressed), forControlEvents: .TouchUpInside)
         self.chooseScheduingView.addSubview(sureBtn)
     }
     
@@ -196,7 +196,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
         self.backView.hidden = true
         self.view.addSubview(self.backView)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showOrHiddenDatePickerView"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SchedulingViewController.showOrHiddenDatePickerView))
         
         self.backView.addGestureRecognizer(tap)
         self.backView.userInteractionEnabled = true
@@ -224,7 +224,7 @@ class SchedulingViewController: UIViewController,IQActionSheetPickerViewDelegate
        // self.view.insertSubview(self.backView2, atIndex: 0)
         self.view.addSubview(self.backView2)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("changeDateLabel"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SchedulingViewController.changeDateLabel))
         
         self.backView2.addGestureRecognizer(tap)
         self.backView2.userInteractionEnabled = true

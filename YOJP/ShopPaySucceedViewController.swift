@@ -47,7 +47,7 @@ class ShopPaySucceedViewController: UIViewController {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ShopPaySucceedViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -74,7 +74,7 @@ class ShopPaySucceedViewController: UIViewController {
         barcodeBackImageView.bounds = CGRectMake(0, 0, 200, 200)
         self.scrollView.addSubview(barcodeBackImageView)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("showSucceedView"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ShopPaySucceedViewController.showSucceedView))
         barcodeBackImageView.userInteractionEnabled = true
         barcodeBackImageView.addGestureRecognizer(tap)
         
@@ -88,7 +88,7 @@ class ShopPaySucceedViewController: UIViewController {
         let sureBtn : UIButton = UIButton(frame: CGRectMake(32,codeLabel.frame.origin.y+codeLabel.frame.size.height + 20,screenWidth-64,44))
         sureBtn.setTitle("确定", forState: .Normal)
         sureBtn.backgroundColor = yojpBlue
-        sureBtn.addTarget(self, action: Selector("sureBtnPressed"), forControlEvents: .TouchUpInside)
+        sureBtn.addTarget(self, action: #selector(ShopPaySucceedViewController.sureBtnPressed), forControlEvents: .TouchUpInside)
         sureBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         self.scrollView.addSubview(sureBtn)
         

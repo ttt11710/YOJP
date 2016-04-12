@@ -46,7 +46,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(UserCentreViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -118,7 +118,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 loginBtn.setTitle("登录", forState: .Normal)
                 loginBtn.setTitleColor(yojpText, forState: .Normal)
                 loginBtn.titleLabel?.font = font15
-                loginBtn.addTarget(self, action: Selector("loginBtnPressed"), forControlEvents: .TouchUpInside)
+                loginBtn.addTarget(self, action: #selector(UserCentreViewController.loginBtnPressed), forControlEvents: .TouchUpInside)
                 loginBtn.opaque = true
                 cell.addSubview(loginBtn)
                 
@@ -128,7 +128,7 @@ class UserCentreViewController: UIViewController,UITableViewDelegate,UITableView
                 registerBtn.setTitle("注册", forState: .Normal)
                 registerBtn.setTitleColor(yojpText, forState: .Normal)
                 registerBtn.titleLabel?.font = font15
-                registerBtn.addTarget(self, action: Selector("registerBtnPressed"), forControlEvents: .TouchUpInside)
+                registerBtn.addTarget(self, action: #selector(UserCentreViewController.registerBtnPressed), forControlEvents: .TouchUpInside)
                 registerBtn.opaque = true
                 cell.addSubview(registerBtn)
 

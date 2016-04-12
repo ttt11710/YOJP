@@ -97,7 +97,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ProductListViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -105,7 +105,7 @@ class ProductListViewController: UIViewController,UITableViewDataSource,UITableV
         self.typeBtn = UIButton(type: .Custom)
         self.typeBtn.frame = CGRectMake(screenWidth-55, 7, 50, 25)
         self.typeBtn.setTitle("分类", forState: .Normal)
-        self.typeBtn.addTarget(self, action: Selector("selectType"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.typeBtn.addTarget(self, action: #selector(ProductListViewController.selectType), forControlEvents: UIControlEvents.TouchUpInside)
        // self.customNavigationBar.addSubview(self.typeBtn)
         
         self.view.addSubview(self.customNavigationBar)

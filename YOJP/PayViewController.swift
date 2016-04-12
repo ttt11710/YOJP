@@ -75,7 +75,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(PayViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(backBtn)
         backBtn.opaque = true
         
@@ -92,7 +92,7 @@ class PayViewController: UIViewController,UITableViewDataSource,UITableViewDeleg
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(PayViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.payView.addSubview(backBtn)
         

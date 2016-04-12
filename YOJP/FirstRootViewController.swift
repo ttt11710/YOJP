@@ -83,7 +83,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         searchBtn.frame = CGRectMake(5, 10, 25, 25)
         searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Normal)
         searchBtn.setBackgroundImage(UIImage(named: "搜索"), forState: .Highlighted)
-        searchBtn.addTarget(self, action: Selector("showSearchView"), forControlEvents: .TouchUpInside)
+        searchBtn.addTarget(self, action: #selector(FirstRootViewController.showSearchView), forControlEvents: .TouchUpInside)
         searchBtnBackView.addSubview(searchBtn)
     }
     
@@ -103,7 +103,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
     /**  添加子控制器  */
     func addChildViewController(){
         let vc1 = FeaturedFirstViewController()
-        vc1.title = "精选"
+        vc1.title = "优惠推荐"
         
         let vc2 = FreeViewController()
         vc2.title = "免费券"
@@ -114,14 +114,14 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
         let vc4 = DeductionViewController()
         vc4.title = "现金券"
         
-        let vc5 = LuckyBagViewController()
-        vc5.title = "福袋"
+//        let vc5 = LuckyBagViewController()
+//        vc5.title = "福袋"
         
         addChildViewController(vc1)
         addChildViewController(vc2)
         addChildViewController(vc3)
         addChildViewController(vc4)
-        addChildViewController(vc5)
+        
     }
     
     
@@ -153,7 +153,7 @@ class FirstRootViewController: UIViewController, UIScrollViewDelegate {
             // 颜色
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
             // 字体大小
-            button.titleLabel?.font = UIFont.systemFontOfSize(15)
+            button.titleLabel?.font = UIFont.systemFontOfSize(14)
             
             button.opaque = true
             // 添加点击事件

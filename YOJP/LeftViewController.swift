@@ -69,7 +69,7 @@ class LeftViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         userCenterBtn.setTitle("个人中心", forState: UIControlState.Normal)
         userCenterBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         userCenterBtn.alpha = 0.8
-        userCenterBtn.addTarget(self, action: Selector("userCenterBtnPressed"), forControlEvents: .TouchUpInside)
+        userCenterBtn.addTarget(self, action: #selector(LeftViewController.userCenterBtnPressed), forControlEvents: .TouchUpInside)
         self.view.addSubview(userCenterBtn)
         
         let collectBtn : UIButton = UIButton(frame: CGRectMake((screenWidth-80)/2+1,screenHeight-44,(screenWidth-80)/2,44))

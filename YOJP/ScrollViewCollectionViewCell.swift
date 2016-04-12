@@ -98,7 +98,7 @@ class ScrollViewCollectionViewCell: UICollectionViewCell,UIScrollViewDelegate {
     
     
     func startTime() {
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("timerFun"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(ScrollViewCollectionViewCell.timerFun), userInfo: nil, repeats: true)
     }
     
     func timerFun() {

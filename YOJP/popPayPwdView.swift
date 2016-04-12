@@ -56,13 +56,13 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
         self.backgroundColor = UIColor.whiteColor()
         overlayView = UIControl(frame: UIScreen.mainScreen().bounds)
         overlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-        overlayView.addTarget(self, action: "dismiss", forControlEvents: UIControlEvents.TouchUpInside)
+        overlayView.addTarget(self, action: #selector(popPayPwdView.dismiss), forControlEvents: UIControlEvents.TouchUpInside)
         
         
         backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 4, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头Blue"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("dismiss"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(popPayPwdView.dismiss), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.addSubview(backBtn)
         
@@ -85,7 +85,7 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
         payCodeTextField.textColor = UIColor.clearColor()
         payCodeTextField.font = UIFont.systemFontOfSize(30)
         payCodeTextField.keyboardType = UIKeyboardType.NumberPad
-        payCodeTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: UIControlEvents.EditingChanged)
+        payCodeTextField.addTarget(self, action: #selector(popPayPwdView.textFieldDidChange), forControlEvents: UIControlEvents.EditingChanged)
         payCodeTextField.becomeFirstResponder()
         
         let frame = payCodeTextField.frame
@@ -215,7 +215,7 @@ public class popPayPwdView: UIView, UITextFieldDelegate {
     
     func registerForKeyboardNotifications() {
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(popPayPwdView.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
     }
     
     func keyboardWasShown(notif : NSNotification) {

@@ -93,7 +93,7 @@ class TranslateViewController: UIViewController,UITextViewDelegate,  UINavigatio
         self.toJapanBtn.setTitle("翻译成日语", forState: UIControlState.Normal)
         self.toJapanBtn.setTitleColor(yojpBlue, forState: UIControlState.Normal)
         self.view.addSubview(self.toJapanBtn)
-        self.toJapanBtn.addTarget(self, action: Selector("toJapanBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.toJapanBtn.addTarget(self, action: #selector(TranslateViewController.toJapanBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.toChinaBtn = UIButton(type: .Custom)
         self.toChinaBtn.frame = CGRectMake(screenWidth/2+20, screenHeight-100, 160, 40)

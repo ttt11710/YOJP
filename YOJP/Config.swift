@@ -28,7 +28,7 @@ let font18 = UIFont.systemFontOfSize(18.0)
 let font20 = UIFont.systemFontOfSize(20.0)
 
 
-let yojpBlue = UIColor(red: 107.0/255.0, green: 154.0/255.0, blue: 225.0/255.0, alpha: 1)
+let yojpBlue = UIColor(red: 245.0/255.0, green: 29.0/255.0, blue: 81.0/255.0, alpha: 1)
 let yojpTableViewColor = UIColor(red: 240.0/255.0, green: 240.0/255.0, blue: 240.0/255.0, alpha: 1)
 let yojpText = UIColor(red: 78.0/255.0, green: 78.0/255.0, blue: 78.0/255.0, alpha: 1)
 let yojpLightText = UIColor(red: 154.0/255.0, green: 154.0/255.0, blue: 154.0/255.0, alpha: 1)

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -133,25 +134,25 @@
                         <exclude reference="lp1-cL-OXT"/>
                     </mask>
                     <mask key="constraints">
+                        <exclude reference="5l0-qN-g0g"/>
+                        <exclude reference="cGO-CT-aGs"/>
+                        <exclude reference="lQO-8k-OLT"/>
+                        <exclude reference="rOe-hN-TU6"/>
+                        <exclude reference="tBZ-Xh-Fod"/>
+                        <exclude reference="2Uw-AT-DiV"/>
+                        <exclude reference="Ijh-jo-R6P"/>
+                        <exclude reference="lO9-Fy-qC3"/>
+                        <exclude reference="o5I-Xg-7g1"/>
                         <exclude reference="SYG-ot-uiZ"/>
                         <exclude reference="jhR-F8-pxk"/>
                         <exclude reference="GK5-JI-g2g"/>
                         <exclude reference="tF5-Ne-U6j"/>
                         <exclude reference="RIg-mg-UyR"/>
                         <exclude reference="uqq-ax-by4"/>
-                        <exclude reference="lQO-8k-OLT"/>
-                        <exclude reference="rOe-hN-TU6"/>
-                        <exclude reference="tBZ-Xh-Fod"/>
                         <exclude reference="bc6-nf-M3O"/>
                         <exclude reference="hPC-iE-e7c"/>
                         <exclude reference="PFh-kf-vkb"/>
                         <exclude reference="V7X-So-Apx"/>
-                        <exclude reference="5l0-qN-g0g"/>
-                        <exclude reference="cGO-CT-aGs"/>
-                        <exclude reference="2Uw-AT-DiV"/>
-                        <exclude reference="Ijh-jo-R6P"/>
-                        <exclude reference="lO9-Fy-qC3"/>
-                        <exclude reference="o5I-Xg-7g1"/>
                     </mask>
                 </variation>
                 <variation key="widthClass=compact">
@@ -161,26 +162,26 @@
                         <include reference="lp1-cL-OXT"/>
                     </mask>
                     <mask key="constraints">
+                        <include reference="5l0-qN-g0g"/>
+                        <include reference="cGO-CT-aGs"/>
+                        <include reference="lQO-8k-OLT"/>
+                        <include reference="rOe-hN-TU6"/>
+                        <exclude reference="tBZ-Xh-Fod"/>
+                        <exclude reference="2Uw-AT-DiV"/>
+                        <include reference="Ijh-jo-R6P"/>
+                        <include reference="lO9-Fy-qC3"/>
+                        <exclude reference="o5I-Xg-7g1"/>
                         <include reference="SYG-ot-uiZ"/>
                         <include reference="jhR-F8-pxk"/>
                         <include reference="GK5-JI-g2g"/>
                         <include reference="tF5-Ne-U6j"/>
                         <include reference="RIg-mg-UyR"/>
                         <include reference="uqq-ax-by4"/>
-                        <include reference="lQO-8k-OLT"/>
-                        <include reference="rOe-hN-TU6"/>
-                        <exclude reference="tBZ-Xh-Fod"/>
                         <include reference="bc6-nf-M3O"/>
                         <include reference="hPC-iE-e7c"/>
                         <exclude reference="PFh-kf-vkb"/>
                         <include reference="V7X-So-Apx"/>
                         <exclude reference="i68-ra-KzP"/>
-                        <include reference="5l0-qN-g0g"/>
-                        <include reference="cGO-CT-aGs"/>
-                        <exclude reference="2Uw-AT-DiV"/>
-                        <include reference="Ijh-jo-R6P"/>
-                        <include reference="lO9-Fy-qC3"/>
-                        <exclude reference="o5I-Xg-7g1"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

@@ -50,7 +50,7 @@ class ContributePreViewController: UIViewController {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ContributePreViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -94,7 +94,7 @@ class ContributePreViewController: UIViewController {
         contributeBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         contributeBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         contributeBtn.titleLabel?.font = font15
-        contributeBtn.addTarget(self, action: Selector("finishContributePreview"), forControlEvents: .TouchUpInside)
+        contributeBtn.addTarget(self, action: #selector(ContributePreViewController.finishContributePreview), forControlEvents: .TouchUpInside)
         contributeBtn.layer.cornerRadius = 4
         contributeBtn.opaque = true
         self.scrollView.addSubview(contributeBtn)

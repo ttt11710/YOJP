@@ -88,7 +88,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(UpdatePassViewController2.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -101,7 +101,7 @@ class UpdatePassViewController2: UIViewController,UITextFieldDelegate {
         self.finishBtn.setTitle("完成", forState: .Normal)
         self.finishBtn.layer.cornerRadius = 4
         self.finishBtn.layer.masksToBounds = true
-        self.finishBtn.addTarget(self, action: Selector("finishBtnPressed"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.finishBtn.addTarget(self, action: #selector(UpdatePassViewController2.finishBtnPressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.finishBtn.titleLabel!.opaque = true
         self.view.addSubview(self.finishBtn)
         

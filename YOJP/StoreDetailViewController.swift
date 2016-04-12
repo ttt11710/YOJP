@@ -86,7 +86,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         let storeBtn = UIButton(type: .Custom)
         storeBtn.frame = CGRectMake(screenWidth-42,20 + 7, 26, 26)
         storeBtn.setBackgroundImage(UIImage(named: "商家入口"), forState: UIControlState.Normal)
-        storeBtn.addTarget(self, action: Selector("storeBtnClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        storeBtn.addTarget(self, action: #selector(StoreDetailViewController.storeBtnClicked), forControlEvents: UIControlEvents.TouchUpInside)
         storeBtn.setBackgroundImage(UIImage(named: "商家入口"), forState: UIControlState.Selected)
         view.addSubview(storeBtn)
 
@@ -96,7 +96,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         shopCarBtn.frame = CGRectMake(screenWidth-42-26-16,20 + 7, 26, 26)
         shopCarBtn.setBackgroundImage(UIImage(named: "购物车"), forState: UIControlState.Normal)
         shopCarBtn.setBackgroundImage(UIImage(named: "购物车"), forState: UIControlState.Selected)
-        shopCarBtn.addTarget(self, action: Selector("shopCarBtnClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        shopCarBtn.addTarget(self, action: #selector(StoreDetailViewController.shopCarBtnClicked), forControlEvents: UIControlEvents.TouchUpInside)
         view.addSubview(shopCarBtn)
         
     }
@@ -131,7 +131,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.imageView.image = UIImage(named: "image2")
         self.scrollView.addSubview(self.imageView)
         
-        let tap = UITapGestureRecognizer(target: self, action: Selector("backClicked"))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(StoreDetailViewController.backClicked))
         self.imageView.userInteractionEnabled = true
         self.imageView.addGestureRecognizer(tap)
         
@@ -155,7 +155,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         for i in 0...5 {
             let imageView : UIImageView = UIImageView(frame: CGRectMake(CGFloat(i+1)*10 + 100 * CGFloat(i), 10, 100, 150))
             imageView.image = UIImage(named: String(format: "image%d", i))
-            let tap = UITapGestureRecognizer(target: self, action: Selector("changeText"))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(StoreDetailViewController.changeText))
             imageView.userInteractionEnabled = true
             imageView.addGestureRecognizer(tap)
             
@@ -179,7 +179,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.freeTicket.layer.cornerRadius = 4
         self.freeTicket.layer.borderColor = yojpBlue.CGColor
         self.freeTicket.layer.borderWidth = 1
-        self.freeTicket.addTarget(self, action: Selector("getFreeTicket"), forControlEvents: .TouchUpInside)
+        self.freeTicket.addTarget(self, action: #selector(StoreDetailViewController.getFreeTicket), forControlEvents: .TouchUpInside)
         self.scrollView.addSubview(self.freeTicket)
         
         
@@ -195,7 +195,7 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(StoreDetailViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -208,14 +208,14 @@ class StoreDetailViewController: UIViewController,UIScrollViewDelegate {
         self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
         self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
         
-        self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.collectionBtn.addTarget(self, action: #selector(StoreDetailViewController.collectionClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(self.collectionBtn)
         
         
         let shareBtn = UIButton(type: .Custom)
         shareBtn.frame = CGRectMake(screenWidth-55, 7, 25, 25)
         shareBtn.setBackgroundImage(UIImage(named: "share"), forState: UIControlState.Normal)
-        shareBtn.addTarget(self, action: Selector("shareClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        shareBtn.addTarget(self, action: #selector(StoreDetailViewController.shareClicked), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(shareBtn)
         
         

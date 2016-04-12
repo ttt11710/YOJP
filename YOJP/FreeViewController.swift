@@ -28,20 +28,20 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     
     func creatTableView() {
         
-        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight), style: .Plain)
+        self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-navBarH-titleH), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView()
         self.tableView.backgroundColor = yojpTableViewColor
         self.view.addSubview(self.tableView)
     }
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 10
+        return section == 0 ? 2 : 2
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -70,7 +70,7 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
             }
             view.addSubview(chooseTypeBtn)
         }
-
+        
         
         let callBtn : CallBackButton = CallBackButton(frame: CGRectMake(screenWidth-48,0,48,30))
         callBtn.setImage(UIImage(named: "下拉箭头"), forState: .Normal)
@@ -126,32 +126,32 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
             let viewWidth = (screenWidth-4)/3
             
             for i in 0..<6{
-                    let chooseTypeBtn : CallBackButton = CallBackButton(frame: CGRectMake(1*CGFloat(i%3+1)+CGFloat(i%3)*viewWidth,1*CGFloat(i/3+1)+CGFloat(i/3)*30,viewWidth,30))
-                    chooseTypeBtn.setTitle(String(format: "子分类%d", i), forState: .Normal)
-                    chooseTypeBtn.setTitleColor(yojpLightText, forState: .Normal)
-                    chooseTypeBtn.backgroundColor = UIColor.whiteColor()
-                    chooseTypeBtn.setupBlock()
-                    chooseTypeBtn.titleLabel?.font = font15
-                    chooseTypeBtn.tag = i
-                    chooseTypeBtn.callBack = { tag in
-                        print(tag)
-                        self.showChoose = false
-                        self.showSubChoose = false
-                        self.tableView.reloadData()
-                    }
-                    typeView.addSubview(chooseTypeBtn)
+                let chooseTypeBtn : CallBackButton = CallBackButton(frame: CGRectMake(1*CGFloat(i%3+1)+CGFloat(i%3)*viewWidth,1*CGFloat(i/3+1)+CGFloat(i/3)*30,viewWidth,30))
+                chooseTypeBtn.setTitle(String(format: "子分类%d", i), forState: .Normal)
+                chooseTypeBtn.setTitleColor(yojpLightText, forState: .Normal)
+                chooseTypeBtn.backgroundColor = UIColor.whiteColor()
+                chooseTypeBtn.setupBlock()
+                chooseTypeBtn.titleLabel?.font = font15
+                chooseTypeBtn.tag = i
+                chooseTypeBtn.callBack = { tag in
+                    print(tag)
+                    self.showChoose = false
+                    self.showSubChoose = false
+                    self.tableView.reloadData()
                 }
+                typeView.addSubview(chooseTypeBtn)
             }
+        }
         return view
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if indexPath.section == 0 {
-            return indexPath.row == 0 ? 100 : 30
+            return indexPath.row == 0 ? 200 : 44
         }
         else {
-            return 140
+            return 200
         }
     }
     
@@ -181,8 +181,8 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
                     view.removeFromSuperview()
                 }
                 
-                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,100))
-                imageView.image = UIImage(named: "免费券banner")
+                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,200))
+                imageView.image = UIImage(named: "免费券-1")
                 cell.contentView.addSubview(imageView)
                 return cell
             }
@@ -195,16 +195,16 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
                     view.removeFromSuperview()
                 }
                 
-                let label : UILabel = UILabel(frame: CGRectMake(0,0,100,30))
-                label.text = "头条信息"
-                label.textColor = yojpText
+                let label : UILabel = UILabel(frame: CGRectMake(8,7,100,30))
+                label.text = "热门头条"
+                label.textColor = UIColor(red: 232/255.0, green: 7/255.0, blue: 74/255.0, alpha: 1)
                 label.font = font15
                 cell.contentView.addSubview(label)
                 
-                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,0,screenWidth-label.frame.size.width-50,30))
-                messageLabel.text = "紧急通知，京东发生5.2级地震"
+                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,7,screenWidth-label.frame.size.width-50,30))
+                messageLabel.text = "紧急通知，东京发生5.2级地震"
                 messageLabel.textColor = yojpText
-                messageLabel.font = font15
+                messageLabel.font = font14
                 cell.contentView.addSubview(messageLabel)
                 
                 return cell
@@ -215,8 +215,8 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
             let cell = tableView.dequeueReusableCellWithIdentifier("TwoImageViewTableViewCellId", forIndexPath: indexPath) as! TwoImageViewTableViewCell
             
             cell.selectionStyle = .None
-            cell.imageView1.image = UIImage(named: "免费券图片设计")
-            cell.imageView2.image = UIImage(named: "免费券图片设计")
+            cell.imageView1.image = UIImage(named: String(format: "优惠推荐%d", indexPath.row*2+1))
+            cell.imageView2.image = UIImage(named: String(format: "优惠推荐%d", indexPath.row*2))
             cell.label1.text = "吃多少玩多少，就免多少，太划算了，还等什么"
             cell.label2.text = "吃多少玩多少，就免多少，太划算了，还等什么"
             
@@ -224,7 +224,6 @@ class FreeViewController: UIViewController, UITableViewDelegate,UITableViewDataS
         }
         
     }
-
     
     
     override func didReceiveMemoryWarning() {

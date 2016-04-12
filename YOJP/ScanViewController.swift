@@ -69,7 +69,7 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         let pop = UIButton(type: .Custom)
         pop.frame = CGRectMake(20, 20, 50, 50)
         pop.setTitle("返回", forState: .Normal)
-        pop.addTarget(self, action: Selector("pop"), forControlEvents: UIControlEvents.TouchUpInside)
+        pop.addTarget(self, action: #selector(ScanViewController.pop), forControlEvents: UIControlEvents.TouchUpInside)
       //  self.view.addSubview(pop)
         
         let cropRect = CGRectMake((screenWidth - qrRectView.transparentArea.width)/2, (screenHeight - qrRectView.transparentArea.height)/2, qrRectView.transparentArea.width, qrRectView.transparentArea.height)
@@ -120,7 +120,7 @@ class ScanViewController: UIViewController,QRViewDelegate,AVCaptureMetadataOutpu
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(ScanViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         

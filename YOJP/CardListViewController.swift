@@ -66,7 +66,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(CardListViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -84,7 +84,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         barcodeBtn.center = CGPointMake(screenWidth/2-80, 70)
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Normal)
         barcodeBtn.setBackgroundImage(UIImage(named: "2DBarcodeWhite"), forState: .Highlighted)
-        barcodeBtn.addTarget(self, action: Selector("barcodeBtnPressed"), forControlEvents: .TouchUpInside)
+        barcodeBtn.addTarget(self, action: #selector(CardListViewController.barcodeBtnPressed), forControlEvents: .TouchUpInside)
         barcodeBtn.opaque = true
         self.scanView.addSubview(barcodeBtn)
         
@@ -105,7 +105,7 @@ class CardListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         shopCarBtn.setBackgroundImage(UIImage(named: "shopCar"), forState: .Highlighted)
         shopCarBtn.backgroundColor = yojpBlue
         shopCarBtn.opaque = true
-        shopCarBtn.addTarget(self, action: Selector("shopCarBtnPressed"), forControlEvents: .TouchUpInside)
+        shopCarBtn.addTarget(self, action: #selector(CardListViewController.shopCarBtnPressed), forControlEvents: .TouchUpInside)
         self.scanView.addSubview(shopCarBtn)
         
         

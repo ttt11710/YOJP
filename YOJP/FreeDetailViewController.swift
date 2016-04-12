@@ -68,7 +68,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(FreeDetailViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         
@@ -81,14 +81,14 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
         self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Normal)
         self.collectionBtn.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
         
-        self.collectionBtn.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+        self.collectionBtn.addTarget(self, action: #selector(FreeDetailViewController.collectionClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(self.collectionBtn)
         
         
         let shareBtn = UIButton(type: .Custom)
         shareBtn.frame = CGRectMake(screenWidth-55, 7, 25, 25)
         shareBtn.setBackgroundImage(UIImage(named: "share"), forState: UIControlState.Normal)
-        shareBtn.addTarget(self, action: Selector("shareClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        shareBtn.addTarget(self, action: #selector(FreeDetailViewController.shareClicked), forControlEvents: UIControlEvents.TouchUpInside)
         self.customNavigationBar.addSubview(shareBtn)
         self.view.addSubview(self.customNavigationBar)
     }
@@ -189,7 +189,7 @@ class FreeDetailViewController: UIViewController,UITableViewDataSource,UITableVi
                 self.collectionBtn1.setImage(UIImage(named: "collectionWhite"), forState: .Highlighted)
             }
             
-            self.collectionBtn1.addTarget(self, action: Selector("collectionClicked:"), forControlEvents: UIControlEvents.TouchUpInside)
+            self.collectionBtn1.addTarget(self, action: #selector(FreeDetailViewController.collectionClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
             cell.contentView.addSubview(self.collectionBtn1)
             
             return cell

@@ -64,7 +64,7 @@ class TakeTicketViewController: UIViewController {
         let backBtn = UIButton(type: .Custom)
         backBtn.frame = CGRectMake(20, 7, 30, 30)
         backBtn.setBackgroundImage(UIImage(named: "箭头"), forState: UIControlState.Normal)
-        backBtn.addTarget(self, action: Selector("backClicked"), forControlEvents: UIControlEvents.TouchUpInside)
+        backBtn.addTarget(self, action: #selector(TakeTicketViewController.backClicked), forControlEvents: UIControlEvents.TouchUpInside)
         backBtn.opaque = true
         self.customNavigationBar.addSubview(backBtn)
         self.view.addSubview(self.customNavigationBar)
@@ -99,7 +99,7 @@ class TakeTicketViewController: UIViewController {
             getTicket.setTitle("领取", forState: .Highlighted)
             getTicket.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             getTicket.backgroundColor = yojpBlue
-            getTicket.addTarget(self, action: Selector("getTicketBtnPressed"), forControlEvents: .TouchUpInside)
+            getTicket.addTarget(self, action: #selector(TakeTicketViewController.getTicketBtnPressed), forControlEvents: .TouchUpInside)
             getTicket.layer.cornerRadius = 4
             self.scrollView.addSubview(getTicket)
         }
@@ -108,7 +108,7 @@ class TakeTicketViewController: UIViewController {
             getTicket.setTitle("购买", forState: .Highlighted)
             getTicket.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             getTicket.backgroundColor = yojpBlue
-            getTicket.addTarget(self, action: Selector("buyTicketBtnPressed"), forControlEvents: .TouchUpInside)
+            getTicket.addTarget(self, action: #selector(TakeTicketViewController.buyTicketBtnPressed), forControlEvents: .TouchUpInside)
             getTicket.layer.cornerRadius = 4
             self.scrollView.addSubview(getTicket)
             
