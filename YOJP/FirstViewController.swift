@@ -127,8 +127,9 @@ class FirstViewController: UIViewController {
     
     func creatNavTitleView() {
         
-        self.tabBarView = UIImageView(frame: CGRectMake(0, 50, screenWidth-16-150, 44))
-        self.tabBarView.backgroundColor = yojpBlue
+        self.tabBarView = UIImageView(frame: CGRectMake(0, 40, 150, 35))
+        self.tabBarView.backgroundColor = UIColor.whiteColor()
+        self.tabBarView.layer.cornerRadius = 8
         self.tabBarView.userInteractionEnabled = true
         self.navigationItem.titleView = self.tabBarView
         
@@ -137,8 +138,9 @@ class FirstViewController: UIViewController {
         self.tabBarViewWithOneTitle.textAlignment = .Center
         
         
-        self.tabBarScrollView = UIView(frame: CGRectMake(0,self.tabBarView.frame.size.height-3,self.tabBarView.frame.size.width/2,4))
-        self.tabBarScrollView.backgroundColor = UIColor.whiteColor()
+        self.tabBarScrollView = UIView(frame: CGRectMake(1,1,self.tabBarView.frame.size.width/2-2,self.tabBarView.frame.size.height-2))
+        self.tabBarScrollView.backgroundColor = yojpBlue
+        self.tabBarScrollView.layer.cornerRadius = 8
         self.tabBarView.addSubview(self.tabBarScrollView)
         
         self.navigationController?.navigationBar.translucent = false
@@ -164,7 +166,7 @@ class FirstViewController: UIViewController {
         customButton.setBackgroundImage(UIImage(named: "未评价选中选中高亮"), forState: UIControlState.Disabled)
         customButton.setTitle(normal, forState: UIControlState.Normal)
         customButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Disabled)
-        customButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        customButton.setTitleColor(yojpLightText, forState: UIControlState.Normal)
         customButton.tag = Index
         customButton.titleLabel?.font = UIFont.systemFontOfSize(18.0)
         customButton.addTarget(self, action: #selector(FirstViewController.changeViewController(_:)), forControlEvents: UIControlEvents.TouchDown)
@@ -185,7 +187,7 @@ class FirstViewController: UIViewController {
             sender.enabled = false
             
             
-            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+            UIView.animateWithDuration(0.25, animations: {
                 
                 if sender.tag == 0 {
                     self.firstRootViewController.view.hidden = false
@@ -199,11 +201,27 @@ class FirstViewController: UIViewController {
                     
                     self.tabBarScrollView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
                 }
-                
-                
-                }, completion: { (finished : Bool) -> Void in
-                    
             })
+            
+//            UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+//                
+//                if sender.tag == 0 {
+//                    self.firstRootViewController.view.hidden = false
+//                    self.secondRootViewController.view.hidden = true
+//                    
+//                    self.tabBarScrollView.layer.transform = CATransform3DIdentity
+//                }
+//                else {
+//                    self.firstRootViewController.view.hidden = true
+//                    self.secondRootViewController.view.hidden = false
+//                    
+//                    self.tabBarScrollView.layer.transform = CATransform3DMakeTranslation(self.tabBarView.frame.size.width/2, 0, 0)
+//                }
+//                
+//                
+//                }, completion: { (finished : Bool) -> Void in
+//                    
+//            })
  
         }
         

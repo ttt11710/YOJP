@@ -94,29 +94,21 @@ class SecondRootViewController: UIViewController, UIScrollViewDelegate {
     /**  添加子控制器  */
     func addChildViewController(){
         let vc1 = FeatureSecondViewController()
-        vc1.title = "精选"
+        vc1.title = "美食"
         
         let vc2 = FeatureSecondViewController()
-        vc2.title = "美妆"
+        vc2.title = "药妆"
         
         let vc3 = FeatureSecondViewController()
-        vc3.title = "美食"
-        
-        let vc4 = FeatureSecondViewController()
-        vc4.title = "爱美"
+        vc3.title = "杂货"
         
         let vc5 = FeatureSecondViewController()
-        vc5.title = "格调"
-        
-        let vc6 = FeatureSecondViewController()
-        vc6.title = "优惠"
+        vc5.title = "特产"
         
         addChildViewController(vc1)
         addChildViewController(vc2)
         addChildViewController(vc3)
-        addChildViewController(vc4)
         addChildViewController(vc5)
-        addChildViewController(vc6)
     }
     
     

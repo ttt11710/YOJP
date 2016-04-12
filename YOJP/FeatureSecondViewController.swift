@@ -30,44 +30,99 @@ class FeatureSecondViewController: UIViewController,UITableViewDelegate,UITableV
         self.tableView = UITableView(frame: CGRectMake(0, 0, screenWidth, screenHeight-navBarH-titleH), style: .Plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView()
+        self.tableView.backgroundColor = yojpTableViewColor
         self.tableView.separatorStyle = .None
         self.view.addSubview(self.tableView)
     }
 
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-            return 7
+            return section == 0 ? 2 : 3
         }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-            let label : UILabel = UILabel(frame: CGRectMake(0,0,screenWidth-16,30))
-            label.font = font15
-            label.textColor = yojpText
-            label.text = self.tableViewDataArray[indexPath.row] as? String
-            label.numberOfLines = 0
-            label.sizeToFit()
-            return screenWidth/5*3+8+label.frame.size.height+8
+        if indexPath.section == 0 {
+            return indexPath.row == 0 ? 200 : 44
+        }
+        else {
+            return 180
+        }
+        
+        
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-            tableView.registerNib(UINib(nibName: "BrandTableViewCell", bundle: nil), forCellReuseIdentifier: "BrandTableViewCellId")
-            let cell = tableView.dequeueReusableCellWithIdentifier("BrandTableViewCellId", forIndexPath: indexPath) as! BrandTableViewCell
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                
+                for view in cell.contentView.subviews {
+                    view.removeFromSuperview()
+                }
+                
+                let imageView : UIImageView = UIImageView(frame: CGRectMake(0,0,screenWidth,200))
+                imageView.image = UIImage(named: "优惠推荐")
+                cell.contentView.addSubview(imageView)
+                return cell
+            }
+            else {
+                tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+                let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.accessoryType = .DisclosureIndicator
+                for view in cell.contentView.subviews {
+                    view.removeFromSuperview()
+                }
+                
+                let label : UILabel = UILabel(frame: CGRectMake(8,7,100,30))
+                label.text = "热门头条"
+                label.textColor = UIColor(red: 232/255.0, green: 7/255.0, blue: 74/255.0, alpha: 1)
+                label.font = font15
+                cell.contentView.addSubview(label)
+                
+                let messageLabel : UILabel = UILabel(frame: CGRectMake(label.frame.size.width,7,screenWidth-label.frame.size.width-50,30))
+                messageLabel.text = "紧急通知，东京发生5.2级地震"
+                messageLabel.textColor = yojpText
+                messageLabel.font = font14
+                cell.contentView.addSubview(messageLabel)
+                
+                return cell
+            }
+        }
+        else {
+            tableView.registerNib(UINib(nibName: "FeatureTableViewCell", bundle: nil), forCellReuseIdentifier: "FeatureTableViewCellId")
+            let cell = tableView.dequeueReusableCellWithIdentifier("FeatureTableViewCellId", forIndexPath: indexPath) as! FeatureTableViewCell
             
             cell.selectionStyle = .None
-            
-            cell.backImageView.image = UIImage(named: String(format: "image%d", arc4random() % 14))
-            cell.desLabel.text = self.tableViewDataArray[indexPath.row] as? String
-            cell.desLabel.textColor = yojpText
-            
+            cell.storeLogoImageView.image = UIImage(named: String(format: "u7%d", indexPath.row))
+            cell.storeName.text = "堂吉诃德"
+            let item1 : ChooseView = ChooseView(frame: CGRectMake(0,0,screenWidth-100,20))
+            item1.chooseImageSelectString("免", imageNormalString: "免")
+            item1.label.text = "消费满100元可获赠兰蔻气垫bb霜小样"
+            item1.label.font = font13
+            cell.item1View.addSubview(item1)
+            let item2 : ChooseView = ChooseView(frame: CGRectMake(0,0,screenWidth-100,20))
+            item2.chooseImageSelectString("折", imageNormalString: "折")
+            item2.label.text = "一次性消费288元可享8折"
+            item2.label.font = font13
+            cell.item2View.addSubview(item2)
             return cell
+        }
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
